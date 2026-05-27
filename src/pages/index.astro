@@ -47,17 +47,17 @@ const works = [
   <!-- Hero -->
   <section style="min-height:100vh;display:flex;align-items:center;padding:0 2rem;padding-top:56px;">
     <div style="max-width:1100px;margin:0 auto;width:100%;">
-      <h1 style="font-size:clamp(3rem,8vw,6.5rem);font-weight:700;line-height:1.05;letter-spacing:-0.03em;margin-bottom:2rem;color:#e8edf2;">
+      <h1 style="font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.75rem;color:#e8edf2;">
         現場に入り、<br />要件を整理し、<br /><span style="color:#00d4ff;">動くものを渡す。</span>
       </h1>
-      <p style="font-size:1.05rem;color:#6b8096;max-width:520px;margin-bottom:0.75rem;line-height:1.9;">
+      <p style="font-size:0.95rem;color:#6b8096;max-width:480px;margin-bottom:0.75rem;line-height:1.9;">
         作って終わりじゃなく、保守・運用まで一貫して。<br />
         上流から入るシステムコンサルタントです。
       </p>
-      <p style="font-size:0.8rem;color:#3d5266;margin-bottom:3rem;font-family:'JetBrains Mono',monospace;">by 荻野舜樹</p>
+      <p style="font-size:0.78rem;color:#3d5266;margin-bottom:2.5rem;font-family:'JetBrains Mono',monospace;">by 荻野舜樹</p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;">
         <a href="#works" style="background:#00d4ff;color:#080c10;padding:0.75rem 2rem;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.background='#33ddff'" onmouseout="this.style.background='#00d4ff'">実績を見る</a>
-        <a href="#contact" style="border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 2rem;font-weight:400;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.borderColor='#6b8096'" onmouseout="this.style.borderColor='#1a2d3d'">相談する</a>
+        <a href="#contact" style="border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 2rem;font-weight:400;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.borderColor='#6b8096'" onmouseout="this.style.borderColor='#1a2d3d'">依頼する</a>
       </div>
 
       <!-- Stats -->
@@ -67,8 +67,8 @@ const works = [
           <div style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;margin-top:0.25rem;">上流工程を担当</div>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:#00d4ff;font-weight:500;">現場<span style="font-size:1rem;color:#6b8096;">常駐型</span></div>
-          <div style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;margin-top:0.25rem;">運用まで一貫して</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:#00d4ff;font-weight:500;">現場<span style="font-size:1rem;color:#6b8096;">主義</span></div>
+          <div style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;margin-top:0.25rem;">課題は現場にある</div>
         </div>
         <div>
           <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:#00d4ff;font-weight:500;">構築<span style="font-size:1rem;color:#6b8096;">〜</span>運用</div>
@@ -79,36 +79,34 @@ const works = [
   </section>
 
   <!-- Works -->
-  <section id="works" style="padding:6rem 0;border-top:1px solid #1a2d3d;">
-    <div style="max-width:1100px;margin:0 auto;padding:0 2rem;margin-bottom:3rem;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">WORKS</span>
-      <h2 style="font-size:clamp(2.5rem,5vw,4rem);font-weight:700;margin-top:0.5rem;letter-spacing:-0.03em;line-height:1.1;">
-        こういうものを、<br />作ります。
-      </h2>
-      <p style="color:#6b8096;margin-top:1rem;font-size:0.95rem;">架空の案件ですが、実際に開きます。これがそのまま納品物のイメージです。</p>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:1px;background:#1a2d3d;">
-      {works.map((w, i) => (
-        <a href={`/works/${w.slug}`} style="background:#080c10;display:grid;grid-template-columns:1fr 2fr auto;align-items:center;gap:3rem;padding:2.5rem 2rem;text-decoration:none;transition:background 0.15s;" onmouseover="this.style.background='#0d1820'" onmouseout="this.style.background='#080c10'">
-          <div>
-            <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#3d5266;margin-bottom:0.5rem;">0{i+1}</div>
-            <div style="font-size:0.75rem;color:#6b8096;margin-bottom:0.75rem;">{w.company}</div>
-            <div style="font-size:1.4rem;font-weight:600;color:#e8edf2;line-height:1.3;">{w.system}</div>
-          </div>
-          <div>
-            <p style="font-size:0.9rem;color:#6b8096;line-height:1.8;margin-bottom:1rem;">{w.desc}</p>
-            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+  <section id="works" style="padding:6rem 2rem;border-top:1px solid #1a2d3d;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="margin-bottom:3rem;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">$ ls ./works</span>
+        <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">Works</h2>
+        <p style="color:#6b8096;margin-top:0.5rem;">架空の案件ですが、実際に開きます。これがそのまま納品物のイメージです。</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:#1a2d3d;">
+        {works.map((w) => (
+          <div style="background:#080c10;padding:2rem;position:relative;overflow:hidden;" onmouseover="this.style.background='#0f1923'" onmouseout="this.style.background='#080c10'">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,#00d4ff,transparent);"></div>
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+              <span style="font-size:0.7rem;color:#6b8096;font-family:'JetBrains Mono',monospace;">{w.company}</span>
+              <span style="font-size:0.65rem;background:rgba(0,212,255,0.1);color:#00d4ff;padding:0.2rem 0.6rem;border:1px solid rgba(0,212,255,0.2);">{w.status}</span>
+            </div>
+            <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">{w.system}</h3>
+            <p style="font-size:0.875rem;color:#6b8096;line-height:1.7;margin-bottom:1.5rem;">{w.desc}</p>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
               {w.tags.map(t => (
-                <span style="font-size:0.65rem;color:#3d5266;border:1px solid #1a2d3d;padding:0.2rem 0.6rem;">{t}</span>
+                <span style="font-size:0.65rem;color:#3d5266;border:1px solid #1a2d3d;padding:0.2rem 0.5rem;">{t}</span>
               ))}
             </div>
+            <div style="display:flex;justify-content:flex-end;">
+              <a href={`/works/${w.slug}`} style="font-size:0.8rem;color:#00d4ff;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">デモを見る →</a>
+            </div>
           </div>
-          <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1rem;">
-            <span style="font-size:0.65rem;background:rgba(0,212,255,0.08);color:#00d4ff;padding:0.25rem 0.75rem;border:1px solid rgba(0,212,255,0.2);">{w.status}</span>
-            <span style="font-size:0.85rem;color:#00d4ff;white-space:nowrap;">デモを開く →</span>
-          </div>
-        </a>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 
@@ -168,7 +166,7 @@ const works = [
         </div>
         <div>
           <label style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">MESSAGE</label>
-          <textarea name="message" required rows="5" placeholder="困っていること、作りたいもの、相談したいことなど。" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 1rem;font-size:0.9rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'"></textarea>
+          <textarea name="message" required rows="5" placeholder="作りたいもの、困っていること、依頼内容など。" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 1rem;font-size:0.9rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'"></textarea>
         </div>
         <button type="submit" style="background:#00d4ff;color:#080c10;padding:0.875rem 2rem;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.03em;align-self:flex-start;" onmouseover="this.style.background='#33ddff'" onmouseout="this.style.background='#00d4ff'">送信する</button>
       </form>
