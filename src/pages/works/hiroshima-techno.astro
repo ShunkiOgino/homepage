@@ -6,7 +6,8 @@ import Layout from '../../layouts/Layout.astro';
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, sans-serif; }
 .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #0a0e14; border-right: 1px solid #1a2d3d; padding: 1.5rem 0; z-index: 10; }
-.nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1.5rem; font-size: 0.8rem; color: #6b8096; cursor: pointer; }
+.nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1.5rem; font-size: 0.8rem; color: #6b8096; cursor: pointer; transition: all 0.15s; user-select: none; }
+.nav-item:hover { color: #e8edf2; background: rgba(0,212,255,0.03); }
 .nav-item.active { color: #e8edf2; background: rgba(0,212,255,0.06); border-left: 2px solid #00d4ff; }
 .nav-section { font-size: 0.65rem; color: #3d5266; letter-spacing: 0.1em; padding: 1rem 1.5rem 0.35rem; text-transform: uppercase; }
 .main { margin-left: 220px; }
@@ -21,15 +22,19 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
 .badge-inprog:hover { background: rgba(255,180,0,0.2); }
 .badge-done { background: rgba(0,212,100,0.06); color: #6b8096; border: 1px solid #1a2d3d; cursor: pointer; transition: all 0.15s; }
 .badge-done:hover { background: rgba(0,212,100,0.1); color: #00d464; }
+.section { scroll-margin-top: 52px; }
 .panel { background: #080c10; padding: 1.5rem; border-bottom: 1px solid #1a2d3d; }
 .panel-title { font-size: 0.75rem; color: #6b8096; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; font-family: 'JetBrains Mono', monospace; display: flex; justify-content: space-between; align-items: center; }
 table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
 th { text-align: left; padding: 0.5rem 0.75rem; color: #3d5266; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid #1a2d3d; font-weight: 400; }
 td { padding: 0.7rem 0.75rem; border-bottom: 1px solid rgba(26,45,61,0.5); vertical-align: middle; }
 tr:hover td { background: rgba(0,212,255,0.015); }
+.title-editable { cursor: pointer; transition: color 0.15s; }
+.title-editable:hover { color: #00d4ff; }
+.title-input { background: #0f1923; border: 1px solid #00d4ff; color: #e8edf2; padding: 0.25rem 0.5rem; font-size: 0.82rem; font-family: inherit; outline: none; width: 100%; }
 .btn { background: transparent; border: 1px solid #1a2d3d; color: #6b8096; padding: 0.3rem 0.8rem; font-size: 0.75rem; cursor: pointer; font-family: inherit; transition: all 0.15s; }
 .btn:hover { border-color: #00d4ff; color: #00d4ff; }
-.btn-primary { background: #00d4ff; color: #080c10; border: none; padding: 0.4rem 1rem; font-size: 0.75rem; cursor: pointer; font-weight: 600; font-family: inherit; }
+.btn-primary { background: #00d4ff; color: #080c10; border: none; padding: 0.4rem 1rem; font-size: 0.75rem; cursor: pointer; font-weight: 600; font-family: inherit; transition: background 0.15s; }
 .btn-primary:hover { background: #33ddff; }
 .btn-danger { color: #ff4444; border-color: rgba(255,60,60,0.2); }
 .btn-danger:hover { border-color: #ff4444; background: rgba(255,60,60,0.08); }
@@ -42,7 +47,12 @@ tr:hover td { background: rgba(0,212,255,0.015); }
 .form-field label { font-size: 0.65rem; color: #6b8096; font-family: 'JetBrains Mono', monospace; display: block; margin-bottom: 0.35rem; letter-spacing: 0.05em; }
 .form-field input, .form-field select { width: 100%; background: #080c10; border: 1px solid #1a2d3d; color: #e8edf2; padding: 0.5rem 0.75rem; font-size: 0.8rem; font-family: inherit; outline: none; }
 .form-field input:focus, .form-field select:focus { border-color: #00d4ff; }
-.assignee-select { background: #0a0e14; border: 1px solid #1a2d3d; color: #e8edf2; font-size: 0.75rem; padding: 0.2rem 0.4rem; font-family: inherit; cursor: pointer; outline: none; }
+.assignee-select { background: #0a0e14; border: 1px solid #1a2d3d; color: #e8edf2; font-size: 0.75rem; padding: 0.2rem 0.4rem; font-family: inherit; cursor: pointer; outline: none; transition: border-color 0.15s; }
+.assignee-select:hover { border-color: #3d5266; }
+.search-input { background: #0f1923; border: 1px solid #1a2d3d; color: #e8edf2; padding: 0.5rem 1rem; font-size: 0.8rem; font-family: inherit; outline: none; width: 280px; }
+.search-input:focus { border-color: #00d4ff; }
+.stat-bar-container { width: 100%; height: 6px; background: #1a2d3d; margin-top: 0.5rem; }
+.stat-bar-fill { height: 100%; transition: width 0.4s ease; }
 .demo-banner { background: rgba(0,112,243,0.08); border-top: 1px solid rgba(0,112,243,0.2); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
 .toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: #0f1923; border: 1px solid #00d4ff; color: #e8edf2; padding: 0.75rem 1.25rem; font-size: 0.8rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-family: 'JetBrains Mono', monospace; }
 .toast.show { opacity: 1; }
@@ -55,11 +65,11 @@ tr:hover td { background: rgba(0,212,255,0.015); }
   </div>
   <div style="margin-top:1rem;">
     <div class="nav-section">チケット</div>
-    <div class="nav-item active">
+    <div class="nav-item active" id="nav-tickets" onclick="scrollToSection('sec-tickets','nav-tickets')">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/></svg>
       チケット一覧
     </div>
-    <div class="nav-item">
+    <div class="nav-item" id="nav-stats" onclick="scrollToSection('sec-stats','nav-stats')">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
       統計
     </div>
@@ -78,26 +88,30 @@ tr:hover td { background: rgba(0,212,255,0.015); }
     </div>
   </div>
 
-  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a2d3d;">
+  <div id="sec-stats" class="section" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a2d3d;">
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
       <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">未対応</div>
       <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#ff4444;" id="kpi-open">—</div>
+      <div class="stat-bar-container"><div class="stat-bar-fill" id="bar-open" style="background:#ff4444;width:0%;"></div></div>
     </div>
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
       <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">対応中</div>
       <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#ffb400;" id="kpi-inprog">—</div>
+      <div class="stat-bar-container"><div class="stat-bar-fill" id="bar-inprog" style="background:#ffb400;width:0%;"></div></div>
     </div>
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
       <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">完了</div>
       <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d464;" id="kpi-done">—</div>
+      <div class="stat-bar-container"><div class="stat-bar-fill" id="bar-done" style="background:#00d464;width:0%;"></div></div>
     </div>
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
       <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">合計</div>
       <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d4ff;" id="kpi-total">—</div>
+      <div style="font-size:0.7rem;color:#3d5266;margin-top:0.5rem;" id="kpi-completion-rate">完了率 —%</div>
     </div>
   </div>
 
-  <div class="panel">
+  <div id="sec-tickets" class="section panel">
     <div class="panel-title">
       <span>チケット一覧</span>
       <button class="btn-primary" onclick="toggleAddPanel()">+ 新規チケット</button>
@@ -130,18 +144,21 @@ tr:hover td { background: rgba(0,212,255,0.015); }
       </div>
     </div>
 
-    <div style="display:flex;gap:0;border-bottom:1px solid #1a2d3d;margin-bottom:1.25rem;overflow-x:auto;">
-      <div class="tab active" id="tab-all" onclick="setFilter('all')">すべて <span id="count-all" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#3d5266;"></span></div>
-      <div class="tab" id="tab-open" onclick="setFilter('未対応')">未対応 <span id="count-open" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#ff4444;"></span></div>
-      <div class="tab" id="tab-inprog" onclick="setFilter('対応中')">対応中 <span id="count-inprog" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#ffb400;"></span></div>
-      <div class="tab" id="tab-done" onclick="setFilter('完了')">完了 <span id="count-done" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#6b8096;"></span></div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;flex-wrap:wrap;gap:0.75rem;">
+      <div style="display:flex;gap:0;border-bottom:1px solid #1a2d3d;overflow-x:auto;">
+        <div class="tab active" id="tab-all" onclick="setFilter('all')">すべて <span id="count-all" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#3d5266;"></span></div>
+        <div class="tab" id="tab-open" onclick="setFilter('未対応')">未対応 <span id="count-open" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#ff4444;"></span></div>
+        <div class="tab" id="tab-inprog" onclick="setFilter('対応中')">対応中 <span id="count-inprog" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#ffb400;"></span></div>
+        <div class="tab" id="tab-done" onclick="setFilter('完了')">完了 <span id="count-done" style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#6b8096;"></span></div>
+      </div>
+      <input class="search-input" type="text" placeholder="件名・担当者で検索..." id="search-input" oninput="renderTickets()" style="width:240px;" />
     </div>
 
     <table>
       <thead>
         <tr>
           <th>ID</th>
-          <th>件名</th>
+          <th>件名 <span style="color:#00d4ff;font-size:0.6rem;">（クリックで編集）</span></th>
           <th>カテゴリ</th>
           <th>優先度</th>
           <th>担当</th>
@@ -184,12 +201,18 @@ function save() { localStorage.setItem(KEY, JSON.stringify(state)); }
 function toast(msg) {
   const t = document.getElementById('toast');
   t.textContent = msg; t.classList.add('show');
-  setTimeout(() => t.classList.remove('show'), 2000);
+  setTimeout(() => t.classList.remove('show'), 2200);
 }
 function resetData() {
   if (!confirm('デモデータをリセットしますか？')) return;
   state = JSON.parse(JSON.stringify(DEFAULT)); nextId = 1043; filter = 'all';
   save(); render(); toast('リセットしました');
+}
+
+function scrollToSection(sectionId, navId) {
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.getElementById(navId).classList.add('active');
+  document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
 }
 
 const STATUS_CYCLE = { '未対応': '対応中', '対応中': '完了', '完了': '未対応' };
@@ -207,23 +230,33 @@ function renderKPI() {
   const open = state.tickets.filter(t => t.status === '未対応').length;
   const inprog = state.tickets.filter(t => t.status === '対応中').length;
   const done = state.tickets.filter(t => t.status === '完了').length;
+  const total = state.tickets.length;
   document.getElementById('kpi-open').textContent = open;
   document.getElementById('kpi-inprog').textContent = inprog;
   document.getElementById('kpi-done').textContent = done;
-  document.getElementById('kpi-total').textContent = state.tickets.length;
-  document.getElementById('count-all').textContent = `(${state.tickets.length})`;
+  document.getElementById('kpi-total').textContent = total;
+  document.getElementById('count-all').textContent = `(${total})`;
   document.getElementById('count-open').textContent = `(${open})`;
   document.getElementById('count-inprog').textContent = `(${inprog})`;
   document.getElementById('count-done').textContent = `(${done})`;
+  const rate = total > 0 ? Math.round(done / total * 100) : 0;
+  document.getElementById('kpi-completion-rate').textContent = `完了率 ${rate}%`;
+  if (total > 0) {
+    document.getElementById('bar-open').style.width = `${Math.round(open/total*100)}%`;
+    document.getElementById('bar-inprog').style.width = `${Math.round(inprog/total*100)}%`;
+    document.getElementById('bar-done').style.width = `${Math.round(done/total*100)}%`;
+  }
   const topOpen = document.getElementById('topbar-open');
   if (open > 0) { topOpen.textContent = `未対応 ${open}件`; topOpen.style.display = 'inline-block'; }
   else { topOpen.style.display = 'none'; }
 }
 
 function renderTickets() {
+  const q = document.getElementById('search-input').value.toLowerCase();
   let tickets = state.tickets.filter(t => {
-    if (filter === 'all') return true;
-    return t.status === filter;
+    if (filter !== 'all' && t.status !== filter) return false;
+    if (q && !t.title.toLowerCase().includes(q) && !t.assignee.toLowerCase().includes(q)) return false;
+    return true;
   });
   const tbody = document.getElementById('tickets-tbody');
   const noTickets = document.getElementById('no-tickets');
@@ -231,7 +264,9 @@ function renderTickets() {
   noTickets.style.display = 'none';
   tbody.innerHTML = tickets.map(t => `<tr>
     <td style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#00d4ff;">#${t.id}</td>
-    <td style="max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${t.title}</td>
+    <td style="max-width:260px;">
+      <span class="title-editable" onclick="startEditTitle(${t.id}, this)" title="クリックで編集">${t.title}</span>
+    </td>
     <td style="font-size:0.75rem;color:#6b8096;">${t.category}</td>
     <td><span class="badge ${PRIORITY_CLASS[t.priority]}">${t.priority}</span></td>
     <td>
@@ -240,7 +275,7 @@ function renderTickets() {
       </select>
     </td>
     <td>
-      <span class="badge ${STATUS_CLASS[t.status]}" onclick="cycleStatus(${t.id})" title="クリックでステータス変更">${t.status} →</span>
+      <span class="badge ${STATUS_CLASS[t.status]}" onclick="cycleStatus(${t.id})" title="クリックで変更: ${STATUS_CYCLE[t.status]}へ">${t.status} →</span>
     </td>
     <td style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#3d5266;">${t.created}</td>
     <td><button class="btn btn-danger" onclick="deleteTicket(${t.id})" style="font-size:0.65rem;padding:0.2rem 0.5rem;">削除</button></td>
@@ -248,6 +283,25 @@ function renderTickets() {
 }
 
 function render() { renderKPI(); renderTickets(); }
+
+function startEditTitle(id, el) {
+  const ticket = state.tickets.find(t => t.id === id);
+  const input = document.createElement('input');
+  input.type = 'text';
+  input.className = 'title-input';
+  input.value = ticket.title;
+  el.replaceWith(input);
+  input.focus();
+  input.select();
+  const commit = () => {
+    const v = input.value.trim();
+    if (v) { ticket.title = v; save(); }
+    render();
+    if (v) toast(`#${id} 件名を更新しました`);
+  };
+  input.addEventListener('blur', commit);
+  input.addEventListener('keydown', e => { if (e.key === 'Enter') input.blur(); if (e.key === 'Escape') { render(); } });
+}
 
 function cycleStatus(id) {
   const t = state.tickets.find(t => t.id === id);
