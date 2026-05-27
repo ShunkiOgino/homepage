@@ -149,29 +149,88 @@ const works = [
 
   <!-- Contact -->
   <section id="contact" style="padding:6rem 2rem;border-top:1px solid #1a2d3d;">
-    <div style="max-width:600px;margin:0 auto;">
+    <div style="max-width:640px;margin:0 auto;">
       <div style="margin-bottom:3rem;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">$ contact --new</span>
-        <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">Contact</h2>
-        <p style="color:#6b8096;margin-top:0.5rem;">こういうの作って欲しい、という方はこちらからどうぞ。</p>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">$ request --new</span>
+        <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">依頼する</h2>
+        <p style="color:#6b8096;margin-top:0.5rem;line-height:1.8;">作りたいものの概要を教えてください。送信後、内容を確認して折り返します。</p>
       </div>
-      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" style="display:flex;flex-direction:column;gap:1.25rem;">
-        <div>
-          <label style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">NAME</label>
-          <input type="text" name="name" required placeholder="山田太郎" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 1rem;font-size:0.9rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+      <form id="contact-form" style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div>
+            <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">NAME *</label>
+            <input id="f-name" type="text" required placeholder="山田太郎" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+          </div>
+          <div>
+            <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">COMPANY</label>
+            <input id="f-company" type="text" placeholder="株式会社○○（任意）" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+          </div>
         </div>
         <div>
-          <label style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">COMPANY</label>
-          <input type="text" name="company" placeholder="株式会社○○（任意）" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 1rem;font-size:0.9rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">何を作りたいですか？ *</label>
+          <input id="f-system" type="text" required placeholder="例：社内の在庫管理を一本化したい、顧客対応のフローを整理したい" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
         </div>
         <div>
-          <label style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">MESSAGE</label>
-          <textarea name="message" required rows="5" placeholder="作りたいもの、困っていること、依頼内容など。" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 1rem;font-size:0.9rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'"></textarea>
+          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">今の状況・困っていること *</label>
+          <textarea id="f-situation" required rows="3" placeholder="例：Excelで管理しているが属人化している、担当者が変わるたびに引き継ぎが大変" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'"></textarea>
         </div>
-        <button type="submit" style="background:#00d4ff;color:#080c10;padding:0.875rem 2rem;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.03em;align-self:flex-start;" onmouseover="this.style.background='#33ddff'" onmouseout="this.style.background='#00d4ff'">送信する</button>
+        <div>
+          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">こうなりたい（目標） *</label>
+          <textarea id="f-outcome" required rows="3" placeholder="例：誰でも使えるシステムで、在庫の状況をリアルタイムで把握できるようにしたい" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'"></textarea>
+        </div>
+        <div>
+          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">時期感・規模</label>
+          <input id="f-timeline" type="text" placeholder="例：3ヶ月以内、社員10名、まずは1部署から" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+        </div>
+        <div id="form-result" style="display:none;"></div>
+        <button type="submit" id="submit-btn" style="background:#00d4ff;color:#080c10;padding:0.875rem 2rem;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.03em;align-self:flex-start;" onmouseover="this.style.background='#33ddff'" onmouseout="this.style.background='#00d4ff'">送信する</button>
       </form>
     </div>
   </section>
+
+  <script>
+    document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+      const result = document.getElementById('form-result') as HTMLElement;
+      btn.textContent = '送信中...';
+      btn.disabled = true;
+
+      const payload = {
+        name: (document.getElementById('f-name') as HTMLInputElement).value,
+        company: (document.getElementById('f-company') as HTMLInputElement).value,
+        system_type: (document.getElementById('f-system') as HTMLInputElement).value,
+        current_situation: (document.getElementById('f-situation') as HTMLTextAreaElement).value,
+        desired_outcome: (document.getElementById('f-outcome') as HTMLTextAreaElement).value,
+        timeline: (document.getElementById('f-timeline') as HTMLInputElement).value,
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          result.style.display = 'block';
+          result.style.color = '#00d464';
+          result.style.fontSize = '0.875rem';
+          result.textContent = '送信しました。内容を確認して折り返します。';
+          (document.getElementById('contact-form') as HTMLFormElement).reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        result.style.display = 'block';
+        result.style.color = '#ff4444';
+        result.style.fontSize = '0.875rem';
+        result.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
+      } finally {
+        btn.textContent = '送信する';
+        btn.disabled = false;
+      }
+    });
+  </script>
 
   <!-- Footer -->
   <footer style="padding:2rem;border-top:1px solid #1a2d3d;text-align:center;">
