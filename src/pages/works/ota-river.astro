@@ -513,6 +513,11 @@ async function refresh() {
   toast('データを更新しました');
 }
 
+// onclick 属性から呼べるようにグローバルに登録
+window.scrollToSection = scrollToSection;
+window.setRange = setRange;
+window.refresh = refresh;
+
 document.getElementById('loading-indicator').style.display = 'inline';
 refresh();
 </script>

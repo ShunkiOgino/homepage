@@ -418,5 +418,16 @@ function resolveAlert(id) {
 const now = new Date();
 document.getElementById('today-date').textContent = `${now.getFullYear()}-${String(now.getMonth()+1).padStart(2,'0')}-${String(now.getDate()).padStart(2,'0')}`;
 render();
+
+window.scrollToSection = scrollToSection;
+window.resetData = resetData;
+window.toggleAddLine = toggleAddLine;
+window.addLine = addLine;
+window.startEdit = startEdit;
+window.changeStatus = changeStatus;
+window.deleteLine = deleteLine;
+window.toggleAddAlert = toggleAddAlert;
+window.addAlert = addAlert;
+window.resolveAlert = resolveAlert;
 </script>
 </Layout>
