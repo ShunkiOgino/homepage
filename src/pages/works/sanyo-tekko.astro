@@ -1,0 +1,196 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const lines = [
+  { id: 'LINE-A', product: 'SY-4400', target: 320, actual: 308, rate: 96.3, status: '稼働中' },
+  { id: 'LINE-B', product: 'SY-2210', target: 180, actual: 180, rate: 100.0, status: '稼働中' },
+  { id: 'LINE-C', product: 'SY-6600', target: 240, actual: 211, rate: 87.9, status: '調整中' },
+  { id: 'LINE-D', product: 'SY-1100', target: 150, actual: 0, rate: 0, status: '停止中' },
+];
+
+const alerts = [
+  { time: '09:14', line: 'LINE-C', msg: '油圧センサー異常検知 — 保全班へ通知済み', level: 'warn' },
+  { time: '08:55', line: 'LINE-D', msg: '計画メンテナンス開始（12:00まで）', level: 'info' },
+  { time: '07:30', line: 'LINE-A', msg: '生産開始確認', level: 'ok' },
+];
+---
+<Layout title="生産管理ダッシュボード | 山陽鉄工株式会社">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, sans-serif; }
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #0a0e14; border-right: 1px solid #1a2d3d; padding: 1.5rem 0; z-index: 10; }
+    .sidebar-logo { padding: 0 1.5rem 1.5rem; border-bottom: 1px solid #1a2d3d; }
+    .sidebar-logo h1 { font-size: 0.85rem; font-weight: 600; color: #e8edf2; line-height: 1.4; }
+    .sidebar-logo p { font-size: 0.7rem; color: #6b8096; margin-top: 0.15rem; font-family: 'JetBrains Mono', monospace; }
+    .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1.5rem; font-size: 0.8rem; color: #6b8096; cursor: pointer; }
+    .nav-item.active { color: #e8edf2; background: rgba(0,212,255,0.06); border-left: 2px solid #00d4ff; }
+    .nav-section { font-size: 0.65rem; color: #3d5266; letter-spacing: 0.1em; padding: 1rem 1.5rem 0.35rem; text-transform: uppercase; }
+    .main { margin-left: 220px; padding: 0; }
+    .topbar { height: 52px; border-bottom: 1px solid #1a2d3d; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(8,12,16,0.95); position: sticky; top: 0; z-index: 5; }
+    .badge { font-size: 0.65rem; padding: 0.2rem 0.6rem; border-radius: 2px; font-family: 'JetBrains Mono', monospace; }
+    .badge-ok { background: rgba(0,212,100,0.12); color: #00d464; border: 1px solid rgba(0,212,100,0.2); }
+    .badge-warn { background: rgba(255,180,0,0.12); color: #ffb400; border: 1px solid rgba(255,180,0,0.2); }
+    .badge-stop { background: rgba(255,60,60,0.12); color: #ff4444; border: 1px solid rgba(255,60,60,0.2); }
+    .badge-info { background: rgba(0,112,243,0.12); color: #3399ff; border: 1px solid rgba(0,112,243,0.2); }
+    .kpi-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: #1a2d3d; margin-bottom: 1px; }
+    .kpi-card { background: #080c10; padding: 1.5rem; }
+    .kpi-label { font-size: 0.7rem; color: #6b8096; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .kpi-value { font-size: 2rem; font-weight: 500; font-family: 'JetBrains Mono', monospace; color: #00d4ff; }
+    .kpi-sub { font-size: 0.7rem; color: #3d5266; margin-top: 0.25rem; }
+    .content-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1px; background: #1a2d3d; }
+    .panel { background: #080c10; padding: 1.5rem; }
+    .panel-title { font-size: 0.75rem; color: #6b8096; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; font-family: 'JetBrains Mono', monospace; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { text-align: left; padding: 0.5rem 0.75rem; color: #3d5266; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid #1a2d3d; font-weight: 400; }
+    td { padding: 0.75rem; border-bottom: 1px solid #1a2d3d; color: #e8edf2; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(0,212,255,0.02); }
+    .bar-container { width: 80px; height: 4px; background: #1a2d3d; border-radius: 2px; display: inline-block; }
+    .bar-fill { height: 100%; border-radius: 2px; }
+    .demo-banner { background: rgba(0,112,243,0.08); border-top: 1px solid rgba(0,112,243,0.2); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .alert-item { display: flex; gap: 0.75rem; align-items: flex-start; padding: 0.75rem 0; border-bottom: 1px solid #1a2d3d; }
+    .alert-time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: #3d5266; min-width: 40px; padding-top: 0.1rem; }
+  </style>
+
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <h1>山陽鉄工株式会社</h1>
+      <p>生産管理システム v2.1</p>
+    </div>
+    <div style="margin-top:1rem;">
+      <div class="nav-section">メイン</div>
+      <div class="nav-item active">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        ダッシュボード
+      </div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        生産実績
+      </div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        設備管理
+      </div>
+      <div class="nav-section">管理</div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+        レポート
+      </div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        ユーザー設定
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;">2025-05-27 &nbsp;|&nbsp; 工場全体</span>
+        <span class="badge badge-ok">正常稼働</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-size:0.75rem;color:#6b8096;">最終更新: 10:32</span>
+        <span style="width:6px;height:6px;border-radius:50%;background:#00d464;display:inline-block;"></span>
+      </div>
+    </div>
+
+    <!-- KPIs -->
+    <div class="kpi-grid">
+      <div class="kpi-card">
+        <div class="kpi-label">本日の総生産数</div>
+        <div class="kpi-value">699</div>
+        <div class="kpi-sub">目標: 890　達成率 78.5%</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">ライン稼働率</div>
+        <div class="kpi-value">75<span style="font-size:1rem;color:#6b8096;">%</span></div>
+        <div class="kpi-sub">4ライン中 3稼働</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">アラート件数</div>
+        <div class="kpi-value" style="color:#ffb400;">2</div>
+        <div class="kpi-sub">要対応: 1 / 情報: 1</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-label">品質合格率</div>
+        <div class="kpi-value">99.1<span style="font-size:1rem;color:#6b8096;">%</span></div>
+        <div class="kpi-sub">不良品: 6件</div>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <div class="content-grid">
+      <div class="panel">
+        <div class="panel-title">ライン別稼働状況</div>
+        <table>
+          <thead>
+            <tr>
+              <th>ライン</th>
+              <th>品番</th>
+              <th>目標</th>
+              <th>実績</th>
+              <th>進捗</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lines.map((l) => (
+              <tr>
+                <td style="font-family:'JetBrains Mono',monospace;font-size:0.8rem;color:#00d4ff;">{l.id}</td>
+                <td style="color:#6b8096;">{l.product}</td>
+                <td>{l.target}</td>
+                <td style="font-weight:500;">{l.actual}</td>
+                <td>
+                  <div style="display:flex;align-items:center;gap:0.5rem;">
+                    <div class="bar-container">
+                      <div class="bar-fill" style={`width:${l.rate}%;background:${l.rate >= 95 ? '#00d464' : l.rate >= 80 ? '#ffb400' : '#ff4444'}`}></div>
+                    </div>
+                    <span style="font-size:0.75rem;font-family:'JetBrains Mono',monospace;">{l.rate}%</span>
+                  </div>
+                </td>
+                <td>
+                  <span class={`badge ${l.status === '稼働中' ? 'badge-ok' : l.status === '調整中' ? 'badge-warn' : 'badge-stop'}`}>{l.status}</span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div class="panel" style="border-left:1px solid #1a2d3d;">
+        <div class="panel-title">アラートログ</div>
+        {alerts.map((a) => (
+          <div class="alert-item">
+            <span class="alert-time">{a.time}</span>
+            <div>
+              <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.25rem;">
+                <span style="font-size:0.7rem;color:#6b8096;font-family:'JetBrains Mono',monospace;">{a.line}</span>
+                <span class={`badge ${a.level === 'warn' ? 'badge-warn' : a.level === 'ok' ? 'badge-ok' : 'badge-info'}`}>{a.level === 'warn' ? '警告' : a.level === 'ok' ? '正常' : '情報'}</span>
+              </div>
+              <div style="font-size:0.78rem;color:#6b8096;">{a.msg}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Simple bar chart -->
+    <div class="panel" style="border-top:1px solid #1a2d3d;">
+      <div class="panel-title">時間帯別生産推移（本日）</div>
+      <div style="display:flex;align-items:flex-end;gap:0.5rem;height:80px;padding-top:1rem;">
+        {[42,68,75,82,79,85,88,78,65].map((v, i) => (
+          <div style="display:flex;flex-direction:column;align-items:center;gap:0.25rem;flex:1;">
+            <div style={`height:${v * 0.7}px;background:rgba(0,212,255,${0.3 + v/200});width:100%;`}></div>
+            <span style="font-size:0.6rem;color:#3d5266;font-family:'JetBrains Mono',monospace;">{(7+i).toString().padStart(2,'0')}:00</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="demo-banner">
+      <span style="font-size:0.75rem;color:#6b8096;">このページは荻野舜樹によるデモ案件です。データはすべて架空のものです。</span>
+      <a href="/" style="font-size:0.75rem;color:#00d4ff;text-decoration:none;">← ポートフォリオに戻る</a>
+    </div>
+  </div>
+</Layout>

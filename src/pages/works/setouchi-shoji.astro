@@ -1,0 +1,178 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const items = [
+  { code: 'ST-4411', name: 'ステンレス鋼板 2.0t', stock: 124, unit: '枚', reorder: 50, status: '十分', supplier: '中国鉄鋼㈱' },
+  { code: 'ST-2201', name: 'アルミ押出材 A6063', stock: 38, unit: 'kg', reorder: 40, status: '要発注', supplier: '西日本アルミ㈱' },
+  { code: 'BT-0012', name: '六角ボルト M8×25', stock: 4200, unit: '本', reorder: 1000, status: '十分', supplier: '広島ファスナー㈱' },
+  { code: 'PL-3302', name: 'ポリカ板 5mm', stock: 12, unit: '枚', reorder: 20, status: '欠品危険', supplier: '瀬戸内樹脂㈱' },
+  { code: 'ST-5500', name: '冷間圧延鋼板 1.6t', stock: 67, unit: '枚', reorder: 30, status: '十分', supplier: '中国鉄鋼㈱' },
+  { code: 'AL-7700', name: 'アルミ板 t3.0', stock: 5, unit: '枚', reorder: 15, status: '欠品危険', supplier: '西日本アルミ㈱' },
+  { code: 'RB-0044', name: 'ゴムパッキン φ50', stock: 890, unit: '個', reorder: 200, status: '十分', supplier: '広島ゴム㈱' },
+];
+
+const orders = [
+  { date: '2025-05-26', code: 'ST-2201', qty: 100, unit: 'kg', supplier: '西日本アルミ㈱', status: '発注済' },
+  { date: '2025-05-24', code: 'PL-3302', qty: 30, unit: '枚', supplier: '瀬戸内樹脂㈱', status: '入荷確認中' },
+  { date: '2025-05-22', code: 'BT-0012', qty: 5000, unit: '本', supplier: '広島ファスナー㈱', status: '完了' },
+];
+---
+<Layout title="在庫・発注管理システム | 瀬戸内商事株式会社">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, sans-serif; }
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #0a0e14; border-right: 1px solid #1a2d3d; padding: 1.5rem 0; z-index: 10; }
+    .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1.5rem; font-size: 0.8rem; color: #6b8096; cursor: pointer; }
+    .nav-item.active { color: #e8edf2; background: rgba(0,212,255,0.06); border-left: 2px solid #00d4ff; }
+    .nav-section { font-size: 0.65rem; color: #3d5266; letter-spacing: 0.1em; padding: 1rem 1.5rem 0.35rem; text-transform: uppercase; }
+    .main { margin-left: 220px; }
+    .topbar { height: 52px; border-bottom: 1px solid #1a2d3d; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(8,12,16,0.95); position: sticky; top: 0; z-index: 5; }
+    .badge { font-size: 0.65rem; padding: 0.2rem 0.6rem; font-family: 'JetBrains Mono', monospace; display: inline-block; }
+    .badge-ok { background: rgba(0,212,100,0.12); color: #00d464; border: 1px solid rgba(0,212,100,0.2); }
+    .badge-warn { background: rgba(255,180,0,0.12); color: #ffb400; border: 1px solid rgba(255,180,0,0.2); }
+    .badge-danger { background: rgba(255,60,60,0.12); color: #ff4444; border: 1px solid rgba(255,60,60,0.2); }
+    .badge-info { background: rgba(0,112,243,0.12); color: #3399ff; border: 1px solid rgba(0,112,243,0.2); }
+    .badge-done { background: rgba(0,212,100,0.08); color: #6b8096; border: 1px solid #1a2d3d; }
+    .panel { background: #080c10; padding: 1.5rem; border-bottom: 1px solid #1a2d3d; }
+    .panel-title { font-size: 0.75rem; color: #6b8096; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; font-family: 'JetBrains Mono', monospace; display: flex; justify-content: space-between; align-items: center; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { text-align: left; padding: 0.5rem 0.75rem; color: #3d5266; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid #1a2d3d; font-weight: 400; }
+    td { padding: 0.7rem 0.75rem; border-bottom: 1px solid rgba(26,45,61,0.5); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(0,212,255,0.02); }
+    .search-bar { display: flex; gap: 1rem; margin-bottom: 1.5rem; }
+    .search-input { background: #0f1923; border: 1px solid #1a2d3d; color: #e8edf2; padding: 0.5rem 1rem; font-size: 0.8rem; font-family: inherit; outline: none; width: 300px; }
+    .filter-btn { background: transparent; border: 1px solid #1a2d3d; color: #6b8096; padding: 0.5rem 1rem; font-size: 0.75rem; cursor: pointer; font-family: inherit; }
+    .filter-btn.active { border-color: #00d4ff; color: #00d4ff; background: rgba(0,212,255,0.06); }
+    .demo-banner { background: rgba(0,112,243,0.08); border-top: 1px solid rgba(0,112,243,0.2); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+  </style>
+
+  <div class="sidebar">
+    <div style="padding:1.25rem 1.5rem 1.25rem;border-bottom:1px solid #1a2d3d;">
+      <h1 style="font-size:0.85rem;font-weight:600;color:#e8edf2;line-height:1.4;">瀬戸内商事株式会社</h1>
+      <p style="font-size:0.7rem;color:#6b8096;margin-top:0.15rem;font-family:'JetBrains Mono',monospace;">在庫管理 v1.4</p>
+    </div>
+    <div style="margin-top:1rem;">
+      <div class="nav-section">在庫</div>
+      <div class="nav-item active">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+        在庫一覧
+      </div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        在庫推移
+      </div>
+      <div class="nav-section">発注</div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        発注管理
+      </div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        仕入先一覧
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;">在庫管理 &nbsp;/&nbsp; 在庫一覧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <span class="badge badge-danger">要対応 2件</span>
+        <span style="font-size:0.75rem;color:#3d5266;">2025-05-27</span>
+      </div>
+    </div>
+
+    <!-- Summary cards -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a2d3d;">
+      {[
+        { label: '総品番数', value: '247', sub: '登録済み' },
+        { label: '在庫十分', value: '231', sub: '品番' },
+        { label: '要発注', value: '12', sub: '品番', color: '#ffb400' },
+        { label: '欠品危険', value: '4', sub: '品番', color: '#ff4444' },
+      ].map(c => (
+        <div style="background:#080c10;padding:1.25rem 1.5rem;">
+          <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">{c.label}</div>
+          <div style={`font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:${c.color || '#00d4ff'}`}>{c.value}</div>
+          <div style="font-size:0.7rem;color:#3d5266;margin-top:0.15rem;">{c.sub}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Inventory table -->
+    <div class="panel">
+      <div class="panel-title">
+        <span>在庫一覧</span>
+        <button style="background:#00d4ff;color:#080c10;border:none;padding:0.4rem 1rem;font-size:0.75rem;cursor:pointer;font-weight:600;">+ 品番追加</button>
+      </div>
+      <div class="search-bar">
+        <input class="search-input" type="text" placeholder="品番・品名で検索..." />
+        <button class="filter-btn active">すべて</button>
+        <button class="filter-btn">要発注</button>
+        <button class="filter-btn">欠品危険</button>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>品番</th>
+            <th>品名</th>
+            <th>現在庫</th>
+            <th>発注点</th>
+            <th>仕入先</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+          {items.map((item) => (
+            <tr>
+              <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00d4ff;">{item.code}</td>
+              <td>{item.name}</td>
+              <td style="font-family:'JetBrains Mono',monospace;">{item.stock.toLocaleString()} {item.unit}</td>
+              <td style="color:#6b8096;font-family:'JetBrains Mono',monospace;">{item.reorder.toLocaleString()}</td>
+              <td style="color:#6b8096;font-size:0.78rem;">{item.supplier}</td>
+              <td>
+                <span class={`badge ${item.status === '十分' ? 'badge-ok' : item.status === '要発注' ? 'badge-warn' : 'badge-danger'}`}>{item.status}</span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Order history -->
+    <div class="panel">
+      <div class="panel-title">直近の発注履歴</div>
+      <table>
+        <thead>
+          <tr>
+            <th>発注日</th>
+            <th>品番</th>
+            <th>発注数量</th>
+            <th>仕入先</th>
+            <th>状態</th>
+          </tr>
+        </thead>
+        <tbody>
+          {orders.map((o) => (
+            <tr>
+              <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#6b8096;">{o.date}</td>
+              <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00d4ff;">{o.code}</td>
+              <td>{o.qty.toLocaleString()} {o.unit}</td>
+              <td style="color:#6b8096;font-size:0.78rem;">{o.supplier}</td>
+              <td>
+                <span class={`badge ${o.status === '完了' ? 'badge-done' : o.status === '発注済' ? 'badge-info' : 'badge-warn'}`}>{o.status}</span>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <div class="demo-banner">
+      <span style="font-size:0.75rem;color:#6b8096;">このページは荻野舜樹によるデモ案件です。データはすべて架空のものです。</span>
+      <a href="/" style="font-size:0.75rem;color:#00d4ff;text-decoration:none;">← ポートフォリオに戻る</a>
+    </div>
+  </div>
+</Layout>

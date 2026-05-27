@@ -1,0 +1,173 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const tickets = [
+  { id: 'TK-1042', title: '社内VPNに接続できない（営業3課）', category: 'インフラ', priority: '高', status: '対応中', assignee: '田中', created: '05-27 09:15' },
+  { id: 'TK-1041', title: '請求書発行システムで印刷ができない', category: 'アプリ', priority: '高', status: '未対応', assignee: '未割当', created: '05-27 08:44' },
+  { id: 'TK-1040', title: 'メール添付ファイルが開けない（特定PC）', category: 'PC', priority: '中', status: '対応中', assignee: '山本', created: '05-26 17:30' },
+  { id: 'TK-1039', title: '新入社員アカウント作成依頼（3名）', category: 'アカウント', priority: '低', status: '完了', assignee: '田中', created: '05-26 14:00' },
+  { id: 'TK-1038', title: 'Teamsの会議録音が保存されない', category: 'アプリ', priority: '中', status: '完了', assignee: '山本', created: '05-26 11:20' },
+  { id: 'TK-1037', title: '共有フォルダのアクセス権変更', category: 'アカウント', priority: '低', status: '完了', assignee: '田中', created: '05-25 16:05' },
+  { id: 'TK-1036', title: 'プリンタドライバ更新後に印刷エラー', category: 'PC', priority: '中', status: '完了', assignee: '山本', created: '05-25 10:30' },
+];
+
+const stats = [
+  { label: '未対応', value: 1, color: '#ff4444' },
+  { label: '対応中', value: 2, color: '#ffb400' },
+  { label: '完了（今週）', value: 4, color: '#00d464' },
+];
+---
+<Layout title="社内問い合わせ管理 | 広島テクノサービス株式会社">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, sans-serif; }
+    .sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #0a0e14; border-right: 1px solid #1a2d3d; padding: 1.5rem 0; z-index: 10; }
+    .nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1.5rem; font-size: 0.8rem; color: #6b8096; cursor: pointer; }
+    .nav-item.active { color: #e8edf2; background: rgba(0,212,255,0.06); border-left: 2px solid #00d4ff; }
+    .nav-section { font-size: 0.65rem; color: #3d5266; letter-spacing: 0.1em; padding: 1rem 1.5rem 0.35rem; text-transform: uppercase; }
+    .main { margin-left: 220px; }
+    .topbar { height: 52px; border-bottom: 1px solid #1a2d3d; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(8,12,16,0.95); position: sticky; top: 0; z-index: 5; }
+    .badge { font-size: 0.65rem; padding: 0.2rem 0.6rem; font-family: 'JetBrains Mono', monospace; display: inline-block; }
+    .badge-high { background: rgba(255,60,60,0.12); color: #ff4444; border: 1px solid rgba(255,60,60,0.2); }
+    .badge-mid { background: rgba(255,180,0,0.12); color: #ffb400; border: 1px solid rgba(255,180,0,0.2); }
+    .badge-low { background: rgba(0,112,243,0.12); color: #3399ff; border: 1px solid rgba(0,112,243,0.2); }
+    .badge-open { background: rgba(255,60,60,0.08); color: #ff6666; border: 1px solid rgba(255,60,60,0.2); }
+    .badge-inprog { background: rgba(255,180,0,0.08); color: #ffb400; border: 1px solid rgba(255,180,0,0.2); }
+    .badge-done { background: rgba(0,212,100,0.08); color: #6b8096; border: 1px solid #1a2d3d; }
+    .panel { background: #080c10; padding: 1.5rem; border-bottom: 1px solid #1a2d3d; }
+    .panel-title { font-size: 0.75rem; color: #6b8096; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; font-family: 'JetBrains Mono', monospace; display: flex; justify-content: space-between; align-items: center; }
+    table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+    th { text-align: left; padding: 0.5rem 0.75rem; color: #3d5266; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid #1a2d3d; font-weight: 400; }
+    td { padding: 0.7rem 0.75rem; border-bottom: 1px solid rgba(26,45,61,0.5); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: rgba(0,212,255,0.02); }
+    .demo-banner { background: rgba(0,112,243,0.08); border-top: 1px solid rgba(0,112,243,0.2); padding: 0.75rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+    .tab { font-size: 0.78rem; padding: 0.4rem 1rem; color: #6b8096; border-bottom: 2px solid transparent; cursor: pointer; }
+    .tab.active { color: #e8edf2; border-bottom-color: #00d4ff; }
+  </style>
+
+  <div class="sidebar">
+    <div style="padding:1.25rem 1.5rem 1.25rem;border-bottom:1px solid #1a2d3d;">
+      <h1 style="font-size:0.85rem;font-weight:600;color:#e8edf2;line-height:1.4;">広島テクノサービス㈱</h1>
+      <p style="font-size:0.7rem;color:#6b8096;margin-top:0.15rem;font-family:'JetBrains Mono',monospace;">ヘルプデスク管理 v1.0</p>
+    </div>
+    <div style="margin-top:1rem;">
+      <div class="nav-section">チケット</div>
+      <div class="nav-item active">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="2"/></svg>
+        チケット一覧
+      </div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+        ダッシュボード
+      </div>
+      <div class="nav-section">管理</div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"/></svg>
+        担当者管理
+      </div>
+      <div class="nav-item">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        統計レポート
+      </div>
+    </div>
+  </div>
+
+  <div class="main">
+    <div class="topbar">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;">ヘルプデスク &nbsp;/&nbsp; チケット一覧</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:0.5rem;">
+        <span class="badge badge-open">未対応 1件</span>
+        <span style="font-size:0.75rem;color:#3d5266;">田中 / ログイン中</span>
+      </div>
+    </div>
+
+    <!-- Stats -->
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a2d3d;">
+      {[
+        { label: '未対応', value: '1', color: '#ff4444' },
+        { label: '対応中', value: '2', color: '#ffb400' },
+        { label: '完了（今週）', value: '4', color: '#00d464' },
+        { label: '平均解決時間', value: '4.2h', color: '#00d4ff' },
+      ].map(s => (
+        <div style="background:#080c10;padding:1.25rem 1.5rem;">
+          <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">{s.label}</div>
+          <div style={`font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:${s.color}`}>{s.value}</div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Ticket table -->
+    <div class="panel">
+      <div class="panel-title">
+        <span>チケット一覧</span>
+        <button style="background:#00d4ff;color:#080c10;border:none;padding:0.4rem 1rem;font-size:0.75rem;cursor:pointer;font-weight:600;">+ 新規チケット</button>
+      </div>
+      <!-- Tabs -->
+      <div style="display:flex;gap:0;border-bottom:1px solid #1a2d3d;margin-bottom:1.25rem;">
+        <div class="tab active">すべて <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#3d5266;margin-left:0.25rem;">(7)</span></div>
+        <div class="tab">未対応 <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#ff4444;margin-left:0.25rem;">(1)</span></div>
+        <div class="tab">対応中 <span style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#ffb400;margin-left:0.25rem;">(2)</span></div>
+        <div class="tab">完了</div>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>タイトル</th>
+            <th>カテゴリ</th>
+            <th>優先度</th>
+            <th>担当</th>
+            <th>ステータス</th>
+            <th>作成日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          {tickets.map((t) => (
+            <tr style="cursor:pointer;">
+              <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">{t.id}</td>
+              <td style="max-width:280px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{t.title}</td>
+              <td style="font-size:0.75rem;color:#6b8096;">{t.category}</td>
+              <td>
+                <span class={`badge ${t.priority === '高' ? 'badge-high' : t.priority === '中' ? 'badge-mid' : 'badge-low'}`}>{t.priority}</span>
+              </td>
+              <td style="font-size:0.78rem;color:#6b8096;">{t.assignee}</td>
+              <td>
+                <span class={`badge ${t.status === '未対応' ? 'badge-open' : t.status === '対応中' ? 'badge-inprog' : 'badge-done'}`}>{t.status}</span>
+              </td>
+              <td style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#3d5266;">{t.created}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Category breakdown -->
+    <div class="panel">
+      <div class="panel-title">カテゴリ別件数（今月）</div>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        {[
+          { label: 'PC・ハードウェア', count: 12, total: 38 },
+          { label: 'アプリケーション', count: 15, total: 38 },
+          { label: 'インフラ・ネットワーク', count: 7, total: 38 },
+          { label: 'アカウント・権限', count: 4, total: 38 },
+        ].map(c => (
+          <div style="display:flex;align-items:center;gap:1rem;">
+            <div style="width:160px;font-size:0.78rem;color:#6b8096;">{c.label}</div>
+            <div style="flex:1;height:6px;background:#1a2d3d;">
+              <div style={`height:100%;width:${(c.count/c.total*100).toFixed(0)}%;background:#00d4ff;opacity:0.7;`}></div>
+            </div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#e8edf2;min-width:20px;">{c.count}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="demo-banner">
+      <span style="font-size:0.75rem;color:#6b8096;">このページは荻野舜樹によるデモ案件です。データはすべて架空のものです。</span>
+      <a href="/" style="font-size:0.75rem;color:#00d4ff;text-decoration:none;">← ポートフォリオに戻る</a>
+    </div>
+  </div>
+</Layout>
