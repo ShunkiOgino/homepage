@@ -162,7 +162,24 @@ const works = [
       <div style="margin-bottom:3rem;">
         <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">$ request --new</span>
         <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">依頼する</h2>
-        <p style="color:#6b8096;margin-top:0.5rem;line-height:1.8;">作りたいものの概要を教えてください。送信後、内容を確認して折り返します。</p>
+        <p style="color:#6b8096;margin-top:0.5rem;line-height:1.8;">作りたいものの概要を教えてください。送信後、ローカルで動くAI（Gemma4）が要件を整理して折り返します。</p>
+        <div style="background:#0f1923;border:1px solid #1a2d3d;padding:1rem 1.25rem;margin-top:0.5rem;">
+          <div style="font-size:0.65rem;color:#3d5266;letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;margin-bottom:0.75rem;">HOW IT WORKS</div>
+          <div style="display:flex;gap:0;flex-wrap:wrap;">
+            {[
+              ['01', 'フォーム送信', 'Supabaseに保存'],
+              ['02', 'ローカルAI巡回', 'Gemma4が要件を整理'],
+              ['03', 'メール返信', '不足情報・提案を送付'],
+              ['04', '本対応', '荻野が確認して連絡'],
+            ].map(([n, t, d]) => (
+              <div style="flex:1;min-width:120px;padding:0.5rem 0.75rem;border-left:1px solid #1a2d3d;">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#00d4ff;margin-bottom:0.2rem;">{n}</div>
+                <div style="font-size:0.78rem;font-weight:500;margin-bottom:0.1rem;">{t}</div>
+                <div style="font-size:0.68rem;color:#6b8096;">{d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
       <form id="contact-form" style="display:flex;flex-direction:column;gap:1.5rem;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
@@ -174,6 +191,10 @@ const works = [
             <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">COMPANY</label>
             <input id="f-company" type="text" placeholder="株式会社○○（任意）" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
           </div>
+        </div>
+        <div>
+          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">EMAIL *</label>
+          <input id="f-email" type="email" required placeholder="you@example.com" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
         </div>
         <div>
           <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">何を作りたいですか？ *</label>
@@ -208,6 +229,7 @@ const works = [
       const payload = {
         name: (document.getElementById('f-name') as HTMLInputElement).value,
         company: (document.getElementById('f-company') as HTMLInputElement).value,
+        email: (document.getElementById('f-email') as HTMLInputElement).value,
         system_type: (document.getElementById('f-system') as HTMLInputElement).value,
         current_situation: (document.getElementById('f-situation') as HTMLTextAreaElement).value,
         desired_outcome: (document.getElementById('f-outcome') as HTMLTextAreaElement).value,
@@ -224,7 +246,7 @@ const works = [
           result.style.display = 'block';
           result.style.color = '#00d464';
           result.style.fontSize = '0.875rem';
-          result.textContent = '送信しました。内容を確認して折り返します。';
+          result.textContent = '送信しました。AIが要件を整理次第、入力いただいたメアドに折り返します（通常数時間以内）。';
           (document.getElementById('contact-form') as HTMLFormElement).reset();
         } else {
           throw new Error();

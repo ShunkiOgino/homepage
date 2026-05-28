@@ -3,9 +3,9 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const { name, company, system_type, current_situation, desired_outcome, timeline } = req.body;
+  const { name, company, email, system_type, current_situation, desired_outcome, timeline } = req.body;
 
-  if (!name || !system_type || !current_situation || !desired_outcome) {
+  if (!name || !email || !system_type || !current_situation || !desired_outcome) {
     return res.status(400).json({ error: '必須項目が不足しています' });
   }
 
@@ -17,7 +17,7 @@ export default async function handler(req, res) {
       'Authorization': `Bearer ${process.env.SUPABASE_ANON_KEY}`,
       'Prefer': 'return=minimal',
     },
-    body: JSON.stringify({ name, company, system_type, current_situation, desired_outcome, timeline }),
+    body: JSON.stringify({ name, company, email, system_type, current_situation, desired_outcome, timeline }),
   });
 
   if (!response.ok) {
