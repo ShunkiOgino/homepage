@@ -1,0 +1,564 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+<Layout title="Video Studio | AI動画制作ツール">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, sans-serif; }
+.sidebar { position: fixed; left: 0; top: 0; bottom: 0; width: 220px; background: #0a0e14; border-right: 1px solid #1a2d3d; padding: 1.5rem 0; z-index: 10; overflow-y: auto; }
+.nav-logo { padding: 1.25rem 1.5rem; border-bottom: 1px solid #1a2d3d; }
+.nav-logo-title { font-size: 0.85rem; font-weight: 600; }
+.nav-logo-sub { font-size: 0.7rem; color: #6b8096; margin-top: 0.15rem; font-family: 'JetBrains Mono', monospace; }
+.nav-back { display: flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.5rem; font-size: 0.75rem; color: #3d5266; text-decoration: none; transition: color 0.15s; border-bottom: 1px solid #1a2d3d; }
+.nav-back:hover { color: #00d4ff; }
+.nav-section { font-size: 0.65rem; color: #3d5266; letter-spacing: 0.1em; padding: 1rem 1.5rem 0.35rem; text-transform: uppercase; }
+.nav-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.625rem 1.5rem; font-size: 0.8rem; color: #6b8096; cursor: pointer; transition: all 0.15s; user-select: none; }
+.nav-item:hover { color: #e8edf2; background: rgba(0,212,255,0.03); }
+.nav-item.active { color: #e8edf2; background: rgba(0,212,255,0.06); border-left: 2px solid #00d4ff; }
+.main { margin-left: 220px; }
+.topbar { height: 52px; border-bottom: 1px solid #1a2d3d; display: flex; align-items: center; justify-content: space-between; padding: 0 2rem; background: rgba(8,12,16,0.95); position: sticky; top: 0; z-index: 5; }
+.badge { font-size: 0.65rem; padding: 0.2rem 0.6rem; font-family: 'JetBrains Mono', monospace; display: inline-block; }
+.badge-ok { background: rgba(0,212,100,0.12); color: #00d464; border: 1px solid rgba(0,212,100,0.2); }
+.badge-warn { background: rgba(255,180,0,0.12); color: #ffb400; border: 1px solid rgba(255,180,0,0.2); }
+.badge-danger { background: rgba(255,60,60,0.12); color: #ff4444; border: 1px solid rgba(255,60,60,0.2); }
+.badge-info { background: rgba(0,112,243,0.12); color: #3399ff; border: 1px solid rgba(0,112,243,0.2); }
+.badge-demo { background: rgba(255,140,0,0.15); color: #ff8c00; border: 1px solid rgba(255,140,0,0.3); font-weight: 600; letter-spacing: 0.08em; }
+.status-dot { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.7rem; color: #6b8096; font-family: 'JetBrains Mono', monospace; }
+.dot-stop { color: #ff4444; }
+.dot-ok { color: #00d464; }
+.section { scroll-margin-top: 52px; }
+.panel { background: #080c10; padding: 1.5rem; border-bottom: 1px solid #1a2d3d; }
+.panel-title { font-size: 0.75rem; color: #6b8096; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.25rem; font-family: 'JetBrains Mono', monospace; display: flex; justify-content: space-between; align-items: center; }
+table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+th { text-align: left; padding: 0.5rem 0.75rem; color: #3d5266; font-size: 0.7rem; letter-spacing: 0.05em; text-transform: uppercase; border-bottom: 1px solid #1a2d3d; font-weight: 400; }
+td { padding: 0.7rem 0.75rem; border-bottom: 1px solid rgba(26,45,61,0.5); vertical-align: middle; }
+tr:hover td { background: rgba(0,212,255,0.015); }
+tr.selected td { background: rgba(0,212,255,0.05); }
+tr.script-row { cursor: pointer; }
+.btn { background: transparent; border: 1px solid #1a2d3d; color: #6b8096; padding: 0.3rem 0.8rem; font-size: 0.75rem; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+.btn:hover:not(:disabled) { border-color: #00d4ff; color: #00d4ff; }
+.btn:disabled { opacity: 0.35; cursor: not-allowed; }
+.btn-primary { background: #00d4ff; color: #080c10; border: none; padding: 0.4rem 1rem; font-size: 0.75rem; cursor: pointer; font-weight: 600; font-family: inherit; transition: background 0.15s; }
+.btn-primary:hover:not(:disabled) { background: #33ddff; }
+.btn-primary:disabled { opacity: 0.35; cursor: not-allowed; background: #00d4ff; }
+.btn-toggle { background: transparent; border: 1px solid #1a2d3d; color: #6b8096; padding: 0.35rem 1rem; font-size: 0.75rem; cursor: pointer; font-family: inherit; transition: all 0.15s; }
+.btn-toggle.active { background: rgba(0,212,255,0.1); border-color: #00d4ff; color: #00d4ff; }
+.btn-toggle:hover:not(.active) { color: #e8edf2; }
+.detail-panel { background: #0a0e14; border: 1px solid #1a2d3d; padding: 1.25rem; margin-top: 1rem; display: none; }
+.detail-panel.open { display: block; }
+.chip { display: inline-block; background: rgba(0,212,255,0.07); border: 1px solid rgba(0,212,255,0.15); color: #6b8096; font-size: 0.65rem; padding: 0.2rem 0.55rem; font-family: 'JetBrains Mono', monospace; margin: 0.15rem; }
+.ratio-bar { height: 6px; background: #1a2d3d; margin: 0.75rem 0; position: relative; overflow: hidden; }
+.ratio-bar-fill { height: 100%; display: flex; }
+.ratio-koharu { background: #8b5cf6; }
+.ratio-haruto { background: #3b82f6; }
+.code-block { background: #060a0e; border: 1px solid #1a2d3d; padding: 0.75rem 1rem; font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #a0b4c8; line-height: 1.6; margin-top: 0.75rem; max-height: 180px; overflow-y: auto; white-space: pre; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.form-field label { font-size: 0.65rem; color: #6b8096; font-family: 'JetBrains Mono', monospace; display: block; margin-bottom: 0.35rem; letter-spacing: 0.05em; }
+.form-field select { width: 100%; background: #0f1923; border: 1px solid #1a2d3d; color: #e8edf2; padding: 0.45rem 0.75rem; font-size: 0.8rem; font-family: inherit; outline: none; appearance: none; cursor: pointer; }
+.form-field select:focus { border-color: #00d4ff; }
+.slider-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
+.slider-field label { font-size: 0.65rem; color: #6b8096; font-family: 'JetBrains Mono', monospace; display: flex; justify-content: space-between; margin-bottom: 0.35rem; }
+.slider-field input[type=range] { width: 100%; accent-color: #00d4ff; background: transparent; cursor: pointer; }
+.preview-box { position: relative; width: 480px; height: 270px; background: #060a0e; border: 1px solid #1a2d3d; overflow: hidden; margin: 1rem 0; }
+.preview-stage { position: absolute; inset: 0; }
+.char-circle { position: absolute; bottom: 0; width: 64px; height: 64px; border-radius: 50%; transform: translateX(-50%); transition: left 0.1s, width 0.1s, height 0.1s; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: rgba(255,255,255,0.6); font-family: 'JetBrains Mono', monospace; }
+.char-koharu { background: radial-gradient(circle, rgba(139,92,246,0.6) 0%, rgba(139,92,246,0.1) 100%); border: 1px solid rgba(139,92,246,0.4); }
+.char-haruto { background: radial-gradient(circle, rgba(59,130,246,0.6) 0%, rgba(59,130,246,0.1) 100%); border: 1px solid rgba(59,130,246,0.4); }
+.preview-label { position: absolute; top: 8px; left: 10px; font-size: 0.6rem; color: #3d5266; font-family: 'JetBrains Mono', monospace; }
+.deco-row td:first-child { font-size: 1rem; }
+.pipeline { display: flex; align-items: center; gap: 0; overflow-x: auto; padding: 1.5rem 0; }
+.pipe-step { display: flex; align-items: center; }
+.pipe-node { background: #0a0e14; border: 1px solid #1a2d3d; padding: 0.75rem 1rem; text-align: center; min-width: 110px; }
+.pipe-node-label { font-size: 0.65rem; color: #3d5266; font-family: 'JetBrains Mono', monospace; margin-bottom: 0.25rem; }
+.pipe-node-name { font-size: 0.78rem; color: #e8edf2; }
+.pipe-node.highlight { border-color: #00d4ff; background: rgba(0,212,255,0.04); }
+.pipe-node.highlight .pipe-node-name { color: #00d4ff; }
+.pipe-arrow { color: #3d5266; font-size: 1rem; padding: 0 0.25rem; flex-shrink: 0; }
+.demo-banner-bar { background: rgba(255,140,0,0.07); border-top: 1px solid rgba(255,140,0,0.2); padding: 0.9rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+.toast { position: fixed; bottom: 1.5rem; right: 1.5rem; background: #0f1923; border: 1px solid #00d4ff; color: #e8edf2; padding: 0.75rem 1.25rem; font-size: 0.8rem; z-index: 100; opacity: 0; transition: opacity 0.2s; pointer-events: none; font-family: 'JetBrains Mono', monospace; }
+.toast.show { opacity: 1; }
+</style>
+
+<div class="sidebar">
+  <div class="nav-logo">
+    <div class="nav-logo-title">Video Studio</div>
+    <div class="nav-logo-sub">AI動画制作ツール</div>
+  </div>
+  <a href="/" class="nav-back">
+    <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>
+    ポートフォリオに戻る
+  </a>
+  <div style="margin-top:0.5rem;">
+    <div class="nav-section">メニュー</div>
+    <div class="nav-item active" id="nav-dash" onclick="scrollToSection('sec-dash','nav-dash')">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+      ダッシュボード
+    </div>
+    <div class="nav-item" id="nav-scripts" onclick="scrollToSection('sec-scripts','nav-scripts')">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      台本
+    </div>
+    <div class="nav-item" id="nav-visual" onclick="scrollToSection('sec-visual','nav-visual')">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      ビジュアル設定
+    </div>
+    <div class="nav-item" id="nav-deco" onclick="scrollToSection('sec-deco','nav-deco')">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      装飾エディタ
+    </div>
+    <div class="nav-item" id="nav-workflow" onclick="scrollToSection('sec-workflow','nav-workflow')">
+      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+      ワークフロー
+    </div>
+  </div>
+</div>
+
+<div class="main">
+  <div class="topbar">
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;">Video Studio</span>
+      <span class="badge badge-demo">DEMO MODE</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:1.25rem;">
+      <span class="status-dot">
+        <span class="dot-stop">●</span>Hive: 停止
+      </span>
+      <span class="status-dot">
+        <span class="dot-stop">●</span>MLX: 停止
+      </span>
+      <span class="status-dot" style="color:#3d5266;font-size:0.65rem;">localhost:8503</span>
+    </div>
+  </div>
+
+  <!-- KPI Cards -->
+  <div id="sec-dash" class="section" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a2d3d;">
+    <div style="background:#080c10;padding:1.25rem 1.5rem;">
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">台本本数</div>
+      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d4ff;">3</div>
+    </div>
+    <div style="background:#080c10;padding:1.25rem 1.5rem;">
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">生成動画</div>
+      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d464;">12</div>
+    </div>
+    <div style="background:#080c10;padding:1.25rem 1.5rem;">
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">AI処理時間</div>
+      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#ffb400;">42<span style="font-size:0.9rem;color:#6b8096;">秒</span></div>
+      <div style="font-size:0.65rem;color:#3d5266;margin-top:0.2rem;">平均</div>
+    </div>
+    <div style="background:#080c10;padding:1.25rem 1.5rem;">
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">直近更新</div>
+      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#e8edf2;">2<span style="font-size:0.9rem;color:#6b8096;">時間前</span></div>
+    </div>
+  </div>
+
+  <!-- 台本一覧 -->
+  <div id="sec-scripts" class="section panel">
+    <div class="panel-title">
+      <span>台本一覧</span>
+      <span style="font-size:0.7rem;color:#3d5266;font-weight:400;letter-spacing:0;">行をクリックして詳細表示</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>ファイル名</th>
+          <th>タイトル</th>
+          <th>セリフ数</th>
+          <th>テロップ数</th>
+          <th>更新日</th>
+        </tr>
+      </thead>
+      <tbody id="scripts-tbody">
+        <tr class="script-row" onclick="selectScript(0)">
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2025-05-28_AI活用術.md</td>
+          <td>「中小企業こそAIを使うべき3つの理由」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">42</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">8</td>
+          <td style="color:#3d5266;font-size:0.75rem;">2025-05-28</td>
+        </tr>
+        <tr class="script-row" onclick="selectScript(1)">
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2025-05-20_システム開発.md</td>
+          <td>「小さな会社のシステム化、どこから始める？」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">38</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">6</td>
+          <td style="color:#3d5266;font-size:0.75rem;">2025-05-20</td>
+        </tr>
+        <tr class="script-row" onclick="selectScript(2)">
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2025-05-10_補助金活用.md</td>
+          <td>「IT補助金2025、申請のポイントを解説」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">30</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">5</td>
+          <td style="color:#3d5266;font-size:0.75rem;">2025-05-10</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="detail-panel" id="script-detail">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:0.75rem;">
+        <div>
+          <div style="font-size:0.65rem;color:#3d5266;font-family:'JetBrains Mono',monospace;margin-bottom:0.35rem;">選択中の台本</div>
+          <div style="font-size:0.9rem;color:#e8edf2;" id="detail-title">—</div>
+        </div>
+        <button class="btn" onclick="closeDetail()" style="font-size:0.65rem;">閉じる</button>
+      </div>
+      <div style="font-size:0.65rem;color:#6b8096;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;">セクション</div>
+      <div id="detail-chips"></div>
+      <div style="margin-top:1rem;">
+        <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:#6b8096;font-family:'JetBrains Mono',monospace;margin-bottom:0.25rem;">
+          <span>こはる（紫）</span><span>はると（青）</span>
+        </div>
+        <div class="ratio-bar">
+          <div class="ratio-bar-fill">
+            <div class="ratio-koharu" id="detail-koharu-bar" style="width:60%;"></div>
+            <div class="ratio-haruto" id="detail-haruto-bar" style="width:40%;"></div>
+          </div>
+        </div>
+        <div style="display:flex;justify-content:space-between;font-size:0.65rem;color:#3d5266;font-family:'JetBrains Mono',monospace;">
+          <span id="detail-koharu-pct">60%</span><span id="detail-haruto-pct">40%</span>
+        </div>
+      </div>
+      <div style="font-size:0.65rem;color:#6b8096;font-family:'JetBrains Mono',monospace;margin-top:1rem;margin-bottom:0.4rem;">台本プレビュー</div>
+      <div class="code-block" id="detail-preview"></div>
+    </div>
+  </div>
+
+  <!-- ビジュアル設定 -->
+  <div id="sec-visual" class="section panel">
+    <div class="panel-title">
+      <span>ビジュアル設定</span>
+    </div>
+    <div style="margin-bottom:1.25rem;">
+      <div style="font-size:0.65rem;color:#6b8096;font-family:'JetBrains Mono',monospace;margin-bottom:0.5rem;">スタイル</div>
+      <div style="display:flex;gap:0.5rem;">
+        <button class="btn-toggle active" id="style-interview" onclick="setStyle('interview')">インタビュー</button>
+        <button class="btn-toggle" id="style-variety" onclick="setStyle('variety')">バラエティ</button>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-field">
+        <label>左キャラ</label>
+        <select id="sel-left">
+          <option value="koharu" selected>こはる（Live2D）</option>
+          <option value="haruto">はると（Live2D）</option>
+          <option value="none">なし</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>右キャラ</label>
+        <select id="sel-right">
+          <option value="haruto" selected>はると（Live2D）</option>
+          <option value="koharu">こはる（Live2D）</option>
+          <option value="none">なし</option>
+        </select>
+      </div>
+      <div class="form-field">
+        <label>背景</label>
+        <select id="sel-bg">
+          <option value="studio" selected>スタジオ（デフォルト）</option>
+          <option value="office">オフィス</option>
+          <option value="outdoor">屋外</option>
+          <option value="plain">無地</option>
+        </select>
+      </div>
+    </div>
+    <div class="slider-grid">
+      <div class="slider-field">
+        <label>
+          <span>キャラサイズ</span>
+          <span id="lbl-size" style="color:#00d4ff;">360</span>
+        </label>
+        <input type="range" id="sl-size" min="200" max="480" value="360" oninput="updatePreview()" />
+      </div>
+      <div class="slider-field">
+        <label>
+          <span>左キャラ X</span>
+          <span id="lbl-lx" style="color:#8b5cf6;">290</span>
+        </label>
+        <input type="range" id="sl-lx" min="100" max="600" value="290" oninput="updatePreview()" />
+      </div>
+      <div class="slider-field">
+        <label>
+          <span>右キャラ X</span>
+          <span id="lbl-rx" style="color:#3b82f6;">990</span>
+        </label>
+        <input type="range" id="sl-rx" min="700" max="1200" value="990" oninput="updatePreview()" />
+      </div>
+      <div class="slider-field">
+        <label>
+          <span>下端 Y</span>
+          <span id="lbl-y" style="color:#6b8096;">618</span>
+        </label>
+        <input type="range" id="sl-y" min="500" max="680" value="618" oninput="updatePreview()" />
+      </div>
+    </div>
+    <!-- Preview canvas -->
+    <div style="font-size:0.65rem;color:#6b8096;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;">プレビュー（480×270）</div>
+    <div class="preview-box" id="preview-box">
+      <div class="preview-stage" id="preview-stage">
+        <div class="preview-label">PREVIEW</div>
+        <!-- bg label -->
+        <div id="preview-bg-label" style="position:absolute;bottom:8px;right:10px;font-size:0.55rem;color:#3d5266;font-family:'JetBrains Mono',monospace;">bg: studio</div>
+        <!-- characters -->
+        <div class="char-circle char-koharu" id="prev-left" style="width:64px;height:64px;left:0px;">こはる</div>
+        <div class="char-circle char-haruto" id="prev-right" style="width:64px;height:64px;left:0px;">はると</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:0.5rem;margin-top:0.75rem;">
+      <button class="btn" disabled>プレビュー更新</button>
+      <button class="btn" onclick="saveSettings()">設定保存</button>
+      <button class="btn-primary" disabled>動画生成</button>
+    </div>
+  </div>
+
+  <!-- 装飾エディタ -->
+  <div id="sec-deco" class="section panel">
+    <div class="panel-title">
+      <span>装飾エディタ</span>
+      <button class="btn" disabled>AI で自動挿入</button>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>タイプ</th>
+          <th>テキスト</th>
+          <th>行</th>
+          <th>説明</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="deco-row">💥 ツッコミ</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#ffb400;">「どんだけ削れんの！」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 8</td>
+          <td style="color:#6b8096;font-size:0.78rem;">驚きの強調</td>
+        </tr>
+        <tr>
+          <td class="deco-row">✨ 強調</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00d464;">「人件費を30%カット」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 7</td>
+          <td style="color:#6b8096;font-size:0.78rem;">数字の訴求力</td>
+        </tr>
+        <tr>
+          <td class="deco-row">💭 吹き出し</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#8b5cf6;">「実は限界がある」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 12</td>
+          <td style="color:#6b8096;font-size:0.78rem;">心の声補足</td>
+        </tr>
+        <tr>
+          <td class="deco-row">♪ sfx</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#3b82f6;">「ピコーン」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 15</td>
+          <td style="color:#6b8096;font-size:0.78rem;">転換ポイント</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ワークフロー -->
+  <div id="sec-workflow" class="section panel">
+    <div class="panel-title">
+      <span>ワークフロー</span>
+    </div>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-node">
+          <div class="pipe-node-label">入力</div>
+          <div class="pipe-node-name">インタビュー</div>
+        </div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node highlight">
+          <div class="pipe-node-label">localhost:3000</div>
+          <div class="pipe-node-name">AgentHive解析</div>
+        </div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node highlight">
+          <div class="pipe-node-label">localhost:8080</div>
+          <div class="pipe-node-name">Gemma4台本生成</div>
+        </div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node highlight">
+          <div class="pipe-node-label">localhost:8503</div>
+          <div class="pipe-node-name">Video Studio設定</div>
+        </div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node">
+          <div class="pipe-node-label">ローカル</div>
+          <div class="pipe-node-name">video_maker描画</div>
+        </div>
+      </div>
+      <div class="pipe-arrow">→</div>
+      <div class="pipe-step">
+        <div class="pipe-node">
+          <div class="pipe-node-label">出力</div>
+          <div class="pipe-node-name">YouTube公開</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:0.5rem;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#1a2d3d;">
+      <div style="background:#0a0e14;padding:1rem 1.25rem;">
+        <div style="font-size:0.65rem;color:#3d5266;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;">AgentHive</div>
+        <div style="font-size:0.78rem;color:#6b8096;">マルチエージェント分析。台本構造の解析・シーン分割・キャラ割り当てを並列処理。</div>
+      </div>
+      <div style="background:#0a0e14;padding:1rem 1.25rem;">
+        <div style="font-size:0.65rem;color:#3d5266;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;">oMLX / Gemma4-31B</div>
+        <div style="font-size:0.78rem;color:#6b8096;">ローカルLLMで台本生成。平均42秒で完成原稿を出力。外部API不要。</div>
+      </div>
+      <div style="background:#0a0e14;padding:1rem 1.25rem;">
+        <div style="font-size:0.65rem;color:#3d5266;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;">video_maker.py</div>
+        <div style="font-size:0.78rem;color:#6b8096;">Live2DキャラとテロップをPython描画。こはる・はると両キャラの座標・サイズを制御。</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-banner-bar">
+    <span style="font-size:0.78rem;color:#ff8c00;">🎬 DEMO MODE — AgentHive / oMLX に接続するとすべての機能が動作します</span>
+    <span style="font-size:0.7rem;color:#3d5266;">このページは荻野舜樹（ONSIGHT）によるデモです</span>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script is:inline>
+// ---- data ----
+var SCRIPTS = [
+  {
+    file: '2025-05-28_AI活用術.md',
+    title: '「中小企業こそAIを使うべき3つの理由」',
+    serifs: 42, telops: 8,
+    sections: ['オープニング', 'AI活用の現状', '理由①コスト削減', '理由②スピード向上', '理由③競争力強化', 'まとめ・CTA'],
+    koharuPct: 62,
+    preview: `# 中小企業こそAIを使うべき3つの理由\n\n[こはる] 今日はですね、中小企業のみなさんに\n         ぜひ聞いてほしい話があります。\n\n[はると] AIって、大企業だけのものだと思ってませんか？\n\n[こはる] それ、完全に誤解なんですよ！\n\n[はると] 実は中小企業こそ、AI活用の恩恵が\n         大きいって知ってましたか？\n\n[こはる] 今日は3つの理由でご説明します。\n         まず一つ目、コスト削減です。`
+  },
+  {
+    file: '2025-05-20_システム開発.md',
+    title: '「小さな会社のシステム化、どこから始める？」',
+    serifs: 38, telops: 6,
+    sections: ['イントロ', '現状の課題', 'どこから手をつける？', 'ツール選定', '導入ステップ', 'まとめ'],
+    koharuPct: 55,
+    preview: `# 小さな会社のシステム化、どこから始める？\n\n[はると] うちの会社、まだExcelとFAXでやってるんだけど\n         いい加減システム化したいんだよね。\n\n[こはる] よくある悩みですね。でも何から始めれば\n         いいかわからない、って感じですよね？\n\n[はると] そうなんです。いきなり大規模導入は\n         リスクが高いし...\n\n[こはる] まず「一番手間がかかっている業務」を\n         一つ選ぶことから始めましょう。`
+  },
+  {
+    file: '2025-05-10_補助金活用.md',
+    title: '「IT補助金2025、申請のポイントを解説」',
+    serifs: 30, telops: 5,
+    sections: ['オープニング', 'IT導入補助金とは', '対象ツール', '申請スケジュール', 'まとめ'],
+    koharuPct: 58,
+    preview: `# IT補助金2025、申請のポイントを解説\n\n[こはる] IT導入補助金2025が始まりましたよ！\n\n[はると] あ、毎年やってるやつですね。今年は\n         何が変わったんですか？\n\n[こはる] 今年は最大450万円まで補助が出ます。\n         しかもクラウド系ツールが対象拡充されて。\n\n[はると] それは大きいですね。申請って難しいですか？\n\n[こはる] コツさえ押さえれば大丈夫！\n         まずgBizIDの取得から始めましょう。`
+  }
+];
+
+var selectedScript = -1;
+
+// ---- helpers ----
+window.toast = function(msg) {
+  var t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(function() { t.classList.remove('show'); }, 2200);
+};
+
+window.scrollToSection = function(sectionId, navId) {
+  document.querySelectorAll('.nav-item').forEach(function(el) { el.classList.remove('active'); });
+  var nav = document.getElementById(navId);
+  if (nav) nav.classList.add('active');
+  var sec = document.getElementById(sectionId);
+  if (sec) sec.scrollIntoView({ behavior: 'smooth' });
+};
+
+// ---- scripts ----
+window.selectScript = function(idx) {
+  selectedScript = idx;
+  var rows = document.querySelectorAll('.script-row');
+  rows.forEach(function(r, i) {
+    r.classList.toggle('selected', i === idx);
+  });
+  var s = SCRIPTS[idx];
+  var detail = document.getElementById('script-detail');
+  detail.classList.add('open');
+  document.getElementById('detail-title').textContent = s.title;
+
+  // chips
+  var chips = s.sections.map(function(sec) {
+    return '<span class="chip">' + sec + '</span>';
+  }).join('');
+  document.getElementById('detail-chips').innerHTML = chips;
+
+  // ratio bar
+  var kPct = s.koharuPct;
+  var hPct = 100 - kPct;
+  document.getElementById('detail-koharu-bar').style.width = kPct + '%';
+  document.getElementById('detail-haruto-bar').style.width = hPct + '%';
+  document.getElementById('detail-koharu-pct').textContent = kPct + '%';
+  document.getElementById('detail-haruto-pct').textContent = hPct + '%';
+
+  // preview
+  document.getElementById('detail-preview').textContent = s.preview;
+};
+
+window.closeDetail = function() {
+  document.getElementById('script-detail').classList.remove('open');
+  document.querySelectorAll('.script-row').forEach(function(r) { r.classList.remove('selected'); });
+  selectedScript = -1;
+};
+
+// ---- visual settings ----
+window.setStyle = function(style) {
+  document.getElementById('style-interview').classList.toggle('active', style === 'interview');
+  document.getElementById('style-variety').classList.toggle('active', style === 'variety');
+};
+
+window.updatePreview = function() {
+  var size = parseInt(document.getElementById('sl-size').value);
+  var lx = parseInt(document.getElementById('sl-lx').value);
+  var rx = parseInt(document.getElementById('sl-rx').value);
+  var y = parseInt(document.getElementById('sl-y').value);
+
+  document.getElementById('lbl-size').textContent = size;
+  document.getElementById('lbl-lx').textContent = lx;
+  document.getElementById('lbl-rx').textContent = rx;
+  document.getElementById('lbl-y').textContent = y;
+
+  // map to preview 480x270 scale (original canvas: 1920x1080)
+  var scaleX = 480 / 1920;
+  var scaleY = 270 / 1080;
+  var pxSize = size * scaleX;
+  var pxLx = lx * scaleX;
+  var pxRx = rx * scaleX;
+  var pxY = y * scaleY;
+
+  var leftEl = document.getElementById('prev-left');
+  var rightEl = document.getElementById('prev-right');
+
+  // bottom = preview height - pxY
+  var boxH = 270;
+  var bottomOffset = boxH - pxY;
+
+  leftEl.style.width = pxSize + 'px';
+  leftEl.style.height = pxSize + 'px';
+  leftEl.style.left = pxLx + 'px';
+  leftEl.style.bottom = (bottomOffset - pxSize / 2) + 'px';
+  leftEl.style.top = 'auto';
+
+  rightEl.style.width = pxSize + 'px';
+  rightEl.style.height = pxSize + 'px';
+  rightEl.style.left = pxRx + 'px';
+  rightEl.style.bottom = (bottomOffset - pxSize / 2) + 'px';
+  rightEl.style.top = 'auto';
+};
+
+window.saveSettings = function() {
+  toast('設定を保存しました（デモ: ブラウザのみ）');
+};
+
+// ---- init preview ----
+(function() {
+  updatePreview();
+})();
+</script>
+</Layout>
