@@ -16,11 +16,29 @@ const { title, description = '荻野舜樹 | システムコンサルタント�
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
     <style>
+      /* ── デザイントークン（色の唯一の正・SSoT）。配色変更はここ1箇所だけ ── */
+      :root {
+        --bg: #080c10;
+        --bg-deep: #050810;
+        --surface: #0f1923;
+        --surface2: #0a0e14;
+        --text: #e8edf2;
+        --text2: #6b8096;
+        --text3: #3d5266;
+        --text-prose: #c2cdd6;
+        --accent: #00d4ff;
+        --accent-bright: #33ddff;
+        --accent2: #3399ff;
+        --border: #1a2d3d;
+        --ok: #00d464;
+        --warn: #ffb400;
+        --danger: #ff4444;
+      }
       * { box-sizing: border-box; margin: 0; padding: 0; }
       html { scroll-behavior: smooth; }
       body {
-        background-color: #080c10;
-        color: #e8edf2;
+        background-color: var(--bg);
+        color: var(--text);
         font-family: 'Inter', system-ui, sans-serif;
         line-height: 1.6;
         overflow-x: hidden;
@@ -37,10 +55,10 @@ const { title, description = '荻野舜樹 | システムコンサルタント�
         z-index: 0;
       }
       main { position: relative; z-index: 1; }
-      ::selection { background: rgba(0, 212, 255, 0.2); color: #e8edf2; }
+      ::selection { background: rgba(0, 212, 255, 0.2); color: var(--text); }
       ::-webkit-scrollbar { width: 4px; }
-      ::-webkit-scrollbar-track { background: #080c10; }
-      ::-webkit-scrollbar-thumb { background: #1a2d3d; border-radius: 2px; }
+      ::-webkit-scrollbar-track { background: var(--bg); }
+      ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
     </style>
   </head>
   <body>

@@ -1,0 +1,42 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const fmt = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+---
+<Layout title="Blog | ONSIGHT" description="荻野舜樹のブログ — AI・システム・思考の記録">
+  <Nav active="blog" maxWidth="860px" />
+
+  <section style="max-width:860px;margin:0 auto;padding:8rem 2rem 6rem;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ cat ./blog</span>
+    <h1 style="font-size:2.2rem;font-weight:600;margin:0.6rem 0 2.5rem;letter-spacing:-0.01em;">Blog</h1>
+
+    {posts.length === 0 && (
+      <p style="color:var(--text2);">まだ記事がありません。</p>
+    )}
+
+    <div style="display:flex;flex-direction:column;">
+      {posts.map((p) => (
+        <a href={`/blog/${p.slug}`} style="display:block;text-decoration:none;color:inherit;border-top:1px solid var(--border);padding:1.5rem 0;" onmouseover="this.style.background='rgba(0,212,255,0.03)'" onmouseout="this.style.background='transparent'">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text2);letter-spacing:0.05em;">{fmt(p.data.date)}</div>
+          <div style="font-size:1.15rem;font-weight:500;color:var(--text);margin:0.35rem 0 0.4rem;">{p.data.title}</div>
+          {p.data.description && (
+            <div style="font-size:0.9rem;color:var(--text2);line-height:1.6;">{p.data.description}</div>
+          )}
+          {p.data.tags.length > 0 && (
+            <div style="display:flex;gap:0.5rem;margin-top:0.7rem;flex-wrap:wrap;">
+              {p.data.tags.map((t) => (
+                <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;color:var(--accent);border:1px solid rgba(0,212,255,0.2);background:rgba(0,212,255,0.06);padding:0.15rem 0.5rem;">{t}</span>
+              ))}
+            </div>
+          )}
+        </a>
+      ))}
+    </div>
+  </section>
+</Layout>

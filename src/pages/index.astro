@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 
 const works = [
   {
@@ -59,77 +60,67 @@ const works = [
 ];
 ---
 <Layout title="ONSIGHT | 要件定義からシステム構築・運用まで">
-  <!-- Nav -->
-  <nav style="position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid #1a2d3d;backdrop-filter:blur(12px);background:rgba(8,12,16,0.85);">
-    <div style="max-width:1100px;margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:56px;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#00d4ff;letter-spacing:0.08em;">ONSIGHT</span>
-      <div style="display:flex;gap:2rem;">
-        <a href="#works" style="font-size:0.8rem;color:#6b8096;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;" onmouseover="this.style.color='#e8edf2'" onmouseout="this.style.color='#6b8096'">Works</a>
-        <a href="#about" style="font-size:0.8rem;color:#6b8096;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;" onmouseover="this.style.color='#e8edf2'" onmouseout="this.style.color='#6b8096'">About</a>
-        <a href="#contact" style="font-size:0.8rem;color:#00d4ff;text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;border:1px solid #1a2d3d;padding:0.3rem 0.8rem;" onmouseover="this.style.borderColor='#00d4ff'" onmouseout="this.style.borderColor='#1a2d3d'">Contact</a>
-      </div>
-    </div>
-  </nav>
+  <Nav />
 
   <!-- Hero -->
   <section style="min-height:100vh;display:flex;align-items:center;padding:0 2rem;padding-top:56px;">
     <div style="max-width:1100px;margin:0 auto;width:100%;">
-      <h1 style="font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.75rem;color:#e8edf2;">
-        現場に入り、<br />要件を整理し、<br /><span style="color:#00d4ff;">動くものを渡す。</span>
+      <h1 style="font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.75rem;color:var(--text);">
+        現場に入り、<br />要件を整理し、<br /><span style="color:var(--accent);">動くものを渡す。</span>
       </h1>
-      <p style="font-size:0.95rem;color:#6b8096;max-width:480px;margin-bottom:0.75rem;line-height:1.9;">
+      <p style="font-size:0.95rem;color:var(--text2);max-width:480px;margin-bottom:0.75rem;line-height:1.9;">
         作って終わりじゃなく、保守・運用まで一貫して。<br />
         上流から入るシステムコンサルタントです。
       </p>
-      <p style="font-size:0.78rem;color:#3d5266;margin-bottom:2.5rem;font-family:'JetBrains Mono',monospace;">by 荻野舜樹</p>
+      <p style="font-size:0.78rem;color:var(--text3);margin-bottom:2.5rem;font-family:'JetBrains Mono',monospace;">by 荻野舜樹</p>
       <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="#works" style="background:#00d4ff;color:#080c10;padding:0.75rem 2rem;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.background='#33ddff'" onmouseout="this.style.background='#00d4ff'">実績を見る</a>
-        <a href="#contact" style="border:1px solid #1a2d3d;color:#e8edf2;padding:0.75rem 2rem;font-weight:400;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.borderColor='#6b8096'" onmouseout="this.style.borderColor='#1a2d3d'">依頼する</a>
+        <a href="#works" style="background:var(--accent);color:var(--bg);padding:0.75rem 2rem;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.background='var(--accent-bright)'" onmouseout="this.style.background='var(--accent)'">実績を見る</a>
+        <a href="#contact" style="border:1px solid var(--border);color:var(--text);padding:0.75rem 2rem;font-weight:400;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.borderColor='var(--text2)'" onmouseout="this.style.borderColor='var(--border)'">依頼する</a>
       </div>
 
       <!-- Stats -->
-      <div style="display:flex;gap:3rem;margin-top:5rem;padding-top:2rem;border-top:1px solid #1a2d3d;flex-wrap:wrap;">
+      <div style="display:flex;gap:3rem;margin-top:5rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;">
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:#00d4ff;font-weight:500;">要件定義<span style="font-size:1rem;color:#6b8096;">から</span></div>
-          <div style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;margin-top:0.25rem;">上流工程を担当</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:500;">要件定義<span style="font-size:1rem;color:var(--text2);">から</span></div>
+          <div style="font-size:0.75rem;color:var(--text2);letter-spacing:0.05em;margin-top:0.25rem;">上流工程を担当</div>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:#00d4ff;font-weight:500;">現場<span style="font-size:1rem;color:#6b8096;">主義</span></div>
-          <div style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;margin-top:0.25rem;">課題は現場にある</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:500;">現場<span style="font-size:1rem;color:var(--text2);">主義</span></div>
+          <div style="font-size:0.75rem;color:var(--text2);letter-spacing:0.05em;margin-top:0.25rem;">課題は現場にある</div>
         </div>
         <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:#00d4ff;font-weight:500;">構築<span style="font-size:1rem;color:#6b8096;">〜</span>運用</div>
-          <div style="font-size:0.75rem;color:#6b8096;letter-spacing:0.05em;margin-top:0.25rem;">一気通貫で担当</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:500;">構築<span style="font-size:1rem;color:var(--text2);">〜</span>運用</div>
+          <div style="font-size:0.75rem;color:var(--text2);letter-spacing:0.05em;margin-top:0.25rem;">一気通貫で担当</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Works -->
-  <section id="works" style="padding:6rem 2rem;border-top:1px solid #1a2d3d;">
+  <section id="works" style="padding:6rem 2rem;border-top:1px solid var(--border);">
     <div style="max-width:1100px;margin:0 auto;">
       <div style="margin-bottom:3rem;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">$ ls ./works</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ ls ./works</span>
         <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">Works</h2>
-        <p style="color:#6b8096;margin-top:0.5rem;">架空の案件ですが、実際に開きます。これがそのまま納品物のイメージです。</p>
+        <p style="color:var(--text2);margin-top:0.5rem;">架空の案件ですが、実際に開きます。これがそのまま納品物のイメージです。</p>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:#1a2d3d;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:var(--border);">
         {works.map((w) => (
-          <div style="background:#080c10;padding:2rem;position:relative;overflow:hidden;" onmouseover="this.style.background='#0f1923'" onmouseout="this.style.background='#080c10'">
-            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,#00d4ff,transparent);"></div>
+          <div style="background:var(--bg);padding:2rem;position:relative;overflow:hidden;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),transparent);"></div>
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-              <span style="font-size:0.7rem;color:#6b8096;font-family:'JetBrains Mono',monospace;">{w.company}</span>
-              <span style="font-size:0.65rem;background:rgba(0,212,255,0.1);color:#00d4ff;padding:0.2rem 0.6rem;border:1px solid rgba(0,212,255,0.2);">{w.status}</span>
+              <span style="font-size:0.7rem;color:var(--text2);font-family:'JetBrains Mono',monospace;">{w.company}</span>
+              <span style="font-size:0.65rem;background:rgba(0,212,255,0.1);color:var(--accent);padding:0.2rem 0.6rem;border:1px solid rgba(0,212,255,0.2);">{w.status}</span>
             </div>
             <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">{w.system}</h3>
-            <p style="font-size:0.875rem;color:#6b8096;line-height:1.7;margin-bottom:1.5rem;">{w.desc}</p>
+            <p style="font-size:0.875rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem;">{w.desc}</p>
             <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
               {w.tags.map(t => (
-                <span style="font-size:0.65rem;color:#3d5266;border:1px solid #1a2d3d;padding:0.2rem 0.5rem;">{t}</span>
+                <span style="font-size:0.65rem;color:var(--text3);border:1px solid var(--border);padding:0.2rem 0.5rem;">{t}</span>
               ))}
             </div>
             <div style="display:flex;justify-content:flex-end;">
-              <a href={`/works/${w.slug}`} style="font-size:0.8rem;color:#00d4ff;text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">デモを見る →</a>
+              <a href={`/works/${w.slug}`} style="font-size:0.8rem;color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">デモを見る →</a>
             </div>
           </div>
         ))}
@@ -138,18 +129,18 @@ const works = [
   </section>
 
   <!-- About / What I Do -->
-  <section id="about" style="padding:6rem 2rem;border-top:1px solid #1a2d3d;">
+  <section id="about" style="padding:6rem 2rem;border-top:1px solid var(--border);">
     <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;">
       <div>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">$ cat ./about.md</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ cat ./about.md</span>
         <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;margin-bottom:1.5rem;letter-spacing:-0.02em;">What I Do</h2>
-        <p style="color:#6b8096;line-height:1.9;font-size:0.95rem;margin-bottom:1rem;">
+        <p style="color:var(--text2);line-height:1.9;font-size:0.95rem;margin-bottom:1rem;">
           システム開発の一番むずかしいところは、「何を作るか」を決めることだと思っています。
         </p>
-        <p style="color:#6b8096;line-height:1.9;font-size:0.95rem;margin-bottom:1rem;">
+        <p style="color:var(--text2);line-height:1.9;font-size:0.95rem;margin-bottom:1rem;">
           要件定義ができれば、実装は時間の問題です。私はその上流から入り、現場の言語で要件を整理し、動くものとして渡します。
         </p>
-        <p style="color:#6b8096;line-height:1.9;font-size:0.95rem;">
+        <p style="color:var(--text2);line-height:1.9;font-size:0.95rem;">
           作って終わりじゃなく、そのまま保守・運用フェーズも引き受けます。パランティアが「現場に入って問題を解く」スタイルのように、小さく、深く、確実に。
         </p>
       </div>
@@ -161,11 +152,11 @@ const works = [
             { num: '03', title: '動くものを作る', desc: '要件が決まったら速い。ドキュメントじゃなく動くものを渡す' },
             { num: '04', title: '保守・運用もやる', desc: '作ったものが現場で使われ続けるよう、面倒を見る' },
           ].map((item) => (
-            <div style="padding:1.25rem 0;border-bottom:1px solid #1a2d3d;display:flex;gap:1.5rem;align-items:flex-start;" onmouseover="this.style.borderBottomColor='#00d4ff'" onmouseout="this.style.borderBottomColor='#1a2d3d'">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;padding-top:0.15rem;min-width:2rem;">{item.num}</span>
+            <div style="padding:1.25rem 0;border-bottom:1px solid var(--border);display:flex;gap:1.5rem;align-items:flex-start;" onmouseover="this.style.borderBottomColor='var(--accent)'" onmouseout="this.style.borderBottomColor='var(--border)'">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--accent);padding-top:0.15rem;min-width:2rem;">{item.num}</span>
               <div>
                 <div style="font-weight:600;margin-bottom:0.25rem;">{item.title}</div>
-                <div style="font-size:0.85rem;color:#6b8096;">{item.desc}</div>
+                <div style="font-size:0.85rem;color:var(--text2);">{item.desc}</div>
               </div>
             </div>
           ))}
@@ -175,14 +166,14 @@ const works = [
   </section>
 
   <!-- Contact -->
-  <section id="contact" style="padding:6rem 2rem;border-top:1px solid #1a2d3d;">
+  <section id="contact" style="padding:6rem 2rem;border-top:1px solid var(--border);">
     <div style="max-width:640px;margin:0 auto;">
       <div style="margin-bottom:3rem;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#6b8096;letter-spacing:0.1em;">$ request --new</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ request --new</span>
         <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">依頼する</h2>
-        <p style="color:#6b8096;margin-top:0.5rem;line-height:1.8;">作りたいものの概要を教えてください。送信後、ローカルで動くAI（Gemma4）が要件を整理して折り返します。</p>
-        <div style="background:#0f1923;border:1px solid #1a2d3d;padding:1rem 1.25rem;margin-top:0.5rem;">
-          <div style="font-size:0.65rem;color:#3d5266;letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;margin-bottom:0.75rem;">HOW IT WORKS</div>
+        <p style="color:var(--text2);margin-top:0.5rem;line-height:1.8;">作りたいものの概要を教えてください。送信後、ローカルで動くAI（Gemma4）が要件を整理して折り返します。</p>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:1rem 1.25rem;margin-top:0.5rem;">
+          <div style="font-size:0.65rem;color:var(--text3);letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;margin-bottom:0.75rem;">HOW IT WORKS</div>
           <div style="display:flex;gap:0;flex-wrap:wrap;">
             {[
               ['01', 'フォーム送信', 'Supabaseに保存'],
@@ -190,10 +181,10 @@ const works = [
               ['03', 'メール返信', '不足情報・提案を送付'],
               ['04', '本対応', '荻野が確認して連絡'],
             ].map(([n, t, d]) => (
-              <div style="flex:1;min-width:120px;padding:0.5rem 0.75rem;border-left:1px solid #1a2d3d;">
-                <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:#00d4ff;margin-bottom:0.2rem;">{n}</div>
+              <div style="flex:1;min-width:120px;padding:0.5rem 0.75rem;border-left:1px solid var(--border);">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--accent);margin-bottom:0.2rem;">{n}</div>
                 <div style="font-size:0.78rem;font-weight:500;margin-bottom:0.1rem;">{t}</div>
-                <div style="font-size:0.68rem;color:#6b8096;">{d}</div>
+                <div style="font-size:0.68rem;color:var(--text2);">{d}</div>
               </div>
             ))}
           </div>
@@ -202,41 +193,45 @@ const works = [
       <form id="contact-form" style="display:flex;flex-direction:column;gap:1.5rem;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
           <div>
-            <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">NAME *</label>
-            <input id="f-name" type="text" required placeholder="山田太郎" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+            <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">NAME *</label>
+            <input id="f-name" type="text" required placeholder="山田太郎" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
           </div>
           <div>
-            <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">COMPANY</label>
-            <input id="f-company" type="text" placeholder="株式会社○○（任意）" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+            <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">COMPANY</label>
+            <input id="f-company" type="text" placeholder="株式会社○○（任意）" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
           </div>
         </div>
         <div>
-          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">EMAIL *</label>
-          <input id="f-email" type="email" required placeholder="you@example.com" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">EMAIL *</label>
+          <input id="f-email" type="email" required placeholder="you@example.com" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
         </div>
         <div>
-          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">何を作りたいですか？ *</label>
-          <input id="f-system" type="text" required placeholder="例：社内の在庫管理を一本化したい、顧客対応のフローを整理したい" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">何を作りたいですか？ *</label>
+          <input id="f-system" type="text" required placeholder="例：社内の在庫管理を一本化したい、顧客対応のフローを整理したい" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
         </div>
         <div>
-          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">今の状況・困っていること *</label>
-          <textarea id="f-situation" required rows="3" placeholder="例：Excelで管理しているが属人化している、担当者が変わるたびに引き継ぎが大変" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'"></textarea>
+          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">今の状況・困っていること *</label>
+          <textarea id="f-situation" required rows="3" placeholder="例：Excelで管理しているが属人化している、担当者が変わるたびに引き継ぎが大変" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
         </div>
         <div>
-          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">こうなりたい（目標） *</label>
-          <textarea id="f-outcome" required rows="3" placeholder="例：誰でも使えるシステムで、在庫の状況をリアルタイムで把握できるようにしたい" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'"></textarea>
+          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">こうなりたい（目標） *</label>
+          <textarea id="f-outcome" required rows="3" placeholder="例：誰でも使えるシステムで、在庫の状況をリアルタイムで把握できるようにしたい" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
         </div>
         <div>
-          <label style="font-size:0.7rem;color:#6b8096;letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">時期感・規模</label>
-          <input id="f-timeline" type="text" placeholder="例：3ヶ月以内、社員10名、まずは1部署から" style="width:100%;background:#0f1923;border:1px solid #1a2d3d;color:#e8edf2;padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='#00d4ff'" onblur="this.style.borderColor='#1a2d3d'" />
+          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">時期感・規模</label>
+          <input id="f-timeline" type="text" placeholder="例：3ヶ月以内、社員10名、まずは1部署から" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
         </div>
+        <!-- ボット対策: honeypot（人間には見えない。埋まっていたらボット） -->
+        <input id="f-website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
         <div id="form-result" style="display:none;"></div>
-        <button type="submit" id="submit-btn" style="background:#00d4ff;color:#080c10;padding:0.875rem 2rem;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.03em;align-self:flex-start;" onmouseover="this.style.background='#33ddff'" onmouseout="this.style.background='#00d4ff'">送信する</button>
+        <button type="submit" id="submit-btn" style="background:var(--accent);color:var(--bg);padding:0.875rem 2rem;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.03em;align-self:flex-start;" onmouseover="this.style.background='var(--accent-bright)'" onmouseout="this.style.background='var(--accent)'">送信する</button>
       </form>
     </div>
   </section>
 
   <script>
+    // フォーム表示時刻（あまりに即答な送信＝ボットを弾く判定用）
+    const _formLoadedAt = Date.now();
     document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
       e.preventDefault();
       const btn = document.getElementById('submit-btn') as HTMLButtonElement;
@@ -252,6 +247,8 @@ const works = [
         current_situation: (document.getElementById('f-situation') as HTMLTextAreaElement).value,
         desired_outcome: (document.getElementById('f-outcome') as HTMLTextAreaElement).value,
         timeline: (document.getElementById('f-timeline') as HTMLInputElement).value,
+        website: (document.getElementById('f-website') as HTMLInputElement).value, // honeypot
+        elapsed_ms: Date.now() - _formLoadedAt,                                    // 送信までの時間
       };
 
       try {
@@ -262,7 +259,7 @@ const works = [
         });
         if (res.ok) {
           result.style.display = 'block';
-          result.style.color = '#00d464';
+          result.style.color = 'var(--ok)';
           result.style.fontSize = '0.875rem';
           result.textContent = '送信しました。AIが要件を整理次第、入力いただいたメアドに折り返します（通常数時間以内）。';
           (document.getElementById('contact-form') as HTMLFormElement).reset();
@@ -271,7 +268,7 @@ const works = [
         }
       } catch {
         result.style.display = 'block';
-        result.style.color = '#ff4444';
+        result.style.color = 'var(--danger)';
         result.style.fontSize = '0.875rem';
         result.textContent = '送信に失敗しました。時間をおいて再度お試しください。';
       } finally {
@@ -282,7 +279,7 @@ const works = [
   </script>
 
   <!-- Footer -->
-  <footer style="padding:2rem;border-top:1px solid #1a2d3d;text-align:center;">
-    <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#3d5266;">© 2025 ONSIGHT / Ogino Shunki.</p>
+  <footer style="padding:2rem;border-top:1px solid var(--border);text-align:center;">
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text3);">© 2025 ONSIGHT / Ogino Shunki.</p>
   </footer>
 </Layout>

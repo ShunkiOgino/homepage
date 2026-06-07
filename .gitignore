@@ -5,3 +5,6 @@ dist/
 poller/.env
 poller/poller.log
 
+
+__pycache__/
+*.pyc
