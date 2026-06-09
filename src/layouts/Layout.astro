@@ -65,5 +65,17 @@ const { title, description = '荻野舜樹 | システムコンサルタント�
     <main>
       <slot />
     </main>
+    <script>
+      // 軽量PVビーコン: 開いた瞬間に path/referrer を1発送るだけ（IP・Cookieは送らない）。
+      // sendBeacon は表示やページ遷移をブロックしない。失敗しても無視（計測はベストエフォート）。
+      try {
+        const payload = JSON.stringify({ path: location.pathname, referrer: document.referrer });
+        if (navigator.sendBeacon) {
+          navigator.sendBeacon('/api/pv', new Blob([payload], { type: 'application/json' }));
+        } else {
+          fetch('/api/pv', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload, keepalive: true }).catch(() => {});
+        }
+      } catch (e) { /* noop */ }
+    </script>
   </body>
 </html>
