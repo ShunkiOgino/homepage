@@ -1,0 +1,20 @@
+{
+  "homepage": {
+    "url": "https://homepage-flax-two.vercel.app",
+    "label": "ホームページ"
+  },
+  "blog": {
+    "url": "https://homepage-flax-two.vercel.app/blog",
+    "label": "ブログ"
+  },
+  "instagram": {
+    "url": "https://instagram.com/ogino_shunki",
+    "handle": "@ogino_shunki",
+    "label": "Instagram"
+  },
+  "youtube": {
+    "url": "https://www.youtube.com/@広島ai",
+    "handle": "@広島ai",
+    "label": "YouTube"
+  }
+}

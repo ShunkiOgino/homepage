@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -31,6 +32,7 @@ const fmt = (d: Date) =>
       <Content />
     </div>
   </article>
+  <Footer />
 
   <style is:global>
     .prose { color: var(--text-prose); font-size: 1.02rem; line-height: 1.85; }
