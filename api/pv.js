@@ -5,6 +5,14 @@
 const MAX_PATH = 300;
 const MAX_REF = 200;
 
+// クローラー/ボット除外（PVの水増し防止）。User-Agentに典型パターンを含むものは記録しない。
+const BOT_RE = /bot|crawl|spider|slurp|bingpreview|facebookexternalhit|embedly|quora|pinterest|vkshare|whatsapp|telegrambot|discordbot|headless|lighthouse|gtmetrix|pingdom|uptimerobot|curl|wget|python-requests|axios|go-http|java\/|okhttp|monitor|preview/i;
+
+function isBot(ua) {
+  if (!ua || typeof ua !== 'string') return true; // UA無し＝怪しいので記録しない
+  return BOT_RE.test(ua);
+}
+
 function safeReferrer(ref) {
   if (!ref || typeof ref !== 'string') return '';
   try {
@@ -18,6 +26,11 @@ function safeReferrer(ref) {
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed' });
+  }
+
+  // ボット/クローラーは記録しない（PV水増し防止）
+  if (isBot(req.headers['user-agent'])) {
+    return res.status(200).json({ ok: true });
   }
 
   const body = req.body || {};
