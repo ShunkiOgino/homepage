@@ -1,0 +1,40 @@
+---
+// 共通フッター（唯一の正）。SNSリンクの追加・変更はここ1箇所。
+const socials = [
+  { name: 'Instagram', href: 'https://instagram.com/ogino_shunki' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@広島ai' },
+];
+---
+<footer style="border-top:1px solid var(--border);padding:2.5rem 2rem;margin-top:5rem;position:relative;z-index:1;">
+  <div style="max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text3);letter-spacing:0.05em;">© 2026 荻野舜樹 — ONSIGHT</span>
+    <div style="display:flex;gap:1.5rem;align-items:center;">
+      {socials.map((s) => (
+        <a
+          href={s.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={s.name}
+          title={s.name}
+          style="color:var(--text2);display:inline-flex;align-items:center;transition:color .15s;"
+          onmouseover="this.style.color='var(--accent)'"
+          onmouseout="this.style.color='var(--text2)'"
+        >
+          {s.name === 'Instagram' && (
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+            </svg>
+          )}
+          {s.name === 'YouTube' && (
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-2C18.88 4 12 4 12 4s-6.88 0-8.59.42a2.78 2.78 0 0 0-1.95 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.41 19c1.71.42 8.59.42 8.59.42s6.88 0 8.59-.42a2.78 2.78 0 0 0 1.95-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
+              <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="currentColor" stroke="none" />
+            </svg>
+          )}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>
