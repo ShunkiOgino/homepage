@@ -11,7 +11,7 @@ const works = [
     desc: '複数ラインの稼働率・生産数をリアルタイム集約。現場担当者が毎朝確認する指標を一画面に。',
     duration: '5日',
     tags: ['業務ダッシュボード', 'データ可視化', '製造業'],
-    status: '稼働中',
+    status: 'デモ',
   },
   {
     slug: 'setouchi-shoji',
@@ -20,7 +20,7 @@ const works = [
     desc: '品番ごとの在庫推移と発注トリガーを自動化。Excelベースの属人運用を脱却した。',
     duration: '4日',
     tags: ['在庫管理', '業務自動化', '商社'],
-    status: '稼働中',
+    status: 'デモ',
   },
   {
     slug: 'hiroshima-techno',
@@ -29,11 +29,11 @@ const works = [
     desc: '部門をまたぐ問い合わせをチケット化し、対応漏れをゼロに。担当アサインと期限管理を一元化。',
     duration: '3日',
     tags: ['チケット管理', '社内ツール', 'IT企業'],
-    status: '稼働中',
+    status: 'デモ',
   },
   {
     slug: 'ota-river',
-    company: '広島市土木局（架空）',
+    company: '広島市土木局（想定ケース）',
     system: '太田川 河川・気象モニタリング',
     desc: '気象庁AMEDASの実データと水位シミュレーションを組み合わせたリアルタイム監視ダッシュボード。降雨から水位上昇までの時間差を可視化。',
     duration: '2日',
@@ -103,7 +103,7 @@ const works = [
       <div style="margin-bottom:3rem;">
         <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ ls ./works</span>
         <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">Works</h2>
-        <p style="color:var(--text2);margin-top:0.5rem;">架空の案件ですが、実際に開きます。これがそのまま納品物のイメージです。</p>
+        <p style="color:var(--text2);margin-top:0.5rem;">すべて実際に動くデモです。よくある業務課題を想定して制作しました。納品物は、このイメージのまま「動くもの」で渡します。</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:var(--border);">
         {works.map((w) => (
