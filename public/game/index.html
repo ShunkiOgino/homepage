@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>散逸構造 — くっつき、温まり、射出せよ</title>
+<style>
+  html,body{margin:0;height:100%;background:#04040a;overflow:hidden;
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;
+    -webkit-user-select:none;user-select:none;touch-action:none;color:#cfd3ea;}
+  #wrap{display:flex;align-items:center;justify-content:center;height:100%;}
+  canvas{background:#04040a;border-radius:12px;box-shadow:0 0 90px rgba(255,150,60,.10);cursor:crosshair;}
+  #hint{position:fixed;bottom:13px;left:0;right:0;text-align:center;color:#4a4f6a;font-size:12.5px;letter-spacing:.03em;}
+</style>
+</head>
+<body>
+<div id="wrap"><canvas id="c" width="600" height="660"></canvas></div>
+<div id="hint">押し込んで狙う→離して射出（長押しほど強く・熱を多く使う）。間は重力と慣性に委ねる＝一手ずつの勝負。</div>
+<script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const W=cv.width,H=cv.height;
+
+const P={
+  G:        4.8,    // 万有引力
+  soften:   30,     // 重力井戸を浅く（脱出しやすく）
+  launch:   2.8,    // 射出インパルス（フルチャージ時）
+  launchHeat:0.22,  // 射出の熱消費（フルチャージ時・熱E→運動E）
+  chargeMax:42,     // ための最大フレーム（長押しで威力↑・熱消費↑）
+  escape:   1.6,    // 結合が外れる時の脱出インパルス（重力圏から出られるように）
+  restitution:0.85, // 反射の反発係数
+  kFric:    0.04,   // 削れた相対運動が熱になる効率（運動E→熱E）
+  pReflect: 0.55,   // プレイヤー絡みの接触で反射する確率（留まって温まれるよう低め）
+  pReflectNPC:0.5,  // 他者どうしは合体しやすい（自発的に構造を作る）
+  seek:     0.035,  // 他者はエネルギーの高い方へ向かう（プレイヤーと同じ行動原理）
+  pWander:  0.02,   // 近くに温かい所が無い時のさまよい
+  wanderKick:0.35,
+  rc:       12,     // 接触＝結合の自然長
+  ks:       0.060,  // 結合ばね（くっつきの硬さ）
+  kd:       0.120,  // 結合の相対速度減衰（＝くっつくと運動が死ぬ）
+  breakDist:30,     // これ以上伸びると結合が切れる
+  pDetach:  0.008,  // 他者どうしの結合が確率で外れる
+  maxBonds: 4,      // 1体が結合できる上限（大きめの構造を許す）
+  cond:     0.090,  // 伝導
+  insul:    2.6,    // 群れの断熱
+  meta:     0,
+  tFloor:   0.12,   // 温度の下限（ここへ漸近＝急に凍えない／冷えても残り火）
+  drainBase:0.0012, drainPerLv:0.0007,    // 漏れの基準＋昇格ごとの小増
+  drainSpan:0.011, tMid:4800, tWidth:1400, // 難易度＝時間のS字（加速度がお山形：序盤緩→中盤急→終盤頭打ち）
+  lvInject: 0.5,    // 昇格時：既存の点に足す熱（空間も個数も増やさない）
+  coreCost: 0.0006, // 核1体あたりの維持コスト（大きい核ほど冷える＝余力の限界）
+  coreDropT:0.22,   // 核メンバーがこれより冷えると離脱（肥大しすぎない）
+  popThresh:0.92,   // 熱がこれを超えると運動に転化（ポップ）
+  popGain:  4.5,    // 超過熱→速度 の変換係数
+  soulGen:  0.0075,
+  capR:     76, alive:0.16,
+  tMaxBase: 1.0,  tMaxPerLv: 0.22,   // 熱の上限（レベルで上がる）
+  vmaxBase: 3.4,  vmaxPerLv: 0.45,   // 速度の上限（レベルで上がる）
+  lvSum0:   1.00, lvSumPer:  0.03,    // 昇格に要る「熱割合＋運動割合」の和（漸進）
+  worldR0:  640, worldGrow:340, boundK:0.020
+};
+
+let A, you, pt, time, state, level, flash, flashT, cam, worldR, bonds, launchReq, lvCool, charging, chargeT, lastCharge, coreBonds, coreSize;
+let freezeT=0;
+function tMax(){return P.tMaxBase+level*P.tMaxPerLv;}
+function vmaxL(){return P.vmaxBase+level*P.vmaxPerLv;}
+function keMax(){const v=vmaxL();return 0.5*v*v;}
+function lvSum(){return P.lvSum0+level*P.lvSumPer;}
+
+function rnd(a,b){return a+Math.random()*(b-a);}
+// 全部が同格の点。温かい＝初期熱が高いだけ（発熱はしない＝減る一方の貯水池）
+function spawnWarm(x,y){A.push({x,y,vx:rnd(-.2,.2),vy:rnd(-.2,.2),t:rnd(0.95,1.15),m:1,g:0,you:false});}
+function spawnCold(x,y){A.push({x,y,vx:rnd(-.2,.2),vy:rnd(-.2,.2),t:rnd(0.04,0.13),m:1,g:0,you:false});}
+
+function reset(){
+  A=[]; worldR=P.worldR0; bonds=new Set(); coreBonds=new Set(); coreSize=0;
+  A.push({x:0,y:0,vx:0,vy:0,t:0.6,m:1,g:0,soul:false,you:true}); you=A[0];
+  for(let k=0;k<14;k++){const a=k/14*6.28; spawnWarm(Math.cos(a)*rnd(70,440),Math.sin(a)*rnd(70,440));}
+  for(let k=0;k<28;k++)spawnCold(rnd(-480,480),rnd(-480,480));
+  pt=null; time=0; state='title'; level=0; flash=''; flashT=0; cam={x:0,y:0};
+  launchReq=false; lvCool=0; freezeT=0; charging=false; chargeT=0; lastCharge=0;
+}
+reset();
+function drain(){return P.drainBase+level*P.drainPerLv+P.drainSpan/(1+Math.exp(-(time-P.tMid)/P.tWidth));}
+
+function levelUp(){
+  level++; lvCool=50; flash='エネルギー注入 — だがエントロピーも上がる'; flashT=160;
+  // 広さも個数も増やさない。既存の点に熱を足すだけ。
+  for(const p of A){ if(!p.you) p.t=Math.min(1.3, p.t+P.lvInject); }
+}
+
+function step(){
+  if(state!=='play'){ if(flashT>0)flashT--; return measure(); }
+  time++; if(flashT>0)flashT--; if(lvCool>0)lvCool--;
+  const N=A.length, dr=drain();
+  for(const p of A){p._nb=[];p._warm=0;p._bc=0;p._bestT=-1;p._core=false;}
+  for(const key of bonds){const s=key.split(',');A[+s[0]]._bc++;A[+s[1]]._bc++;}
+  // 万有引力＋近接＋接触でくっつく
+  for(let i=0;i<N;i++)for(let j=i+1;j<N;j++){
+    const a=A[i],b=A[j],dx=b.x-a.x,dy=b.y-a.y,d2=dx*dx+dy*dy,r2=d2+P.soften*P.soften;
+    const inv=1/Math.sqrt(r2), f=P.G/r2, ux=dx*inv,uy=dy*inv;
+    a.vx+=ux*f*b.m; a.vy+=uy*f*b.m; b.vx-=ux*f*a.m; b.vy-=uy*f*a.m;
+    if(d2<P.capR*P.capR){a._nb.push(j);b._nb.push(i);a._warm+=Math.max(0,b.t);b._warm+=Math.max(0,a.t);
+      if(b.t>a._bestT){a._bestT=b.t;a._bx=b.x;a._by=b.y;} if(a.t>b._bestT){b._bestT=a.t;b._bx=a.x;b._by=a.y;}}
+    if(d2<P.rc*P.rc && !bonds.has(i+','+j)){ // 接触：確率で 反射 or 合体
+      if(Math.random()<((i===0||j===0)?P.pReflect:P.pReflectNPC)){ // 他者どうしは合体寄り
+        const d=Math.sqrt(d2)||0.001,nx=dx/d,ny=dy/d,rvn=(b.vx-a.vx)*nx+(b.vy-a.vy)*ny;
+        if(rvn<0){const imp=-(1+P.restitution)*rvn/(1/a.m+1/b.m);
+          a.vx-=imp/a.m*nx;a.vy-=imp/a.m*ny;b.vx+=imp/b.m*nx;b.vy+=imp/b.m*ny;
+          const h=P.kFric*Math.abs(rvn)*(1-P.restitution);a.t+=h;b.t+=h;}  // 非弾性ロス→熱
+      } else if(a._bc<P.maxBonds && b._bc<P.maxBonds){
+        bonds.add(i+','+j); a._bc++; b._bc++;  // 合体（くっつく 20%）
+      } else {                                 // 満杯→押し返す（団子化防止）
+        const d=Math.sqrt(d2)||0.001,push=(P.rc-d)/d*0.5;
+        a.vx-=dx*push;a.vy-=dy*push;b.vx+=dx*push;b.vy+=dy*push;
+      }
+    }
+  }
+  // 結合の処理：ばねで保持＋相対運動を殺す（くっつくと速度が死ぬ）／切断
+  const rm=[];
+  for(const key of bonds){
+    const s=key.split(','),i=+s[0],j=+s[1],a=A[i],b=A[j];
+    const dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy)+.001,ux=dx/d,uy=dy/d;
+    const f=P.ks*(d-P.rc); a.vx+=ux*f/a.m;a.vy+=uy*f/a.m; b.vx-=ux*f/b.m;b.vy-=uy*f/b.m;
+    const rel=(b.vx-a.vx)*ux+(b.vy-a.vy)*uy, dp=P.kd*rel;
+    a.vx+=ux*dp;a.vy+=uy*dp; b.vx-=ux*dp;b.vy-=uy*dp;
+    const h=P.kFric*Math.abs(rel); a.t+=h; b.t+=h;        // 殺した相対運動→熱（寄り集まると温まる）
+    let brk=d>P.breakDist;
+    if(!brk && coreBonds.has(key) && (a.t<P.coreDropT||b.t<P.coreDropT))brk=true; // 冷えた核メンバーは離脱（余力切れ）
+    if(!brk && i!==0 && j!==0 && !coreBonds.has(key) && Math.random()<P.pDetach){ // 核は外れない／他者は確率で
+      a.vx-=ux*P.escape;a.vy-=uy*P.escape; b.vx+=ux*P.escape;b.vy+=uy*P.escape; // 脱出インパルス
+      brk=true;
+    }
+    if(brk)rm.push(key);
+  }
+  for(const k of rm){bonds.delete(k);coreBonds.delete(k);}
+  // プレイヤー射出（操作）：自分の結合を全部切って、狙った向きへ
+  if(charging)chargeT=Math.min(P.chargeMax,chargeT+1);    // ため中
+  if(launchReq){                                          // 離した＝委ねる一手
+    for(const key of [...bonds])if(key.indexOf('0,')===0){bonds.delete(key);coreBonds.delete(key);}
+    if(pt){const frac=0.3+0.7*lastCharge, cost=P.launchHeat*frac, k=Math.min(1,you.t/cost);
+      const wx=pt[0]-W/2+cam.x,wy=pt[1]-H/2+cam.y,dx=wx-you.x,dy=wy-you.y,d=Math.hypot(dx,dy)+.01;
+      you.vx+=dx/d*P.launch*frac*k; you.vy+=dy/d*P.launch*frac*k;
+      you.t=Math.max(P.tFloor,you.t-cost);}              // 射出は熱を消費（ため分だけ）
+    launchReq=false;
+  }
+  // 連続操舵なし：間は重力と慣性に委ねる
+  // ★複利：自分の連結成分の内部結合を“核”として恒久化（昇格を越えて残る・育つ）
+  const adj={};
+  for(const key of bonds){const s=key.split(','),i=+s[0],j=+s[1];(adj[i]=adj[i]||[]).push(j);(adj[j]=adj[j]||[]).push(i);}
+  const comp=new Set([0]),stk=[0];
+  while(stk.length){const x=stk.pop();for(const y of(adj[x]||[]))if(!comp.has(y)){comp.add(y);stk.push(y);}}
+  for(const key of bonds){const s=key.split(',');if(comp.has(+s[0])&&comp.has(+s[1]))coreBonds.add(key);}
+  const _seen=new Set();
+  for(const key of [...coreBonds]){if(!bonds.has(key)){coreBonds.delete(key);continue;}
+    const s=key.split(','),i=+s[0],j=+s[1];A[i]._core=true;A[j]._core=true;_seen.add(i);_seen.add(j);}
+  coreSize=_seen.size;
+  // 積分（摩擦なし）＋世界の縁＋速度上限
+  const vmx=vmaxL();
+  for(const p of A){
+    if(!p.you){                                   // 他者の行動原理＝エネルギーの高い方へ（プレイヤーと同じ）
+      if(p._bestT>p.t){const dx=p._bx-p.x,dy=p._by-p.y,d=Math.hypot(dx,dy)+.01;p.vx+=dx/d*P.seek;p.vy+=dy/d*P.seek;}
+      else if(Math.random()<P.pWander){const a=Math.random()*6.28;p.vx+=Math.cos(a)*P.wanderKick;p.vy+=Math.sin(a)*P.wanderKick;}
+    }
+    const dist=Math.hypot(p.x,p.y);
+    if(dist>worldR){const k=P.boundK*(dist-worldR)/dist;p.vx-=p.x*k;p.vy-=p.y*k;}
+    const sp=Math.hypot(p.vx,p.vy); if(sp>vmx){p.vx=p.vx/sp*vmx;p.vy=p.vy/sp*vmx;}
+    p.x+=p.vx;p.y+=p.vy;
+  }
+  // 熱
+  const tm=tMax();
+  for(const p of A){let cond=0;for(const j of p._nb)cond+=(A[j].t-p.t)*P.cond;
+    p.t+=cond+p.g - dr*Math.max(0,p.t-P.tFloor)/(1+P.insul*p._warm) - P.meta - (p._core?P.coreCost*coreSize:0);
+    if(!p.you && !p._core && p.t>P.popThresh){const ex=p.t-P.popThresh,ang=Math.random()*6.28,imp=P.popGain*ex; // 熱超過→運動（核と自分は弾けない）
+      p.vx+=Math.cos(ang)*imp;p.vy+=Math.sin(ang)*imp;p.t=P.popThresh;}
+    else if(p.t>1.3)p.t=1.3;
+    p.t=Math.max(0,p.t);}
+  // カメラ
+  cam.x+=(you.x-cam.x)*0.08; cam.y+=(you.y-cam.y)*0.08;
+  // 昇格＝今持つ熱E・運動E が“両方”基準線を超えた瞬間（両方マックスは不可能）
+  const thF=you.t/P.popThresh, keF=(0.5*(you.vx*you.vx+you.vy*you.vy))/keMax();
+  if(lvCool===0 && thF+keF>=lvSum())levelUp();   // 足し算（割合の和）
+  return measure();
+}
+function measure(){
+  let alive=0; for(let i=1;i<A.length;i++)if(A[i].t>P.alive)alive++;
+  if(state==='play'){ if(you.t<P.alive)freezeT++; else freezeT=0; if(freezeT>180)state='over'; }
+  return alive;
+}
+
+function pos(e){const r=cv.getBoundingClientRect();
+  return [((e.touches?e.touches[0].clientX:e.clientX)-r.left)*W/r.width,
+          ((e.touches?e.touches[0].clientY:e.clientY)-r.top)*H/r.height];}
+function dn(e){if(state!=='play'){reset();state='play';pt=pos(e);return;} pt=pos(e); charging=true; chargeT=0;}
+function up(){if(charging){lastCharge=chargeT/P.chargeMax; launchReq=true; charging=false;}}
+cv.addEventListener('mousedown',dn);cv.addEventListener('mousemove',e=>{pt=pos(e);});
+window.addEventListener('mouseup',up);
+cv.addEventListener('touchstart',e=>{dn(e);e.preventDefault();},{passive:false});
+cv.addEventListener('touchmove',e=>{pt=pos(e);e.preventDefault();},{passive:false});
+cv.addEventListener('touchend',e=>{up();e.preventDefault();},{passive:false});
+
+function warmColor(t){const r=Math.round(38+t*215),g=Math.round(48+t*150),b=Math.round(92-t*62);return `rgb(${r},${g},${b})`;}
+function ctext(s,sz,c,y,w=700){ctx.fillStyle=c;ctx.font=`${w} ${sz}px -apple-system,sans-serif`;ctx.textAlign='center';ctx.fillText(s,W/2,y);}
+function pbar(x,y,w,frac,col){ctx.fillStyle='#11121c';ctx.fillRect(x,y,w,8);
+  ctx.fillStyle=col;ctx.fillRect(x,y,w*Math.max(0,Math.min(1,frac)),8);}
+
+function draw(alive){
+  ctx.fillStyle='#04040a';ctx.fillRect(0,0,W,H);
+  const ox=W/2-cam.x, oy=H/2-cam.y;
+  const gs=90; ctx.fillStyle='rgba(120,130,170,0.10)';
+  const x0=Math.floor((cam.x-W/2)/gs)*gs, y0=Math.floor((cam.y-H/2)/gs)*gs;
+  for(let wx=x0;wx<cam.x+W/2+gs;wx+=gs)for(let wy=y0;wy<cam.y+H/2+gs;wy+=gs){ctx.beginPath();ctx.arc(wx+ox,wy+oy,1,0,6.28);ctx.fill();}
+  ctx.strokeStyle='rgba(120,110,160,0.18)';ctx.lineWidth=2;ctx.beginPath();ctx.arc(ox,oy,worldR,0,6.28);ctx.stroke();
+  // 結合線（くっつき）
+  for(const key of bonds){const s=key.split(','),a=A[+s[0]],b=A[+s[1]],core=coreBonds.has(key);
+    ctx.strokeStyle=core?'rgba(255,210,130,0.8)':'rgba(180,200,255,0.3)';ctx.lineWidth=core?2.2:1.4;
+    ctx.beginPath();ctx.moveTo(a.x+ox,a.y+oy);ctx.lineTo(b.x+ox,b.y+oy);ctx.stroke();}
+  // 関係線（温度）
+  const N=A.length;
+  for(let i=0;i<N;i++)if(A[i]._nb)for(const j of A[i]._nb){if(j<i)continue;
+    const a=A[i],b=A[j],m=Math.min(a.t,b.t);
+    if(m>P.alive*0.8){const al=m*(1-Math.hypot(b.x-a.x,b.y-a.y)/P.capR);
+      ctx.strokeStyle=`rgba(255,190,100,${Math.max(0,al)})`;ctx.lineWidth=al*2.2;
+      ctx.beginPath();ctx.moveTo(a.x+ox,a.y+oy);ctx.lineTo(b.x+ox,b.y+oy);ctx.stroke();}}
+  for(const p of A){const sx=p.x+ox,sy=p.y+oy;
+    if(p.t>0.05){ctx.fillStyle=`rgba(255,180,90,${p.t*0.2})`;ctx.beginPath();ctx.arc(sx,sy,5+p.t*14,0,6.28);ctx.fill();}
+    if(p.you){ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(sx,sy,6,0,6.28);ctx.fill();
+      ctx.strokeStyle='rgba(255,255,255,.5)';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(sx,sy,11,0,6.28);ctx.stroke();
+      if(pt){const dx=(pt[0]-W/2+cam.x)-p.x,dy=(pt[1]-H/2+cam.y)-p.y,d=Math.hypot(dx,dy)+.01;
+        const L=14+(charging?chargeT/P.chargeMax*42:6);
+        ctx.strokeStyle=charging?'rgba(255,200,120,.9)':'rgba(140,200,255,.5)';ctx.lineWidth=charging?3:1.5;
+        ctx.beginPath();ctx.moveTo(sx,sy);ctx.lineTo(sx+dx/d*L,sy+dy/d*L);ctx.stroke();}
+      continue;}
+    ctx.fillStyle=warmColor(p.t);ctx.beginPath();ctx.arc(sx,sy,4,0,6.28);ctx.fill();}
+  // 画面外の熱源への矢印
+  for(const p of A){if(p.you||p.t<0.5)continue;const sx=p.x+ox,sy=p.y+oy; // 画面外の“温かい点”へ
+    if(sx>8&&sx<W-8&&sy>8&&sy<H-8)continue;
+    const ang=Math.atan2(sy-H/2,sx-W/2),ex=W/2+Math.cos(ang)*(W/2-22),ey=H/2+Math.sin(ang)*(H/2-22);
+    const dist=Math.hypot(p.x-you.x,p.y-you.y),al=Math.max(0.15,Math.min(0.9,150/dist));
+    ctx.save();ctx.translate(ex,ey);ctx.rotate(ang);ctx.fillStyle=`rgba(255,210,130,${al})`;
+    ctx.beginPath();ctx.moveTo(8,0);ctx.lineTo(-5,-5);ctx.lineTo(-5,5);ctx.closePath();ctx.fill();ctx.restore();}
+
+  // HUD：熱E・運動E の上限バー＋基準線（両方が線を超えたら昇格）
+  const thF=you.t/P.popThresh, keF=(0.5*(you.vx*you.vx+you.vy*you.vy))/keMax();
+  const sum=thF+keF, need=lvSum(), ready=sum>=need;
+  ctx.textAlign='left';ctx.fillStyle='#9aa0c4';ctx.font='600 11px -apple-system';
+  ctx.fillText('熱 E',16,30); pbar(58,22,150,thF,warmColor(you.t));
+  ctx.fillText('運動 E',16,50); pbar(58,42,150,keF,'#8cc8ff');
+  ctx.fillStyle=ready?'#b7e0a0':'#9aa0c4';ctx.font='600 11px -apple-system';
+  ctx.fillText((ready?'▲昇格可 ':'昇格 ')+'熱+運動 '+sum.toFixed(2)+' / '+need.toFixed(2),16,68);
+  pbar(58,72,150,sum/need,ready?'#b7e0a0':'#6f7a52');
+  ctx.textAlign='right';ctx.fillStyle='#ffd27a';ctx.font='700 16px -apple-system';ctx.fillText(`Lv ${level}`,W-16,26);
+  ctx.fillStyle='#ff9a6a';ctx.font='600 11px -apple-system';ctx.fillText(`エントロピー圧 ${(drain()*1000).toFixed(1)}`,W-16,44);
+  ctx.fillStyle=alive<4?'#ff8a6a':'#cfd3ea';ctx.fillText(`生存 ${alive}`,W-16,60);
+  ctx.fillStyle='#ffd27a';ctx.fillText(`核 ${coreSize}`,W-16,76);
+  // ミニマップ
+  const mr=52,mcx=W-mr-16,mcy=H-mr-16,msc=mr/worldR;
+  ctx.fillStyle='rgba(8,8,16,0.72)';ctx.beginPath();ctx.arc(mcx,mcy,mr+4,0,6.28);ctx.fill();
+  ctx.strokeStyle='rgba(120,110,160,0.35)';ctx.lineWidth=1;ctx.beginPath();ctx.arc(mcx,mcy,mr,0,6.28);ctx.stroke();
+  for(const p of A){const mx=mcx+p.x*msc,my=mcy+p.y*msc; if(Math.hypot(mx-mcx,my-mcy)>mr)continue;
+    if(p.you){ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(mx,my,2.6,0,6.28);ctx.fill();}
+    else{ctx.fillStyle=p.t>0.4?`rgba(255,200,130,${Math.min(1,p.t)})`:`rgba(150,170,210,${p.t>P.alive?0.5:0.2})`;
+      ctx.beginPath();ctx.arc(mx,my,p.t>0.4?2:1,0,6.28);ctx.fill();}}
+  if(freezeT>0){ctx.fillStyle=`rgba(255,90,90,${Math.min(freezeT/180,0.5)})`;ctx.fillRect(0,0,W,H);}
+  if(flashT>0){ctx.globalAlpha=Math.min(flashT/40,1);ctext(flash,17,'#ffd27a',92);ctx.globalAlpha=1;}
+
+  if(state==='title'){ctx.fillStyle='rgba(4,4,10,0.66)';ctx.fillRect(0,0,W,H);
+    ctext('散逸構造',36,'#ffd27a',H/2-104,800);
+    ctext('触れれば、くっつく。くっつけば温まり、運動は死ぬ。',13.5,'#aeb4d8',H/2-66);
+    ctext('クリックで射出 — くっつきを破って、飛ぶ。',13.5,'#7e84a8',H/2-40);
+    ctext('熱の割合＋運動の割合の“和”を基準へ。両方マックスは不可能。',13.5,'#7e84a8',H/2-14);
+    ctext('昇格で上限も漏れも上がる。育て続けねば熱的死。',13.5,'#9aa0c4',H/2+12);
+    ctext('決められるのは、向きと、射出の時。',13.5,'#9aa0c4',H/2+38);
+    ctext('クリック / タップで降りる',15,'#5a6080',H/2+82);}
+  if(state==='over'){ctx.fillStyle='rgba(4,4,10,0.72)';ctx.fillRect(0,0,W,H);
+    ctext('熱的死',32,'#6a7290',H/2-40,800);
+    ctext('到達レベル '+level,20,'#cfd3ea',H/2+4);
+    ctext('クリックでもう一度',15,'#5a6080',H/2+48);}
+}
+function loop(){const a=step();draw(a);requestAnimationFrame(loop);}
+loop();
+</script>
+</body>
+</html>
