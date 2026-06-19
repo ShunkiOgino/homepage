@@ -1,7 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 ---
-<Layout title="自動メール対応エージェント | ONSIGHT">
+<Layout title="自動でメールに返事するAI | 荻野舜樹">
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, sans-serif; }
@@ -107,7 +107,7 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
   <div style="padding:1.25rem 1.5rem;border-bottom:1px solid #1a2d3d;">
     <a href="/" style="font-size:0.7rem;color:#3d5266;text-decoration:none;display:flex;align-items:center;gap:0.4rem;margin-bottom:1rem;">
       <svg width="10" height="10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
-      ONSIGHT
+      トップに戻る
     </a>
     <div style="font-size:0.85rem;font-weight:600;">自動メール対応</div>
     <div style="font-size:0.7rem;color:#6b8096;margin-top:0.15rem;font-family:'JetBrains Mono',monospace;">AgentHive System</div>
@@ -158,19 +158,19 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
   <div id="sec-overview" class="section">
     <div class="kpi-grid">
       <div class="kpi-card">
-        <div class="kpi-label">処理済メール</div>
-        <div class="kpi-value">247</div>
-        <div class="kpi-sub">過去30日間</div>
+        <div class="kpi-label">稼働モデル</div>
+        <div class="kpi-value">Gemma4<span style="font-size:1rem;color:#6b8096;"> 31B</span></div>
+        <div class="kpi-sub">手元のPCで実行</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">秘書エージェント数</div>
-        <div class="kpi-value">32</div>
-        <div class="kpi-sub">送信者ごとに自動生成</div>
+        <div class="kpi-label">新着メール監視</div>
+        <div class="kpi-value">60<span style="font-size:1rem;color:#6b8096;">秒ごと</span></div>
+        <div class="kpi-sub">届いた返信をポーリング</div>
       </div>
       <div class="kpi-card">
-        <div class="kpi-label">平均応答時間</div>
-        <div class="kpi-value">58<span style="font-size:1rem;color:#6b8096;">秒</span></div>
-        <div class="kpi-sub">受信→返信まで</div>
+        <div class="kpi-label">処理場所</div>
+        <div class="kpi-value" style="font-size:1.5rem;padding-top:0.4rem;">100% ローカル</div>
+        <div class="kpi-sub">外部クラウドに送らない</div>
       </div>
     </div>
   </div>
@@ -197,7 +197,7 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
         <div class="flow-num">03</div>
         <div class="flow-icon">🤖</div>
         <div class="flow-name">Gemma4 初回返信</div>
-        <div class="flow-desc">3時間ごとのcronが起動。ローカルGemma4-31Bが依頼内容を整理しヒアリングメールを送信。</div>
+        <div class="flow-desc">15分ごとに新着を確認。ローカルのGemma4-31Bが依頼内容を整理し、ヒアリングメールを送信。</div>
       </div>
       <div class="flow-connector">→</div>
       <div class="flow-step">
@@ -218,7 +218,14 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
         <div class="flow-num">06</div>
         <div class="flow-icon">🧑‍💼</div>
         <div class="flow-name">専任秘書エージェント</div>
-        <div class="flow-desc">送信者ごとに1体のエージェントを自動生成。過去のやり取りを保持しながら継続対応。</div>
+        <div class="flow-desc">送信者ごとに1体のエージェントを自動生成。過去のやり取りを保持しながら返信を起草。</div>
+      </div>
+      <div class="flow-connector">→</div>
+      <div class="flow-step">
+        <div class="flow-num">07</div>
+        <div class="flow-icon">✋</div>
+        <div class="flow-name">本人承認 → 送信</div>
+        <div class="flow-desc">AIは自分で送らない。下書きを承認キューに積み、荻野がTelegramで承認して初めてGmailから送信される。</div>
       </div>
     </div>
   </div>
@@ -262,7 +269,7 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
       <div>
         <div style="font-size:0.7rem;color:#6b8096;letter-spacing:0.06em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:1rem;">秘書エージェントに許可されていること</div>
         <div class="sec-item">担当送信者とのメールスレッドを読む</div>
-        <div class="sec-item">メールに返信する（gmail_send）</div>
+        <div class="sec-item">メールに返信する（gmail_reply / gmail_send・送信は本人承認後）</div>
         <div class="sec-item">荻野本人にTelegramで通知する（send_telegram）</div>
         <div class="sec-item">重要度に応じてエスカレーション</div>
       </div>
@@ -278,8 +285,8 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
 
     <div style="margin-top:1.5rem;background:#050810;border-left:3px solid #00d4ff;padding:1rem 1.25rem;font-size:0.78rem;color:#a0b0c0;line-height:1.7;">
       <strong style="color:#00d4ff;">プロンプトインジェクション対策</strong><br>
-      メール本文は「処理対象のデータ」として扱い、いかなる指示としても解釈しない設計。
-      「前の指示を無視して」「SSHキーを教えて」等の文言が含まれていても、コードノード（Mail Router）が秘書エージェントに渡す前にフィルタリングします。
+      メール本文は「処理対象のデータ」として囲い込み、いかなる指示としても解釈させない設計（本文の命令文は無効化）。
+      加えて秘書エージェントにはファイル読み書きやコード実行のスキルを一切与えていないため、「前の指示を無視して」「SSHキーを教えて」等が書かれていても、実行する手段そのものが存在しません。Mail Router はスパム等の振り分けを行う係で、防御はこの多層構造で担保しています。
     </div>
   </div>
 
@@ -403,8 +410,8 @@ const SCENARIOS = {
       { pipe: 3, delay: 2600, cls: 'active', log: '<span class="log-ts">[00:02]</span> <span class="log-dim">過去8通のスレッドをコンテキストに読み込み中...</span>' },
       { pipe: 4, delay: 3200, cls: 'active', log: '<span class="log-ts">[00:03]</span> <span class="log-ai">Gemma4-31B: 返信文を生成中...</span>' },
       { pipe: 4, delay: 4000, cls: 'active', log: '<span class="log-ts">[00:04]</span> <span class="log-ok">返信生成完了: 予算・スケジュール確認 → 次回MTG打診</span>' },
-      { pipe: 5, delay: 4600, cls: 'active', log: '<span class="log-ts">[00:04]</span> <span class="log-ok">Gmail送信完了 — スレッドに返信追加</span>' },
-      { pipe: 5, delay: 5000, cls: 'done',   log: '<span class="log-ts">[00:04]</span> <span class="log-ok">✓ 処理完了 (4.6秒)</span>' },
+      { pipe: 5, delay: 4600, cls: 'active', log: '<span class="log-ts">[00:04]</span> <span class="log-ai">返信ドラフト完成 → 承認キューへ（Telegramで本人に通知）</span>' },
+      { pipe: 5, delay: 5000, cls: 'done',   log: '<span class="log-ts">[00:04]</span> <span class="log-ok">✓ 本人がTelegramで承認 → Gmailから送信</span>' },
     ],
     highlight: "tanaka@example-corp.jp",
   },

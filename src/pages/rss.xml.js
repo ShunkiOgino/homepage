@@ -5,7 +5,7 @@ export async function GET(context) {
   const posts = (await getCollection('blog', ({ data }) => !data.draft))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
   return rss({
-    title: 'ONSIGHT Blog — 荻野舜樹',
+    title: '荻野舜樹 — Blog',
     description: 'AI・思考・働き方について、ゆるく深く考える記録。',
     site: context.site,
     items: posts.map((p) => ({

@@ -5,7 +5,7 @@ interface Props {
   title: string;
   description?: string;
 }
-const { title, description = '荻野舜樹 | システムコンサルタント・構築・保守運用' } = Astro.props;
+const { title, description = '荻野舜樹の外部API — 生産活動から人間を排する。思想・作品・ブログ。' } = Astro.props;
 const siteUrl = links.homepage.url;
 const pageUrl = siteUrl + Astro.url.pathname;
 const ogImage = siteUrl + '/og.png';
@@ -19,10 +19,10 @@ const ogImage = siteUrl + '/og.png';
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={pageUrl} />
-    <link rel="alternate" type="application/rss+xml" title="ONSIGHT Blog" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="荻野舜樹 — Blog" href="/rss.xml" />
     <!-- OGP / SNSシェアカード -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="ONSIGHT" />
+    <meta property="og:site_name" content="荻野舜樹" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageUrl} />

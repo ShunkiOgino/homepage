@@ -2,190 +2,178 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import latest from '../data/latest_posts.json';
 
+// 作ったもの — 考えていることの「証拠」。どれも自分のための道具。
 const works = [
   {
-    slug: 'sanyo-tekko',
-    company: '山陽鉄工株式会社',
-    system: '生産管理ダッシュボード',
-    desc: '複数ラインの稼働率・生産数をリアルタイム集約。現場担当者が毎朝確認する指標を一画面に。',
-    duration: '5日',
-    tags: ['業務ダッシュボード', 'データ可視化', '製造業'],
-    status: 'デモ',
+    title: '散逸構造ゲーム',
+    sub: 'ゲーム / 物理',
+    desc: '物理の法則をそのままルールに組み込んだゲーム。むずかしい考えを、説明ではなく「触って分かる」形に置き換える実験です。',
+    tags: ['ゲーム', 'ブラウザで遊べる'],
+    href: '/game/',
+    cta: '遊んでみる →',
+    status: '公開中',
   },
   {
-    slug: 'setouchi-shoji',
-    company: '瀬戸内商事株式会社',
-    system: '在庫・発注管理システム',
-    desc: '品番ごとの在庫推移と発注トリガーを自動化。Excelベースの属人運用を脱却した。',
-    duration: '4日',
-    tags: ['在庫管理', '業務自動化', '商社'],
-    status: 'デモ',
+    title: '自動でメールに返事するAI',
+    sub: 'AIエージェント',
+    desc: '送ってきた相手ごとに専用のAIが立ち上がり、私のパソコンの中で動くAI（Gemma4）だけで内容を整理して返事をします。外部のクラウドには一切送りません。相手ごとに見られる範囲を分け、別の人のやり取りには触れられない作りです。',
+    tags: ['AI', 'メール自動化', '完全ローカル'],
+    href: '/works/agent-mail',
+    cta: '中を見る →',
+    status: '稼働中',
   },
   {
-    slug: 'hiroshima-techno',
-    company: '広島テクノサービス株式会社',
-    system: '社内問い合わせ管理',
-    desc: '部門をまたぐ問い合わせをチケット化し、対応漏れをゼロに。担当アサインと期限管理を一元化。',
-    duration: '3日',
-    tags: ['チケット管理', '社内ツール', 'IT企業'],
-    status: 'デモ',
-  },
-  {
-    slug: 'ota-river',
-    company: '広島市土木局（想定ケース）',
-    system: '太田川 河川・気象モニタリング',
-    desc: '気象庁AMEDASの実データと水位シミュレーションを組み合わせたリアルタイム監視ダッシュボード。降雨から水位上昇までの時間差を可視化。',
-    duration: '2日',
-    tags: ['リアルタイム監視', 'APIデータ連携', '防災・インフラ'],
-    status: 'LIVE',
-  },
-  {
-    slug: 'video-studio',
-    company: 'ONSIGHT（自社ツール）',
-    system: 'YouTube動画制作スタジオ',
-    desc: 'インタビューログからAIが台本を生成し、Live2Dキャラ配置・装飾・動画レンダリングまでを一元管理する動画制作ワークフローツール。',
-    duration: '継続開発中',
-    tags: ['AI台本生成', 'Live2D', 'ローカルLLM活用'],
-    status: 'LIVE',
-  },
-  {
-    slug: 'agent-mail',
-    company: 'ONSIGHT（自社インフラ）',
-    system: '自動メール対応エージェント',
-    desc: '問い合わせフォームからGemma4が初回ヒアリングを送信。返信にはAgentHiveが送信者ごとの専任秘書エージェントを自動生成し継続対応。完全ローカルLLM処理。',
-    duration: '継続稼働中',
-    tags: ['AgentHive', 'ローカルLLM', 'メール自動化'],
-    status: 'LIVE',
+    title: '動画を作るスタジオ',
+    sub: '動画制作ツール',
+    desc: '話した内容からAIが台本を起こし、キャラクターの配置・音声合成・書き出しまでを自動で。動画を作る手間を、丸ごと機械に渡す試みです。台本づくりも音声もぜんぶローカルで動きます。',
+    tags: ['動画', 'AI台本', '音声合成'],
+    href: '/works/video-studio',
+    cta: '中を見る →',
+    status: '稼働中',
   },
 ];
 ---
-<Layout title="ONSIGHT | 要件定義からシステム構築・運用まで">
+<Layout
+  title="荻野舜樹 — めんどうは機械に、人は好きなことを"
+  description="めんどうなことは機械にやらせて、人は好きなことに時間を使えるように。荻野舜樹が考えていること、作ったもの。"
+>
   <Nav />
 
-  <!-- Hero -->
+  <!-- Hero（やわらかい一文を主役に） -->
   <section style="min-height:100vh;display:flex;align-items:center;padding:0 2rem;padding-top:56px;">
     <div style="max-width:1100px;margin:0 auto;width:100%;">
-      <h1 style="font-size:clamp(2rem,5vw,4rem);font-weight:700;line-height:1.15;letter-spacing:-0.02em;margin-bottom:1.75rem;color:var(--text);">
-        現場に入り、<br />要件を整理し、<br /><span style="color:var(--accent);">動くものを渡す。</span>
+      <h1 style="font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1.3;letter-spacing:-0.02em;margin-bottom:1.75rem;color:var(--text);">
+        めんどうなことは、<span style="color:var(--accent);">機械にやらせる。</span><br />人は、好きなことに時間を使えばいい。
       </h1>
-      <p style="font-size:0.95rem;color:var(--text2);max-width:480px;margin-bottom:0.75rem;line-height:1.9;">
-        作って終わりじゃなく、保守・運用まで一貫して。<br />
-        上流から入るシステムコンサルタントです。
+      <p style="font-size:1.05rem;color:var(--text-prose);max-width:600px;margin-bottom:1rem;line-height:1.9;">
+        そういう道具を、まず自分のために作っています。いつか、みんなのぶんも。
       </p>
-      <p style="font-size:0.78rem;color:var(--text3);margin-bottom:2.5rem;font-family:'JetBrains Mono',monospace;">by 荻野舜樹</p>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
-        <a href="#works" style="background:var(--accent);color:var(--bg);padding:0.75rem 2rem;font-weight:600;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.background='var(--accent-bright)'" onmouseout="this.style.background='var(--accent)'">デモを見る</a>
-        <a href="#contact" style="border:1px solid var(--border);color:var(--text);padding:0.75rem 2rem;font-weight:400;font-size:0.9rem;text-decoration:none;letter-spacing:0.03em;" onmouseover="this.style.borderColor='var(--text2)'" onmouseout="this.style.borderColor='var(--border)'">依頼する</a>
-      </div>
+      <p style="font-size:0.95rem;color:var(--text2);max-width:600px;margin-bottom:2.5rem;line-height:1.9;">
+        このサイトは、私が何を考えて、何を作っているのかを置いておく場所です。
+      </p>
 
-      <!-- Stats -->
-      <div style="display:flex;gap:3rem;margin-top:5rem;padding-top:2rem;border-top:1px solid var(--border);flex-wrap:wrap;">
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:500;">要件定義<span style="font-size:1rem;color:var(--text2);">から</span></div>
-          <div style="font-size:0.75rem;color:var(--text2);letter-spacing:0.05em;margin-top:0.25rem;">上流工程を担当</div>
-        </div>
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:500;">現場<span style="font-size:1rem;color:var(--text2);">主義</span></div>
-          <div style="font-size:0.75rem;color:var(--text2);letter-spacing:0.05em;margin-top:0.25rem;">課題は現場にある</div>
-        </div>
-        <div>
-          <div style="font-family:'JetBrains Mono',monospace;font-size:2rem;color:var(--accent);font-weight:500;">構築<span style="font-size:1rem;color:var(--text2);">〜</span>運用</div>
-          <div style="font-size:0.75rem;color:var(--text2);letter-spacing:0.05em;margin-top:0.25rem;">一気通貫で担当</div>
-        </div>
+      <!-- 入口カード（メタファなし・一般語） -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5px;background:var(--border);margin-top:3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+        {[
+          ['作ったもの', '自分のために作った道具', '#works'],
+          ['ブログ', '考えていること・日々の記録', '/blog'],
+          ['連絡', 'AIがまず返事をします', '#contact'],
+        ].map(([label, desc, href]) => (
+          <a href={href} style="background:var(--bg);padding:1.25rem 1.5rem;text-decoration:none;display:block;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
+            <div style="font-size:1rem;color:var(--text);font-weight:600;margin-bottom:0.35rem;">{label}</div>
+            <div style="font-size:0.8rem;color:var(--text2);line-height:1.6;">{desc}</div>
+          </a>
+        ))}
       </div>
+      <p style="font-size:0.85rem;color:var(--text3);margin-top:2rem;">荻野舜樹</p>
     </div>
   </section>
 
-  <!-- Works -->
-  <section id="works" style="padding:6rem 2rem;border-top:1px solid var(--border);">
+  <!-- 最新の発信（log層の流入口：直近のYouTube/Instagram） -->
+  <section id="latest" style="padding:5rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
     <div style="max-width:1100px;margin:0 auto;">
-      <div style="margin-bottom:3rem;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ ls ./works</span>
-        <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">Works</h2>
-        <p style="color:var(--text2);margin-top:0.5rem;">すべて実際に動くデモです。よくある業務課題を想定して制作しました。納品物は、このイメージのまま「動くもの」で渡します。</p>
+      <div style="margin-bottom:2rem;max-width:720px;">
+        <h2 style="font-size:2rem;font-weight:600;letter-spacing:-0.02em;">最新の発信</h2>
+        <p style="color:var(--text2);margin-top:0.6rem;line-height:1.8;">YouTube と Instagram の直近の投稿です。日々の記録がここに流れ込みます。</p>
+      </div>
+
+      {latest.youtube && latest.youtube.length > 0 && (
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:1.25rem;">
+          {latest.youtube.map((v) => (
+            <a href={v.url} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+              <div style="position:relative;aspect-ratio:16/9;background:#000;">
+                <img src={v.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">▶ YouTube</span>
+              </div>
+              <div style="padding:0.8rem 0.95rem;font-size:0.82rem;line-height:1.55;color:var(--text);">{v.title}</div>
+            </a>
+          ))}
+        </div>
+      )}
+
+      {latest.instagram && latest.instagram.length > 0 && (
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;">
+          {latest.instagram.map((p) => (
+            <a href={p.permalink} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+              <div style="position:relative;aspect-ratio:1/1;background:#000;display:flex;align-items:center;justify-content:center;">
+                {p.thumb ? (
+                  <img src={p.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+                ) : (
+                  <span style="color:var(--text3);font-size:0.7rem;">Instagram</span>
+                )}
+                <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">Instagram</span>
+              </div>
+              {p.caption && (
+                <div style="padding:0.7rem 0.85rem;font-size:0.75rem;line-height:1.5;color:var(--text2);">{p.caption}</div>
+              )}
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- 作ったもの -->
+  <section id="works" style="padding:6rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="margin-bottom:3rem;max-width:720px;">
+        <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">作ったもの</h2>
+        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">考えていることの、証拠みたいなものです。どれも自分のために作った道具で、私がいなくても、これらは動き続けます。</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:var(--border);">
         {works.map((w) => (
-          <div style="background:var(--bg);padding:2rem;position:relative;overflow:hidden;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
+          <div style="background:var(--bg);padding:2rem;position:relative;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
             <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),transparent);"></div>
             <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
-              <span style="font-size:0.7rem;color:var(--text2);font-family:'JetBrains Mono',monospace;">{w.company}</span>
+              <span style="font-size:0.72rem;color:var(--text2);">{w.sub}</span>
               <span style="font-size:0.65rem;background:rgba(0,212,255,0.1);color:var(--accent);padding:0.2rem 0.6rem;border:1px solid rgba(0,212,255,0.2);">{w.status}</span>
             </div>
-            <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">{w.system}</h3>
-            <p style="font-size:0.875rem;color:var(--text2);line-height:1.7;margin-bottom:1.5rem;">{w.desc}</p>
+            <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">{w.title}</h3>
+            <p style="font-size:0.875rem;color:var(--text2);line-height:1.8;margin-bottom:1.5rem;flex:1;">{w.desc}</p>
             <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
               {w.tags.map(t => (
-                <span style="font-size:0.65rem;color:var(--text3);border:1px solid var(--border);padding:0.2rem 0.5rem;">{t}</span>
+                <span style="font-size:0.7rem;color:var(--text3);border:1px solid var(--border);padding:0.2rem 0.6rem;">{t}</span>
               ))}
             </div>
             <div style="display:flex;justify-content:flex-end;">
-              <a href={`/works/${w.slug}`} style="font-size:0.8rem;color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">デモを見る →</a>
+              {w.href ? (
+                <a href={w.href} style="font-size:0.85rem;color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">{w.cta}</a>
+              ) : (
+                <span style="font-size:0.85rem;color:var(--text3);">{w.cta}</span>
+              )}
             </div>
           </div>
         ))}
       </div>
+      <p style="color:var(--text2);margin-top:2rem;font-size:0.9rem;line-height:1.9;max-width:720px;">
+        買って使える「製品」は準備中です。最初の一本は、人とのつながりを助ける道具になる予定です。
+      </p>
     </div>
   </section>
 
-  <!-- About / What I Do -->
-  <section id="about" style="padding:6rem 2rem;border-top:1px solid var(--border);">
-    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;">
-      <div>
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ cat ./about.md</span>
-        <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;margin-bottom:1.5rem;letter-spacing:-0.02em;">What I Do</h2>
-        <p style="color:var(--text2);line-height:1.9;font-size:0.95rem;margin-bottom:1rem;">
-          システム開発の一番むずかしいところは、「何を作るか」を決めることだと思っています。
-        </p>
-        <p style="color:var(--text2);line-height:1.9;font-size:0.95rem;margin-bottom:1rem;">
-          要件定義ができれば、実装は時間の問題です。私はその上流から入り、現場の言語で要件を整理し、動くものとして渡します。
-        </p>
-        <p style="color:var(--text2);line-height:1.9;font-size:0.95rem;">
-          作って終わりじゃなく、そのまま保守・運用フェーズも引き受けます。パランティアが「現場に入って問題を解く」スタイルのように、小さく、深く、確実に。
-        </p>
-      </div>
-      <div>
-        <div style="height:100%;display:flex;flex-direction:column;justify-content:center;gap:0;">
-          {[
-            { num: '01', title: '現場に入る', desc: '課題を外から分析するんじゃなく、現場の人と一緒に考える' },
-            { num: '02', title: '要件を整理する', desc: '「なんとなく困ってる」を「これを作れば解決する」に変換する' },
-            { num: '03', title: '動くものを作る', desc: '要件が決まったら速い。ドキュメントじゃなく動くものを渡す' },
-            { num: '04', title: '保守・運用もやる', desc: '作ったものが現場で使われ続けるよう、面倒を見る' },
-          ].map((item) => (
-            <div style="padding:1.25rem 0;border-bottom:1px solid var(--border);display:flex;gap:1.5rem;align-items:flex-start;" onmouseover="this.style.borderBottomColor='var(--accent)'" onmouseout="this.style.borderBottomColor='var(--border)'">
-              <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--accent);padding-top:0.15rem;min-width:2rem;">{item.num}</span>
-              <div>
-                <div style="font-weight:600;margin-bottom:0.25rem;">{item.title}</div>
-                <div style="font-size:0.85rem;color:var(--text2);">{item.desc}</div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact" style="padding:6rem 2rem;border-top:1px solid var(--border);">
+  <!-- 連絡（自動返信AIの実演） -->
+  <section id="contact" style="padding:6rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
     <div style="max-width:640px;margin:0 auto;">
       <div style="margin-bottom:3rem;">
-        <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">$ request --new</span>
-        <h2 style="font-size:2.5rem;font-weight:600;margin-top:0.75rem;letter-spacing:-0.02em;">依頼する</h2>
-        <p style="color:var(--text2);margin-top:0.5rem;line-height:1.8;">作りたいものの概要を教えてください。送信後、ローカルで動くAI（Gemma4）が要件を整理して折り返します。</p>
-        <div style="background:var(--surface);border:1px solid var(--border);padding:1rem 1.25rem;margin-top:0.5rem;">
-          <div style="font-size:0.65rem;color:var(--text3);letter-spacing:0.1em;font-family:'JetBrains Mono',monospace;margin-bottom:0.75rem;">HOW IT WORKS</div>
+        <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">連絡</h2>
+        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">
+          ここから送ると、私のパソコンの中で動くAIが内容を整理して、まず自動でお返事します。実はこれ自体が、上で紹介している<span style="color:var(--text);">「自動でメールに返事するAI」を実際に動かして見せているもの</span>です。一緒に作りたい人、応援したい人、見学したい人、どなたでもどうぞ。
+        </p>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-top:1.25rem;">
+          <div style="font-size:0.78rem;color:var(--text2);margin-bottom:1rem;font-weight:600;">送信してから返事が届くまで</div>
           <div style="display:flex;gap:0;flex-wrap:wrap;">
             {[
-              ['01', 'フォーム送信', 'Supabaseに保存'],
-              ['02', 'ローカルAI巡回', 'Gemma4が要件を整理'],
-              ['03', 'メール返信', '不足情報・提案を送付'],
-              ['04', '本対応', '荻野が確認して連絡'],
+              ['1', 'フォームを送信', 'サーバーに保存'],
+              ['2', 'AIが受け取る', '内容を整理'],
+              ['3', '自動で返信', 'メールでお返事'],
+              ['4', '本人が確認', '荻野が読んで動く'],
             ].map(([n, t, d]) => (
               <div style="flex:1;min-width:120px;padding:0.5rem 0.75rem;border-left:1px solid var(--border);">
-                <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:var(--accent);margin-bottom:0.2rem;">{n}</div>
-                <div style="font-size:0.78rem;font-weight:500;margin-bottom:0.1rem;">{t}</div>
-                <div style="font-size:0.68rem;color:var(--text2);">{d}</div>
+                <div style="font-size:0.85rem;color:var(--accent);margin-bottom:0.3rem;font-weight:600;">{n}</div>
+                <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.15rem;">{t}</div>
+                <div style="font-size:0.7rem;color:var(--text2);">{d}</div>
               </div>
             ))}
           </div>
@@ -194,33 +182,33 @@ const works = [
       <form id="contact-form" style="display:flex;flex-direction:column;gap:1.5rem;">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
           <div>
-            <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">NAME *</label>
-            <input id="f-name" type="text" required placeholder="山田太郎" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+            <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">お名前 <span style="color:var(--accent);">*</span></label>
+            <input id="f-name" type="text" required placeholder="お名前" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
           </div>
           <div>
-            <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">COMPANY</label>
-            <input id="f-company" type="text" placeholder="株式会社○○（任意）" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+            <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">所属（任意）</label>
+            <input id="f-company" type="text" placeholder="会社・チームなど" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
           </div>
         </div>
         <div>
-          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">EMAIL *</label>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">メールアドレス <span style="color:var(--accent);">*</span></label>
           <input id="f-email" type="email" required placeholder="you@example.com" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
         </div>
         <div>
-          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">何を作りたいですか？ *</label>
-          <input id="f-system" type="text" required placeholder="例：社内の在庫管理を一本化したい、顧客対応のフローを整理したい" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">どんな用件ですか？ <span style="color:var(--accent);">*</span></label>
+          <input id="f-system" type="text" required placeholder="例：一緒に作りたい / 考えに共感した / 見学したい / その他" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
         </div>
         <div>
-          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">今の状況・困っていること *</label>
-          <textarea id="f-situation" required rows="3" placeholder="例：Excelで管理しているが属人化している、担当者が変わるたびに引き継ぎが大変" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">いま考えていること <span style="color:var(--accent);">*</span></label>
+          <textarea id="f-situation" required rows="3" placeholder="どんなきっかけで、ここに辿り着きましたか" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
         </div>
         <div>
-          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">こうなりたい（目標） *</label>
-          <textarea id="f-outcome" required rows="3" placeholder="例：誰でも使えるシステムで、在庫の状況をリアルタイムで把握できるようにしたい" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">こうなったらいいな（目標） <span style="color:var(--accent);">*</span></label>
+          <textarea id="f-outcome" required rows="3" placeholder="一緒に向かいたい先や、実現したいこと" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
         </div>
         <div>
-          <label style="font-size:0.7rem;color:var(--text2);letter-spacing:0.08em;font-family:'JetBrains Mono',monospace;display:block;margin-bottom:0.5rem;">時期感・規模</label>
-          <input id="f-timeline" type="text" placeholder="例：3ヶ月以内、社員10名、まずは1部署から" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">時期感・規模（任意）</label>
+          <input id="f-timeline" type="text" placeholder="例：急ぎではない、まずは話してみたい" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
         </div>
         <!-- ボット対策: honeypot（人間には見えない。埋まっていたらボット） -->
         <input id="f-website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
@@ -262,7 +250,7 @@ const works = [
           result.style.display = 'block';
           result.style.color = 'var(--ok)';
           result.style.fontSize = '0.875rem';
-          result.textContent = '送信しました。AIが要件を整理次第、入力いただいたメアドに折り返します（通常数時間以内）。';
+          result.textContent = '送信しました。AIが内容を整理次第、入力いただいたメアドに折り返します（通常数時間以内）。';
           (document.getElementById('contact-form') as HTMLFormElement).reset();
         } else {
           throw new Error();

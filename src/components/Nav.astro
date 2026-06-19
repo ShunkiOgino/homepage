@@ -1,19 +1,18 @@
 ---
 // 共通トップナビ（唯一の正）。各ページはこれを置くだけ。リンク変更はここ1箇所。
 interface Props {
-  active?: 'works' | 'blog' | 'about' | 'contact' | '';
+  active?: 'thesis' | 'works' | 'blog' | '';
   maxWidth?: string;
 }
 const { active = '', maxWidth = '1100px' } = Astro.props;
 const links = [
-  { key: 'works', label: 'Works', href: '/#works' },
-  { key: 'blog', label: 'Blog', href: '/blog' },
-  { key: 'about', label: 'About', href: '/#about' },
+  { key: 'works', label: '作ったもの', href: '/#works' },
+  { key: 'blog', label: 'ブログ', href: '/blog' },
 ];
 ---
 <nav style="position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);background:rgba(8,12,16,0.85);">
   <div style={`max-width:${maxWidth};margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:56px;`}>
-    <a href="/" style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);letter-spacing:0.08em;text-decoration:none;">ONSIGHT</a>
+    <a href="/" style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);letter-spacing:0.08em;text-decoration:none;">荻野舜樹</a>
     <div style="display:flex;gap:2rem;align-items:center;">
       {links.map((l) => (
         <a
@@ -23,7 +22,7 @@ const links = [
           onmouseout={`this.style.color='${active === l.key ? 'var(--text)' : 'var(--text2)'}'`}
         >{l.label}</a>
       ))}
-      <a href="/#contact" style="font-size:0.8rem;color:var(--accent);text-decoration:none;letter-spacing:0.05em;text-transform:uppercase;border:1px solid var(--border);padding:0.3rem 0.8rem;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Contact</a>
+      <a href="/#contact" style="font-size:0.8rem;color:var(--accent);text-decoration:none;letter-spacing:0.05em;border:1px solid var(--border);padding:0.3rem 0.8rem;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">連絡</a>
     </div>
   </div>
 </nav>

@@ -16,5 +16,14 @@
     "url": "https://www.youtube.com/@広島ai",
     "handle": "@広島ai",
     "label": "YouTube"
+  },
+  "github": {
+    "url": "https://github.com/ShunkiOgino",
+    "label": "GitHub"
+  },
+  "discord": {
+    "url": "https://discord.gg/qMmWS2BXtE",
+    "label": "Discord",
+    "note": "ローカルエージェントAIの実験室"
   }
 }

@@ -102,10 +102,6 @@ tr.script-row { cursor: pointer; }
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
       ビジュアル設定
     </div>
-    <div class="nav-item" id="nav-deco" onclick="scrollToSection('sec-deco','nav-deco')">
-      <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-      装飾エディタ
-    </div>
     <div class="nav-item" id="nav-workflow" onclick="scrollToSection('sec-workflow','nav-workflow')">
       <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
       ワークフロー
@@ -133,21 +129,24 @@ tr.script-row { cursor: pointer; }
   <!-- KPI Cards -->
   <div id="sec-dash" class="section" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:#1a2d3d;">
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
-      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">台本本数</div>
-      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d4ff;">3</div>
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">台本生成</div>
+      <div style="font-size:1.4rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d4ff;padding-top:0.25rem;">Gemma4-31B</div>
+      <div style="font-size:0.65rem;color:#3d5266;margin-top:0.2rem;">ローカルで数十秒〜数分</div>
     </div>
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
-      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">生成動画</div>
-      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d464;">12</div>
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">音声合成</div>
+      <div style="font-size:1.4rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#00d464;padding-top:0.25rem;">Aivis TTS</div>
+      <div style="font-size:0.65rem;color:#3d5266;margin-top:0.2rem;">キャラごとの声</div>
     </div>
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
-      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">AI処理時間</div>
-      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#ffb400;">42<span style="font-size:0.9rem;color:#6b8096;">秒</span></div>
-      <div style="font-size:0.65rem;color:#3d5266;margin-top:0.2rem;">平均</div>
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">描画・出力</div>
+      <div style="font-size:1.4rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#ffb400;padding-top:0.25rem;">Live2D</div>
+      <div style="font-size:0.65rem;color:#3d5266;margin-top:0.2rem;">+ FFmpeg でMP4化</div>
     </div>
     <div style="background:#080c10;padding:1.25rem 1.5rem;">
-      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">直近更新</div>
-      <div style="font-size:1.75rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#e8edf2;">2<span style="font-size:0.9rem;color:#6b8096;">時間前</span></div>
+      <div style="font-size:0.7rem;color:#6b8096;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.4rem;">公開先</div>
+      <div style="font-size:1.4rem;font-weight:500;font-family:'JetBrains Mono',monospace;color:#e8edf2;padding-top:0.25rem;">YouTube</div>
+      <div style="font-size:0.65rem;color:#3d5266;margin-top:0.2rem;">本人承認の後に公開</div>
     </div>
   </div>
 
@@ -155,7 +154,7 @@ tr.script-row { cursor: pointer; }
   <div id="sec-scripts" class="section panel">
     <div class="panel-title">
       <span>台本一覧</span>
-      <span style="font-size:0.7rem;color:#3d5266;font-weight:400;letter-spacing:0;">行をクリックして詳細表示</span>
+      <span style="font-size:0.7rem;color:#3d5266;font-weight:400;letter-spacing:0;">タイトルは実際の公開動画／セリフ数などは表示サンプル</span>
     </div>
     <table>
       <thead>
@@ -169,25 +168,25 @@ tr.script-row { cursor: pointer; }
       </thead>
       <tbody id="scripts-tbody">
         <tr class="script-row" onclick="selectScript(0)">
-          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2025-05-28_AI活用術.md</td>
-          <td>「中小企業こそAIを使うべき3つの理由」</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">42</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">8</td>
-          <td style="color:#3d5266;font-size:0.75rem;">2025-05-28</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2026-06-17_AI自動発信ガバナンス.md</td>
+          <td>「『直す人』を卒業した話。AI自動発信の構造設計と撤回窓」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">40</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">7</td>
+          <td style="color:#3d5266;font-size:0.75rem;">2026-06-17</td>
         </tr>
         <tr class="script-row" onclick="selectScript(1)">
-          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2025-05-20_システム開発.md</td>
-          <td>「小さな会社のシステム化、どこから始める？」</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">38</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2026-06-12_正解の出し方.md</td>
+          <td>「AI時代の正解の出し方｜完璧な設計図を捨てて『正しくなるまで』回す」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">36</td>
           <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">6</td>
-          <td style="color:#3d5266;font-size:0.75rem;">2025-05-20</td>
+          <td style="color:#3d5266;font-size:0.75rem;">2026-06-12</td>
         </tr>
         <tr class="script-row" onclick="selectScript(2)">
-          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2025-05-10_補助金活用.md</td>
-          <td>「IT補助金2025、申請のポイントを解説」</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">30</td>
+          <td style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:#00d4ff;">2026-06-05_実装コストがゼロ.md</td>
+          <td>「実装コストがゼロになる世界で、僕たちが作るべきもの」</td>
+          <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">34</td>
           <td style="font-family:'JetBrains Mono',monospace;color:#6b8096;">5</td>
-          <td style="color:#3d5266;font-size:0.75rem;">2025-05-10</td>
+          <td style="color:#3d5266;font-size:0.75rem;">2026-06-05</td>
         </tr>
       </tbody>
     </table>
@@ -295,10 +294,10 @@ tr.script-row { cursor: pointer; }
       <div class="preview-stage" id="preview-stage">
         <div class="preview-label">PREVIEW</div>
         <!-- bg label -->
-        <div id="preview-bg-label" style="position:absolute;bottom:8px;right:10px;font-size:0.55rem;color:#3d5266;font-family:'JetBrains Mono',monospace;">bg: studio</div>
-        <!-- characters -->
-        <div class="char-circle char-koharu" id="prev-left" style="width:64px;height:64px;left:0px;">こはる</div>
-        <div class="char-circle char-haruto" id="prev-right" style="width:64px;height:64px;left:0px;">はると</div>
+        <div id="preview-bg-label" style="position:absolute;bottom:8px;right:10px;font-size:0.55rem;color:#3d5266;font-family:'JetBrains Mono',monospace;z-index:2;">bg: studio</div>
+        <!-- 実際のLive2D（こはる／はると）。スライダーで配置を動かせる -->
+        <canvas id="live2d-preview" style="position:absolute;inset:0;width:100%;height:100%;z-index:1;"></canvas>
+        <div id="live2d-loading" style="position:absolute;top:50%;left:0;right:0;transform:translateY(-50%);text-align:center;font-size:0.6rem;color:#3d5266;font-family:'JetBrains Mono',monospace;">Live2D 読み込み中…</div>
       </div>
     </div>
     <div style="display:flex;gap:0.5rem;margin-top:0.75rem;">
@@ -306,50 +305,6 @@ tr.script-row { cursor: pointer; }
       <button class="btn" onclick="saveSettings()">設定保存</button>
       <button class="btn-primary" disabled>動画生成</button>
     </div>
-  </div>
-
-  <!-- 装飾エディタ -->
-  <div id="sec-deco" class="section panel">
-    <div class="panel-title">
-      <span>装飾エディタ</span>
-      <button class="btn" disabled>AI で自動挿入</button>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>タイプ</th>
-          <th>テキスト</th>
-          <th>行</th>
-          <th>説明</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="deco-row">💥 ツッコミ</td>
-          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#ffb400;">「どんだけ削れんの！」</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 8</td>
-          <td style="color:#6b8096;font-size:0.78rem;">驚きの強調</td>
-        </tr>
-        <tr>
-          <td class="deco-row">✨ 強調</td>
-          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#00d464;">「人件費を30%カット」</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 7</td>
-          <td style="color:#6b8096;font-size:0.78rem;">数字の訴求力</td>
-        </tr>
-        <tr>
-          <td class="deco-row">💭 吹き出し</td>
-          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#8b5cf6;">「実は限界がある」</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 12</td>
-          <td style="color:#6b8096;font-size:0.78rem;">心の声補足</td>
-        </tr>
-        <tr>
-          <td class="deco-row">♪ sfx</td>
-          <td style="font-family:'JetBrains Mono',monospace;font-size:0.78rem;color:#3b82f6;">「ピコーン」</td>
-          <td style="font-family:'JetBrains Mono',monospace;color:#3d5266;">line 15</td>
-          <td style="color:#6b8096;font-size:0.78rem;">転換ポイント</td>
-        </tr>
-      </tbody>
-    </table>
   </div>
 
   <!-- ワークフロー -->
@@ -407,7 +362,7 @@ tr.script-row { cursor: pointer; }
       </div>
       <div style="background:#0a0e14;padding:1rem 1.25rem;">
         <div style="font-size:0.65rem;color:#3d5266;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;">oMLX / Gemma4-31B</div>
-        <div style="font-size:0.78rem;color:#6b8096;">ローカルLLMで台本生成。平均42秒で完成原稿を出力。外部API不要。</div>
+        <div style="font-size:0.78rem;color:#6b8096;">ローカルLLMで台本生成。数十秒〜数分で原稿を出力。外部API不要。</div>
       </div>
       <div style="background:#0a0e14;padding:1rem 1.25rem;">
         <div style="font-size:0.65rem;color:#3d5266;font-family:'JetBrains Mono',monospace;margin-bottom:0.4rem;">video_maker.py</div>
@@ -418,38 +373,43 @@ tr.script-row { cursor: pointer; }
 
   <div class="demo-banner-bar">
     <span style="font-size:0.78rem;color:#ff8c00;">🎬 DEMO MODE — AgentHive / oMLX に接続するとすべての機能が動作します</span>
-    <span style="font-size:0.7rem;color:#3d5266;">このページは荻野舜樹（ONSIGHT）によるデモです</span>
+    <span style="font-size:0.7rem;color:#3d5266;">このページは荻野舜樹による紹介デモです</span>
   </div>
 </div>
 
 <div class="toast" id="toast"></div>
 
+<!-- Live2D（Live2D Cubism 無料サンプルモデル こはる/はると） -->
+<script is:inline src="https://cubism.live2d.com/sdk-web/cubismcore/live2dcubismcore.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/pixi.js@6.5.10/dist/browser/pixi.min.js"></script>
+<script is:inline src="https://cdn.jsdelivr.net/npm/pixi-live2d-display@0.4.0/dist/cubism4.min.js"></script>
+
 <script is:inline>
 // ---- data ----
 var SCRIPTS = [
   {
-    file: '2025-05-28_AI活用術.md',
-    title: '「中小企業こそAIを使うべき3つの理由」',
-    serifs: 42, telops: 8,
-    sections: ['オープニング', 'AI活用の現状', '理由①コスト削減', '理由②スピード向上', '理由③競争力強化', 'まとめ・CTA'],
-    koharuPct: 62,
-    preview: `# 中小企業こそAIを使うべき3つの理由\n\n[こはる] 今日はですね、中小企業のみなさんに\n         ぜひ聞いてほしい話があります。\n\n[はると] AIって、大企業だけのものだと思ってませんか？\n\n[こはる] それ、完全に誤解なんですよ！\n\n[はると] 実は中小企業こそ、AI活用の恩恵が\n         大きいって知ってましたか？\n\n[こはる] 今日は3つの理由でご説明します。\n         まず一つ目、コスト削減です。`
-  },
-  {
-    file: '2025-05-20_システム開発.md',
-    title: '「小さな会社のシステム化、どこから始める？」',
-    serifs: 38, telops: 6,
-    sections: ['イントロ', '現状の課題', 'どこから手をつける？', 'ツール選定', '導入ステップ', 'まとめ'],
-    koharuPct: 55,
-    preview: `# 小さな会社のシステム化、どこから始める？\n\n[はると] うちの会社、まだExcelとFAXでやってるんだけど\n         いい加減システム化したいんだよね。\n\n[こはる] よくある悩みですね。でも何から始めれば\n         いいかわからない、って感じですよね？\n\n[はると] そうなんです。いきなり大規模導入は\n         リスクが高いし...\n\n[こはる] まず「一番手間がかかっている業務」を\n         一つ選ぶことから始めましょう。`
-  },
-  {
-    file: '2025-05-10_補助金活用.md',
-    title: '「IT補助金2025、申請のポイントを解説」',
-    serifs: 30, telops: 5,
-    sections: ['オープニング', 'IT導入補助金とは', '対象ツール', '申請スケジュール', 'まとめ'],
+    file: '2026-06-17_AI自動発信ガバナンス.md',
+    title: '「『直す人』を卒業した話。AI自動発信の構造設計と撤回窓」',
+    serifs: 40, telops: 7,
+    sections: ['オープニング', '「直す人」をやめたい', '自動発信の落とし穴', '撤回窓という設計', '構造で守る', 'まとめ'],
     koharuPct: 58,
-    preview: `# IT補助金2025、申請のポイントを解説\n\n[こはる] IT導入補助金2025が始まりましたよ！\n\n[はると] あ、毎年やってるやつですね。今年は\n         何が変わったんですか？\n\n[こはる] 今年は最大450万円まで補助が出ます。\n         しかもクラウド系ツールが対象拡充されて。\n\n[はると] それは大きいですね。申請って難しいですか？\n\n[こはる] コツさえ押さえれば大丈夫！\n         まずgBizIDの取得から始めましょう。`
+    preview: `# 「直す人」を卒業した話\n\n[こはる] 今日はね、「直す人」を卒業した話を\n         しようと思います。\n\n[はると] 直す人？\n\n[こはる] AIが自動で発信してくれるんだけど、\n         結局あとから全部手直ししてたんです。\n\n[はると] それじゃ自動の意味がないですね…\n\n[こはる] そう。だから「直す」んじゃなくて、\n         間違っても24時間以内に撤回できる窓を\n         つくる、という構造に切り替えました。`
+  },
+  {
+    file: '2026-06-12_正解の出し方.md',
+    title: '「AI時代の正解の出し方｜完璧な設計図を捨てて『正しくなるまで』回す」',
+    serifs: 36, telops: 6,
+    sections: ['イントロ', '完璧な設計図の幻想', '「正しくなるまで」回す', '実態とのズレを感知する', 'まとめ'],
+    koharuPct: 52,
+    preview: `# AI時代の正解の出し方\n\n[はると] 最初に完璧な設計図をつくろうとして、\n         いつも手が止まるんですよね。\n\n[こはる] わかります。でもAIがある今は、\n         やり方が逆かもしれません。\n\n[はると] 逆、というと？\n\n[こはる] 完璧な図を描くんじゃなくて、\n         「正しくなるまで」何度も回す。\n\n[はると] つくりながら直していく、と。\n\n[こはる] そう。ズレに気づく感覚だけは、\n         まだ人間に残っているんです。`
+  },
+  {
+    file: '2026-06-05_実装コストがゼロ.md',
+    title: '「実装コストがゼロになる世界で、僕たちが作るべきもの」',
+    serifs: 34, telops: 5,
+    sections: ['オープニング', '実装コストがゼロに近づく', '何が価値になるか', '人に残るもの', 'まとめ'],
+    koharuPct: 55,
+    preview: `# 実装コストがゼロになる世界で\n\n[こはる] つくること自体のコストが、\n         どんどんゼロに近づいています。\n\n[はると] AIが書いてくれますもんね。\n\n[こはる] そうなると「何を作るか」を\n         決めることの価値が上がる。\n\n[はると] 作れることより、選べること、ですか。\n\n[こはる] はい。だから僕たちが作るべきは、\n         手を動かす道具じゃなくて、\n         何を残すかという基準そのものなんです。`
   }
 ];
 
@@ -513,6 +473,22 @@ window.setStyle = function(style) {
   document.getElementById('style-variety').classList.toggle('active', style === 'variety');
 };
 
+// 実際の video_maker.py と同じ座標系（1920×1080キャンバス・既定 左X290/右X990/下端Y618/サイズ360）で
+// 本物の Live2D（こはる左＝聞き手／はると右＝話し手）をプレビューに配置する。
+var L2D = { app: null, koharu: null, haruto: null };
+
+function placeOne(model, cx) {
+  if (!model || !L2D.app) return;
+  var pw = L2D.app.renderer.width, ph = L2D.app.renderer.height;
+  var sx = pw / 1920, sy = ph / 1080;
+  var size = parseInt(document.getElementById('sl-size').value);
+  var y = parseInt(document.getElementById('sl-y').value);
+  var targetH = size * sy;                 // プレビュー上のキャラ高さ
+  model.scale.set(targetH / model.__baseH);
+  model.x = cx * sx;
+  model.y = y * sy;                        // anchor(0.5,1) なので足元の高さ
+}
+
 window.updatePreview = function() {
   var size = parseInt(document.getElementById('sl-size').value);
   var lx = parseInt(document.getElementById('sl-lx').value);
@@ -524,33 +500,35 @@ window.updatePreview = function() {
   document.getElementById('lbl-rx').textContent = rx;
   document.getElementById('lbl-y').textContent = y;
 
-  // map to preview 480x270 scale (original canvas: 1920x1080)
-  var scaleX = 480 / 1920;
-  var scaleY = 270 / 1080;
-  var pxSize = size * scaleX;
-  var pxLx = lx * scaleX;
-  var pxRx = rx * scaleX;
-  var pxY = y * scaleY;
-
-  var leftEl = document.getElementById('prev-left');
-  var rightEl = document.getElementById('prev-right');
-
-  // bottom = preview height - pxY
-  var boxH = 270;
-  var bottomOffset = boxH - pxY;
-
-  leftEl.style.width = pxSize + 'px';
-  leftEl.style.height = pxSize + 'px';
-  leftEl.style.left = pxLx + 'px';
-  leftEl.style.bottom = (bottomOffset - pxSize / 2) + 'px';
-  leftEl.style.top = 'auto';
-
-  rightEl.style.width = pxSize + 'px';
-  rightEl.style.height = pxSize + 'px';
-  rightEl.style.left = pxRx + 'px';
-  rightEl.style.bottom = (bottomOffset - pxSize / 2) + 'px';
-  rightEl.style.top = 'auto';
+  placeOne(L2D.koharu, lx);   // こはる＝左
+  placeOne(L2D.haruto, rx);   // はると＝右
 };
+
+function initLive2D() {
+  var canvas = document.getElementById('live2d-preview');
+  if (!canvas || !window.PIXI || !window.PIXI.live2d) return;
+  var stage = document.getElementById('preview-stage');
+  L2D.app = new PIXI.Application({
+    view: canvas, autoStart: true, backgroundAlpha: 0, antialias: true,
+    resolution: window.devicePixelRatio || 1, autoDensity: true, resizeTo: stage,
+  });
+  var loadingEl = document.getElementById('live2d-loading');
+  var pending = 2;
+  function done() { if (--pending <= 0 && loadingEl) loadingEl.style.display = 'none'; }
+  function add(url, key, anchorBottom) {
+    PIXI.live2d.Live2DModel.from(url).then(function(model) {
+      model.anchor.set(0.5, 1);
+      model.__baseH = model.height;   // scale=1 のときの実寸
+      L2D.app.stage.addChild(model);
+      L2D[key] = model;
+      window.updatePreview();
+      done();
+    }).catch(function(e) { console.warn('Live2D load failed:', url, e); done(); });
+  }
+  add('/live2d/koharu/koharu.model3.json', 'koharu');
+  add('/live2d/haruto/haruto.model3.json', 'haruto');
+  window.addEventListener('resize', function(){ window.updatePreview(); });
+}
 
 window.saveSettings = function() {
   toast('設定を保存しました（デモ: ブラウザのみ）');
@@ -558,7 +536,8 @@ window.saveSettings = function() {
 
 // ---- init preview ----
 (function() {
-  updatePreview();
+  initLive2D();   // Live2D を読み込み、ロード完了時に updatePreview が呼ばれる
+  updatePreview(); // ラベルだけ先に反映（モデル未ロードでも安全）
 })();
 </script>
 </Layout>
