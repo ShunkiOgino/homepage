@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>散逸構造 — くっつき、温まり、射出せよ</title>
+<title>Dissipation</title>
 <style>
   html,body{margin:0;height:100%;background:#04040a;overflow:hidden;
     font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;
@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="wrap"><canvas id="c" width="600" height="660"></canvas></div>
-<div id="hint">押し込んで狙う→離して射出（長押しほど強く・熱を多く使う）。間は重力と慣性に委ねる。♪ Mキーで消音。</div>
+<div id="hint">◉ &nbsp;⟶&nbsp; ✦ &nbsp;&nbsp;·&nbsp;&nbsp; ♪ M</div>
 <script>
 const cv=document.getElementById('c'),ctx=cv.getContext('2d');
 const W=cv.width,H=cv.height;
@@ -84,7 +84,7 @@ reset();
 function drain(){return P.drainBase+level*P.drainPerLv+P.drainSpan/(1+Math.exp(-(time-P.tMid)/P.tWidth));}
 
 function levelUp(){
-  level++; lvCool=50; flash='LEVEL UP — エネルギー注入'; flashT=160;
+  level++; lvCool=50; flash='▲ LEVEL UP'; flashT=160;
   // 広さも個数も増やさない。既存の点に熱を足すだけ。
   for(const p of A){ if(!p.you) p.t=Math.min(1.3, p.t+P.lvInject); }
   // 派手なエフェクト：衝撃波＋火花＋画面フラッシュ
@@ -274,6 +274,15 @@ function warmColor(t){const r=Math.round(38+t*215),g=Math.round(48+t*150),b=Math
 function ctext(s,sz,c,y,w=700){ctx.fillStyle=c;ctx.font=`${w} ${sz}px -apple-system,sans-serif`;ctx.textAlign='center';ctx.fillText(s,W/2,y);}
 function pbar(x,y,w,frac,col){ctx.fillStyle='#11121c';ctx.fillRect(x,y,w,8);
   ctx.fillStyle=col;ctx.fillRect(x,y,w*Math.max(0,Math.min(1,frac)),8);}
+// 自前アイコン（フォント非依存・canvas描画）
+function dtext(s,x,y,sz,c,al){ctx.fillStyle=c;ctx.font=`700 ${sz}px -apple-system,sans-serif`;ctx.textAlign=al||'left';ctx.fillText(s,x,y);}
+function phys(s,x,y,sz,c,al){ctx.fillStyle=c;ctx.font=`italic 700 ${sz}px Georgia,'Times New Roman',serif`;ctx.textAlign=al||'left';ctx.fillText(s,x,y);} // 物理変数記号
+function icoFlame(x,y,s,c){ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(x,y-s);ctx.bezierCurveTo(x+s,y-s*0.2,x+s*0.6,y+s,x,y+s);ctx.bezierCurveTo(x-s*0.6,y+s,x-s,y-s*0.2,x,y-s);ctx.fill();}
+function icoBolt(x,y,s,c){ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(x+s*0.35,y-s);ctx.lineTo(x-s*0.55,y+s*0.12);ctx.lineTo(x-s*0.05,y+s*0.12);ctx.lineTo(x-s*0.35,y+s);ctx.lineTo(x+s*0.55,y-s*0.12);ctx.lineTo(x+s*0.05,y-s*0.12);ctx.closePath();ctx.fill();}
+function icoUp(x,y,s,c){ctx.fillStyle=c;ctx.beginPath();ctx.moveTo(x,y-s);ctx.lineTo(x+s*0.85,y+s*0.55);ctx.lineTo(x-s*0.85,y+s*0.55);ctx.closePath();ctx.fill();}
+function icoCold(x,y,s,c){ctx.strokeStyle=c;ctx.lineWidth=1.5;for(let i=0;i<6;i++){const a=i*Math.PI/3;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+Math.cos(a)*s,y+Math.sin(a)*s);ctx.stroke();}}
+function icoDot(x,y,s,c){ctx.fillStyle=c;ctx.beginPath();ctx.arc(x,y,s,0,6.28);ctx.fill();}
+function icoRing(x,y,s,c){ctx.strokeStyle=c;ctx.lineWidth=1.8;ctx.beginPath();ctx.arc(x,y,s,0,6.28);ctx.stroke();}
 
 function draw(alive){
   ctx.fillStyle='#04040a';ctx.fillRect(0,0,W,H);
@@ -324,15 +333,14 @@ function draw(alive){
 
   // HUD：熱E・運動E の上限バー＋基準線（両方が線を超えたら昇格）
   const thF=you.t/P.popThresh, keF=(0.5*(you.vx*you.vx+you.vy*you.vy))/keMax();
-  ctx.textAlign='left';ctx.fillStyle='#9aa0c4';ctx.font='600 11px -apple-system';
-  ctx.fillText('熱 E',16,30); pbar(58,22,150,thF,warmColor(you.t));
-  ctx.fillText('運動 E',16,50); pbar(58,42,150,keF,'#8cc8ff');
-  ctx.fillStyle='#b7e0a0';ctx.font='600 11px -apple-system';
-  ctx.fillText('次のレベルへ',16,68); pbar(58,62,150,levelProg,'#b7e0a0');
-  ctx.textAlign='right';ctx.fillStyle='#ffd27a';ctx.font='700 16px -apple-system';ctx.fillText(`Lv ${level}`,W-16,26);
-  ctx.fillStyle='#ff9a6a';ctx.font='600 11px -apple-system';ctx.fillText(`エントロピー圧 ${(drain()*1000).toFixed(1)}`,W-16,44);
-  ctx.fillStyle=alive<4?'#ff8a6a':'#cfd3ea';ctx.fillText(`生存 ${alive}`,W-16,60);
-  ctx.fillStyle='#ffd27a';ctx.fillText(`核 ${coreSize}`,W-16,76);
+  phys('T',18,33,18,'#ff9a5a','left'); pbar(42,22,152,thF,warmColor(you.t));
+  phys('v',19,53,18,'#8cc8ff','left'); pbar(42,42,152,keF,'#8cc8ff');
+  icoUp(22,67,6,'#b7e0a0');            pbar(42,62,152,levelProg,'#b7e0a0');
+  dtext('Lv '+level,W-16,26,16,'#ffd27a','right');
+  const rx=W-92, aC=alive<4?'#ff8a6a':'#cfd3ea';
+  phys('S',rx,47,16,'#8fb6ff','left'); dtext((drain()*1000).toFixed(1),rx+15,47,12,'#8fb6ff','left');
+  phys('n',rx,66,16,aC,'left');        dtext(''+alive,rx+15,66,12,aC,'left');
+  icoRing(rx+5,80,5,'#ffd27a');        dtext(''+coreSize,rx+15,84,12,'#ffd27a','left');
   // ミニマップ
   const mr=52,mcx=W-mr-16,mcy=H-mr-16,msc=mr/worldR;
   ctx.fillStyle='rgba(8,8,16,0.72)';ctx.beginPath();ctx.arc(mcx,mcy,mr+4,0,6.28);ctx.fill();
@@ -345,18 +353,25 @@ function draw(alive){
   if(screenFlash>0.02){ctx.fillStyle=`rgba(255,235,180,${screenFlash*0.5})`;ctx.fillRect(0,0,W,H);}
   if(flashT>0){ctx.globalAlpha=Math.min(flashT/40,1);ctext(flash,20,'#ffd27a',92);ctx.globalAlpha=1;}
 
-  if(state==='title'){ctx.fillStyle='rgba(4,4,10,0.66)';ctx.fillRect(0,0,W,H);
-    ctext('散逸構造',36,'#ffd27a',H/2-104,800);
-    ctext('触れれば、くっつく。くっつけば温まり、運動は死ぬ。',13.5,'#aeb4d8',H/2-66);
-    ctext('クリックで射出 — くっつきを破って、飛ぶ。',13.5,'#7e84a8',H/2-40);
-    ctext('熱の割合＋運動の割合の“和”を基準へ。両方マックスは不可能。',13.5,'#7e84a8',H/2-14);
-    ctext('昇格で上限も漏れも上がる。育て続けねば熱的死。',13.5,'#9aa0c4',H/2+12);
-    ctext('決められるのは、向きと、射出の時。',13.5,'#9aa0c4',H/2+38);
-    ctext('クリック / タップで降りる',15,'#5a6080',H/2+82);}
+  if(state==='title'){ctx.fillStyle='rgba(4,4,10,0.70)';ctx.fillRect(0,0,W,H);
+    // ロゴ（二重リング）
+    icoRing(W/2,H/2-96,22,'#ffd27a'); icoRing(W/2,H/2-96,12,'#ffd27a');
+    // 目標：T + v → ▲
+    const gy=H/2-34;
+    phys('T',W/2-66,gy+9,28,'#ff9a5a','center'); dtext('+',W/2-42,gy+8,24,'#cfd3ea','center');
+    phys('v',W/2-18,gy+9,28,'#8cc8ff','center'); dtext('→',W/2+12,gy+8,24,'#cfd3ea','center');
+    icoUp(W/2+52,gy,13,'#b7e0a0');
+    // 時間で冷える：S ↑
+    const ey=H/2+8; phys('S',W/2-14,ey+8,24,'#8fb6ff','center'); dtext('↑',W/2+16,ey+8,22,'#8fb6ff','center');
+    // 操作：● ⟶ ⚡（自分→射出）  ＋ ♪M
+    const cy=H/2+50; icoDot(W/2-58,cy,5,'#fff'); dtext('⟶',W/2-30,cy+7,22,'#7e84a8','center');
+    icoBolt(W/2-2,cy,9,'#8cc8ff'); dtext('♪ M',W/2+74,cy+6,16,'#7e84a8','center');
+    // 開始の点滅
+    dtext(Math.floor(time/24)%2?'▶':'▷',W/2,H/2+98,34,'#ffd27a','center');}
   if(state==='over'){ctx.fillStyle='rgba(4,4,10,0.72)';ctx.fillRect(0,0,W,H);
-    ctext('熱的死',32,'#6a7290',H/2-40,800);
-    ctext('到達レベル '+level,20,'#cfd3ea',H/2+4);
-    ctext('クリックでもう一度',15,'#5a6080',H/2+48);}
+    icoCold(W/2,H/2-34,18,'#6a7290');
+    dtext('Lv '+level,W/2,H/2+18,26,'#cfd3ea','center');
+    dtext('↻',W/2,H/2+62,32,'#7a8198','center');}
 }
 function updateFX(){
   for(let i=particles.length-1;i>=0;i--){const q=particles[i];q.x+=q.vx;q.y+=q.vy;q.vx*=0.96;q.vy*=0.96;q.life-=0.025;if(q.life<=0)particles.splice(i,1);}
