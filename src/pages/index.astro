@@ -14,6 +14,7 @@ const works = [
     tags: ['ゲーム', 'ブラウザで遊べる'],
     href: '/game/',
     cta: '遊んでみる →',
+    repo: 'https://github.com/ShunkiOgino/dissipation-game',
     status: '公開中',
   },
   {
@@ -139,7 +140,12 @@ const works = [
                 <span style="font-size:0.7rem;color:var(--text3);border:1px solid var(--border);padding:0.2rem 0.6rem;">{t}</span>
               ))}
             </div>
-            <div style="display:flex;justify-content:flex-end;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;">
+              <span>
+                {w.repo && (
+                  <a href={w.repo} target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--text2);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text2)'">ソース (MIT) ↗</a>
+                )}
+              </span>
               {w.href ? (
                 <a href={w.href} style="font-size:0.85rem;color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">{w.cta}</a>
               ) : (
