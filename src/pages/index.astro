@@ -79,39 +79,36 @@ const works = [
         <p style="color:var(--text2);margin-top:0.6rem;line-height:1.8;">YouTube と Instagram の直近の投稿です。日々の記録がここに流れ込みます。</p>
       </div>
 
-      {latest.youtube && latest.youtube.length > 0 && (
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;margin-bottom:1.25rem;">
-          {latest.youtube.map((v) => (
-            <a href={v.url} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-              <div style="position:relative;aspect-ratio:16/9;background:#000;">
-                <img src={v.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-                <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">▶ YouTube</span>
-              </div>
-              <div style="padding:0.8rem 0.95rem;font-size:0.82rem;line-height:1.55;color:var(--text);">{v.title}</div>
-            </a>
-          ))}
-        </div>
-      )}
-
-      {latest.instagram && latest.instagram.length > 0 && (
-        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.25rem;">
-          {latest.instagram.map((p) => (
-            <a href={p.permalink} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
-              <div style="position:relative;aspect-ratio:1/1;background:#000;display:flex;align-items:center;justify-content:center;">
-                {p.thumb ? (
-                  <img src={p.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
-                ) : (
-                  <span style="color:var(--text3);font-size:0.7rem;">Instagram</span>
-                )}
-                <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">Instagram</span>
-              </div>
-              {p.caption && (
-                <div style="padding:0.7rem 0.85rem;font-size:0.75rem;line-height:1.5;color:var(--text2);">{p.caption}</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;align-items:start;">
+        {latest.youtube.map((v) => (
+          <a href={v.url} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="position:relative;aspect-ratio:16/9;background:#000;">
+              <img src={v.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">▶ YouTube</span>
+            </div>
+            <div style="padding:0.85rem 0.95rem;">
+              <div style="font-size:0.82rem;line-height:1.55;color:var(--text);">{v.title}</div>
+              {v.date && <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;font-family:'JetBrains Mono',monospace;">{v.date}</div>}
+            </div>
+          </a>
+        ))}
+        {latest.instagram.map((p) => (
+          <a href={p.permalink} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="position:relative;aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center;">
+              {p.thumb ? (
+                <img src={p.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              ) : (
+                <span style="color:var(--text3);font-size:0.7rem;">Instagram</span>
               )}
-            </a>
-          ))}
-        </div>
-      )}
+              <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">Instagram</span>
+            </div>
+            <div style="padding:0.85rem 0.95rem;">
+              {p.caption && <div style="font-size:0.8rem;line-height:1.55;color:var(--text2);">{p.caption}</div>}
+              {p.date && <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;font-family:'JetBrains Mono',monospace;">{p.date}</div>}
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
   </section>
 
