@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="wrap"><canvas id="c" width="600" height="660"></canvas></div>
-<div id="hint">押し込んで狙う→離して射出（長押しほど強く・熱を多く使う）。間は重力と慣性に委ねる＝一手ずつの勝負。</div>
+<div id="hint">押し込んで狙う→離して射出（長押しほど強く・熱を多く使う）。間は重力と慣性に委ねる。♪ Mキーで消音。</div>
 <script>
 const cv=document.getElementById('c'),ctx=cv.getContext('2d');
 const W=cv.width,H=cv.height;
@@ -47,6 +47,8 @@ const P={
   drainBase:0.0012, drainPerLv:0.0007,    // 漏れの基準＋昇格ごとの小増
   drainSpan:0.011, tMid:4800, tWidth:1400, // 難易度＝時間のS字（加速度がお山形：序盤緩→中盤急→終盤頭打ち）
   lvInject: 0.5,    // 昇格時：既存の点に足す熱（空間も個数も増やさない）
+  lvActivate:0.45,  // この「熱割合+運動割合」を超えた分だけレベルが段階的に貯まる（低め＝上がりやすい）
+  lvRate:   0.007,  // レベルの貯まる速さ（なだらかに上がりやすく）
   coreCost: 0.0006, // 核1体あたりの維持コスト（大きい核ほど冷える＝余力の限界）
   coreDropT:0.22,   // 核メンバーがこれより冷えると離脱（肥大しすぎない）
   popThresh:0.92,   // 熱がこれを超えると運動に転化（ポップ）
@@ -55,16 +57,14 @@ const P={
   capR:     76, alive:0.16,
   tMaxBase: 1.0,  tMaxPerLv: 0.22,   // 熱の上限（レベルで上がる）
   vmaxBase: 3.4,  vmaxPerLv: 0.45,   // 速度の上限（レベルで上がる）
-  lvSum0:   1.00, lvSumPer:  0.03,    // 昇格に要る「熱割合＋運動割合」の和（漸進）
   worldR0:  640, worldGrow:340, boundK:0.020
 };
 
-let A, you, pt, time, state, level, flash, flashT, cam, worldR, bonds, launchReq, lvCool, charging, chargeT, lastCharge, coreBonds, coreSize;
+let A, you, pt, time, state, level, flash, flashT, cam, worldR, bonds, launchReq, lvCool, charging, chargeT, lastCharge, coreBonds, coreSize, particles, shocks, screenFlash, levelProg;
 let freezeT=0;
 function tMax(){return P.tMaxBase+level*P.tMaxPerLv;}
 function vmaxL(){return P.vmaxBase+level*P.vmaxPerLv;}
 function keMax(){const v=vmaxL();return 0.5*v*v;}
-function lvSum(){return P.lvSum0+level*P.lvSumPer;}
 
 function rnd(a,b){return a+Math.random()*(b-a);}
 // 全部が同格の点。温かい＝初期熱が高いだけ（発熱はしない＝減る一方の貯水池）
@@ -78,14 +78,20 @@ function reset(){
   for(let k=0;k<28;k++)spawnCold(rnd(-480,480),rnd(-480,480));
   pt=null; time=0; state='title'; level=0; flash=''; flashT=0; cam={x:0,y:0};
   launchReq=false; lvCool=0; freezeT=0; charging=false; chargeT=0; lastCharge=0;
+  particles=[]; shocks=[]; screenFlash=0; levelProg=0;
 }
 reset();
 function drain(){return P.drainBase+level*P.drainPerLv+P.drainSpan/(1+Math.exp(-(time-P.tMid)/P.tWidth));}
 
 function levelUp(){
-  level++; lvCool=50; flash='エネルギー注入 — だがエントロピーも上がる'; flashT=160;
+  level++; lvCool=50; flash='LEVEL UP — エネルギー注入'; flashT=160;
   // 広さも個数も増やさない。既存の点に熱を足すだけ。
   for(const p of A){ if(!p.you) p.t=Math.min(1.3, p.t+P.lvInject); }
+  // 派手なエフェクト：衝撃波＋火花＋画面フラッシュ
+  shocks.push({x:you.x,y:you.y,r:0,life:1});
+  for(let i=0;i<54;i++){const a=Math.random()*6.28,s=2+Math.random()*7;
+    particles.push({x:you.x,y:you.y,vx:Math.cos(a)*s,vy:Math.sin(a)*s,life:1,c:'255,210,120'});}
+  screenFlash=1; sfxLevel();
 }
 
 function step(){
@@ -140,7 +146,11 @@ function step(){
     if(pt){const frac=0.3+0.7*lastCharge, cost=P.launchHeat*frac, k=Math.min(1,you.t/cost);
       const wx=pt[0]-W/2+cam.x,wy=pt[1]-H/2+cam.y,dx=wx-you.x,dy=wy-you.y,d=Math.hypot(dx,dy)+.01;
       you.vx+=dx/d*P.launch*frac*k; you.vy+=dy/d*P.launch*frac*k;
-      you.t=Math.max(P.tFloor,you.t-cost);}              // 射出は熱を消費（ため分だけ）
+      you.t=Math.max(P.tFloor,you.t-cost);                // 射出は熱を消費（ため分だけ）
+      const ea=Math.atan2(dy,dx);                         // 射出の噴射エフェクト（後方へ）
+      for(let i=0;i<Math.round(8+frac*18);i++){const pa=ea+Math.PI+(Math.random()-.5)*1.1,ps=1+Math.random()*4*frac;
+        particles.push({x:you.x,y:you.y,vx:Math.cos(pa)*ps,vy:Math.sin(pa)*ps,life:0.9,c:'150,205,255'});}
+      sfxLaunch(frac);}
     launchReq=false;
   }
   // 連続操舵なし：間は重力と慣性に委ねる
@@ -171,14 +181,18 @@ function step(){
   for(const p of A){let cond=0;for(const j of p._nb)cond+=(A[j].t-p.t)*P.cond;
     p.t+=cond+p.g - dr*Math.max(0,p.t-P.tFloor)/(1+P.insul*p._warm) - P.meta - (p._core?P.coreCost*coreSize:0);
     if(!p.you && !p._core && p.t>P.popThresh){const ex=p.t-P.popThresh,ang=Math.random()*6.28,imp=P.popGain*ex; // 熱超過→運動（核と自分は弾けない）
-      p.vx+=Math.cos(ang)*imp;p.vy+=Math.sin(ang)*imp;p.t=P.popThresh;}
+      p.vx+=Math.cos(ang)*imp;p.vy+=Math.sin(ang)*imp;p.t=P.popThresh;
+      if(particles.length<420 && Math.hypot(p.x-you.x,p.y-you.y)<150)for(let q=0;q<2;q++){const pa=Math.random()*6.28,ps=1+Math.random()*3; // 自分の近くのポップだけ火花
+        particles.push({x:p.x,y:p.y,vx:Math.cos(pa)*ps,vy:Math.sin(pa)*ps,life:0.7,c:'255,180,90'});}}
     else if(p.t>1.3)p.t=1.3;
     p.t=Math.max(0,p.t);}
   // カメラ
   cam.x+=(you.x-cam.x)*0.08; cam.y+=(you.y-cam.y)*0.08;
   // 昇格＝今持つ熱E・運動E が“両方”基準線を超えた瞬間（両方マックスは不可能）
   const thF=you.t/P.popThresh, keF=(0.5*(you.vx*you.vx+you.vy*you.vy))/keMax();
-  if(lvCool===0 && thF+keF>=lvSum())levelUp();   // 足し算（割合の和）
+  levelProg+=Math.max(0,(thF+keF)-P.lvActivate)*P.lvRate;  // 段階的に貯まる
+  if(levelProg>=1){levelProg-=1; levelUp();}
+  if(particles.length<460)particles.push({x:you.x,y:you.y,vx:0,vy:0,life:0.5,c:'200,220,255'}); // 自分の軌跡トレイル
   return measure();
 }
 function measure(){
@@ -190,13 +204,71 @@ function measure(){
 function pos(e){const r=cv.getBoundingClientRect();
   return [((e.touches?e.touches[0].clientX:e.clientX)-r.left)*W/r.width,
           ((e.touches?e.touches[0].clientY:e.clientY)-r.top)*H/r.height];}
-function dn(e){if(state!=='play'){reset();state='play';pt=pos(e);return;} pt=pos(e); charging=true; chargeT=0;}
+function dn(e){audioStart(); if(state!=='play'){reset();state='play';pt=pos(e);return;} pt=pos(e); charging=true; chargeT=0;}
 function up(){if(charging){lastCharge=chargeT/P.chargeMax; launchReq=true; charging=false;}}
 cv.addEventListener('mousedown',dn);cv.addEventListener('mousemove',e=>{pt=pos(e);});
 window.addEventListener('mouseup',up);
 cv.addEventListener('touchstart',e=>{dn(e);e.preventDefault();},{passive:false});
 cv.addEventListener('touchmove',e=>{pt=pos(e);e.preventDefault();},{passive:false});
 cv.addEventListener('touchend',e=>{up();e.preventDefault();},{passive:false});
+
+// ===== BGM / SFX（Web Audioで生成・外部ファイル無し）=====
+let actx, master, muted=false;
+function audioStart(){
+  if(actx){ actx.resume && actx.resume(); return; }
+  try{ actx=new (window.AudioContext||window.webkitAudioContext)(); }catch(e){ return; }
+  master=actx.createGain(); master.gain.value=0.34; master.connect(actx.destination);
+  // 宇宙的アンビエントのドローン（呼吸するパッド）
+  [55,82.4,110,164.8].forEach((f,i)=>{
+    const o=actx.createOscillator(); o.type=i<2?'sine':'triangle'; o.frequency.value=f;
+    const g=actx.createGain(); g.gain.value=0.05;
+    const lfo=actx.createOscillator(); lfo.type='sine'; lfo.frequency.value=0.04+i*0.017;
+    const lg=actx.createGain(); lg.gain.value=0.04; lfo.connect(lg); lg.connect(g.gain);
+    o.connect(g); g.connect(master); o.start(); lfo.start();
+  });
+  nextNoteTime=actx.currentTime+0.15; scheduler();   // 常時流れるシーケンス開始
+}
+let seqStep=0, nextNoteTime=0;
+const _scale=[0,3,5,7,10], _roots=[55,55,73.42,61.74]; // 短調ペンタ × 4小節のゆるい進行
+function tone(freq,t,dur,type,vol){                    // 予約された時刻に1音
+  const o=actx.createOscillator(); o.type=type; o.frequency.value=freq;
+  const g=actx.createGain(); o.connect(g); g.connect(master);
+  g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol,t+0.02);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+dur); o.start(t); o.stop(t+dur+0.03);
+}
+function scheduleNote(t){
+  const L=Math.min(level,8);                           // レベルが上がるほど豪華に
+  const root=_roots[Math.floor(seqStep/8)%_roots.length];
+  if(Math.random() > Math.max(0.06,0.3-L*0.03)){       // 音数：登るほど増える
+    const oct=Math.random()<0.3?8:4, base=root*oct*Math.pow(2,_scale[seqStep%_scale.length]/12);
+    tone(base,t,0.5,'triangle',0.30);
+    if(L>=2 && Math.random()<0.55) tone(base*Math.pow(2,7/12),t,0.45,'triangle',0.13); // 5度ハモリ
+    if(L>=3 && Math.random()<0.5)  tone(base*2,t,0.4,'sine',0.10);                      // オクターブ上の煌めき
+  }
+  if(seqStep%8===0){                                   // 低音
+    tone(root,t,1.0,'sine',0.34);
+    if(L>=2) tone(root*Math.pow(2,7/12),t,1.0,'sine',0.15);                            // 5度でパワー感
+  }
+  if(L>=4 && seqStep%2===0) tone(1400+Math.random()*500,t,0.05,'square',0.045);        // 刻みのティック
+  seqStep++;
+}
+function scheduler(){
+  if(!actx)return;
+  const bpm=66+Math.min(level,8)*3, spb=60/bpm/2;      // テンポも登るほど上がる
+  while(nextNoteTime<actx.currentTime+0.2){ scheduleNote(nextNoteTime); nextNoteTime+=spb; }
+  setTimeout(scheduler,40);
+}
+function blip(freq,dur,type,vol){
+  if(!actx||muted)return; const t=actx.currentTime;
+  const o=actx.createOscillator(); o.type=type||'sine'; o.frequency.value=freq;
+  const g=actx.createGain(); o.connect(g); g.connect(master);
+  g.gain.setValueAtTime(0.0001,t); g.gain.exponentialRampToValueAtTime(vol||0.3,t+0.01);
+  g.gain.exponentialRampToValueAtTime(0.0001,t+(dur||0.2));
+  o.start(t); o.stop(t+(dur||0.2)+0.03);
+}
+function sfxLaunch(p){ blip(180+p*260,0.16,'triangle',0.22); }
+function sfxLevel(){ [0,4,7,12,16].forEach((s,i)=>setTimeout(()=>blip(392*Math.pow(2,s/12),0.45,'sine',0.26),i*60)); }
+window.addEventListener('keydown',e=>{ if(e.key==='m'||e.key==='M'){ muted=!muted; if(master)master.gain.value=muted?0:0.34; } });
 
 function warmColor(t){const r=Math.round(38+t*215),g=Math.round(48+t*150),b=Math.round(92-t*62);return `rgb(${r},${g},${b})`;}
 function ctext(s,sz,c,y,w=700){ctx.fillStyle=c;ctx.font=`${w} ${sz}px -apple-system,sans-serif`;ctx.textAlign='center';ctx.fillText(s,W/2,y);}
@@ -210,6 +282,12 @@ function draw(alive){
   const x0=Math.floor((cam.x-W/2)/gs)*gs, y0=Math.floor((cam.y-H/2)/gs)*gs;
   for(let wx=x0;wx<cam.x+W/2+gs;wx+=gs)for(let wy=y0;wy<cam.y+H/2+gs;wy+=gs){ctx.beginPath();ctx.arc(wx+ox,wy+oy,1,0,6.28);ctx.fill();}
   ctx.strokeStyle='rgba(120,110,160,0.18)';ctx.lineWidth=2;ctx.beginPath();ctx.arc(ox,oy,worldR,0,6.28);ctx.stroke();
+  // エフェクト：衝撃波＋火花
+  for(const s of shocks){ctx.strokeStyle=`rgba(255,220,140,${s.life*0.8})`;ctx.lineWidth=4*s.life+0.5;
+    ctx.beginPath();ctx.arc(s.x+ox,s.y+oy,s.r,0,6.28);ctx.stroke();}
+  for(const q of particles){ctx.globalAlpha=Math.max(0,q.life);ctx.fillStyle=`rgb(${q.c})`;
+    ctx.beginPath();ctx.arc(q.x+ox,q.y+oy,2.4*q.life+0.6,0,6.28);ctx.fill();}
+  ctx.globalAlpha=1;
   // 結合線（くっつき）
   for(const key of bonds){const s=key.split(','),a=A[+s[0]],b=A[+s[1]],core=coreBonds.has(key);
     ctx.strokeStyle=core?'rgba(255,210,130,0.8)':'rgba(180,200,255,0.3)';ctx.lineWidth=core?2.2:1.4;
@@ -223,7 +301,12 @@ function draw(alive){
       ctx.beginPath();ctx.moveTo(a.x+ox,a.y+oy);ctx.lineTo(b.x+ox,b.y+oy);ctx.stroke();}}
   for(const p of A){const sx=p.x+ox,sy=p.y+oy;
     if(p.t>0.05){ctx.fillStyle=`rgba(255,180,90,${p.t*0.2})`;ctx.beginPath();ctx.arc(sx,sy,5+p.t*14,0,6.28);ctx.fill();}
-    if(p.you){ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(sx,sy,6,0,6.28);ctx.fill();
+    if(p.you){
+      const en=you.t/P.popThresh+(0.5*(you.vx*you.vx+you.vy*you.vy))/keMax(), gR=18+Math.min(en,2)*22+(charging?chargeT/P.chargeMax*16:0);
+      const gr=ctx.createRadialGradient(sx,sy,0,sx,sy,gR);
+      gr.addColorStop(0,`rgba(255,240,200,${0.32+Math.min(en,1.5)*0.12})`);gr.addColorStop(1,'rgba(255,220,150,0)');
+      ctx.fillStyle=gr;ctx.beginPath();ctx.arc(sx,sy,gR,0,6.28);ctx.fill();
+      ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(sx,sy,6,0,6.28);ctx.fill();
       ctx.strokeStyle='rgba(255,255,255,.5)';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(sx,sy,11,0,6.28);ctx.stroke();
       if(pt){const dx=(pt[0]-W/2+cam.x)-p.x,dy=(pt[1]-H/2+cam.y)-p.y,d=Math.hypot(dx,dy)+.01;
         const L=14+(charging?chargeT/P.chargeMax*42:6);
@@ -241,13 +324,11 @@ function draw(alive){
 
   // HUD：熱E・運動E の上限バー＋基準線（両方が線を超えたら昇格）
   const thF=you.t/P.popThresh, keF=(0.5*(you.vx*you.vx+you.vy*you.vy))/keMax();
-  const sum=thF+keF, need=lvSum(), ready=sum>=need;
   ctx.textAlign='left';ctx.fillStyle='#9aa0c4';ctx.font='600 11px -apple-system';
   ctx.fillText('熱 E',16,30); pbar(58,22,150,thF,warmColor(you.t));
   ctx.fillText('運動 E',16,50); pbar(58,42,150,keF,'#8cc8ff');
-  ctx.fillStyle=ready?'#b7e0a0':'#9aa0c4';ctx.font='600 11px -apple-system';
-  ctx.fillText((ready?'▲昇格可 ':'昇格 ')+'熱+運動 '+sum.toFixed(2)+' / '+need.toFixed(2),16,68);
-  pbar(58,72,150,sum/need,ready?'#b7e0a0':'#6f7a52');
+  ctx.fillStyle='#b7e0a0';ctx.font='600 11px -apple-system';
+  ctx.fillText('次のレベルへ',16,68); pbar(58,62,150,levelProg,'#b7e0a0');
   ctx.textAlign='right';ctx.fillStyle='#ffd27a';ctx.font='700 16px -apple-system';ctx.fillText(`Lv ${level}`,W-16,26);
   ctx.fillStyle='#ff9a6a';ctx.font='600 11px -apple-system';ctx.fillText(`エントロピー圧 ${(drain()*1000).toFixed(1)}`,W-16,44);
   ctx.fillStyle=alive<4?'#ff8a6a':'#cfd3ea';ctx.fillText(`生存 ${alive}`,W-16,60);
@@ -261,7 +342,8 @@ function draw(alive){
     else{ctx.fillStyle=p.t>0.4?`rgba(255,200,130,${Math.min(1,p.t)})`:`rgba(150,170,210,${p.t>P.alive?0.5:0.2})`;
       ctx.beginPath();ctx.arc(mx,my,p.t>0.4?2:1,0,6.28);ctx.fill();}}
   if(freezeT>0){ctx.fillStyle=`rgba(255,90,90,${Math.min(freezeT/180,0.5)})`;ctx.fillRect(0,0,W,H);}
-  if(flashT>0){ctx.globalAlpha=Math.min(flashT/40,1);ctext(flash,17,'#ffd27a',92);ctx.globalAlpha=1;}
+  if(screenFlash>0.02){ctx.fillStyle=`rgba(255,235,180,${screenFlash*0.5})`;ctx.fillRect(0,0,W,H);}
+  if(flashT>0){ctx.globalAlpha=Math.min(flashT/40,1);ctext(flash,20,'#ffd27a',92);ctx.globalAlpha=1;}
 
   if(state==='title'){ctx.fillStyle='rgba(4,4,10,0.66)';ctx.fillRect(0,0,W,H);
     ctext('散逸構造',36,'#ffd27a',H/2-104,800);
@@ -276,7 +358,12 @@ function draw(alive){
     ctext('到達レベル '+level,20,'#cfd3ea',H/2+4);
     ctext('クリックでもう一度',15,'#5a6080',H/2+48);}
 }
-function loop(){const a=step();draw(a);requestAnimationFrame(loop);}
+function updateFX(){
+  for(let i=particles.length-1;i>=0;i--){const q=particles[i];q.x+=q.vx;q.y+=q.vy;q.vx*=0.96;q.vy*=0.96;q.life-=0.025;if(q.life<=0)particles.splice(i,1);}
+  for(let i=shocks.length-1;i>=0;i--){const s=shocks[i];s.r+=9;s.life-=0.04;if(s.life<=0)shocks.splice(i,1);}
+  if(screenFlash>0)screenFlash*=0.88;
+}
+function loop(){const a=step();updateFX();draw(a);requestAnimationFrame(loop);}
 loop();
 </script>
 </body>
