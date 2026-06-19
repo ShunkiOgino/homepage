@@ -9,7 +9,8 @@
     font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans",sans-serif;
     -webkit-user-select:none;user-select:none;touch-action:none;color:#cfd3ea;}
   #wrap{display:flex;align-items:center;justify-content:center;height:100%;}
-  canvas{background:#04040a;border-radius:12px;box-shadow:0 0 90px rgba(255,150,60,.10);cursor:crosshair;}
+  canvas{background:#04040a;border-radius:12px;box-shadow:0 0 90px rgba(255,150,60,.10);cursor:crosshair;
+    max-width:96vw; max-height:90vh; }   /* スマホで画面に収める（操作座標は自動補正） */
   #hint{position:fixed;bottom:13px;left:0;right:0;text-align:center;color:#4a4f6a;font-size:12.5px;letter-spacing:.03em;}
 </style>
 </head>
