@@ -270,6 +270,11 @@ function blip(freq,dur,type,vol){
 function sfxLaunch(p){ blip(180+p*260,0.16,'triangle',0.22); }
 function sfxLevel(){ [0,4,7,12,16].forEach((s,i)=>setTimeout(()=>blip(392*Math.pow(2,s/12),0.45,'sine',0.26),i*60)); }
 window.addEventListener('keydown',e=>{ if(e.key==='m'||e.key==='M'){ muted=!muted; if(master)master.gain.value=muted?0:0.34; } });
+// 画面/タブを離れたら音を止める（戻ったら再開）＝鳴りっぱなし防止
+function setAudioActive(on){ if(!actx)return; if(on && !muted){ actx.resume&&actx.resume(); } else { actx.suspend&&actx.suspend(); } }
+document.addEventListener('visibilitychange',()=>setAudioActive(!document.hidden));
+window.addEventListener('blur',()=>setAudioActive(false));
+window.addEventListener('focus',()=>setAudioActive(!document.hidden));
 
 function warmColor(t){const r=Math.round(38+t*215),g=Math.round(48+t*150),b=Math.round(92-t*62);return `rgb(${r},${g},${b})`;}
 function ctext(s,sz,c,y,w=700){ctx.fillStyle=c;ctx.font=`${w} ${sz}px -apple-system,sans-serif`;ctx.textAlign='center';ctx.fillText(s,W/2,y);}
