@@ -182,7 +182,7 @@ const works = [
         </div>
       </div>
       <form id="contact-form" style="display:flex;flex-direction:column;gap:1.5rem;">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+        <div class="form-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
           <div>
             <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">お名前 <span style="color:var(--accent);">*</span></label>
             <input id="f-name" type="text" required placeholder="お名前" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
@@ -270,4 +270,12 @@ const works = [
   </script>
 
   <Footer />
+
+  <style>
+    /* スマホ対応 */
+    @media (max-width: 600px) {
+      .form-2col { grid-template-columns: 1fr !important; }
+      section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    }
+  </style>
 </Layout>
