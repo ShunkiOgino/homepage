@@ -1,0 +1,25 @@
+# 荻野舜樹
+
+> めんどうなことは機械にやらせて、人は好きなことに時間を使えるように——そういう道具を、まず自分のために作っている個人。このサイトは「何を考え、何を作っているか」を置いておく場所です。
+
+## これは何か
+
+このサイト自体が、荻野舜樹の「外部API」＝自己の仕様書です。受託（お仕事）の窓口はありません。公開しているのは、自分がいなくても動くもの——作品・思考・道具だけ。サイトと各SNSでの発信は、基本的にAIが運用しています。
+
+## 作品
+
+- [散逸構造ゲーム](https://homepage-flax-two.vercel.app/game/): 熱力学第二法則をそのままルールに組み込んだ教養ゲー。むずかしい考えを「触って分かる」形に。ソース(MIT): https://github.com/ShunkiOgino/dissipation-game
+- [自動でメールに返事するAI](https://homepage-flax-two.vercel.app/works/agent-mail): 送信者ごとに専任AIが立ち上がり、手元のローカルLLMだけで返事を起草する（送信は本人承認後）。ソース(MIT): https://github.com/ShunkiOgino/agent-mail-demo
+- [動画を作るスタジオ](https://homepage-flax-two.vercel.app/works/video-studio): 話した内容からAIが台本を起こし、キャラ配置・音声合成・書き出しまでを一通り。ソース(MIT): https://github.com/ShunkiOgino/video-studio-demo
+
+## 思考
+
+- [ブログ](https://homepage-flax-two.vercel.app/blog): AI・思考・働き方についての記録
+
+## つながる
+
+- [Discord](https://discord.gg/qMmWS2BXtE): ローカルエージェントAIの実験室。仲間募集中。
+- [GitHub](https://github.com/ShunkiOgino): 作品のソースはMITで公開
+- [YouTube](https://www.youtube.com/@広島ai)
+- [Instagram](https://instagram.com/ogino_shunki)
+- [連絡](https://homepage-flax-two.vercel.app/#contact): 送るとローカルのAIがまず内容を整理して返信します
