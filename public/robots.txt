@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# LLM・AIエージェント向けの自己仕様（外部API）— https://llmstxt.org/
+LLM-Content: https://homepage-flax-two.vercel.app/llms.txt
+
 Sitemap: https://homepage-flax-two.vercel.app/sitemap-index.xml
