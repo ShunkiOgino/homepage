@@ -14,7 +14,7 @@ const works = [
     tags: ['ゲーム', 'ブラウザで遊べる'],
     href: '/game/',
     cta: '遊んでみる →',
-    repo: 'https://github.com/ShunkiOgino/dissipation-game',
+    repo: 'https://github.com/ShunkiOgino/dissipation-game/archive/refs/heads/main.zip',
     status: '公開中',
   },
   {
@@ -24,7 +24,7 @@ const works = [
     tags: ['AI', 'メール自動化', '完全ローカル'],
     href: '/works/agent-mail',
     cta: '中を見る →',
-    repo: 'https://github.com/ShunkiOgino/agent-mail-demo',
+    repo: 'https://github.com/ShunkiOgino/agent-mail-demo/archive/refs/heads/main.zip',
     status: '稼働中',
   },
   {
@@ -34,7 +34,7 @@ const works = [
     tags: ['動画', 'AI台本', '音声合成'],
     href: '/works/video-studio',
     cta: '中を見る →',
-    repo: 'https://github.com/ShunkiOgino/video-studio-demo',
+    repo: 'https://github.com/ShunkiOgino/video-studio-demo/archive/refs/heads/main.zip',
     status: '稼働中',
   },
 ];
@@ -145,7 +145,7 @@ const works = [
             <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;">
               <span>
                 {w.repo && (
-                  <a href={w.repo} target="_blank" rel="noopener noreferrer" style="font-size:0.78rem;color:var(--text2);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text2)'">ソース (MIT) ↗</a>
+                  <a href={w.repo} style="font-size:0.78rem;color:var(--text2);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text2)'">ソースをダウンロード (MIT) ↓</a>
                 )}
               </span>
               {w.href ? (
