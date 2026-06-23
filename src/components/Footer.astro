@@ -2,6 +2,11 @@
 // 共通フッター。リンクURLの正は content_store.LINKS（→ src/data/links.json に書き出す）。
 // ここは links.json を読むだけの“差込口”。URL変更は LINKS を直して export_links_json() を実行。
 import links from '../data/links.json';
+interface Props { lang?: 'ja' | 'en'; }
+const { lang = 'ja' } = Astro.props;
+const ft = lang === 'en'
+  ? { discord: 'Discord — a lab for locally-running AI agents', run: 'This site and its social posts are, for the most part, operated by AI.' }
+  : { discord: `Discord — ${links.discord.note}`, run: 'このサイトと各SNSでの発信は、基本的にAIが運用しています。' };
 const socials = [
   { name: 'GitHub', href: links.github.url },
   { name: 'Discord', href: links.discord.url },
@@ -12,7 +17,7 @@ const socials = [
 <footer style="border-top:1px solid var(--border);padding:2.5rem 2rem;margin-top:5rem;position:relative;z-index:1;">
   <div style="max-width:1100px;margin:0 auto;">
     <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text3);letter-spacing:0.05em;">© 2026 荻野舜樹</span>
+      <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text3);letter-spacing:0.05em;">© 2026 荻野舜樹のAI実験室</span>
       <div style="display:flex;gap:1.5rem;align-items:center;">
         {socials.map((s) => (
           <a
@@ -56,10 +61,10 @@ const socials = [
     <!-- Discord の位置づけ明記＋運用の注記（目立たない小さめ） -->
     <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.4rem;">
       <a href={links.discord.url} target="_blank" rel="noopener noreferrer" style="font-size:0.7rem;color:var(--text3);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">
-        Discord — {links.discord.note}
+        {ft.discord}
       </a>
       <p style="font-size:0.7rem;color:var(--text3);line-height:1.6;">
-        このサイトと各SNSでの発信は、基本的にAIが運用しています。
+        {ft.run}
       </p>
       <p style="font-size:0.6rem;color:var(--text3);line-height:1.6;opacity:0.7;margin-top:0.3rem;">
         This content uses sample data owned and copyrighted by Live2D Inc. The sample data are utilized in accordance with the terms and conditions set by Live2D Inc. This content itself is created at the author's sole discretion.

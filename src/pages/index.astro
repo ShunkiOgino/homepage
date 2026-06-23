@@ -4,6 +4,15 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import latest from '../data/latest_posts.json';
 import links from '../data/links.json';
+import { getCollection } from 'astro:content';
+
+// 考えていること＝ブログ＝一本の流れ（log）。トップ冒頭に最新の一本を置く。
+const _posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const latestPost = _posts[0] || null;
+const fmtD = (d) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 
 // 作ったもの — 考えていることの「証拠」。どれも自分のための道具。
 const works = [
@@ -20,8 +29,8 @@ const works = [
   {
     title: '自動でメールに返事するAI',
     sub: 'AIエージェント',
-    desc: '送ってきた相手ごとに専用のAIが立ち上がり、私のパソコンの中で動くAI（Gemma4）だけで内容を整理して返事をします。外部のクラウドには一切送りません。相手ごとに見られる範囲を分け、別の人のやり取りには触れられない作りです。',
-    tags: ['AI', 'メール自動化', '完全ローカル'],
+    desc: '送ってきた相手ごとに専用のAIが立ち上がり、私のパソコンの中で動くAI（Gemma4）が内容を整理して返事をします。メールの中身は外部のAIに渡さず手元で処理し、相手ごとに見られる範囲を分け、別の人のやり取りには触れられない作りです。',
+    tags: ['AI', 'メール自動化', 'ローカル処理'],
     href: '/works/agent-mail',
     cta: '中を見る →',
     repo: 'https://github.com/ShunkiOgino/agent-mail-demo/archive/refs/heads/main.zip',
@@ -40,7 +49,7 @@ const works = [
 ];
 ---
 <Layout
-  title="荻野舜樹 — めんどうは機械に、人は好きなことを"
+  title="荻野舜樹のAI実験室 — めんどうは機械に、人は好きなことを"
   description="めんどうなことは機械にやらせて、人は好きなことに時間を使えるように。荻野舜樹が考えていること、作ったもの。"
 >
   <Nav />
@@ -75,7 +84,7 @@ const works = [
           </a>
         ))}
       </div>
-      <p style="font-size:0.85rem;color:var(--text3);margin-top:2rem;">荻野舜樹</p>
+      <p style="font-size:0.85rem;color:var(--text3);margin-top:2rem;">荻野舜樹のAI実験室</p>
     </div>
   </section>
 
@@ -84,10 +93,22 @@ const works = [
     <div style="max-width:1100px;margin:0 auto;">
       <div style="margin-bottom:2rem;max-width:720px;">
         <h2 style="font-size:2rem;font-weight:600;letter-spacing:-0.02em;">最新の発信</h2>
-        <p style="color:var(--text2);margin-top:0.6rem;line-height:1.8;">YouTube と Instagram の直近の投稿です。日々の記録がここに流れ込みます。</p>
+        <p style="color:var(--text2);margin-top:0.6rem;line-height:1.8;">考えていること（ブログ）と、YouTube・Instagram の直近です。日々の記録が、一本の流れになってここに集まります。</p>
       </div>
 
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;align-items:start;">
+        {_posts.slice(0, 2).map((p) => (
+          <a href={`/blog/${p.slug}`} style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="aspect-ratio:16/9;background:var(--surface2);display:flex;flex-direction:column;justify-content:center;padding:1.1rem 1.2rem;border-bottom:1px solid var(--border);">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.05em;color:var(--accent);">考えていること</span>
+              <div style="font-size:1.05rem;font-weight:600;line-height:1.4;color:var(--text);margin-top:0.5rem;">{p.data.title}</div>
+            </div>
+            <div style="padding:0.85rem 0.95rem;">
+              {p.data.description && <div style="font-size:0.8rem;line-height:1.55;color:var(--text2);">{p.data.description}</div>}
+              <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;font-family:'JetBrains Mono',monospace;">{fmtD(p.data.date)}</div>
+            </div>
+          </a>
+        ))}
         {latest.youtube.map((v) => (
           <a href={v.url} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
             <div style="position:relative;aspect-ratio:16/9;background:#000;">
@@ -125,7 +146,7 @@ const works = [
     <div style="max-width:1100px;margin:0 auto;">
       <div style="margin-bottom:3rem;max-width:720px;">
         <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">作ったもの</h2>
-        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">考えていることの、証拠みたいなものです。どれも自分のために作った道具で、私がいなくても、これらは動き続けます。</p>
+        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">考えていることの、証拠みたいなものです。どれも自分のために作った道具で、私の手を離れても動くように作っています。</p>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:var(--border);">
         {works.map((w) => (

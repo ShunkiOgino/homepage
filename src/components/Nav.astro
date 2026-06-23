@@ -3,16 +3,21 @@
 interface Props {
   active?: 'thesis' | 'works' | 'blog' | '';
   maxWidth?: string;
+  lang?: 'ja' | 'en';
 }
-const { active = '', maxWidth = '1100px' } = Astro.props;
+const { active = '', maxWidth = '1100px', lang = 'ja' } = Astro.props;
+const base = lang === 'en' ? '/en' : '';
+const t = lang === 'en'
+  ? { logo: "Shunki Ogino's AI Lab", works: 'What I make', blog: 'Writing', contact: 'Contact', other: '日本語', otherHref: '/' }
+  : { logo: '荻野舜樹のAI実験室', works: '作ったもの', blog: '考えていること', contact: '連絡', other: 'EN', otherHref: '/en' };
 const links = [
-  { key: 'works', label: '作ったもの', href: '/#works' },
-  { key: 'blog', label: 'ブログ', href: '/blog' },
+  { key: 'works', label: t.works, href: `${base}/#works` },
+  { key: 'blog', label: t.blog, href: `${base}/blog` },
 ];
 ---
 <nav style="position:fixed;top:0;left:0;right:0;z-index:100;border-bottom:1px solid var(--border);backdrop-filter:blur(12px);background:rgba(8,12,16,0.85);">
   <div class="nav-inner" style={`max-width:${maxWidth};margin:0 auto;padding:0 2rem;display:flex;justify-content:space-between;align-items:center;height:56px;`}>
-    <a href="/" style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);letter-spacing:0.08em;text-decoration:none;">荻野舜樹</a>
+    <a href={`${base}/`} style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:var(--accent);letter-spacing:0.08em;text-decoration:none;">{t.logo}</a>
     <div class="nav-actions" style="display:flex;gap:2rem;align-items:center;">
       {links.map((l) => (
         <a
@@ -22,7 +27,8 @@ const links = [
           onmouseout={`this.style.color='${active === l.key ? 'var(--text)' : 'var(--text2)'}'`}
         >{l.label}</a>
       ))}
-      <a href="/#contact" style="font-size:0.8rem;color:var(--accent);text-decoration:none;letter-spacing:0.05em;border:1px solid var(--border);padding:0.3rem 0.8rem;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">連絡</a>
+      <a href={t.otherHref} style="font-size:0.72rem;color:var(--text2);text-decoration:none;letter-spacing:0.05em;border:1px solid var(--border);padding:0.3rem 0.6rem;" onmouseover="this.style.color='var(--text)';this.style.borderColor='var(--text2)'" onmouseout="this.style.color='var(--text2)';this.style.borderColor='var(--border)'">{t.other}</a>
+      <a href={`${base}/#contact`} style="font-size:0.8rem;color:var(--accent);text-decoration:none;letter-spacing:0.05em;border:1px solid var(--border);padding:0.3rem 0.8rem;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">{t.contact}</a>
     </div>
   </div>
 </nav>

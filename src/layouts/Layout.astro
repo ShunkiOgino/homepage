@@ -4,14 +4,19 @@ import links from '../data/links.json';
 interface Props {
   title: string;
   description?: string;
+  lang?: 'ja' | 'en';
 }
-const { title, description = '荻野舜樹の外部API — 生産活動から人間を排する。思想・作品・ブログ。' } = Astro.props;
+const { title, description = '荻野舜樹の外部API — 生産活動から人間を排する。思想・作品・ブログ。', lang = 'ja' } = Astro.props;
 const siteUrl = links.homepage.url;
 const pageUrl = siteUrl + Astro.url.pathname;
 const ogImage = siteUrl + '/og.png';
+// hreflang: ja は素のパス、en は /en プレフィックス（相互に指す）。
+const path = Astro.url.pathname;
+const jaPath = path.replace(/^\/en(\/|$)/, '/');
+const enPath = path.startsWith('/en') ? path : ('/en' + (path === '/' ? '' : path));
 ---
 <!doctype html>
-<html lang="ja">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,10 +24,13 @@ const ogImage = siteUrl + '/og.png';
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={pageUrl} />
-    <link rel="alternate" type="application/rss+xml" title="荻野舜樹 — Blog" href="/rss.xml" />
+    <link rel="alternate" hreflang="ja" href={siteUrl + jaPath} />
+    <link rel="alternate" hreflang="en" href={siteUrl + enPath} />
+    <link rel="alternate" hreflang="x-default" href={siteUrl + jaPath} />
+    <link rel="alternate" type="application/rss+xml" title="荻野舜樹のAI実験室 — Blog" href="/rss.xml" />
     <!-- OGP / SNSシェアカード -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="荻野舜樹" />
+    <meta property="og:site_name" content="荻野舜樹のAI実験室" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={pageUrl} />

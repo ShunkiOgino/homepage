@@ -1,6 +1,7 @@
 import { getCollection } from 'astro:content';
 import links from '../data/links.json';
-import { PERSONA, THESIS, WORKS, REACH_OUT } from '../data/profile.js';
+import { PERSONA, THESIS, WORKS, REACH_OUT,
+  PERSONA_EN, THESIS_EN, WORKS_EN, REACH_OUT_EN } from '../data/profile.js';
 
 // /llms.txt — LLM・AIエージェント向けの「自己の仕様書（外部API）」。
 // robots.txt / sitemap が伝統的クローラ向けなのに対し、これはLLMが
@@ -59,6 +60,25 @@ export async function GET(context) {
 
   L.push('## 連絡したい人へ / Who should reach out');
   L.push(REACH_OUT);
+  L.push('');
+
+  // ── English projection（他人のAIが英語で読む時用）──
+  L.push('---');
+  L.push('');
+  L.push(`# ${PERSONA.name_en} — English`);
+  L.push('');
+  L.push(`> ${PERSONA_EN.summary}`);
+  L.push('');
+  L.push(PERSONA_EN.purpose);
+  L.push('');
+  L.push('## Thesis');
+  for (const t of THESIS_EN) L.push(`- ${t}`);
+  L.push('');
+  L.push('## Works');
+  for (const w of WORKS_EN) L.push(`- [${w.title}](${abs(w.url)}): ${w.desc}`);
+  L.push('');
+  L.push('## Who should reach out');
+  L.push(REACH_OUT_EN);
   L.push('');
 
   return new Response(L.join('\n'), {

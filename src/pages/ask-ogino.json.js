@@ -1,6 +1,7 @@
 import { getCollection } from 'astro:content';
 import links from '../data/links.json';
-import { PERSONA, THESIS, WORKS, REACH_OUT } from '../data/profile.js';
+import { PERSONA, THESIS, WORKS, REACH_OUT,
+  PERSONA_EN, THESIS_EN, WORKS_EN, REACH_OUT_EN } from '../data/profile.js';
 
 // /ask-ogino.json — 公開MCP "ask-ogino" が読む機械可読な「公開投影」。
 // これ自体も誰でも取得できる公開エンドポイント。脳の本体には触れない＝public scope のみ。
@@ -23,6 +24,7 @@ export async function GET(context) {
     }));
 
   const data = {
+    languages: ['ja', 'en'],
     persona: {
       name: PERSONA.name,
       name_en: PERSONA.name_en,
@@ -32,6 +34,13 @@ export async function GET(context) {
     },
     thesis: THESIS,
     works: WORKS.map((w) => ({ ...w, url: abs(w.url) })),
+    // 英語投影（他人のAIが英語で読む時用・[[project_ai_discoverability]]）。
+    en: {
+      persona: PERSONA_EN,
+      thesis: THESIS_EN,
+      works: WORKS_EN.map((w) => ({ ...w, url: abs(w.url) })),
+      reach_out: REACH_OUT_EN,
+    },
     posts,
     connect: {
       homepage: links.homepage.url,

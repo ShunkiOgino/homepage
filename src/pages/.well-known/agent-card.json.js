@@ -1,5 +1,5 @@
 import links from '../../data/links.json';
-import { PERSONA, REACH_OUT } from '../../data/profile.js';
+import { PERSONA, REACH_OUT, PERSONA_EN } from '../../data/profile.js';
 
 // /.well-known/agent-card.json — A2A 互換の「エージェントカード」。
 // 目的：荻野舜樹の公開代理（= ask-ogino）を、他のAIエージェントが
@@ -65,7 +65,7 @@ export async function GET() {
   const card = {
     protocolVersion: '0.3.0',
     name: 'ask-ogino',
-    description: PERSONA.purpose,
+    description: `${PERSONA_EN.purpose}\n\n（日本語）${PERSONA.purpose}`,
     provider: { organization: PERSONA.name_en, url: site },
     version: '1.0.0',
     documentationUrl: `${site}/llms.txt`,

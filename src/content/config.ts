@@ -13,4 +13,17 @@ const blog = defineCollection({
   }),
 });
 
-export const collections = { blog };
+// 英語版ブログ（考えていること）。src/content/blog-en/<slug>.md。
+// JA blog とは別コレクション＝機械投影(ask-ogino/llms)やmeaning_linksのJA集合に混ざらない。
+const blogEn = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    date: z.coerce.date(),
+    description: z.string().default(''),
+    tags: z.array(z.string()).default([]),
+    draft: z.boolean().default(false),
+  }),
+});
+
+export const collections = { blog, 'blog-en': blogEn };

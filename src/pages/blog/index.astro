@@ -10,7 +10,7 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 const fmt = (d: Date) =>
   `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 ---
-<Layout title="Blog | 荻野舜樹" description="荻野舜樹のブログ — 思想・作品・思考の記録">
+<Layout title="考えていること | 荻野舜樹のAI実験室" description="荻野舜樹のAI実験室 — 思想・作品・思考の記録">
   <Nav active="blog" maxWidth="860px" />
 
   <section style="max-width:860px;margin:0 auto;padding:8rem 2rem 6rem;">

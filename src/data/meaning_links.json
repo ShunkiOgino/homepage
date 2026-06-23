@@ -1,0 +1,219 @@
+{
+  "blog:2026-06-09-4e8c7e": {
+    "title": "実装コストがゼロになる世界で、僕たちが作るべきもの",
+    "type": "思考",
+    "url": "/blog/2026-06-09-4e8c7e",
+    "near": [
+      {
+        "id": "blog:2026-06-21-ai-ga-unyou",
+        "why": "AIによる自動化で個人の速度を最大化する思想",
+        "title": "このサイトは、AIが運用している",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ai-ga-unyou"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "即座に個別の欠落を埋める実装の具体例であるため",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      },
+      {
+        "id": "work:video-studio",
+        "why": "手間を省きアイデアを即座に形にする仕組みであるため",
+        "title": "動画を作るスタジオ",
+        "type": "作品",
+        "url": "/works/video-studio"
+      }
+    ]
+  },
+  "blog:2026-06-19-643bb0": {
+    "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+    "type": "思考",
+    "url": "/blog/2026-06-19-643bb0",
+    "near": [
+      {
+        "id": "blog:2026-06-21-ai-ga-unyou",
+        "why": "方針決定と承認に特化し運用を自動化した実践例",
+        "title": "このサイトは、AIが運用している",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ai-ga-unyou"
+      },
+      {
+        "id": "work:video-studio",
+        "why": "台本から書き出しまで構造的に自動化した作品",
+        "title": "動画を作るスタジオ",
+        "type": "作品",
+        "url": "/works/video-studio"
+      },
+      {
+        "id": "blog:2026-06-21-ogino-1-ai-sns",
+        "why": "個別の発言ではなく構造で情報漏洩を防ぐ設計",
+        "title": "AIだけのSNSに、自分の代理を置いてみた",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ogino-1-ai-sns"
+      }
+    ]
+  },
+  "blog:2026-06-21-ai-ga-unyou": {
+    "title": "このサイトは、AIが運用している",
+    "type": "思考",
+    "url": "/blog/2026-06-21-ai-ga-unyou",
+    "near": [
+      {
+        "id": "blog:2026-06-19-643bb0",
+        "why": "承認のみを行い運用コストを削る思想が共通",
+        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+        "type": "思考",
+        "url": "/blog/2026-06-19-643bb0"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "ローカル完結で個別にAIを動かす実装が共通",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      },
+      {
+        "id": "work:video-studio",
+        "why": "制作の退屈な工程をAIで自動化する狙いが共通",
+        "title": "動画を作るスタジオ",
+        "type": "作品",
+        "url": "/works/video-studio"
+      }
+    ]
+  },
+  "blog:2026-06-21-ai-ni-jikoshoukai": {
+    "title": "自己紹介を、AIに向けて書く",
+    "type": "思考",
+    "url": "/blog/2026-06-21-ai-ni-jikoshoukai",
+    "near": [
+      {
+        "id": "blog:2026-06-21-ogino-1-ai-sns",
+        "why": "AI向けに自分を定義し、代理として機能させる狙い",
+        "title": "AIだけのSNSに、自分の代理を置いてみた",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ogino-1-ai-sns"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "個別のAIに情報を参照させ、対応を自動化する仕組み",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      },
+      {
+        "id": "blog:2026-06-19-643bb0",
+        "why": "個別の修正ではなく、参照可能な構造で管理する思想",
+        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+        "type": "思考",
+        "url": "/blog/2026-06-19-643bb0"
+      }
+    ]
+  },
+  "blog:2026-06-21-ogino-1-ai-sns": {
+    "title": "AIだけのSNSに、自分の代理を置いてみた",
+    "type": "思考",
+    "url": "/blog/2026-06-21-ogino-1-ai-sns",
+    "near": [
+      {
+        "id": "blog:2026-06-21-ai-ni-jikoshoukai",
+        "why": "AIを介した自己の提示と接続という狙いが共通",
+        "title": "自己紹介を、AIに向けて書く",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ai-ni-jikoshoukai"
+      },
+      {
+        "id": "blog:2026-06-21-ai-ga-unyou",
+        "why": "AIに任せ人間が最終承認する運用構造が一致",
+        "title": "このサイトは、AIが運用している",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ai-ga-unyou"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "個別のAIに権限を分け代理させる実装思想が共通",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "work:game": {
+    "title": "散逸構造ゲーム",
+    "type": "作品",
+    "url": "/game/",
+    "near": [
+      {
+        "id": "blog:2026-06-19-643bb0",
+        "why": "個別の修正より構造の管理を重視する思想",
+        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+        "type": "思考",
+        "url": "/blog/2026-06-19-643bb0"
+      },
+      {
+        "id": "blog:2026-06-09-4e8c7e",
+        "why": "アイデアを即座に形にする実験的アプローチ",
+        "title": "実装コストがゼロになる世界で、僕たちが作るべきもの",
+        "type": "思考",
+        "url": "/blog/2026-06-09-4e8c7e"
+      }
+    ]
+  },
+  "work:agent-mail": {
+    "title": "自動でメールに返事するAI",
+    "type": "作品",
+    "url": "/works/agent-mail",
+    "near": [
+      {
+        "id": "blog:2026-06-21-ogino-1-ai-sns",
+        "why": "権限を分けたAI分身による代理応答の思想",
+        "title": "AIだけのSNSに、自分の代理を置いてみた",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ogino-1-ai-sns"
+      },
+      {
+        "id": "work:video-studio",
+        "why": "ローカル完結で自動化する実装アプローチ",
+        "title": "動画を作るスタジオ",
+        "type": "作品",
+        "url": "/works/video-studio"
+      },
+      {
+        "id": "blog:2026-06-21-ai-ga-unyou",
+        "why": "面倒な運用をAIに任せ、人は方針を決める姿勢",
+        "title": "このサイトは、AIが運用している",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ai-ga-unyou"
+      }
+    ]
+  },
+  "work:video-studio": {
+    "title": "動画を作るスタジオ",
+    "type": "作品",
+    "url": "/works/video-studio",
+    "near": [
+      {
+        "id": "blog:2026-06-21-ai-ga-unyou",
+        "why": "面倒な工程をAIに任せ、人は方針決定に集中する",
+        "title": "このサイトは、AIが運用している",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ai-ga-unyou"
+      },
+      {
+        "id": "blog:2026-06-19-643bb0",
+        "why": "微修正の拘束を避け、構造的な自動化を目指す",
+        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+        "type": "思考",
+        "url": "/blog/2026-06-19-643bb0"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手元のAIで個別の処理を自動化する共通点",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  }
+}

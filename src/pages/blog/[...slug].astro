@@ -3,6 +3,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import meaningLinks from '../../data/meaning_links.json';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -11,10 +12,12 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+// 近いところ＝意味の繋がり（時系列でもタグでもない・E層）。作品も混在。
+const near = (meaningLinks[`blog:${post.slug}`]?.near) || [];
 const fmt = (d: Date) =>
   `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 ---
-<Layout title={`${post.data.title} | 荻野舜樹`} description={post.data.description}>
+<Layout title={`${post.data.title} | 荻野舜樹のAI実験室`} description={post.data.description}>
   <Nav active="blog" maxWidth="760px" />
 
   <article style="max-width:760px;margin:0 auto;padding:8rem 2rem 6rem;">
@@ -31,7 +34,23 @@ const fmt = (d: Date) =>
     <div class="prose">
       <Content />
     </div>
+
+    {near.length > 0 && (
+      <div style="margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--text3);letter-spacing:0.06em;">近いところ <span style="color:var(--text3);opacity:0.7;">— 意味でつながる考えと作品</span></span>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem;margin-top:1rem;">
+          {near.map((r) => (
+            <a href={r.url} class="pn">
+              <div class="pn-l">{r.type === '作品' ? '作ったもの' : '考えていること'}</div>
+              <div class="pn-n">{r.title}</div>
+              <div class="pn-e">{r.why}</div>
+            </a>
+          ))}
+        </div>
+      </div>
+    )}
   </article>
+
   <Footer />
 
   <style is:global>
@@ -50,5 +69,15 @@ const fmt = (d: Date) =>
     .prose pre code { background: none; color: var(--text-prose); padding: 0; }
     .prose img { max-width: 100%; border-radius: 6px; margin: 1.4rem 0; }
     .prose hr { border: none; border-top: 1px solid var(--border); margin: 2.5rem 0; }
+    .pn { display: block; border: 1px solid var(--border); padding: 1rem 1.2rem; text-decoration: none; transition: border-color .15s, background .15s; }
+    .pn:hover { border-color: var(--accent); background: var(--surface); }
+    .pn-l { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: var(--text3); letter-spacing: 0.05em; }
+    .pn-n { font-size: 1rem; font-weight: 500; color: var(--text); margin: 0.4rem 0 0.3rem; }
+    .pn-e { font-size: 0.78rem; color: var(--text2); font-family: 'JetBrains Mono', monospace; }
+    .pn.empty { opacity: 0.45; }
+    @media (max-width: 600px) {
+      nav[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+      nav[style*="grid-template-columns:1fr 1fr"] .pn[style*="right"] { text-align: left !important; }
+    }
   </style>
 </Layout>

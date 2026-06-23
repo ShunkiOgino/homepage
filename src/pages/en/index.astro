@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import links from '../../data/links.json';
+import { PERSONA_EN, THESIS_EN, WORKS_EN, REACH_OUT_EN } from '../../data/profile.js';
+---
+<Layout
+  title="Shunki Ogino's AI Lab — leave the busywork to machines"
+  description={PERSONA_EN.summary}
+  lang="en"
+>
+  <Nav lang="en" />
+
+  <!-- Hero -->
+  <section style="min-height:100vh;display:flex;align-items:center;padding:0 2rem;padding-top:56px;">
+    <div style="max-width:1100px;margin:0 auto;width:100%;">
+      <h1 style="font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1.25;letter-spacing:-0.02em;margin-bottom:1.75rem;color:var(--text);">
+        Leave the tedious work <span style="color:var(--accent);">to machines.</span><br />Keep your time for what you love.
+      </h1>
+      <p style="font-size:1.05rem;color:var(--text-prose);max-width:620px;margin-bottom:1rem;line-height:1.9;">
+        I build those tools for myself first — and eventually for everyone. An independent developer making AI agents that can run on your own machine, games that turn physical laws directly into rules, and a studio that generates videos automatically. I use local and cloud AI depending on the job.
+      </p>
+      <p style="font-size:0.95rem;color:var(--text2);max-width:620px;margin-bottom:2.5rem;line-height:1.9;">
+        This site is where I keep what I think and what I build — written for people, and for AIs to read too.
+      </p>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5px;background:var(--border);margin-top:3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+        {[
+          ['What I make', 'Tools I built for myself', '#works', ''],
+          ['Contact', 'An AI replies first', '#contact', ''],
+          ['Discord', 'A lab for locally-running AI agents', links.discord.url, 'Looking for peers'],
+        ].map(([label, desc, href, badge]) => (
+          <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} style="background:var(--bg);padding:1.25rem 1.5rem;text-decoration:none;display:block;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.35rem;flex-wrap:wrap;">
+              <span style="font-size:1rem;color:var(--text);font-weight:600;">{label}</span>
+              {badge && <span style="font-size:0.62rem;background:rgba(0,212,255,0.12);color:var(--accent);border:1px solid rgba(0,212,255,0.25);padding:0.1rem 0.45rem;border-radius:2px;font-weight:600;">{badge}</span>}
+            </div>
+            <div style="font-size:0.8rem;color:var(--text2);line-height:1.6;">{desc}</div>
+          </a>
+        ))}
+      </div>
+      <p style="font-size:0.85rem;color:var(--text3);margin-top:2rem;">Shunki Ogino's AI Lab</p>
+    </div>
+  </section>
+
+  <!-- What I make -->
+  <section id="works" style="padding:6rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="margin-bottom:3rem;max-width:720px;">
+        <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">What I make</h2>
+        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">Evidence of what I think about. Each is a tool I built for myself, made to keep working with my hands off it.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:var(--border);">
+        {WORKS_EN.map((w) => (
+          <div style="background:var(--bg);padding:2rem;position:relative;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),transparent);"></div>
+            <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">{w.title}</h3>
+            <p style="font-size:0.875rem;color:var(--text2);line-height:1.8;margin-bottom:1.5rem;flex:1;">{w.desc}</p>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.25rem;">
+              {w.tags.map((tg) => (
+                <span style="font-size:0.7rem;color:var(--text3);border:1px solid var(--border);padding:0.2rem 0.6rem;">{tg}</span>
+              ))}
+            </div>
+            <div style="display:flex;gap:1.2rem;align-items:center;">
+              {w.url && <a href={w.url} style="font-size:0.85rem;color:var(--accent);text-decoration:none;">Open →</a>}
+              {w.repo && <a href={w.repo} style="font-size:0.78rem;color:var(--text2);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text2)'">Source (MIT) ↓</a>}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- What I believe -->
+  <section style="padding:6rem 2rem;border-top:1px solid var(--border);">
+    <div style="max-width:760px;margin:0 auto;">
+      <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;margin-bottom:2rem;">What I believe</h2>
+      <ul style="list-style:none;display:flex;flex-direction:column;gap:1.25rem;">
+        {THESIS_EN.map((t) => (
+          <li style="font-size:1.02rem;color:var(--text-prose);line-height:1.8;border-left:2px solid var(--accent);padding-left:1.2rem;">{t}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" style="padding:6rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
+    <div style="max-width:640px;margin:0 auto;">
+      <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">Contact</h2>
+      <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">{REACH_OUT_EN}</p>
+      <div style="display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:2rem;">
+        <a href={links.discord.url} target="_blank" rel="noopener noreferrer" style="font-size:0.9rem;color:var(--accent);text-decoration:none;border:1px solid var(--border);padding:0.6rem 1.4rem;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">Discord →</a>
+        <a href={links.github.url} target="_blank" rel="noopener noreferrer" style="font-size:0.9rem;color:var(--text2);text-decoration:none;border:1px solid var(--border);padding:0.6rem 1.4rem;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text2)'">GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <Footer lang="en" />
+</Layout>
