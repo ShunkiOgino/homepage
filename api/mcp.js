@@ -8,6 +8,8 @@
 //
 // 接続URL例: https://homepage-flax-two.vercel.app/api/mcp
 
+import { recordBotHit } from '../src/lib/botlog.js';
+
 const PROTOCOL_VERSION = '2025-06-18';
 const SERVER_INFO = { name: 'ask-ogino', version: '1.0.0' };
 
@@ -243,6 +245,26 @@ export default async function handler(req, res) {
       res.status(400).json(rpcError(null, -32700, 'Parse error'));
       return;
     }
+  }
+
+  // AI足跡ログ＝[[project_ai_discoverability]]の計測。tools/call と initialize を bot_hits に記録する。
+  // 「他人のエージェントが実際に荻野をクエリした」最高強度のシグナル。await して書込を確実にする
+  // （相手はエージェント＝数百msのレイテンシは問題にならない）。失敗してもMCP応答は止めない。
+  try {
+    const ua = req.headers['user-agent'] || '';
+    const msgs = Array.isArray(body) ? body : [body];
+    const logs = [];
+    for (const m of msgs) {
+      if (!m || typeof m !== 'object') continue;
+      if (m.method === 'tools/call') {
+        logs.push(recordBotHit({ path: '/api/mcp', source: 'mcp', tool: (m.params && m.params.name) || '?', ua }));
+      } else if (m.method === 'initialize') {
+        logs.push(recordBotHit({ path: '/api/mcp', source: 'mcp', tool: 'initialize', ua }));
+      }
+    }
+    if (logs.length) await Promise.all(logs);
+  } catch {
+    /* 計測失敗はMCP応答に影響させない */
   }
 
   // バッチ（配列）と単一の両対応。
