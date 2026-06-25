@@ -119,9 +119,9 @@ function renderStage(){stage.innerHTML='';st.forEach(p=>{
   car.style.backgroundImage='url(/works/manga-assets/pose_previews/'+encodeURIComponent(ch.pose||'立ち')+'.png)';car.onmousedown=e=>down(e,'move',ch);
   if(sel===ch){car.style.outline='2px solid #2d7ef7';addHandles(car,ch);}
  });
- const g=el('div','grip',d);const nb=el('b',null,g);nb.textContent=p.n;g.onmousedown=e=>down(e,'mp',p);
- const st1=el('span','tag',g);st1.textContent=p.shot;st1.title='寄り引き切替';st1.onmousedown=e=>e.stopPropagation();st1.onclick=()=>{p.shot=SHOTS[(SHOTS.indexOf(p.shot)+1)%SHOTS.length];renderStage();schedule();};
- const rh=el('div','rh',d);rh.onmousedown=e=>down(e,'rp',p);
+ const g=el('div','grip',d);g.dataset.feature='move-panel';const nb=el('b',null,g);nb.textContent=p.n;g.onmousedown=e=>down(e,'mp',p);
+ const st1=el('span','tag',g);st1.dataset.feature='toggle-shot';st1.textContent=p.shot;st1.title='寄り引き切替';st1.onmousedown=e=>e.stopPropagation();st1.onclick=()=>{p.shot=SHOTS[(SHOTS.indexOf(p.shot)+1)%SHOTS.length];renderStage();schedule();};
+ const rh=el('div','rh',d);rh.dataset.feature='resize-panel';rh.onmousedown=e=>down(e,'rp',p);
 });els.forEach(renderEl);}
 function renderEl(E){
  E._t='el';
@@ -160,6 +160,7 @@ function chips(items,type){return '<div style="display:flex;flex-wrap:wrap;gap:6
 function sec(t){return '<div style="font-size:12px;color:#888;margin-top:10px">'+t+'</div>';}
 function loadTpl(){(function(d){POSE_NAMES=d.poses.map(p=>p.name);document.getElementById('templates').innerHTML='<h1>テンプレ棚</h1><div style="font-size:11px;color:#aaa;margin-bottom:4px">コマへ＝ポーズ/背景／ページのどこへでも＝吹き出し・効果音・エフェクト</div>'+sec('ポーズ')+gallery(d.poses,'pose')+sec('背景')+gallery(d.backgrounds,'bg')+sec('吹き出し')+gallery(d.bubbles||[],'bubble')+sec('効果音(字体)')+gallery(d.sfx||[],'sfx')+sec('エフェクト')+gallery(d.effects||[],'effect');})(__TEMPLATES__);}
 loadTpl();
+try{document.getElementById('templates').dataset.feature='place-from-shelf';}catch(e){}
 document.getElementById('abtn').onclick=()=>{const b=document.getElementById('abtn'),r=document.getElementById('areply');b.disabled=true;b.textContent='見てもらってる…(初回はモデル読込で1分前後)';r.textContent='';Promise.resolve({reply:__ASSIST__}).then(d=>{r.textContent=d.reply;}).catch(e=>{r.textContent='エラー:'+e;}).finally(()=>{b.disabled=false;b.textContent='このページを見てもらう';});};
 let applyTimer=null,applying=false,again=false;
 function schedule(){clearTimeout(applyTimer);document.getElementById('status').textContent='…';applyTimer=setTimeout(apply,500);}
