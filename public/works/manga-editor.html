@@ -1,0 +1,179 @@
+<!doctype html><html lang=ja><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<title>コマ割り小説エディタ</title>
+<style>
+ body{font-family:-apple-system,'Hiragino Sans',sans-serif;margin:0;background:#f4f4f5;color:#1a1a1a;}
+ .wrap{max-width:1500px;margin:0 auto;padding:18px;display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:20px;}
+ @media(max-width:880px){.wrap{grid-template-columns:1fr;}}
+ h1{font-size:16px;font-weight:600;margin:0 0 12px;}
+ #stage{position:relative;width:100%;height:877px;background:#fff;border:1px solid #999;overflow:hidden;}
+ .panel{position:absolute;border:2px solid #111;box-sizing:border-box;background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#fff;}
+ .grip{position:absolute;left:0;top:0;height:18px;padding:0 6px;background:#111;color:#fff;font-size:11px;line-height:18px;cursor:move;z-index:5;}
+ .rh{position:absolute;right:0;bottom:0;width:13px;height:13px;background:#111;cursor:nwse-resize;z-index:5;}
+ .char{position:absolute;background-repeat:no-repeat;background-position:center;background-size:contain;cursor:grab;}
+ .sh{position:absolute;left:0;bottom:0;width:13px;height:13px;background:#2d7ef7;cursor:nesw-resize;z-index:5;}
+ .char:hover{outline:1px dashed #2d7ef7;}
+ .csh{position:absolute;right:0;bottom:0;width:12px;height:12px;background:#2d7ef7;cursor:nesw-resize;z-index:7;}
+ .del{position:absolute;right:0;top:0;width:15px;height:15px;line-height:15px;text-align:center;background:#c0392b;color:#fff;font-size:11px;cursor:pointer;z-index:7;}
+ .elem{position:absolute;z-index:8;cursor:move;}
+ .elem:hover{outline:1px dashed #2d7ef7;}
+ .er{position:absolute;right:-2px;bottom:-2px;width:12px;height:12px;background:#2d7ef7;cursor:nwse-resize;}
+ .ex{position:absolute;right:-2px;top:-2px;width:15px;height:15px;line-height:15px;text-align:center;background:#c0392b;color:#fff;font-size:11px;cursor:pointer;}
+ .bubstyle-丸,.bubstyle-四角,.bubstyle-叫び,.bubstyle-思考{background:#fff;border:2px solid #111;display:flex;align-items:center;justify-content:center;text-align:center;padding:6px;box-sizing:border-box;color:#111;outline:none;}
+ .bubstyle-丸,.bubstyle-思考{border-radius:50%;}
+ .bubstyle-叫び{clip-path:polygon(0% 18%,9% 0%,22% 13%,38% 0%,52% 13%,66% 0%,80% 13%,93% 0%,100% 20%,90% 38%,100% 56%,90% 74%,100% 100%,74% 88%,54% 100%,40% 86%,26% 100%,11% 86%,0% 100%,9% 70%,0% 50%,9% 32%);}
+ .bubstyle-地の文{background:#fff;border:2px solid #111;display:block;text-align:left;padding:5px 9px;box-sizing:border-box;color:#111;font-family:serif;line-height:1.5;outline:none;}
+ .bubstyle-ト書き{background:transparent;color:#777;display:block;text-align:left;padding:3px;box-sizing:border-box;line-height:1.4;outline:none;}
+ .sfx{font-weight:800;color:#111;-webkit-text-stroke:1.5px #fff;paint-order:stroke fill;white-space:nowrap;}
+ .egrip{position:absolute;left:-2px;top:-2px;width:15px;height:15px;line-height:15px;text-align:center;background:#2d7ef7;color:#fff;font-size:10px;cursor:move;}
+ .hz{position:absolute;right:0;bottom:0;width:14px;height:14px;background:#2d7ef7;cursor:nwse-resize;z-index:9;}
+ .hr{position:absolute;left:0;top:0;width:14px;height:14px;background:#2d7ef7;border-radius:50%;cursor:grab;z-index:9;}
+ .hx{position:absolute;right:0;top:0;width:15px;height:15px;line-height:15px;text-align:center;background:#c0392b;color:#fff;font-size:11px;cursor:pointer;z-index:9;}
+ .htv{position:absolute;left:0;bottom:0;min-width:16px;height:16px;line-height:16px;text-align:center;background:#333;color:#fff;font-size:10px;cursor:pointer;z-index:9;padding:0 2px;}
+ .txt .txtin{display:inline-block;min-width:8px;}
+ .bubstyle-丸 .txtin,.bubstyle-四角 .txtin,.bubstyle-叫び .txtin,.bubstyle-思考 .txtin,.bubstyle-地の文 .txtin,.bubstyle-ト書き .txtin{width:100%;}
+ .txt .egrip,.txt .hr,.txt .hz,.txt .htv,.txt .hx{opacity:0;transition:opacity .12s;}
+ .txt:hover .egrip,.txt:hover .hr,.txt:hover .hz,.txt:hover .htv,.txt:hover .hx{opacity:1;}
+ .cap{position:absolute;left:6px;top:24px;right:6px;font-family:serif;font-size:12px;line-height:1.4;background:rgba(255,255,255,.88);border:1px solid #111;padding:3px 6px;outline:none;z-index:4;}
+ .dir{position:absolute;left:6px;bottom:6px;right:6px;font-size:11px;color:#777;outline:none;z-index:4;}
+ .tag{margin-left:6px;background:#555;color:#fff;padding:0 6px;border-radius:6px;cursor:pointer;font-size:10px;}
+ [contenteditable]:empty:before{content:attr(data-ph);color:#bbb;}
+ .cap:empty{background:transparent;border:1px dashed #bbb;}
+ .bub:empty{border:1px dashed #bbb;}
+ .bub:empty:before{content:attr(data-ph);color:#bbb;}
+ .bub{position:absolute;transform:translate(-50%,-50%);background:#fff;border:1.5px solid #111;border-radius:12px;padding:3px 9px;font-size:12px;white-space:nowrap;cursor:move;z-index:6;}
+ .card{background:#fff;border:1px solid #e4e4e7;border-radius:12px;padding:10px 14px;margin-bottom:10px;}
+ .card h3{font-size:13px;margin:0 0 6px;}
+ .row{display:flex;gap:8px;align-items:center;margin-top:6px;}
+ .row label{width:56px;font-size:12px;color:#666;flex:none;}
+ .row input,.row select,.row textarea{flex:1;font:inherit;font-size:13px;padding:5px 8px;border:1px solid #d4d4d8;border-radius:7px;background:#fff;}
+ .row textarea{min-height:42px;resize:vertical;}
+ button{padding:9px 18px;border:1px solid #ccc;background:#fff;border-radius:8px;cursor:pointer;font-size:14px;}
+ button.primary{background:#111;color:#fff;border-color:#111;}
+ #page{max-width:100%;border:1px solid #ddd;margin-top:8px;}
+ #status{font-size:12px;color:#888;margin-left:10px;}
+ .right{position:sticky;top:18px;align-self:start;max-height:calc(100vh - 36px);overflow:auto;}
+</style>
+<div class=wrap>
+ <div>
+  <h1>コマ割り小説エディタ（P1）</h1>
+  <div style="margin-bottom:8px;display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+   <button id=zout>－</button><span id=zlabel style="font-size:12px;min-width:42px;text-align:center">100%</span><button id=zin>＋</button>
+   <button id=savepage class=primary>このページを書き出す ↗</button>
+   <span id=status style="font-size:12px;color:#888"></span>
+  </div>
+  <div id=stagebox style="overflow:auto;max-height:84vh;border:1px solid #ccc;background:#e9e9ec"><div id=stage></div></div>
+  <div style="margin-top:8px;font-size:12px;color:#888">コマ内テキストは直接編集／番号バーの<b>寄り引き</b>タグはクリック／棚からD&Dで<b>図を追加</b>・図の右上<b>×</b>で削除・右下青で拡縮。</div>
+ </div>
+ <div class=right>
+  <div class=card id=assistcard>
+   <h3>🧠 ネーム担当（Gemma 12B が画像を見て講評）</h3>
+   <textarea id=amsg placeholder="相談は任意：例「3コマ目の見せ方どう？」" style="width:100%;box-sizing:border-box;min-height:42px;font:inherit;font-size:13px;padding:6px 8px;border:1px solid #d4d4d8;border-radius:7px"></textarea>
+   <button id=abtn class=primary style="margin-top:6px;width:100%">このページを見てもらう</button>
+   <div id=areply style="white-space:pre-wrap;font-size:12px;line-height:1.6;margin-top:8px;color:#333"></div>
+  </div>
+  <div id=templates></div>
+ </div>
+</div>
+<script>
+const __STATE__={"panels": [{"id": "P1-1", "n": "1", "x": 60, "y": 60, "w": 1120, "h": 560, "shot": "大ゴマ", "bg": "test_bg", "chars": [{"pose": "立ち", "dx": -260, "dy": 70, "scale": 0.62}]}, {"id": "P1-2", "n": "2", "x": 632, "y": 644, "w": 548, "h": 470, "shot": "中", "chars": []}, {"id": "P1-3", "n": "3", "x": 60, "y": 644, "w": 548, "h": 470, "shot": "中", "chars": []}, {"id": "P1-4", "n": "4", "x": 824, "y": 1138, "w": 356, "h": 556, "shot": "寄り", "chars": []}, {"id": "P1-5", "n": "5", "x": 60, "y": 1138, "w": 740, "h": 556, "shot": "引き", "chars": []}], "elements": [{"type": "bubble", "x": 250, "y": 150, "w": 240, "h": 100, "text": "", "style": "丸", "font": 30}]};
+const __TEMPLATES__={"poses": [{"name": "立ち", "url": "/works/manga-assets/pose_previews/立ち.png"}, {"name": "うつむき", "url": "/works/manga-assets/pose_previews/うつむき.png"}, {"name": "うなだれる", "url": "/works/manga-assets/pose_previews/うなだれる.png"}, {"name": "手を上げる", "url": "/works/manga-assets/pose_previews/手を上げる.png"}, {"name": "振り向き", "url": "/works/manga-assets/pose_previews/振り向き.png"}], "backgrounds": [{"name": "test_bg", "url": "/works/manga-assets/backgrounds/test_bg.png"}], "effects": [{"name": "フラッシュ", "url": "/works/manga-assets/effects/フラッシュ.png"}, {"name": "流線", "url": "/works/manga-assets/effects/流線.png"}, {"name": "集中線", "url": "/works/manga-assets/effects/集中線.png"}], "bubbles": [{"name": "ト書き", "url": "/works/manga-assets/bubbles_prev/ト書き.png"}, {"name": "丸", "url": "/works/manga-assets/bubbles_prev/丸.png"}, {"name": "叫び", "url": "/works/manga-assets/bubbles_prev/叫び.png"}, {"name": "四角", "url": "/works/manga-assets/bubbles_prev/四角.png"}, {"name": "地の文", "url": "/works/manga-assets/bubbles_prev/地の文.png"}, {"name": "思考", "url": "/works/manga-assets/bubbles_prev/思考.png"}], "sfx": [{"name": "ゴシック", "url": "/works/manga-assets/sfx_prev/ゴシック.png"}, {"name": "丸ゴ", "url": "/works/manga-assets/sfx_prev/丸ゴ.png"}, {"name": "明朝", "url": "/works/manga-assets/sfx_prev/明朝.png"}]};
+const __ASSIST__="（これはデモです。実物では、手元で動くAI〈Gemma 12B〉がこのページの絵を実際に見て、こんなふうに答えます）\n\n「1コマ目は大きく空けて正解です。引きの絵で“凡庸な日常”を見せるなら、人物は小さく端に。“何でもない感”が出ます。\n3コマ目の表情は、次ページの真顔につなぐなら、同じ寸法・同じ構図にしておくと、めくった瞬間に効きます。」";
+
+const SHOTS=["大ゴマ","引き","中","寄り","俯瞰"];let POSE_NAMES=["立ち","うつむき"];
+let S=0.5,zoom=1;const PH=1754;
+let st=[],els=[],drag=null,sel=null;
+const SFXF={'ゴシック':"'Hiragino Sans',sans-serif",'明朝':"serif",'丸ゴ':"'Hiragino Maru Gothic ProN','Hiragino Sans',sans-serif"};
+const stage=document.getElementById('stage');
+stage.addEventListener('dragover',e=>e.preventDefault());
+stage.addEventListener('drop',e=>{e.preventDefault();const v=(e.dataTransfer.getData('text/plain')||'').split('|');if(v.length<2)return;const r=stage.getBoundingClientRect(),px=(e.clientX-r.left)/S,py=(e.clientY-r.top)/S,t=v[0];
+ if(t=='pose'||t=='bg'){const p=st.find(q=>px>=q.x&&px<=q.x+q.w&&py>=q.y&&py<=q.y+q.h);if(!p)return;if(t=='pose'){p.chars=p.chars||[];p.chars.push({pose:v[1],dx:Math.round(px-(p.x+p.w/2)),dy:Math.round(py-(p.y+p.h/2)),scale:1});}else p.bg=v[1];}
+ else if(t=='bubble'){const Z={'地の文':[600,90,27],'ト書き':[320,64,20]}[v[1]]||[240,100,30];els.push({type:'bubble',x:Math.round(px-Z[0]/2),y:Math.round(py-Z[1]/2),w:Z[0],h:Z[1],text:'',style:v[1],font:Z[2]});}
+ else if(t=='sfx')els.push({type:'sfx',x:Math.round(px),y:Math.round(py),text:'ドン',style:v[1],font:54});
+ else if(t=='effect')els.push({type:'effect',x:Math.round(px-150),y:Math.round(py-150),w:300,h:300,style:v[1]});
+ renderStage();schedule();});
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+function down(e,k,o,node){drag={k,o,sx:e.clientX,sy:e.clientY,s:JSON.parse(JSON.stringify(o))};if(k=='rot'&&node){const r=node.getBoundingClientRect();drag.cen={x:r.left+r.width/2,y:r.top+r.height/2};drag.a0=Math.atan2(e.clientY-drag.cen.y,e.clientX-drag.cen.x);}sel=o;e.preventDefault();e.stopPropagation();renderStage();}
+addEventListener('mousemove',e=>{if(!drag)return;const dx=(e.clientX-drag.sx)/S,dy=(e.clientY-drag.sy)/S,o=drag.o,s=drag.s;
+ if(drag.k=='mp'){o.x=cl(s.x+dx,0,1240-o.w);o.y=cl(s.y+dy,0,PH-o.h);}
+ else if(drag.k=='rp'){o.w=cl(s.w+dx,120,1240-o.x);o.h=cl(s.h+dy,120,PH-o.y);}
+ else if(drag.k=='mb'){o.bx=cl(s.bx+dx,40,1200);o.by=cl(s.by+dy,30,PH-30);}
+ else if(drag.k=='move'){if(o._t=='char'){o.dx=(s.dx||0)+dx;o.dy=(s.dy||0)+dy;}else{o.x=(s.x||0)+dx;o.y=(s.y||0)+dy;}}
+ else if(drag.k=='size'){if(o._t=='char'){o.scale=cl((s.scale||1)+(dx+dy)/300,0.3,5);}else if(o.type=='sfx'){o.font=cl((s.font||54)+(dx+dy)/2,14,220);}else{o.w=Math.max(40,(s.w||200)+dx);o.h=Math.max(20,(s.h||80)+dy);}}
+ else if(drag.k=='rot'){const a=Math.atan2(e.clientY-drag.cen.y,e.clientX-drag.cen.x);o.rot=Math.round((s.rot||0)+(a-drag.a0)*180/Math.PI);}
+ renderStage();});
+addEventListener('mouseup',()=>{if(drag){drag=null;schedule();}});
+addEventListener('keydown',e=>{if((e.key=='Delete'||e.key=='Backspace')&&sel&&!(document.activeElement&&document.activeElement.isContentEditable)){delItem(sel);sel=null;renderStage();schedule();e.preventDefault();}});
+function delItem(item){if(item&&item._t=='char'){for(const p of st){if(p.chars){const i=p.chars.indexOf(item);if(i>=0){p.chars.splice(i,1);return;}}}}else{els=els.filter(z=>z!==item);}}
+function addHandles(node,item){const rz=el('div','hz',node);rz.title='大きさ';rz.onmousedown=ev=>down(ev,'size',item);const ro=el('div','hr',node);ro.title='回転';ro.onmousedown=ev=>down(ev,'rot',item,node);const hx=el('div','hx',node);hx.textContent='×';hx.title='削除';hx.onmousedown=ev=>{ev.stopPropagation();ev.preventDefault();delItem(item);sel=null;renderStage();schedule();};if(item.type=='bubble'||item.type=='sfx'){const tv=el('div','htv',node);tv.textContent=item.vert?'横':'縦';tv.title='縦書き/横書き';tv.onmousedown=ev=>{ev.stopPropagation();ev.preventDefault();item.vert=!item.vert;renderStage();schedule();};}}
+stage.addEventListener('mousedown',e=>{if(e.target===stage||e.target.classList.contains('panel')){if(sel){sel=null;renderStage();}}});
+function el(t,c,p){const d=document.createElement(t);if(c)d.className=c;if(p)p.appendChild(d);return d;}
+function renderStage(){stage.innerHTML='';st.forEach(p=>{
+ const pw=p.w*S,ph=p.h*S;
+ const d=el('div','panel',stage);d.style.left=(p.x*S)+'px';d.style.top=(p.y*S)+'px';d.style.width=pw+'px';d.style.height=ph+'px';d.style.overflow='hidden';
+ if(p.bg){d.style.backgroundImage='url(/works/manga-assets/backgrounds/'+encodeURIComponent(p.bg)+'.png)';d.style.backgroundSize='cover';d.style.backgroundPosition='center';}
+ (p.chars||[]).forEach(ch=>{ch._t='char';
+  const scl=ch.scale||1,cw=pw*scl,chh=ph*scl;
+  const car=el('div','char',d);car.style.width=cw+'px';car.style.height=chh+'px';car.style.left=((pw-cw)/2+(ch.dx||0)*S)+'px';car.style.top=((ph-chh)/2+(ch.dy||0)*S)+'px';
+  if(ch.rot)car.style.transform='rotate('+ch.rot+'deg)';
+  car.style.backgroundImage='url(/works/manga-assets/pose_previews/'+encodeURIComponent(ch.pose||'立ち')+'.png)';car.onmousedown=e=>down(e,'move',ch);
+  if(sel===ch){car.style.outline='2px solid #2d7ef7';addHandles(car,ch);}
+ });
+ const g=el('div','grip',d);const nb=el('b',null,g);nb.textContent=p.n;g.onmousedown=e=>down(e,'mp',p);
+ const st1=el('span','tag',g);st1.textContent=p.shot;st1.title='寄り引き切替';st1.onmousedown=e=>e.stopPropagation();st1.onclick=()=>{p.shot=SHOTS[(SHOTS.indexOf(p.shot)+1)%SHOTS.length];renderStage();schedule();};
+ const rh=el('div','rh',d);rh.onmousedown=e=>down(e,'rp',p);
+});els.forEach(renderEl);}
+function renderEl(E){
+ E._t='el';
+ const e=el('div','elem',stage);e.style.left=(E.x*S)+'px';e.style.top=(E.y*S)+'px';
+ if(E.rot)e.style.transform='rotate('+E.rot+'deg)';
+ if(E.type=='effect'){
+  e.style.width=(E.w*S)+'px';e.style.height=(E.h*S)+'px';e.style.backgroundImage='url(/works/manga-assets/effects/'+encodeURIComponent(E.style)+'.png)';e.style.backgroundSize='contain';e.style.backgroundRepeat='no-repeat';
+  e.onmousedown=ev=>down(ev,'move',E);
+  if(sel===E){e.style.outline='2px solid #2d7ef7';addHandles(e,E);}
+  return;
+ }
+ // テキスト（吹き出し/効果音）＝常時編集可・クリックで即入力。ハンドルはホバーで出す。
+ if(E.type=='bubble'){e.className='elem txt bubstyle-'+E.style;e.style.width=(E.w*S)+'px';e.style.minHeight=(E.h*S)+'px';e.style.fontSize=((E.font||30)*S)+'px';}
+ else{e.className='elem txt sfx';e.style.fontFamily=SFXF[E.style]||'sans-serif';e.style.fontSize=((E.font||54)*S)+'px';}
+ const tx=el('span','txtin',e);tx.dataset.ph=(E.type=='sfx'?'効果音':'セリフ');tx.textContent=E.text||'';
+ tx.contentEditable=true;tx.spellcheck=false;if(E.vert)tx.style.writingMode='vertical-rl';
+ tx.onmousedown=ev=>ev.stopPropagation();          // 本体ドラッグでなく文字入力に
+ tx.ondrop=ev=>ev.preventDefault();
+ tx.oninput=()=>{E.text=tx.textContent;schedule();}; // 入力中は描き直さない＝フォーカス保持
+ const mv=el('div','egrip',e);mv.textContent='✥';mv.title='移動';mv.onmousedown=ev=>down(ev,'move',E);
+ const ro=el('div','hr',e);ro.title='回転';ro.style.left='50%';ro.style.top='-7px';ro.style.transform='translateX(-50%)';ro.onmousedown=ev=>down(ev,'rot',E,e);
+ const rz=el('div','hz',e);rz.title='大きさ';rz.onmousedown=ev=>down(ev,'size',E);
+ const tv=el('div','htv',e);tv.textContent=E.vert?'横':'縦';tv.title='縦書き/横書き';tv.onmousedown=ev=>{ev.stopPropagation();ev.preventDefault();E.vert=!E.vert;renderStage();schedule();};
+ const hx=el('div','hx',e);hx.textContent='×';hx.title='削除';hx.onmousedown=ev=>{ev.stopPropagation();ev.preventDefault();delItem(E);renderStage();schedule();};
+}
+function fit(){const box=document.getElementById('stagebox');const base=Math.min(box.clientWidth-2,1000)/1240;S=base*zoom;stage.style.width=(1240*S)+'px';stage.style.height=(PH*S)+'px';stage.style.background='#fff';stage.style.boxShadow='0 0 0 1px #ccc';renderStage();}
+addEventListener('resize',fit);
+function setZoom(z){zoom=Math.max(0.3,Math.min(3,z));document.getElementById('zlabel').textContent=Math.round(zoom*100)+'%';fit();}
+document.getElementById('zin').onclick=()=>setZoom(zoom*1.2);
+document.getElementById('zout').onclick=()=>setZoom(zoom/1.2);
+document.getElementById('savepage').onclick=()=>document.getElementById('status').textContent='デモ：書き出しはローカル版で';
+(function(){var d=__STATE__;st=d.panels;els=d.elements||[];fit();})();
+function dragTpl(e,t,n){e.dataTransfer.setData('text/plain',t+'|'+n);}
+function gallery(items,type){return items.length?('<div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">'+items.map(it=>'<div draggable="true" ondragstart="dragTpl(event,\''+type+'\',\''+it.name+'\')" style="text-align:center;font-size:11px;color:#555;width:74px;cursor:grab"><img src="'+it.url+'?t='+(window.__t||0)+'" style="width:74px;height:98px;object-fit:contain;border:1px solid #ddd;background:#fff;pointer-events:none"><div>'+it.name+'</div></div>').join('')+'</div>'):'<div style="font-size:11px;color:#aaa">なし</div>';}
+function chips(items,type){return '<div style="display:flex;flex-wrap:wrap;gap:6px;margin-top:4px">'+items.map(it=>'<span draggable="true" ondragstart="dragTpl(event,\''+type+'\',\''+it.name+'\')" style="border:1px solid #bbb;border-radius:6px;padding:3px 9px;font-size:12px;cursor:grab;background:#fff">'+it.name+'</span>').join('')+'</div>';}
+function sec(t){return '<div style="font-size:12px;color:#888;margin-top:10px">'+t+'</div>';}
+function loadTpl(){(function(d){POSE_NAMES=d.poses.map(p=>p.name);document.getElementById('templates').innerHTML='<h1>テンプレ棚</h1><div style="font-size:11px;color:#aaa;margin-bottom:4px">コマへ＝ポーズ/背景／ページのどこへでも＝吹き出し・効果音・エフェクト</div>'+sec('ポーズ')+gallery(d.poses,'pose')+sec('背景')+gallery(d.backgrounds,'bg')+sec('吹き出し')+gallery(d.bubbles||[],'bubble')+sec('効果音(字体)')+gallery(d.sfx||[],'sfx')+sec('エフェクト')+gallery(d.effects||[],'effect');})(__TEMPLATES__);}
+loadTpl();
+document.getElementById('abtn').onclick=()=>{const b=document.getElementById('abtn'),r=document.getElementById('areply');b.disabled=true;b.textContent='見てもらってる…(初回はモデル読込で1分前後)';r.textContent='';Promise.resolve({reply:__ASSIST__}).then(d=>{r.textContent=d.reply;}).catch(e=>{r.textContent='エラー:'+e;}).finally(()=>{b.disabled=false;b.textContent='このページを見てもらう';});};
+let applyTimer=null,applying=false,again=false;
+function schedule(){clearTimeout(applyTimer);document.getElementById('status').textContent='…';applyTimer=setTimeout(apply,500);}
+function apply(){
+ if(applying){again=true;return;}
+ applying=true;
+ const out={panels:[],layout:{panels:{},bubbles:[]}};
+ st.forEach(p=>{out.panels.push({id:p.id,shot:p.shot,background:p.bg||'',narration:p.narration||'','ト書き':p.tg||'',sfx:p.sfx||'',narFont:Math.round(p.narFont||27),dirFont:Math.round(p.dirFont||22),bubFont:Math.round(p.bubFont||30),dialogue:p.tx?[{speaker:p.sp||'',text:p.tx}]:[],characters:(p.chars||[]).map(c=>({pose:c.pose,dx:Math.round(c.dx||0),dy:Math.round(c.dy||0),scale:Math.round((c.scale||1)*100)/100,rot:Math.round(c.rot||0)}))});
+  out.layout.panels[p.id]={x:Math.round(p.x),y:Math.round(p.y),w:Math.round(p.w),h:Math.round(p.h),n:p.n};
+  if(p.tx)out.layout.bubbles.push({panel:p.id,text:p.tx,cx:Math.round(p.bx||(p.x+p.w/2)),cy:Math.round(p.by||(p.y+70))});});
+ out.layout.elements=els;
+ document.getElementById('status').textContent='更新中…';
+ Promise.resolve().then(()=>{
+  document.getElementById('status').textContent='デモ：保存はローカル版で';
+ }).catch(e=>{document.getElementById('status').textContent='エラー:'+e;}).finally(()=>{applying=false;if(again){again=false;apply();}});
+}
+</script></html>
