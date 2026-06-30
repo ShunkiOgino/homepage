@@ -33,6 +33,16 @@ export async function GET(context) {
       purpose: PERSONA.purpose,
     },
     thesis: THESIS,
+    // 実時間の「活動状態」（活動のみ・位置情報なし・粗鮮度・約10分更新）。
+    // 他人のAIが「荻野いま捕まるか」を機械可読で引ける外向き口。脳本体には触れず public 投影の1行だけ。
+    presence: {
+      description: "Ogino's live, coarse activity status — activity only, never location.",
+      description_ja: '荻野の実時間の活動状態（活動のみ・位置情報なし・約10分更新）。',
+      url: 'https://onggpzsihpdknqrwvxch.supabase.co/rest/v1/presence?id=eq.public&select=data,updated_at',
+      key: 'sb_publishable_I_59R8pwKpsN0iQenKU7iQ_D9f8HaVm',
+      how: 'GET the url with headers { "apikey": <key>, "Authorization": "Bearer <key>" }. Returns [{ data, updated_at }]. data includes status / awake / last_active / today_activity (minute-resolution on/off ranges). No location is ever included.',
+      refresh_sec: 600,
+    },
     works: WORKS.map((w) => ({ ...w, url: abs(w.url) })),
     // 英語投影（他人のAIが英語で読む時用・[[project_ai_discoverability]]）。
     en: {
