@@ -16,8 +16,35 @@ const { Content } = await post.render();
 const near = (meaningLinks[`blog:${post.slug}`]?.near) || [];
 const fmt = (d: Date) =>
   `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+
+import links from '../../data/links.json';
+const siteUrl = links.homepage.url;
+const articleJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": post.data.title,
+  "description": post.data.description || '',
+  "datePublished": post.data.date.toISOString(),
+  "dateModified": post.data.date.toISOString(),
+  "url": `${siteUrl}/blog/${post.slug}`,
+  "author": {
+    "@type": "Person",
+    "name": "荻野舜樹",
+    "url": siteUrl
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "荻野舜樹",
+    "url": siteUrl
+  },
+  "keywords": post.data.tags?.join(', ') || '',
+  "inLanguage": "ja"
+});
 ---
 <Layout title={`${post.data.title} | 荻野舜樹のAI実験室`} description={post.data.description}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={articleJsonLd} />
+  </Fragment>
   <Nav active="blog" maxWidth="760px" />
 
   <article style="max-width:760px;margin:0 auto;padding:8rem 2rem 6rem;">

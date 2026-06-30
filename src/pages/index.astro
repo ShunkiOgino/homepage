@@ -14,6 +14,28 @@ const latestPost = _posts[0] || null;
 const fmtD = (d) =>
   `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
 
+const siteJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": links.homepage.url + "/#website",
+      "url": links.homepage.url,
+      "name": "荻野舜樹のAI実験室",
+      "description": "生産活動から人間を排する。Claude Code・AIエージェント・ローカルLLMの実験場。",
+      "inLanguage": "ja"
+    },
+    {
+      "@type": "Person",
+      "@id": links.homepage.url + "/#person",
+      "name": "荻野舜樹",
+      "url": links.homepage.url,
+      "sameAs": [links.github?.url, links.youtube?.url].filter(Boolean),
+      "knowsAbout": ["Claude Code", "AIエージェント", "ローカルLLM", "ComfyUI", "SNS自動化", "Python"]
+    }
+  ]
+});
+
 // 作ったもの — 考えていることの「証拠」。どれも自分のための道具。
 const works = [
   {
@@ -61,6 +83,9 @@ const works = [
   title="荻野舜樹のAI実験室 — めんどうは機械に、人は好きなことを"
   description="めんどうなことは機械にやらせて、人は好きなことに時間を使えるように。荻野舜樹が考えていること、作ったもの。"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={siteJsonLd} />
+  </Fragment>
   <Nav />
 
   <!-- Hero（やわらかい一文を主役に） -->
