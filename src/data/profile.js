@@ -28,7 +28,10 @@ export const WORKS = [
       "物理",
       "ブラウザで遊べる"
     ],
-    "desc": "物理（熱力学第二法則）をそのままルールに組み込んだブラウザゲーム。難しい概念を説明ではなく「触って分かる」形に置き換える実験。MITライセンスでソース公開。"
+    "desc": "物理の法則をそのままルールに組み込んだゲーム。むずかしい考えを、説明ではなく「触って分かる」形に置き換える実験です。ソースはMITライセンスで公開しています。",
+    "sub": "ゲーム / 物理",
+    "status": "公開中",
+    "cta": "遊んでみる →"
   },
   {
     "title": "自動でメールに返事するAI",
@@ -39,7 +42,10 @@ export const WORKS = [
       "メール自動化",
       "ローカル処理"
     ],
-    "desc": "送ってきた相手ごとに専用のAIが立ち上がり、ローカルで動くAI（Gemma）が内容を整理して返信する。メールの中身は外部のAIに渡さず手元で処理し、相手ごとに見える範囲を分けてある。"
+    "desc": "送ってきた相手ごとに専用のAIが立ち上がり、私のパソコンの中で動くAI（Gemma）が内容を整理して返事をします。メールの中身は外部のAIに渡さず手元で処理し、相手ごとに見られる範囲を分け、別の人のやり取りには触れられない作りです。",
+    "sub": "AIエージェント",
+    "status": "稼働中",
+    "cta": "中を見る →"
   },
   {
     "title": "動画を作るスタジオ",
@@ -51,7 +57,23 @@ export const WORKS = [
       "音声合成",
       "ローカル生成"
     ],
-    "desc": "話した内容からAIが台本を起こし、配置・音声合成・書き出しまで自動化。台本も音声も、クラウドの生成AIに頼らず手元で作る。"
+    "desc": "話した内容からAIが台本を起こし、キャラクターの配置・音声合成・書き出しまでを自動で。動画を作る手間を、丸ごと機械に渡す試みです。台本づくりも音声もぜんぶローカルで動きます。",
+    "sub": "動画制作ツール",
+    "status": "稼働中",
+    "cta": "中を見る →"
+  },
+  {
+    "title": "漫画を作るツール",
+    "url": "/works/manga",
+    "sub": "漫画 / 制作ツール",
+    "status": "制作中",
+    "cta": "ツールをさわってみる →",
+    "tags": [
+      "漫画",
+      "自作ツール",
+      "ローカルAI"
+    ],
+    "desc": "漫画を作るための道具そのものを自分で組んでいます。ページにコマを割り、棚からポーズや背景を置き、手元で動くAIがページの絵を見て見せ方を一緒に考える。市販のソフトに預けず、AIをループに入れて作れる自作のエディタです。読切を一本、これで制作中。"
   }
 ];
 
@@ -83,7 +105,10 @@ export const WORKS_EN = [
       "Physics",
       "Plays in the browser"
     ],
-    "desc": "A browser game that builds physics — the second law of thermodynamics — directly into its rules. An experiment in replacing a hard concept with something you grasp by touching, not by explanation. Source released under MIT."
+    "desc": "A browser game that builds physics — the second law of thermodynamics — directly into its rules. An experiment in replacing a hard concept with something you grasp by touching, not by explanation. Source released under MIT.",
+    "sub": "Game / Physics",
+    "status": "Released",
+    "cta": "Play it →"
   },
   {
     "title": "An AI that replies to your email",
@@ -94,7 +119,10 @@ export const WORKS_EN = [
       "Email automation",
       "Local processing"
     ],
-    "desc": "For each sender, a dedicated AI spins up, and a locally-running AI (Gemma) organizes the content and drafts a reply. The email's contents are processed on the machine, never handed to an external AI, and each sender's visible scope is kept separate."
+    "desc": "For each sender, a dedicated AI spins up, and a locally-running AI (Gemma) organizes the content and drafts a reply. The email's contents are processed on the machine, never handed to an external AI, and each sender's visible scope is kept separate.",
+    "sub": "AI agent",
+    "status": "Running",
+    "cta": "See inside →"
   },
   {
     "title": "A studio that makes videos",
@@ -106,7 +134,24 @@ export const WORKS_EN = [
       "Voice synthesis",
       "Local generation"
     ],
-    "desc": "From what you said out loud, an AI drafts the script and automates layout, voice synthesis, and export. Both script and voice are made on the machine, without relying on cloud generative AI."
+    "desc": "From what you said out loud, an AI drafts the script and automates layout, voice synthesis, and export. Both script and voice are made on the machine, without relying on cloud generative AI.",
+    "sub": "Video tooling",
+    "status": "Running",
+    "cta": "See inside →"
+  },
+  {
+    "title": "A tool for making manga",
+    "url": "/works/manga",
+    "repo": "",
+    "tags": [
+      "Manga",
+      "Homemade tool",
+      "Local AI"
+    ],
+    "desc": "I'm building the tool for making manga itself. Lay out panels on a page, place poses and backgrounds from a shelf, and a locally-running AI looks at the page and thinks through the presentation with me. A homemade editor that keeps the AI in the loop instead of handing the work to off-the-shelf software. A one-shot manga is in production with it.",
+    "sub": "Manga / Tooling",
+    "status": "In progress",
+    "cta": "Try the tool →"
   }
 ];
 

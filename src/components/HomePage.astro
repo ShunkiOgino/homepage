@@ -1,0 +1,457 @@
+---
+// トップページの唯一の正（JA/EN共通）。/ と /en はこれを lang 違いで置くだけ。
+// 文言は下の T 辞書、works は profile.js（生成物SSoT）を読む＝言語間ドリフトを構造で防ぐ。
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import latest from '../data/latest_posts.json';
+import links from '../data/links.json';
+import todayAct from '../data/today_activity.json';
+import { WORKS, WORKS_EN } from '../data/profile.js';
+import { getCollection } from 'astro:content';
+
+interface Props {
+  lang?: 'ja' | 'en';
+}
+const { lang = 'ja' } = Astro.props;
+const base = lang === 'en' ? '/en' : '';
+const works = lang === 'en' ? WORKS_EN : WORKS;
+
+const T = lang === 'en' ? {
+  title: "Shunki Ogino's AI Lab — leave the busywork to machines",
+  description: 'Leave the tedious work to machines, and keep your time for what you love. What Shunki Ogino thinks about and builds.',
+  heroA: 'Leave the tedious work ',
+  heroAccent: 'to machines.',
+  heroB: 'Keep your time for what you love.',
+  lead1: 'I build those tools for myself first — and eventually for everyone. An independent developer making AI agents that can run on your own machine, games that turn physical laws directly into rules, and a studio that generates videos automatically. I use local and cloud AI depending on the job.',
+  lead2: 'This site is where I keep what I think and what I build — written for people, and for AIs to read too.',
+  clockTitle: "Today's observation",
+  clockAsOf: (time: string) => `as of ${time}`,
+  clockNoteBoth: 'The PC rows (Pro/Air) record minutes I was actually at the keyboard; the Phone row records minutes an app was open. ',
+  clockNoteMac: 'A record of the minutes I was actually at my computer. ',
+  clockTail: (res: number) => `The taller the bar, the more of those ${res} minutes were in use. Only "when and how much" is published — never the contents. Updates automatically a few times a day.`,
+  clockAxis: ['0:00', '6:00', '12:00', '18:00', '24:00'],
+  fmtMin: (m: number) => `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, '0')}m`,
+  cards: [
+    ['What I make', 'Tools I built for myself', '#works', ''],
+    ['Writing', 'What I think, day to day', '/en/blog', ''],
+    ['Contact', 'An AI replies first', '#contact', ''],
+    ['Discord', 'A lab for locally-running AI agents', links.discord.url, 'Looking for peers'],
+  ],
+  brand: "Shunki Ogino's AI Lab",
+  latestH: 'Latest updates',
+  latestLead: "What I've been thinking (the blog), plus the latest from YouTube and Instagram. The daily record gathers here as one stream.",
+  blogTag: 'Writing',
+  worksH: 'What I make',
+  worksLead: 'Evidence of what I think about. Each is a tool I built for myself, made to keep working with my hands off it.',
+  worksRepo: 'Source (MIT) ↓',
+  worksNote: 'A product you can actually buy is in preparation. The first one is planned to be a tool that helps people stay connected.',
+  contactH: 'Contact',
+  contactLead1: 'Send a message here and an AI running on my own computer will organize it and reply first, automatically. This form is actually ',
+  contactLeadEm: 'the "AI that replies to your email" shown above, running for real',
+  contactLead2: '. Whether you want to build together, cheer the project on, or just look around — you are welcome.',
+  stepsTitle: 'From sending to getting a reply',
+  steps: [
+    ['1', 'Submit the form', 'Saved to the server'],
+    ['2', 'The AI receives it', 'Organizes the content'],
+    ['3', 'Automatic reply', 'You get an email'],
+    ['4', 'I read it myself', 'Ogino reads and acts'],
+  ],
+  fName: 'Name', fNamePh: 'Your name',
+  fCompany: 'Affiliation (optional)', fCompanyPh: 'Company, team, etc.',
+  fEmail: 'Email',
+  fSystem: 'What brings you here?', fSystemPh: 'e.g. want to build together / the ideas resonated / just visiting / other',
+  fSituation: "What's on your mind", fSituationPh: 'What led you here?',
+  fOutcome: "Where you'd like this to go", fOutcomePh: "What you'd like to work toward or make happen",
+  fTimeline: 'Timing / scale (optional)', fTimelinePh: 'e.g. no rush, just want to talk first',
+  fSend: 'Send', fSending: 'Sending...',
+  fOk: 'Sent. Once the AI has organized your message, a reply will go to the email you entered (usually within a few hours).',
+  fFail: 'Something went wrong. Please try again later.',
+} : {
+  title: '荻野舜樹のAI実験室 — めんどうは機械に、人は好きなことを',
+  description: 'めんどうなことは機械にやらせて、人は好きなことに時間を使えるように。荻野舜樹が考えていること、作ったもの。',
+  heroA: 'めんどうなことは、',
+  heroAccent: '機械にやらせる。',
+  heroB: '人は、好きなことに時間を使えばいい。',
+  lead1: 'そういう道具を、まず自分のために作っています。いつか、みんなのぶんも。',
+  lead2: 'このサイトは、私が何を考えて、何を作っているのかを置いておく場所です。',
+  clockTitle: '今日の観測',
+  clockAsOf: (time: string) => `${time} 時点`,
+  clockNoteBoth: 'パソコン（Pro/Air）は私が触れていた分、Phone はアプリを開いていた分の記録です。',
+  clockNoteMac: '私がパソコンに触れていた時間の記録です。',
+  clockTail: (res: number) => `高い柱ほど、その${res}分をよく使っています。出せるのは「いつ・どれだけ」だけ——中身は出しません。1日に数回、自動で更新されます。`,
+  clockAxis: ['0時', '6時', '12時', '18時', '24時'],
+  fmtMin: (m: number) => `${Math.floor(m / 60)}時間${String(m % 60).padStart(2, '0')}分`,
+  cards: [
+    ['作ったもの', '自分のために作った道具', '#works', ''],
+    ['ブログ', '考えていること・日々の記録', '/blog', ''],
+    ['連絡', 'AIがまず返事をします', '#contact', ''],
+    ['Discord', 'ローカルエージェントAIの実験室', links.discord.url, '仲間募集中！'],
+  ],
+  brand: '荻野舜樹のAI実験室',
+  latestH: '最新の発信',
+  latestLead: '考えていること（ブログ）と、YouTube・Instagram の直近です。日々の記録が、一本の流れになってここに集まります。',
+  blogTag: '考えていること',
+  worksH: '作ったもの',
+  worksLead: '考えていることの、証拠みたいなものです。どれも自分のために作った道具で、私の手を離れても動くように作っています。',
+  worksRepo: 'ソースをダウンロード (MIT) ↓',
+  worksNote: '買って使える「製品」は準備中です。最初の一本は、人とのつながりを助ける道具になる予定です。',
+  contactH: '連絡',
+  contactLead1: 'ここから送ると、私のパソコンの中で動くAIが内容を整理して、まず自動でお返事します。実はこれ自体が、上で紹介している',
+  contactLeadEm: '「自動でメールに返事するAI」を実際に動かして見せているもの',
+  contactLead2: 'です。一緒に作りたい人、応援したい人、見学したい人、どなたでもどうぞ。',
+  stepsTitle: '送信してから返事が届くまで',
+  steps: [
+    ['1', 'フォームを送信', 'サーバーに保存'],
+    ['2', 'AIが受け取る', '内容を整理'],
+    ['3', '自動で返信', 'メールでお返事'],
+    ['4', '本人が確認', '荻野が読んで動く'],
+  ],
+  fName: 'お名前', fNamePh: 'お名前',
+  fCompany: '所属（任意）', fCompanyPh: '会社・チームなど',
+  fEmail: 'メールアドレス',
+  fSystem: 'どんな用件ですか？', fSystemPh: '例：一緒に作りたい / 考えに共感した / 見学したい / その他',
+  fSituation: 'いま考えていること', fSituationPh: 'どんなきっかけで、ここに辿り着きましたか',
+  fOutcome: 'こうなったらいいな（目標）', fOutcomePh: '一緒に向かいたい先や、実現したいこと',
+  fTimeline: '時期感・規模（任意）', fTimelinePh: '例：急ぎではない、まずは話してみたい',
+  fSend: '送信する', fSending: '送信中...',
+  fOk: '送信しました。AIが内容を整理次第、入力いただいたメアドに折り返します（通常数時間以内）。',
+  fFail: '送信に失敗しました。時間をおいて再度お試しください。',
+};
+
+// 考えていること＝ブログ＝一本の流れ（log）。トップ冒頭に最新の一本を置く。
+const _posts = (await getCollection(lang === 'en' ? 'blog-en' : 'blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+const fmtD = (d) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+
+// 今日の観測（活動時計）＝公開presenceプールの投影（export_today_activity.py が日2回運ぶ）。
+// データが無ければ何も描かない（fail-closed）。鮮度は generated_at で正直に表記。
+const _ta = todayAct?.today_activity ?? null;
+const _tp = todayAct?.today_phone_activity ?? null;
+const _taTime = todayAct?.generated_at
+  ? todayAct.generated_at.slice(0, 16).replace('T', ' ').replaceAll('-', '.')
+  : '';
+const _taBarH = (v) => (v === 0 ? 2 : Math.max(4, Math.round((v / (_ta?.bucket_max || 30)) * 26)));
+// Mac=触れていた分 / Phone=アプリを開いていた分（性質が違うので注記で明記＝混ぜない）
+const _taNote = _tp ? T.clockNoteBoth : T.clockNoteMac;
+
+const siteJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": links.homepage.url + "/#website",
+      "url": links.homepage.url + (lang === 'en' ? '/en' : ''),
+      "name": lang === 'en' ? "Shunki Ogino's AI Lab" : "荻野舜樹のAI実験室",
+      "description": lang === 'en'
+        ? "Leave the busywork to machines; keep your time for what you love. Claude Code, AI agents, and local LLMs."
+        : "生産活動から人間を排する。Claude Code・AIエージェント・ローカルLLMの実験場。",
+      "inLanguage": lang
+    },
+    {
+      "@type": "Person",
+      "@id": links.homepage.url + "/#person",
+      "name": "荻野舜樹",
+      "alternateName": "Shunki Ogino",
+      "url": links.homepage.url,
+      "sameAs": [links.github?.url, links.youtube?.url].filter(Boolean),
+      "knowsAbout": ["Claude Code", "AIエージェント", "ローカルLLM", "ComfyUI", "SNS自動化", "Python"]
+    }
+  ]
+});
+---
+<Layout title={T.title} description={T.description} lang={lang}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={siteJsonLd} />
+  </Fragment>
+  <Nav lang={lang} />
+
+  <!-- Hero（やわらかい一文を主役に） -->
+  <section style="min-height:100vh;display:flex;align-items:center;padding:0 2rem;padding-top:56px;">
+    <div style="max-width:1100px;margin:0 auto;width:100%;">
+      <h1 style="font-size:clamp(2rem,5vw,3.8rem);font-weight:700;line-height:1.3;letter-spacing:-0.02em;margin-bottom:1.75rem;color:var(--text);">
+        {T.heroA}<span style="color:var(--accent);">{T.heroAccent}</span><br />{T.heroB}
+      </h1>
+      <p style="font-size:1.05rem;color:var(--text-prose);max-width:620px;margin-bottom:1rem;line-height:1.9;">
+        {T.lead1}
+      </p>
+      <p style="font-size:0.95rem;color:var(--text2);max-width:620px;margin-bottom:2.5rem;line-height:1.9;">
+        {T.lead2}
+      </p>
+
+      <!-- 今日の観測（活動時計）：飾りの代わりに実測を置く -->
+      {_ta && (
+        <div style="background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;max-width:720px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+            <span style="font-size:0.8rem;font-weight:600;color:var(--text);">{T.clockTitle}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text3);letter-spacing:0.05em;">{T.clockAsOf(_taTime)}</span>
+          </div>
+          <div style="margin-top:1rem;display:grid;grid-template-columns:34px 1fr 92px;gap:0.55rem 0.9rem;align-items:end;">
+            {_ta.devices.map((d) => (
+              <>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);padding-bottom:2px;">{d.label}</span>
+                <div style="display:flex;align-items:flex-end;gap:2px;height:28px;border-bottom:1px solid var(--border);">
+                  {d.buckets.map((v) => (
+                    <span style={`flex:1;height:${_taBarH(v)}px;background:${v === 0 ? 'var(--border)' : 'var(--accent)'};`}></span>
+                  ))}
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);text-align:right;padding-bottom:2px;">{T.fmtMin(d.active_minutes_total)}</span>
+              </>
+            ))}
+            {_tp && (
+              <>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);padding-bottom:2px;">Phone</span>
+                <div style="display:flex;align-items:flex-end;gap:2px;height:28px;border-bottom:1px solid var(--border);">
+                  {_tp.buckets.map((v) => (
+                    <span style={`flex:1;height:${_taBarH(v)}px;background:${v === 0 ? 'var(--border)' : 'var(--accent)'};`}></span>
+                  ))}
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);text-align:right;padding-bottom:2px;">{T.fmtMin(_tp.active_minutes_total)}</span>
+              </>
+            )}
+            <span></span>
+            <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text3);">{T.clockAxis.map((a) => <span>{a}</span>)}</div>
+            <span></span>
+          </div>
+          <p style="margin-top:0.9rem;font-size:0.72rem;color:var(--text2);line-height:1.7;">
+            {_taNote}{T.clockTail(_ta.resolution_min)}
+          </p>
+        </div>
+      )}
+
+      <!-- 入口カード（メタファなし・一般語） -->
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5px;background:var(--border);margin-top:3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+        {T.cards.map(([label, desc, href, badge]) => (
+          <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel={href.startsWith('http') ? 'noopener noreferrer' : undefined} style="background:var(--bg);padding:1.25rem 1.5rem;text-decoration:none;display:block;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
+            <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.35rem;flex-wrap:wrap;">
+              <span style="font-size:1rem;color:var(--text);font-weight:600;">{label}</span>
+              {badge && <span style="font-size:0.62rem;background:rgba(0,212,255,0.12);color:var(--accent);border:1px solid rgba(0,212,255,0.25);padding:0.1rem 0.45rem;border-radius:2px;font-weight:600;">{badge}</span>}
+            </div>
+            <div style="font-size:0.8rem;color:var(--text2);line-height:1.6;">{desc}</div>
+          </a>
+        ))}
+      </div>
+      <p style="font-size:0.85rem;color:var(--text3);margin-top:2rem;">{T.brand}</p>
+    </div>
+  </section>
+
+  <!-- 最新の発信（log層の流入口：直近のYouTube/Instagram） -->
+  <section id="latest" style="padding:5rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="margin-bottom:2rem;max-width:720px;">
+        <h2 style="font-size:2rem;font-weight:600;letter-spacing:-0.02em;">{T.latestH}</h2>
+        <p style="color:var(--text2);margin-top:0.6rem;line-height:1.8;">{T.latestLead}</p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;align-items:start;">
+        {_posts.slice(0, 2).map((p) => (
+          <a href={`${base}/blog/${p.slug}`} style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="aspect-ratio:16/9;background:var(--surface2);display:flex;flex-direction:column;justify-content:center;padding:1.1rem 1.2rem;border-bottom:1px solid var(--border);">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.6rem;letter-spacing:0.05em;color:var(--accent);">{T.blogTag}</span>
+              <div style="font-size:1.05rem;font-weight:600;line-height:1.4;color:var(--text);margin-top:0.5rem;">{p.data.title}</div>
+            </div>
+            <div style="padding:0.85rem 0.95rem;">
+              {p.data.description && <div style="font-size:0.8rem;line-height:1.55;color:var(--text2);">{p.data.description}</div>}
+              <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;font-family:'JetBrains Mono',monospace;">{fmtD(p.data.date)}</div>
+            </div>
+          </a>
+        ))}
+        {latest.youtube.map((v) => (
+          <a href={v.url} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="position:relative;aspect-ratio:16/9;background:#000;">
+              <img src={v.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">▶ YouTube</span>
+            </div>
+            <div style="padding:0.85rem 0.95rem;">
+              <div style="font-size:0.82rem;line-height:1.55;color:var(--text);">{v.title}</div>
+              {v.date && <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;font-family:'JetBrains Mono',monospace;">{v.date}</div>}
+            </div>
+          </a>
+        ))}
+        {latest.instagram.map((p) => (
+          <a href={p.permalink} target="_blank" rel="noopener noreferrer" style="text-decoration:none;color:inherit;display:block;border:1px solid var(--border);background:var(--surface);overflow:hidden;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">
+            <div style="position:relative;aspect-ratio:16/9;background:#000;display:flex;align-items:center;justify-content:center;">
+              {p.thumb ? (
+                <img src={p.thumb} alt="" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block;" />
+              ) : (
+                <span style="color:var(--text3);font-size:0.7rem;">Instagram</span>
+              )}
+              <span style="position:absolute;bottom:0.5rem;left:0.5rem;background:rgba(0,0,0,0.72);color:#fff;font-size:0.6rem;letter-spacing:0.05em;padding:0.2rem 0.5rem;">Instagram</span>
+            </div>
+            <div style="padding:0.85rem 0.95rem;">
+              {p.caption && <div style="font-size:0.8rem;line-height:1.55;color:var(--text2);">{p.caption}</div>}
+              {p.date && <div style="font-size:0.68rem;color:var(--text3);margin-top:0.5rem;font-family:'JetBrains Mono',monospace;">{p.date}</div>}
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 作ったもの -->
+  <section id="works" style="padding:6rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="margin-bottom:3rem;max-width:720px;">
+        <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">{T.worksH}</h2>
+        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">{T.worksLead}</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:1.5px;background:var(--border);">
+        {works.map((w) => (
+          <div style="background:var(--bg);padding:2rem;position:relative;overflow:hidden;display:flex;flex-direction:column;" onmouseover="this.style.background='var(--surface)'" onmouseout="this.style.background='var(--bg)'">
+            <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,var(--accent),transparent);"></div>
+            {(w.sub || w.status) && (
+              <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:1rem;">
+                <span style="font-size:0.72rem;color:var(--text2);">{w.sub}</span>
+                {w.status && <span style="font-size:0.65rem;background:rgba(0,212,255,0.1);color:var(--accent);padding:0.2rem 0.6rem;border:1px solid rgba(0,212,255,0.2);">{w.status}</span>}
+              </div>
+            )}
+            <h3 style="font-size:1.3rem;font-weight:600;margin-bottom:0.75rem;letter-spacing:-0.01em;">{w.title}</h3>
+            <p style="font-size:0.875rem;color:var(--text2);line-height:1.8;margin-bottom:1.5rem;flex:1;">{w.desc}</p>
+            <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.5rem;">
+              {(w.tags || []).map(t => (
+                <span style="font-size:0.7rem;color:var(--text3);border:1px solid var(--border);padding:0.2rem 0.6rem;">{t}</span>
+              ))}
+            </div>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:0.5rem;">
+              <span>
+                {w.repo && (
+                  <a href={`${w.repo}/archive/refs/heads/main.zip`} style="font-size:0.78rem;color:var(--text2);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text2)'">{T.worksRepo}</a>
+                )}
+              </span>
+              {w.url ? (
+                <a href={w.url} style="font-size:0.85rem;color:var(--accent);text-decoration:none;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">{w.cta}</a>
+              ) : (
+                <span style="font-size:0.85rem;color:var(--text3);">{w.cta}</span>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p style="color:var(--text2);margin-top:2rem;font-size:0.9rem;line-height:1.9;max-width:720px;">
+        {T.worksNote}
+      </p>
+    </div>
+  </section>
+
+  <!-- 連絡（自動返信AIの実演） -->
+  <section id="contact" style="padding:6rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
+    <div style="max-width:640px;margin:0 auto;">
+      <div style="margin-bottom:3rem;">
+        <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">{T.contactH}</h2>
+        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">
+          {T.contactLead1}<span style="color:var(--text);">{T.contactLeadEm}</span>{T.contactLead2}
+        </p>
+        <div style="background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;margin-top:1.25rem;">
+          <div style="font-size:0.78rem;color:var(--text2);margin-bottom:1rem;font-weight:600;">{T.stepsTitle}</div>
+          <div style="display:flex;gap:0;flex-wrap:wrap;">
+            {T.steps.map(([n, t, d]) => (
+              <div style="flex:1;min-width:120px;padding:0.5rem 0.75rem;border-left:1px solid var(--border);">
+                <div style="font-size:0.85rem;color:var(--accent);margin-bottom:0.3rem;font-weight:600;">{n}</div>
+                <div style="font-size:0.8rem;font-weight:500;margin-bottom:0.15rem;">{t}</div>
+                <div style="font-size:0.7rem;color:var(--text2);">{d}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+      <form id="contact-form" data-msg-ok={T.fOk} data-msg-fail={T.fFail} data-label-send={T.fSend} data-label-sending={T.fSending} style="display:flex;flex-direction:column;gap:1.5rem;">
+        <div class="form-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div>
+            <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">{T.fName} <span style="color:var(--accent);">*</span></label>
+            <input id="f-name" type="text" required placeholder={T.fNamePh} style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+          </div>
+          <div>
+            <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">{T.fCompany}</label>
+            <input id="f-company" type="text" placeholder={T.fCompanyPh} style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+          </div>
+        </div>
+        <div>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">{T.fEmail} <span style="color:var(--accent);">*</span></label>
+          <input id="f-email" type="email" required placeholder="you@example.com" style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+        </div>
+        <div>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">{T.fSystem} <span style="color:var(--accent);">*</span></label>
+          <input id="f-system" type="text" required placeholder={T.fSystemPh} style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+        </div>
+        <div>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">{T.fSituation} <span style="color:var(--accent);">*</span></label>
+          <textarea id="f-situation" required rows="3" placeholder={T.fSituationPh} style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        </div>
+        <div>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">{T.fOutcome} <span style="color:var(--accent);">*</span></label>
+          <textarea id="f-outcome" required rows="3" placeholder={T.fOutcomePh} style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;resize:vertical;line-height:1.6;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"></textarea>
+        </div>
+        <div>
+          <label style="font-size:0.8rem;color:var(--text2);display:block;margin-bottom:0.5rem;">{T.fTimeline}</label>
+          <input id="f-timeline" type="text" placeholder={T.fTimelinePh} style="width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:0.7rem 1rem;font-size:0.875rem;outline:none;font-family:inherit;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'" />
+        </div>
+        <!-- ボット対策: honeypot（人間には見えない。埋まっていたらボット） -->
+        <input id="f-website" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" />
+        <div id="form-result" style="display:none;"></div>
+        <button type="submit" id="submit-btn" style="background:var(--accent);color:var(--bg);padding:0.875rem 2rem;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;letter-spacing:0.03em;align-self:flex-start;" onmouseover="this.style.background='var(--accent-bright)'" onmouseout="this.style.background='var(--accent)'">{T.fSend}</button>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    // フォーム表示時刻（あまりに即答な送信＝ボットを弾く判定用）
+    const _formLoadedAt = Date.now();
+    document.getElementById('contact-form')?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const form = document.getElementById('contact-form') as HTMLFormElement;
+      const btn = document.getElementById('submit-btn') as HTMLButtonElement;
+      const result = document.getElementById('form-result') as HTMLElement;
+      btn.textContent = form.dataset.labelSending ?? '';
+      btn.disabled = true;
+
+      const payload = {
+        name: (document.getElementById('f-name') as HTMLInputElement).value,
+        company: (document.getElementById('f-company') as HTMLInputElement).value,
+        email: (document.getElementById('f-email') as HTMLInputElement).value,
+        system_type: (document.getElementById('f-system') as HTMLInputElement).value,
+        current_situation: (document.getElementById('f-situation') as HTMLTextAreaElement).value,
+        desired_outcome: (document.getElementById('f-outcome') as HTMLTextAreaElement).value,
+        timeline: (document.getElementById('f-timeline') as HTMLInputElement).value,
+        website: (document.getElementById('f-website') as HTMLInputElement).value, // honeypot
+        elapsed_ms: Date.now() - _formLoadedAt,                                    // 送信までの時間
+      };
+
+      try {
+        const res = await fetch('/api/contact', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        if (res.ok) {
+          result.style.display = 'block';
+          result.style.color = 'var(--ok)';
+          result.style.fontSize = '0.875rem';
+          result.textContent = form.dataset.msgOk ?? '';
+          form.reset();
+        } else {
+          throw new Error();
+        }
+      } catch {
+        result.style.display = 'block';
+        result.style.color = 'var(--danger)';
+        result.style.fontSize = '0.875rem';
+        result.textContent = form.dataset.msgFail ?? '';
+      } finally {
+        btn.textContent = form.dataset.labelSend ?? '';
+        btn.disabled = false;
+      }
+    });
+  </script>
+
+  <Footer lang={lang} />
+
+  <style>
+    /* スマホ対応 */
+    @media (max-width: 600px) {
+      .form-2col { grid-template-columns: 1fr !important; }
+      section { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+    }
+  </style>
+</Layout>
