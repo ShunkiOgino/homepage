@@ -4,6 +4,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import latest from '../data/latest_posts.json';
 import links from '../data/links.json';
+import todayAct from '../data/today_activity.json';
 import { getCollection } from 'astro:content';
 
 // 考えていること＝ブログ＝一本の流れ（log）。トップ冒頭に最新の一本を置く。
@@ -13,6 +14,20 @@ const _posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 const latestPost = _posts[0] || null;
 const fmtD = (d) =>
   `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+
+// 今日の観測（活動時計）＝公開presenceプールの投影（export_today_activity.py が日2回運ぶ）。
+// データが無ければ何も描かない（fail-closed）。鮮度は generated_at で正直に表記。
+const _ta = todayAct?.today_activity ?? null;
+const _tp = todayAct?.today_phone_activity ?? null;
+const _taTime = todayAct?.generated_at
+  ? todayAct.generated_at.slice(0, 16).replace('T', ' ').replaceAll('-', '.')
+  : '';
+const _taMin = (m) => `${Math.floor(m / 60)}時間${String(m % 60).padStart(2, '0')}分`;
+const _taBarH = (v) => (v === 0 ? 2 : Math.max(4, Math.round((v / (_ta?.bucket_max || 30)) * 26)));
+// Mac=触れていた分 / Phone=アプリを開いていた分（性質が違うので注記で明記＝混ぜない）
+const _taNote = _tp
+  ? 'パソコン（Pro/Air）は私が触れていた分、Phone はアプリを開いていた分の記録です。'
+  : '私がパソコンに触れていた時間の記録です。';
 
 const siteJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -100,6 +115,46 @@ const works = [
       <p style="font-size:0.95rem;color:var(--text2);max-width:600px;margin-bottom:2.5rem;line-height:1.9;">
         このサイトは、私が何を考えて、何を作っているのかを置いておく場所です。
       </p>
+
+      <!-- 今日の観測（活動時計）：飾りの代わりに実測を置く -->
+      {_ta && (
+        <div style="background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;max-width:720px;">
+          <div style="display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:0.5rem;">
+            <span style="font-size:0.8rem;font-weight:600;color:var(--text);">今日の観測</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text3);letter-spacing:0.05em;">{_taTime} 時点</span>
+          </div>
+          <div style="margin-top:1rem;display:grid;grid-template-columns:34px 1fr 92px;gap:0.55rem 0.9rem;align-items:end;">
+            {_ta.devices.map((d) => (
+              <>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);padding-bottom:2px;">{d.label}</span>
+                <div style="display:flex;align-items:flex-end;gap:2px;height:28px;border-bottom:1px solid var(--border);">
+                  {d.buckets.map((v) => (
+                    <span style={`flex:1;height:${_taBarH(v)}px;background:${v === 0 ? 'var(--border)' : 'var(--accent)'};`}></span>
+                  ))}
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);text-align:right;padding-bottom:2px;">{_taMin(d.active_minutes_total)}</span>
+              </>
+            ))}
+            {_tp && (
+              <>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);padding-bottom:2px;">Phone</span>
+                <div style="display:flex;align-items:flex-end;gap:2px;height:28px;border-bottom:1px solid var(--border);">
+                  {_tp.buckets.map((v) => (
+                    <span style={`flex:1;height:${_taBarH(v)}px;background:${v === 0 ? 'var(--border)' : 'var(--accent)'};`}></span>
+                  ))}
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);text-align:right;padding-bottom:2px;">{_taMin(_tp.active_minutes_total)}</span>
+              </>
+            )}
+            <span></span>
+            <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text3);"><span>0時</span><span>6時</span><span>12時</span><span>18時</span><span>24時</span></div>
+            <span></span>
+          </div>
+          <p style="margin-top:0.9rem;font-size:0.72rem;color:var(--text2);line-height:1.7;">
+            {_taNote}高い柱ほど、その{_ta.resolution_min}分をよく使っています。出せるのは「いつ・どれだけ」だけ——中身は出しません。1日に数回、自動で更新されます。
+          </p>
+        </div>
+      )}
 
       <!-- 入口カード（メタファなし・一般語） -->
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5px;background:var(--border);margin-top:3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
