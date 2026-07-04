@@ -2,18 +2,18 @@
   "generated_at": null,
   "youtube": [
     {
-      "title": "AIを軽く回す設計思想：モデルの抱え込みをやめ、応答速度を1秒台にする方法 #Shorts",
-      "url": "https://youtu.be/_y0Yh0ExEr4",
-      "thumb": "https://i.ytimg.com/vi/_y0Yh0ExEr4/hqdefault.jpg",
-      "date": "2026.07.04"
+      "title": "「後付けの管理」で情報は枯渇する。入力コストをゼロにする構造設計の話 #Shorts",
+      "url": "https://youtu.be/UBfdfgN0Q94",
+      "thumb": "https://i.ytimg.com/vi/UBfdfgN0Q94/hqdefault.jpg",
+      "date": "2026.07.05"
     }
   ],
   "instagram": [
     {
-      "permalink": "https://www.instagram.com/reel/DaVg3KxAupQ/",
-      "caption": "LLMを12Bモデルに変え、初動レイテンシを5秒から1.7秒まで短縮しました。🚀  リソースの排他制御とオンデマンド取得…",
-      "thumb": "/feed/ig_18142219603537046.jpg",
-      "date": "2026.07.03"
+      "permalink": "https://www.instagram.com/reel/DaXje0oFMzL/",
+      "caption": "10万GPU級クラスタを、数ヶ月で稼働させる。⚡️  通常なら数年かかる電力網の接続待ちを無視し、ガスタービンを現地に運…",
+      "thumb": "/feed/ig_18080867096234292.jpg",
+      "date": "2026.07.04"
     }
   ]
 }
