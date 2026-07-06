@@ -4,8 +4,10 @@
 // 目的＝[[project_ai_discoverability]]の計測。人間のいいねでなく「他人のClaude/エージェントが
 // 荻野を見つけたか」を測る。発見性は人間フィードの数字には一切出てこないため、別系統で観測する。
 //
-// 記録はPIIフリー（pageviewsと同方針）: path / source / 分類したbot名 / MCP tool名 / UA(切詰) のみ。
-// IP・Cookie・MCPの引数・本文は残さない。秘密も持たない（anonキーのみ・読み書きはbot_hits限定）。
+// 記録は人間PIIフリー（pageviewsと同方針）: path / source / 分類したbot名 / MCP tool名 / UA(切詰)、
+// ＋MCPツールの引数(args・300字切詰・2026-07-07 荻野確定)。引数＝外部AIが荻野に何を聞いたかの
+// verbatim＝還流の「本文つき反応」序列筆頭（相手はエージェント＝需要データであり人間PIIではない）。
+// IP・Cookieは引き続き残さない。秘密も持たない（anonキーのみ・読み書きはbot_hits限定）。
 //
 // 利用元は2つ：
 //   - api/mcp.js（Node serverless）＝MCPツール呼び出し（最高強度のシグナル＝実際にクエリされた）
@@ -54,7 +56,7 @@ export function classifyBot(ua) {
 
 // bot_hits に1行記録する。fire-and-forget（失敗してもサイト挙動に影響させない＝必ずcatch）。
 // Promiseを返すので、呼び側は await でも waitUntil でも握りつぶしでも選べる。
-export function recordBotHit({ path, source, tool = null, ua = '' }) {
+export function recordBotHit({ path, source, tool = null, ua = '', args = null }) {
   const url = process.env.SUPABASE_URL;
   const key = process.env.SUPABASE_ANON_KEY;
   if (!url || !key) return Promise.resolve();
@@ -68,6 +70,7 @@ export function recordBotHit({ path, source, tool = null, ua = '' }) {
     bot: bot ? String(bot).slice(0, 80) : null,
     tool: tool ? String(tool).slice(0, 80) : null,
     user_agent: String(ua || '').slice(0, 300),
+    args: args ? String(args).slice(0, 300) : null,
   };
 
   return fetch(`${url}/rest/v1/bot_hits`, {

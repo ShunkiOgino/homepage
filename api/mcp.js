@@ -257,7 +257,14 @@ export default async function handler(req, res) {
     for (const m of msgs) {
       if (!m || typeof m !== 'object') continue;
       if (m.method === 'tools/call') {
-        logs.push(recordBotHit({ path: '/api/mcp', source: 'mcp', tool: (m.params && m.params.name) || '?', ua }));
+        // args＝外部AIが何を聞いたかのverbatim（検索語等・300字切詰はbotlog側）。
+        // 還流の「本文つき反応」序列筆頭として responses.jsonl に還流する（2026-07-07 荻野確定）。
+        let argstr = null;
+        try {
+          const a = (m.params && m.params.arguments) || null;
+          if (a && Object.keys(a).length) argstr = JSON.stringify(a);
+        } catch { /* 引数が直列化できなくてもtool名の記録は続ける */ }
+        logs.push(recordBotHit({ path: '/api/mcp', source: 'mcp', tool: (m.params && m.params.name) || '?', ua, args: argstr }));
       } else if (m.method === 'initialize') {
         logs.push(recordBotHit({ path: '/api/mcp', source: 'mcp', tool: 'initialize', ua }));
       }
