@@ -23,7 +23,7 @@ const T = lang === 'en' ? {
   heroA: 'Leave the tedious work ',
   heroAccent: 'to machines.',
   heroB: 'Keep your time for what you love.',
-  lead1: 'I build those tools for myself first — and eventually for everyone. An independent developer making AI agents that can run on your own machine, games that turn physical laws directly into rules, and a studio that generates videos automatically. I use local and cloud AI depending on the job.',
+  lead1: "I keep turning pieces of my own life into systems that run without my hands on them. Replying to email, posting to social media, coordinating plans with people, keeping a record of what I'm doing right now — I've handed off one slice of daily life after another to machines. What's listed below is the part of that I can show publicly.",
   lead2: 'This site is where I keep what I think and what I build — written for people, and for AIs to read too.',
   clockTitle: "Today's observation",
   clockAsOf: (time: string) => `as of ${time}`,
@@ -46,6 +46,20 @@ const T = lang === 'en' ? {
   worksLead: 'Evidence of what I think about. Each is a tool I built for myself, made to keep working with my hands off it.',
   worksRepo: 'Source (MIT) ↓',
   worksNote: 'A product you can actually buy is in preparation. The first one is planned to be a tool that helps people stay connected.',
+  safetyH: 'How I keep it safe',
+  safetyLead: "Handing pieces of my life to AI comes down to caring about exactly two things: never letting information leak, and keeping the damage small on the day something still goes wrong. Here's an honest look at some of that.",
+  safetyGroups: [
+    ['Never let it leak', [
+      ['Processed on my own machine', 'Most decisions are made by a small AI running on my own computer. The default design keeps content off external clouds.'],
+      ['Anything that could leak gets stopped mechanically', "Every draft is automatically scanned for things like customer names, secrets, or personal data before it goes out. If anything trips that check, even a reply that would normally send itself gets held for a human to confirm. The block doesn't depend on anyone actually watching — it's built into the pipe."],
+    ]],
+    ['Keep the damage small when something still goes wrong', [
+      ["Keeping it out of other people's sight", "Depending on who the information came from, it stays invisible to other people and third parties. What happens in a conversation with A never becomes visible to B."],
+      ["Keeping it out of AI's sight too", "It's not just about hiding things from people — the AI itself is only ever given the data it actually needs. An unrelated conversation never reaches an AI that isn't handling it."],
+      ["Never let one AI both 'know' and 'act'", "An AI with broad internal knowledge is never given strong execution power — sending messages, running code, touching files. And an AI that can act outward (sending, posting) is only ever handed the narrow slice of information it needs for that one job. Keep knowledge and execution apart, and even a misbehaving AI is stuck being only the one that knows, or only the one that can act — never both."],
+    ]],
+  ],
+  safetyClosing: "And under all of it, one backstop: if there isn't enough information, or a condition isn't met, nothing goes out. The system is built to show or send nothing rather than fill the gap.",
   contactH: 'Contact',
   contactLead1: 'Send a message here and an AI running on my own computer will organize it and reply first, automatically. This form is actually ',
   contactLeadEm: 'the "AI that replies to your email" shown above, running for real',
@@ -73,7 +87,7 @@ const T = lang === 'en' ? {
   heroA: 'めんどうなことは、',
   heroAccent: '機械にやらせる。',
   heroB: '人は、好きなことに時間を使えばいい。',
-  lead1: 'そういう道具を、まず自分のために作っています。いつか、みんなのぶんも。',
+  lead1: '自分の生活を、人の手を離れても自動で回る仕組みに作り替え続けています。メールへの返信、SNSへの発信、人との予定調整、自分がいま何をしているかの記録——生活のいろんな断面を機械に任せてきました。下に並んでいるのは、そのうち公開できる形にしたものです。',
   lead2: 'このサイトは、私が何を考えて、何を作っているのかを置いておく場所です。',
   clockTitle: '今日の観測',
   clockAsOf: (time: string) => `${time} 時点`,
@@ -96,6 +110,20 @@ const T = lang === 'en' ? {
   worksLead: '考えていることの、証拠みたいなものです。どれも自分のために作った道具で、私の手を離れても動くように作っています。',
   worksRepo: 'ソースをダウンロード (MIT) ↓',
   worksNote: '買って使える「製品」は準備中です。最初の一本は、人とのつながりを助ける道具になる予定です。',
+  safetyH: '安全のための設計',
+  safetyLead: 'AIに生活を任せる以上、大事にしているのは二つだけです——情報を絶対に漏らさないこと、そしてもし何かやらかしても被害を小さく抑えること。裏側の一部を、正直に載せておきます。',
+  safetyGroups: [
+    ['漏洩は、絶対に防ぐ', [
+      ['手元で処理する', '多くの判断は、自分のパソコンの中で動く小さなAIが担当します。内容を外部のクラウドに送らない設計を基本にしています。'],
+      ['漏洩につながる内容は、機械的に止める', '送信前には必ず、顧客名・秘密情報・個人情報などが混じっていないかを自動でチェックします。何か引っかかれば、普段は自動送信される返信でも止まり、必ず人の確認を挟みます。人が見ていない時でも、危険なものは出ない仕組みです。'],
+    ]],
+    ['やらかしても、被害は小さく', [
+      ['人に見せない範囲を分ける', '誰から来た情報かによって、別の相手や第三者には見えないようにしています。Aさんとのやり取りが、Bさんに見えることはありません。'],
+      ['AIに見せない範囲も分ける', '人から隠すだけでなく、AI自体に渡す情報も必要な分だけに絞っています。関係のないやり取りは、担当外のAIの手元にも渡りません。'],
+      ['「知ってる」と「動ける」を、同じAIに集めない', '内部を広く把握しているAIには、外部への送信やファイル操作のような強い実行権限を持たせていません。逆に外部へ動く（送る・投稿する）AIには、渡す情報を必要な範囲だけに絞っています。知識と実行力を分けておけば、一つのAIが暴走しても被害は「知ってるだけ」か「動けるだけ」のどちらかに留まります。'],
+    ]],
+  ],
+  safetyClosing: 'そしてこの全部の裏にある最後の歯止め——情報が揃っていない時や条件を満たさない時は、無理に埋めず何も表示しない・何も送らない設計にしています。',
   contactH: '連絡',
   contactLead1: 'ここから送ると、私のパソコンの中で動くAIが内容を整理して、まず自動でお返事します。実はこれ自体が、上で紹介している',
   contactLeadEm: '「自動でメールに返事するAI」を実際に動かして見せているもの',
@@ -331,6 +359,32 @@ const siteJsonLd = JSON.stringify({
       </div>
       <p style="color:var(--text2);margin-top:2rem;font-size:0.9rem;line-height:1.9;max-width:720px;">
         {T.worksNote}
+      </p>
+    </div>
+  </section>
+
+  <!-- 安全のための設計（生活を任せる裏側を正直に見せる） -->
+  <section id="safety" style="padding:6rem 2rem;border-top:1px solid var(--border);scroll-margin-top:56px;">
+    <div style="max-width:1100px;margin:0 auto;">
+      <div style="margin-bottom:3rem;max-width:720px;">
+        <h2 style="font-size:2.3rem;font-weight:600;letter-spacing:-0.02em;">{T.safetyH}</h2>
+        <p style="color:var(--text2);margin-top:0.75rem;line-height:1.9;">{T.safetyLead}</p>
+      </div>
+      {T.safetyGroups.map(([groupTitle, items], gi) => (
+        <div style={gi > 0 ? "margin-top:2.5rem;" : ""}>
+          <h3 style="font-size:0.75rem;font-weight:600;letter-spacing:0.05em;color:var(--accent);text-transform:uppercase;margin-bottom:0.9rem;">{groupTitle}</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5px;background:var(--border);">
+            {items.map(([title, desc]) => (
+              <div style="background:var(--bg);padding:1.75rem;">
+                <h4 style="font-size:1rem;font-weight:600;margin-bottom:0.65rem;letter-spacing:-0.01em;color:var(--text);">{title}</h4>
+                <p style="font-size:0.85rem;color:var(--text2);line-height:1.8;">{desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+      <p style="color:var(--text2);margin-top:2.5rem;font-size:0.9rem;line-height:1.9;max-width:720px;">
+        {T.safetyClosing}
       </p>
     </div>
   </section>
