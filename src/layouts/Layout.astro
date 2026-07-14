@@ -97,7 +97,10 @@ const enPath = path.startsWith('/en') ? path : ('/en' + (path === '/' ? '' : pat
       // 軽量PVビーコン: 開いた瞬間に path/referrer を1発送るだけ（IP・Cookieは送らない）。
       // sendBeacon は表示やページ遷移をブロックしない。失敗しても無視（計測はベストエフォート）。
       try {
-        const payload = JSON.stringify({ path: location.pathname, referrer: document.referrer });
+        // src= は発信リンク(IG bio/YT概要欄)の経路刻印。トークンだけ送る（referrer欠落時も経路を確定できる）
+        const src = new URLSearchParams(location.search).get('src') || '';
+        const payload = JSON.stringify({ path: location.pathname, referrer: document.referrer,
+                                         src: /^[a-z0-9_-]{1,24}$/.test(src) ? src : '' });
         if (navigator.sendBeacon) {
           navigator.sendBeacon('/api/pv', new Blob([payload], { type: 'application/json' }));
         } else {
