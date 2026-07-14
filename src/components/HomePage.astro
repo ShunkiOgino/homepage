@@ -31,8 +31,11 @@ const T = lang === 'en' ? {
   clockNoteMac: 'A record of the minutes I was actually at my computer. ',
   clockTail: (res: number) => `The taller the bar, the more of those ${res} minutes were in use. Only "when and how much" is published — never the contents. Updates automatically a few times a day.`,
   clockAxis: ['0:00', '6:00', '12:00', '18:00', '24:00'],
-  clockSteps: (t: string) => `Steps — measured by iPhone (as of ${t})`,
-  clockStepsUnit: 'steps',
+  clockStepsLabel: 'Steps',
+  clockStepsNote: (t: string, remain: number, floor: number) =>
+    remain > 0
+      ? `Measured by iPhone (as of ${t}) — ${remain.toLocaleString()} steps to the declared daily floor of ${floor.toLocaleString()}.`
+      : `Measured by iPhone (as of ${t}) — cleared the declared daily floor of ${floor.toLocaleString()} steps.`,
   fmtMin: (m: number) => `${Math.floor(m / 60)}h ${String(m % 60).padStart(2, '0')}m`,
   cards: [
     ['What I make', 'Tools I built for myself', '#works', ''],
@@ -97,8 +100,11 @@ const T = lang === 'en' ? {
   clockNoteMac: '私がパソコンに触れていた時間の記録です。',
   clockTail: (res: number) => `高い柱ほど、その${res}分をよく使っています。出せるのは「いつ・どれだけ」だけ——中身は出しません。1日に数回、自動で更新されます。`,
   clockAxis: ['0時', '6時', '12時', '18時', '24時'],
-  clockSteps: (t: string) => `歩数 — iPhone計測（${t} 時点）`,
-  clockStepsUnit: '歩',
+  clockStepsLabel: '歩数',
+  clockStepsNote: (t: string, remain: number, floor: number) =>
+    remain > 0
+      ? `iPhone計測（${t} 時点）。宣言している1日の床 ${floor.toLocaleString()}歩まで、あと ${remain.toLocaleString()}歩。`
+      : `iPhone計測（${t} 時点）。宣言している1日の床 ${floor.toLocaleString()}歩はクリア。`,
   fmtMin: (m: number) => `${Math.floor(m / 60)}時間${String(m % 60).padStart(2, '0')}分`,
   cards: [
     ['作ったもの', '自分のために作った道具', '#works', ''],
@@ -162,11 +168,15 @@ const fmtD = (d) =>
 // データが無ければ何も描かない（fail-closed）。鮮度は generated_at で正直に表記。
 const _ta = todayAct?.today_activity ?? null;
 const _tp = todayAct?.today_phone_activity ?? null;
-// 歩数＝1日合計の数字1個（時系列は元データに無い＝バー列を描かない・捏造しない）。
+// 歩数＝1日合計の数字1個（時系列は元データに無い＝時間軸の柱は描かない・捏造しない）。
+// 床（規定8,000歩）はプール由来＝presence_public.STEPS_FLOOR がSSoT。進捗バーで「規定まであと何歩」。
 const _st = todayAct?.today_steps ?? null;
 const _stTime = _st?.as_of_min != null
   ? `${Math.floor(_st.as_of_min / 60)}:${String(_st.as_of_min % 60).padStart(2, '0')}`
   : '';
+const _stFloor = _st?.floor ?? null;
+const _stRemain = _st && _stFloor ? Math.max(0, _stFloor - _st.steps) : 0;
+const _stPct = _st && _stFloor ? Math.min(100, Math.round((_st.steps / _stFloor) * 100)) : 0;
 const _taTime = todayAct?.generated_at
   ? todayAct.generated_at.slice(0, 16).replace('T', ' ').replaceAll('-', '.')
   : '';
@@ -252,11 +262,19 @@ const siteJsonLd = JSON.stringify({
             <div style="display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text3);">{T.clockAxis.map((a) => <span>{a}</span>)}</div>
             <span></span>
           </div>
-          {_st && (
-            <div style="margin-top:0.7rem;display:flex;justify-content:space-between;align-items:baseline;font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);">
-              <span>{T.clockSteps(_stTime)}</span>
-              <span>{_st.steps.toLocaleString()} {T.clockStepsUnit}</span>
-            </div>
+          {_st && _stFloor && (
+            <>
+              <div style="margin-top:0.85rem;display:grid;grid-template-columns:34px 1fr 92px;gap:0.55rem 0.9rem;align-items:center;">
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);">{T.clockStepsLabel}</span>
+                <div style="height:6px;background:var(--border);overflow:hidden;">
+                  <div style={`width:${_stPct}%;height:100%;background:var(--accent);`}></div>
+                </div>
+                <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text2);text-align:right;">{_st.steps.toLocaleString()}/{_stFloor.toLocaleString()}</span>
+              </div>
+              <div style="margin-top:0.35rem;font-family:'JetBrains Mono',monospace;font-size:0.58rem;color:var(--text3);">
+                {T.clockStepsNote(_stTime, _stRemain, _stFloor)}
+              </div>
+            </>
           )}
           <p style="margin-top:0.9rem;font-size:0.72rem;color:var(--text2);line-height:1.7;">
             {_taNote}{T.clockTail(_ta.resolution_min)}
