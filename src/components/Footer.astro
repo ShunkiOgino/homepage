@@ -6,10 +6,10 @@ interface Props { lang?: 'ja' | 'en'; }
 const { lang = 'ja' } = Astro.props;
 const ft = lang === 'en'
   ? { discord: 'Discord — a lab for locally-running AI agents', run: 'This site and its social posts are, for the most part, operated by AI.',
-      gate: 'Contact goes through one door: syuntan5151@gmail.com — DMs and LINE are not inboxes here (nothing picks them up; they get missed). Comments are read and recorded. No promise of a reply, but what arrives is not lost.' }
+      gate: 'Contact goes through one door: syuntan5151@gmail.com — DMs and LINE are not inboxes here (nothing picks them up; they get missed).' }
   : { discord: `Discord — ${links.discord.note}`, run: 'このサイトと各SNSでの発信は、基本的にAIが運用しています。',
-      // 門宣言・フル版（2026-07-16荻野確定＝6/28「着信は門を1個宣言」の適用。約束禁止＝配管の事実の開示のみ）
-      gate: '連絡はメール1本にしています：syuntan5151@gmail.com ／ DMやLINEは受信箱として使っていません（自動で拾う仕組みがなく、見落とします）。コメントは読んで、記録しています。返信は約束できませんが、届いたものは消えません。' };
+      // 門宣言・フル版（2026-07-16荻野確定＝6/28「着信は門を1個宣言」の適用。コメント記録の言及は同日夜に荻野判断で削除）
+      gate: '連絡はメール1本にしています：syuntan5151@gmail.com ／ DMやLINEは受信箱として使っていません（自動で拾う仕組みがなく、見落とします）。' };
 const socials = [
   { name: 'GitHub', href: links.github.url },
   { name: 'Discord', href: links.discord.url },
