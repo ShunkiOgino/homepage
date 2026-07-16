@@ -27,6 +27,15 @@ const T = lang === 'en' ? {
   lead2: 'This site is where I keep what I think and what I build — written for people, and for AIs to read too.',
   clockTitle: "Today's observation",
   clockAsOf: (time: string) => `as of ${time}`,
+  nowLabel: 'now',
+  nowStatus: { active: 'at the keyboard', around: 'nearby', away: 'away from the desk',
+               asleep: 'asleep', offline: 'off-grid for a while', unknown: '' },
+  nowAway: (m: number) => ` (${m} min)`,
+  nowLast: { '今': 'last input: just now', 'さっき': 'last input: minutes ago',
+             '少し前': 'last input: within the hour', 'しばらく前': 'last input: a while ago' },
+  nowNightOwl: 'night owl',
+  healthLabel: 'health floor',
+  healthWord: { green: 'cleared', red: 'failed', yellow: 'late night' },
   clockNoteBoth: 'The PC rows (Pro/Air) record minutes I was actually at the keyboard; the Phone row records minutes an app was open. ',
   clockNoteMac: 'A record of the minutes I was actually at my computer. ',
   clockTail: (res: number) => `The taller the bar, the more of those ${res} minutes were in use. Only "when and how much" is published — never the contents. Updates automatically a few times a day.`,
@@ -96,6 +105,15 @@ const T = lang === 'en' ? {
   lead2: 'このサイトは、私が何を考えて、何を作っているのかを置いておく場所です。',
   clockTitle: '今日の観測',
   clockAsOf: (time: string) => `${time} 時点`,
+  nowLabel: 'いま',
+  nowStatus: { active: 'パソコンに触っています', around: '席の近くにいます', away: '席を外しています',
+               asleep: '寝ています', offline: 'しばらく不在', unknown: '' },
+  nowAway: (m: number) => `（${m}分）`,
+  nowLast: { '今': '最後の反応: 今', 'さっき': '最後の反応: さっき',
+             '少し前': '最後の反応: 少し前', 'しばらく前': '最後の反応: しばらく前' },
+  nowNightOwl: '夜ふかし中',
+  healthLabel: '健康状態',
+  healthWord: { green: 'クリア', red: '失格', yellow: '夜更かし注意' },
   clockNoteBoth: 'パソコン（Pro/Air）は私が触れていた分、Phone はアプリを開いていた分の記録です。',
   clockNoteMac: '私がパソコンに触れていた時間の記録です。',
   clockTail: (res: number) => `高い柱ほど、その${res}分をよく使っています。出せるのは「いつ・どれだけ」だけ——中身は出しません。1日に数回、自動で更新されます。`,
@@ -183,6 +201,16 @@ const _taTime = todayAct?.generated_at
 const _taBarH = (v) => (v === 0 ? 2 : Math.max(4, Math.round((v / (_ta?.bucket_max || 30)) * 26)));
 // Mac=触れていた分 / Phone=アプリを開いていた分（性質が違うので注記で明記＝混ぜない）
 const _taNote = _tp ? T.clockNoteBoth : T.clockNoteMac;
+// 「いま」＝実時間presence（status/相対last_active/夜型・全部Aゲート済みの公開プール由来）。
+// 健康状態＝床の判定（色+一言の最小投影・欠測=nullで何も描かない=fail-closed）。2026-07-16荻野確定。
+const _now = todayAct?.now ?? null;
+const _nowText = _now && T.nowStatus[_now.status]
+  ? T.nowStatus[_now.status] + (_now.status === 'away' && _now.away_minutes ? T.nowAway(_now.away_minutes) : '')
+  : null;
+const _nowLast = _now?.last_active ? (T.nowLast[_now.last_active] ?? null) : null;
+const _hs = todayAct?.health_signal ?? null;
+const _hsCol = { green: '#3fb950', red: '#f85149', yellow: '#d29922' }[_hs?.color] ?? null;
+const _hsWord = _hs ? (T.healthWord[_hs.color] ?? null) : null;
 
 const siteJsonLd = JSON.stringify({
   "@context": "https://schema.org",
@@ -235,6 +263,22 @@ const siteJsonLd = JSON.stringify({
             <span style="font-size:0.8rem;font-weight:600;color:var(--text);">{T.clockTitle}</span>
             <span style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text3);letter-spacing:0.05em;">{T.clockAsOf(_taTime)}</span>
           </div>
+          {(_nowText || _hsWord) && (
+            <div style="margin-top:0.6rem;display:flex;align-items:center;flex-wrap:wrap;gap:0.45rem 0.9rem;font-family:'JetBrains Mono',monospace;font-size:0.64rem;color:var(--text2);">
+              {_nowText && (
+                <span><span style="color:var(--text3);">{T.nowLabel}:</span> {_nowText}{_nowLast ? ` ・ ${_nowLast}` : ''}</span>
+              )}
+              {_now?.night_owl && (
+                <span style="color:#d29922;">{T.nowNightOwl}</span>
+              )}
+              {_hsWord && _hsCol && (
+                <span title={_hs.verdict} style={`display:inline-flex;align-items:center;gap:0.35rem;border:1px solid ${_hsCol}55;padding:0.08rem 0.5rem;border-radius:2px;color:${_hsCol};`}>
+                  <span style={`width:7px;height:7px;border-radius:50%;background:${_hsCol};`}></span>
+                  {T.healthLabel} {_hsWord}
+                </span>
+              )}
+            </div>
+          )}
           <div style="margin-top:1rem;display:grid;grid-template-columns:34px 1fr 92px;gap:0.55rem 0.9rem;align-items:end;">
             {_ta.devices.map((d) => (
               <>
