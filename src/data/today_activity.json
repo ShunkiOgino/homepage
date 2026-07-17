@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-17T16:00:05+09:00",
+ "generated_at": "2026-07-17T19:00:02+09:00",
  "today_activity": {
   "date": "2026-07-17",
   "resolution_min": 30,
@@ -96,7 +96,7 @@
      19,
      12,
      25,
-     0,
+     24,
      0,
      0,
      0,
@@ -113,7 +113,7 @@
      0,
      0
     ],
-    "active_minutes_total": 237
+    "active_minutes_total": 261
    }
   ]
  },
@@ -155,12 +155,12 @@
    0,
    1,
    1,
+   1,
+   26,
+   14,
+   11,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
+   2,
    0,
    0,
    0,
@@ -172,19 +172,20 @@
    0,
    0
   ],
-  "active_minutes_total": 125
+  "active_minutes_total": 179
  },
  "today_steps": {
   "date": "2026-07-17",
-  "steps": 2932,
-  "as_of_min": 940,
+  "steps": 6975,
+  "as_of_min": 1129,
   "floor": 8000
  },
  "now": {
-  "status": "active",
+  "status": "away",
   "awake": true,
   "last_active": "今",
-  "night_owl": false
+  "night_owl": false,
+  "away_minutes": 194
  },
  "health_signal": {
   "date": "2026-07-17",
