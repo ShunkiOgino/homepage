@@ -1,5 +1,11 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "framework": "astro"
+  "framework": "astro",
+  "redirects": [
+    { "source": "/blog/2026-06-29-797bd8", "destination": "/blog/2026-07-01-3f19e5", "permanent": true },
+    { "source": "/blog/2026-07-17-797bd8", "destination": "/blog/2026-07-01-3f19e5", "permanent": true },
+    { "source": "/en/blog/2026-06-29-797bd8", "destination": "/en/blog/2026-07-01-3f19e5", "permanent": true },
+    { "source": "/en/blog/2026-07-17-797bd8", "destination": "/en/blog/2026-07-01-3f19e5", "permanent": true }
+  ]
 }
