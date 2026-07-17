@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-17T19:00:02+09:00",
+ "generated_at": "2026-07-17T21:59:57+09:00",
  "today_activity": {
   "date": "2026-07-17",
   "resolution_min": 30,
@@ -165,19 +165,19 @@
    0,
    0,
    0,
-   0,
-   0,
+   2,
+   1,
    0,
    0,
    0,
    0
   ],
-  "active_minutes_total": 179
+  "active_minutes_total": 182
  },
  "today_steps": {
   "date": "2026-07-17",
-  "steps": 6975,
-  "as_of_min": 1129,
+  "steps": 8074,
+  "as_of_min": 1283,
   "floor": 8000
  },
  "now": {
@@ -185,13 +185,13 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 194
+  "away_minutes": 374
  },
  "health_signal": {
   "date": "2026-07-17",
   "color": "yellow",
-  "verdict": "夜更かし（5:30台まで画面使用）・歩数未確定（途中集計のみ）＝判定不能",
-  "steps": null,
+  "verdict": "夜更かし（5:30台まで画面使用）",
+  "steps": 8074,
   "floor": 8000
  }
 }
