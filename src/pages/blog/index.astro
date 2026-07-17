@@ -3,12 +3,23 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { getCollection } from 'astro:content';
+import thinking from '../../data/thinking.json';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-const fmt = (d: Date) =>
-  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+const monthKey = (d: Date) =>
+  `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, '0')}`;
+const dayFmt = (d: Date) =>
+  `${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+
+const months: { key: string; posts: typeof posts }[] = [];
+for (const p of posts) {
+  const key = monthKey(p.data.date);
+  const last = months[months.length - 1];
+  if (last && last.key === key) last.posts.push(p);
+  else months.push({ key, posts: [p] });
+}
 ---
 <Layout title="考えていること | 荻野舜樹のAI実験室" description="荻野舜樹のAI実験室 — 思想・作品・思考の記録">
   <Nav active="blog" maxWidth="860px" />
@@ -21,22 +32,44 @@ const fmt = (d: Date) =>
       <p style="color:var(--text2);">まだ記事がありません。</p>
     )}
 
-    <div style="display:flex;flex-direction:column;">
-      {posts.map((p) => (
-        <a href={`/blog/${p.slug}`} style="display:block;text-decoration:none;color:inherit;border-top:1px solid var(--border);padding:1.5rem 0;" onmouseover="this.style.background='rgba(0,212,255,0.03)'" onmouseout="this.style.background='transparent'">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text2);letter-spacing:0.05em;">{fmt(p.data.date)}</div>
-          <div style="font-size:1.15rem;font-weight:500;color:var(--text);margin:0.35rem 0 0.4rem;">{p.data.title}</div>
-          {p.data.description && (
-            <div style="font-size:0.9rem;color:var(--text2);line-height:1.6;">{p.data.description}</div>
-          )}
-          {p.data.tags.length > 0 && (
-            <div style="display:flex;gap:0.5rem;margin-top:0.7rem;flex-wrap:wrap;">
-              {p.data.tags.map((t) => (
-                <span style="font-size:0.65rem;font-family:'JetBrains Mono',monospace;color:var(--accent);border:1px solid rgba(0,212,255,0.2);background:rgba(0,212,255,0.06);padding:0.15rem 0.5rem;">{t}</span>
-              ))}
+    {thinking.length > 0 && (
+      <div style="margin-bottom:4.5rem;">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;margin-bottom:1.2rem;">いま追いかけているテーマ</div>
+        <div style="display:flex;flex-direction:column;gap:1.2rem;">
+          {thinking.map((th) => (
+            <div style="border:1px solid var(--border);padding:1.3rem 1.5rem;">
+              <div style="font-size:1.15rem;font-weight:600;color:var(--text);margin-bottom:0.5rem;">{th.title}</div>
+              <p style="font-size:0.92rem;color:var(--text2);line-height:1.8;margin:0 0 0.8rem;">{th.lead}</p>
+              {th.posts.length > 0 && (
+                <div style="display:flex;flex-direction:column;gap:0.25rem;">
+                  {th.posts.map((p) => (
+                    <a href={`/blog/${p.slug}`} style="font-size:0.85rem;color:var(--accent);text-decoration:none;">
+                      <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text2);margin-right:0.6rem;">{p.date.slice(5).replace('-', '.')}</span>{p.title}
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
-          )}
-        </a>
+          ))}
+        </div>
+        <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;margin-top:4.5rem;">ログ（日次の記録）</div>
+      </div>
+    )}
+
+    <div style="display:flex;flex-direction:column;gap:3rem;">
+      {months.map((m) => (
+        <section>
+          <div style="display:flex;align-items:baseline;gap:0.8rem;border-bottom:1px solid var(--border);padding-bottom:0.6rem;margin-bottom:0.4rem;">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.95rem;font-weight:600;color:var(--text);letter-spacing:0.05em;">{m.key}</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:var(--text2);">{m.posts.length}本</span>
+          </div>
+          {m.posts.map((p) => (
+            <a href={`/blog/${p.slug}`} style="display:flex;align-items:baseline;gap:1rem;text-decoration:none;color:inherit;padding:0.55rem 0.3rem;" onmouseover="this.style.background='rgba(0,212,255,0.03)'" onmouseout="this.style.background='transparent'">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text2);letter-spacing:0.05em;flex-shrink:0;">{dayFmt(p.data.date)}</span>
+              <span style="font-size:1rem;font-weight:500;color:var(--text);line-height:1.5;">{p.data.title}</span>
+            </a>
+          ))}
+        </section>
       ))}
     </div>
   </section>
