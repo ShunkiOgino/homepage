@@ -1,0 +1,106 @@
+---
+// 「なんか違う」実験 — 手挙げの受け皿（2026-07-17）。
+// 設計＝memory: project_career_pipes_pool / 正本=agent_system/career_pipes_canon.md。
+// 約束の線引き（7/17荻野「約束までしちゃうと嘘になる」）＝未来の自分の行動は約束しない。書いてよいのは
+// 現在の事実（やりたい・数字は公開されている）と機械の動作（決まれば届く）だけ。開かれない可能性も明記。
+// 7/17荻野「アンケート形式を辞めたい」＝10仮説ラジオ撤去。開示は任意の一言欄と動画側の計測で取る。
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import hands from '../data/pipes_hands.json';
+
+---
+
+<Layout title="自分の記録から、キャリアを考え直す1日 — 来たい人を募集中" description="働いてみて「なんか違う」と思ったことがある人向け。スマホに残っている自分の記録を1日かけて読み、キャリアを考え直す集まりの募集ページです。">
+<Nav lang="ja" />
+<main style="max-width:720px;margin:0 auto;padding:6rem 2rem 4rem;">
+
+  <p style="font-size:0.85rem;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;">募集</p>
+  <h1 style="font-size:1.9rem;line-height:1.5;margin:0.75rem 0 0;">
+    働いてみて「なんか違う」と<br>思ったことがある人へ
+  </h1>
+
+  <div style="margin-top:2.5rem;font-size:0.98rem;line-height:2;color:var(--text2);">
+    <p>こういう1日を、やりたいと思っています。</p>
+    <p style="margin-top:1rem;background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;">
+      集まって、<b style="color:var(--text);">1日で終わります</b>。<br>
+      材料は、あなたのスマホに残っている記録です——スクリーンタイム、カレンダー、それから「続いたこと・気づいたらやめてたこと」の記憶。<br>
+      それを掘り出して、読みます——<b style="color:var(--text);">何が続いて、何をやめて、何が残ったか</b>
+    </p>
+    <p style="margin-top:1rem;">
+      キャリアの答えを教える集まりではありません。
+      <b style="color:var(--text);">自分の記録を、ちゃんと見る</b>——やるのはそれだけです。
+    </p>
+    <p style="margin-top:1rem;">
+      日程と場所は、集まってから決めます。興味だけで大丈夫です——下から知らせてください。
+    </p>
+  </div>
+
+  <div style="margin-top:2rem;display:flex;align-items:baseline;gap:0.75rem;">
+    <span style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;color:var(--accent);">いま {hands.count}人</span>
+    <span style="font-size:0.75rem;color:var(--text3);">が手を挙げています{hands.as_of ? `（${hands.as_of} 時点）` : ''}</span>
+  </div>
+
+  <!-- 手挙げフォーム -->
+  <form id="hand-form" style="margin-top:2.5rem;background:var(--surface);border:1px solid var(--border);padding:1.5rem;">
+    <div style="margin-top:1.5rem;display:grid;gap:0.75rem;">
+      <input name="name" placeholder="呼び名（ニックネームでOK）" required maxlength="100"
+             style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.6rem 0.8rem;font-size:0.9rem;" />
+      <input name="email" type="email" placeholder="メールアドレス（決まったことがあれば、ここに届きます）" required maxlength="160"
+             style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.6rem 0.8rem;font-size:0.9rem;" />
+      <textarea name="word" placeholder="よければ一言——あなたの「なんか違う」について（任意）" maxlength="1800" rows="3"
+             style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.6rem 0.8rem;font-size:0.9rem;resize:vertical;"></textarea>
+      <input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;" aria-hidden="true" />
+      <button id="hand-send" type="submit"
+              style="background:var(--accent);color:#08131a;border:none;padding:0.75rem;font-size:0.95rem;font-weight:600;cursor:pointer;">
+        興味ある、と送る
+      </button>
+      <p id="hand-msg" style="font-size:0.8rem;color:var(--text3);margin:0;"></p>
+    </div>
+  </form>
+
+  <p style="margin-top:2rem;font-size:0.75rem;color:var(--text3);line-height:1.9;">
+    もらうのは呼び名とメールだけです。この実験の連絡以外に使いません。
+    このページの人数は自動集計で、1日数回更新されます。
+  </p>
+
+</main>
+<Footer lang="ja" />
+
+<script>
+  const t0 = Date.now();
+  const form = document.getElementById('hand-form');
+  const msg = document.getElementById('hand-msg');
+  const btn = document.getElementById('hand-send');
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fd = new FormData(form);
+    btn.disabled = true;
+    btn.textContent = '送信中...';
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: fd.get('name'),
+          email: fd.get('email'),
+          system_type: '「なんか違う」実験・手挙げ',
+          current_situation: (fd.get('word') || '').toString().trim() || '（一言なし）',
+          desired_outcome: '「なんか違う」1日への手挙げ',
+          website: fd.get('website'),
+          elapsed_ms: Date.now() - t0,
+        }),
+      });
+      if (!res.ok) throw new Error();
+      form.style.display = 'none';
+      msg.textContent = '受け取りました。動きがあれば、このメールに届きます。';
+      msg.style.color = 'var(--accent)';
+      msg.style.fontSize = '0.95rem';
+    } catch {
+      btn.disabled = false;
+      btn.textContent = '興味ある、と送る';
+      msg.textContent = '送信に失敗しました。時間をおいてもう一度お願いします。';
+    }
+  });
+</script>
+</Layout>
