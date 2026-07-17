@@ -60,7 +60,13 @@
         0
       ],
       "last": "2026-07-07",
-      "posts": []
+      "posts": [
+        {
+          "slug": "2026-07-18-12c995",
+          "title": "Structural Design to Guarantee Concreteness: Controlling via Gates, Not Prompts",
+          "date": "2026-07-18"
+        }
+      ]
     },
     {
       "title": "Redefining metrics to align with strategic intent.",
