@@ -2,7 +2,8 @@
 import Layout from '../../layouts/Layout.astro';
 ---
 <Layout title="自動でメールに返事するAI | 荻野舜樹のAI実験室">
-<style>
+<!-- is:global 必須：エージェント一覧はJSのinnerHTMLで生成され、Astroのスコープ属性が付かない -->
+<style is:global>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, sans-serif; }
 
@@ -112,6 +113,11 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
   .flow-row, .pipeline { overflow-x: auto; }
   .flow-step { min-width: 140px; }
   .sec-grid { grid-template-columns: 1fr; }
+  /* skill-tags が flex 行内で縮まず折り返し不発→ページ全体が横に伸びるのを防ぐ */
+  .agent-root, .agent-child { flex-wrap: wrap; gap: 0.4rem 0.75rem; }
+  .skill-tags { min-width: 0; }
+  .agent-children { margin-left: 1rem; }
+  .sec-2col { grid-template-columns: 1fr !important; }
   .topbar { flex-wrap: wrap; height: auto; padding: 0.6rem 1.25rem; gap: 0.5rem; }
   .panel { padding: 1.25rem; }
 }
@@ -283,7 +289,7 @@ body { background: #080c10; color: #e8edf2; font-family: 'Inter', system-ui, san
   <div id="sec-security" class="section panel">
     <div class="panel-title">セキュリティ設計 — 各エージェントの権限範囲</div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
+    <div class="sec-2col" style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;">
       <div>
         <div style="font-size:0.7rem;color:#6b8096;letter-spacing:0.06em;text-transform:uppercase;font-family:'JetBrains Mono',monospace;margin-bottom:1rem;">秘書エージェントに許可されていること</div>
         <div class="sec-item">担当送信者とのメールスレッドを読む</div>

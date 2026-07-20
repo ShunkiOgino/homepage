@@ -4,6 +4,8 @@
 // 約束の線引き（7/17荻野「約束までしちゃうと嘘になる」）＝未来の自分の行動は約束しない。書いてよいのは
 // 現在の事実（やりたい・数字は公開されている）と機械の動作（決まれば届く）だけ。開かれない可能性も明記。
 // 7/17荻野「アンケート形式を辞めたい」＝10仮説ラジオ撤去。開示は任意の一言欄と動画側の計測で取る。
+// 2026-07-19荻野確定＝看板は思想の顔（制服SSoT=agent_system/pipes_short.py EVENT_MAIN/EVENT_SUB）。
+// 「人生ありきの就活イベント／会社に合わせる前に、自分の人生を先に見る」が主役・記録を読む1日は中身の説明。
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -11,35 +13,38 @@ import hands from '../data/pipes_hands.json';
 
 ---
 
-<Layout title="自分の記録から、キャリアを考え直す1日 — 来たい人を募集中" description="働いてみて「なんか違う」と思ったことがある人向け。スマホに残っている自分の記録を1日かけて読み、キャリアを考え直す集まりの募集ページです。">
+<Layout title="人生ありきの、就活イベント — 来たい人を募集中" description="会社に合わせる前に、自分の人生を先に見る。働いてみて「なんか違う」と思ったことがある人向けの就活イベントの募集ページです。中身は、自分の記録を1日かけて読むことです。">
 <Nav lang="ja" />
-<main style="max-width:720px;margin:0 auto;padding:6rem 2rem 4rem;">
+<main class="page" style="max-width:720px;margin:0 auto;padding:6rem 2rem 4rem;">
 
   <p style="font-size:0.85rem;color:var(--text3);font-family:'JetBrains Mono',monospace;letter-spacing:0.05em;">募集</p>
   <h1 style="font-size:1.9rem;line-height:1.5;margin:0.75rem 0 0;">
-    働いてみて「なんか違う」と<br>思ったことがある人へ
+    人生ありきの、<br>就活イベント。
   </h1>
+  <p style="margin:1rem 0 0;font-size:1.05rem;color:var(--accent);">やりたいんです。</p>
 
   <div style="margin-top:2.5rem;font-size:0.98rem;line-height:2;color:var(--text2);">
-    <p>こういう1日を、やりたいと思っています。</p>
-    <p style="margin-top:1rem;background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;">
+    <p>
+      <b style="color:var(--text);">会社に合わせる前に、自分の人生を先に見る。</b><br>
+      働いてみて「なんか違う」と思ったことがある人と。
+    </p>
+    <p style="margin-top:1.5rem;background:var(--surface);border:1px solid var(--border);padding:1.25rem 1.5rem;">
       集まって、<b style="color:var(--text);">1日で終わります</b>。<br>
-      材料は、あなたのスマホに残っている記録です——スクリーンタイム、カレンダー、それから「続いたこと・気づいたらやめてたこと」の記憶。<br>
-      それを掘り出して、読みます——<b style="color:var(--text);">何が続いて、何をやめて、何が残ったか</b>
+      読むのは、あなたの記録——続いたこと、気づいたらやめてたこと。<br>
+      <b style="color:var(--text);">何が続いて、何をやめて、何が残ったか。</b>
     </p>
     <p style="margin-top:1rem;">
-      キャリアの答えを教える集まりではありません。
-      <b style="color:var(--text);">自分の記録を、ちゃんと見る</b>——やるのはそれだけです。
-    </p>
-    <p style="margin-top:1rem;">
-      日程と場所は、集まってから決めます。興味だけで大丈夫です——下から知らせてください。
+      答えは教えません。自分の記録を読む——それだけです。<br>
+      日程と場所は、集まってから。興味だけでOK。
     </p>
   </div>
 
-  <div style="margin-top:2rem;display:flex;align-items:baseline;gap:0.75rem;">
-    <span style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;color:var(--accent);">いま {hands.count}人</span>
-    <span style="font-size:0.75rem;color:var(--text3);">が手を挙げています{hands.as_of ? `（${hands.as_of} 時点）` : ''}</span>
-  </div>
+  {hands.count > 0 && (
+    <div style="margin-top:2rem;display:flex;align-items:baseline;gap:0.75rem;">
+      <span style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;color:var(--accent);">いま {hands.count}人</span>
+      <span style="font-size:0.75rem;color:var(--text3);">が手を挙げています{hands.as_of ? `（${hands.as_of} 時点）` : ''}</span>
+    </div>
+  )}
 
   <!-- 手挙げフォーム -->
   <form id="hand-form" style="margin-top:2.5rem;background:var(--surface);border:1px solid var(--border);padding:1.5rem;">
@@ -61,11 +66,17 @@ import hands from '../data/pipes_hands.json';
 
   <p style="margin-top:2rem;font-size:0.75rem;color:var(--text3);line-height:1.9;">
     もらうのは呼び名とメールだけです。この実験の連絡以外に使いません。
-    このページの人数は自動集計で、1日数回更新されます。
+    {hands.count > 0 && 'このページの人数は自動集計で、1日数回更新されます。'}
   </p>
 
 </main>
 <Footer lang="ja" />
+
+<style>
+  @media (max-width: 640px) {
+    main.page { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
+  }
+</style>
 
 <script>
   const t0 = Date.now();
