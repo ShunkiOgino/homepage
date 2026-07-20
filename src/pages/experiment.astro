@@ -48,10 +48,10 @@ import hands from '../data/pipes_hands.json';
 
   <!-- 手挙げフォーム -->
   <form id="hand-form" style="margin-top:2.5rem;background:var(--surface);border:1px solid var(--border);padding:1.5rem;">
-    <div style="margin-top:1.5rem;display:grid;gap:0.75rem;">
+    <div style="display:grid;gap:0.75rem;">
       <input name="name" placeholder="呼び名（ニックネームでOK）" required maxlength="100"
              style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.6rem 0.8rem;font-size:0.9rem;" />
-      <input name="email" type="email" placeholder="メールアドレス（決まったことがあれば、ここに届きます）" required maxlength="160"
+      <input name="email" type="email" placeholder="メールアドレス（決まったら届きます）" required maxlength="160"
              style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.6rem 0.8rem;font-size:0.9rem;" />
       <textarea name="word" placeholder="よければ一言——あなたの「なんか違う」について（任意）" maxlength="1800" rows="3"
              style="background:var(--bg);border:1px solid var(--border);color:var(--text);padding:0.6rem 0.8rem;font-size:0.9rem;resize:vertical;"></textarea>
@@ -65,7 +65,7 @@ import hands from '../data/pipes_hands.json';
   </form>
 
   <p style="margin-top:2rem;font-size:0.75rem;color:var(--text3);line-height:1.9;">
-    もらうのは呼び名とメールと、書いてくれた一言だけです。この実験の連絡以外に使いません。
+    もらうのは呼び名とメールと、書いてくれた一言だけです。この募集の連絡以外に使いません。
     {hands.count > 0 && 'このページの人数は自動集計で、1日数回更新されます。'}
   </p>
 
@@ -76,6 +76,8 @@ import hands from '../data/pipes_hands.json';
   @media (max-width: 640px) {
     main.page { padding-left: 1.25rem !important; padding-right: 1.25rem !important; }
   }
+  /* 送信結果は空のうちはグリッドから外す（空でも gap のぶん下余白が伸びるため） */
+  #hand-msg:empty { display: none; }
 </style>
 
 <script>
