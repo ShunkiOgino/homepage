@@ -12,6 +12,8 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await post.render();
+// キャリア記事の末尾だけ、就活イベント(/experiment)への導線を出す（記事→受け皿の逆流を塞ぐ）。
+const isCareer = post.data.tags?.includes('キャリア');
 // 近いところ＝意味の繋がり（時系列でもタグでもない・E層）。作品も混在。
 const near = (meaningLinks[`blog:${post.slug}`]?.near) || [];
 const fmt = (d: Date) =>
@@ -62,6 +64,15 @@ const articleJsonLd = JSON.stringify({
       <Content />
     </div>
 
+    {isCareer && (
+      <aside class="cta-exp-box">
+        <div class="cta-exp-eyebrow">人生ありきの、就活イベント</div>
+        <p class="cta-exp-lead">こんな話をする集まりを、やりたいと思っています。会社に合わせる前に、自分の人生を先に見る。答えは教えません。この話を物差しに、自分の記録を読む——それだけです。</p>
+        <p class="cta-exp-sub">日程と場所は、集まってから。興味だけでOK。</p>
+        <a class="cta-exp-link" href="/experiment?src=blog">来たい人はこちら →</a>
+      </aside>
+    )}
+
     {near.length > 0 && (
       <div style="margin-top:3.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
         <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:var(--text3);letter-spacing:0.06em;">近いところ <span style="color:var(--text3);opacity:0.7;">— 意味でつながる考えと作品</span></span>
@@ -102,6 +113,12 @@ const articleJsonLd = JSON.stringify({
     .pn-n { font-size: 1rem; font-weight: 500; color: var(--text); margin: 0.4rem 0 0.3rem; }
     .pn-e { font-size: 0.78rem; color: var(--text2); font-family: 'JetBrains Mono', monospace; }
     .pn.empty { opacity: 0.45; }
+    .cta-exp-box { margin-top: 3.5rem; border: 1px solid rgba(0,212,255,0.35); background: rgba(0,212,255,0.05); padding: 1.6rem 1.7rem; }
+    .cta-exp-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; color: var(--accent); letter-spacing: 0.08em; margin-bottom: 0.7rem; }
+    .cta-exp-lead { margin: 0 0 0.5rem; font-size: 1.02rem; color: var(--text); line-height: 1.75; }
+    .cta-exp-sub { margin: 0 0 1.2rem; font-size: 0.88rem; color: var(--text2); line-height: 1.7; }
+    .cta-exp-link { display: inline-block; font-size: 0.9rem; color: var(--accent); text-decoration: none; border: 1px solid rgba(0,212,255,0.4); padding: 0.5rem 1rem; letter-spacing: 0.03em; transition: border-color .15s, background .15s; }
+    .cta-exp-link:hover { border-color: var(--accent); background: rgba(0,212,255,0.1); }
     @media (max-width: 600px) {
       nav[style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
       nav[style*="grid-template-columns:1fr 1fr"] .pn[style*="right"] { text-align: left !important; }
