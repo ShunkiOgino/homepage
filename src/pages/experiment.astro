@@ -6,6 +6,10 @@
 // 7/17荻野「アンケート形式を辞めたい」＝10仮説ラジオ撤去。開示は任意の一言欄と動画側の計測で取る。
 // 2026-07-19荻野確定＝看板は思想の顔（制服SSoT=agent_system/pipes_short.py EVENT_MAIN/EVENT_SUB）。
 // 「人生ありきの就活イベント／会社に合わせる前に、自分の人生を先に見る」が主役・記録を読む1日は中身の説明。
+// 2026-07-20荻野「補足主張を公開してない」→ホームページに（動画は詰めてから）。
+// 形式=荻野確定「一トピック一ブログ。そこにリンクで飛ばす」＝主張10本を各1記事
+// （src/content/blog/2026-07-20-*.md・本文=正本 agent_system/career_pipes_canon.md の論理を発信語で忠実に）。
+// このページは「こんな話をします」のリンク集だけ＝二箱（見るしかないもの5＋決めるしかないもの5）。
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
@@ -33,8 +37,27 @@ import hands from '../data/pipes_hands.json';
       読むのは、あなたの記録——続いたこと、気づいたらやめてたこと。<br>
       <b style="color:var(--text);">何が続いて、何をやめて、何が残ったか。</b>
     </p>
-    <p style="margin-top:1rem;">
-      答えは教えません。自分の記録を読む——それだけです。<br>
+    <p style="margin-top:2.5rem;">たとえば、こんな話をします——</p>
+    <div style="margin-top:1rem;border:1px solid var(--border);padding:1.25rem 1.5rem;font-size:0.92rem;">
+      <p style="color:var(--text3);font-size:0.8rem;">まず、見るしかないものの話。向き不向き、続いたこと——選べないもの。</p>
+      <ol class="talk-list" style="margin:0.75rem 0 0;padding:0;list-style:none;display:grid;gap:0.6rem;">
+        <li><span>1</span>　<a href="/blog/2026-07-20-kansoku-zero/">就活がうまくいかないのは、自己分析が足りないからじゃない</a></li>
+        <li><span>2</span>　<a href="/blog/2026-07-20-uso-no-jikoshoukai/">面接対策とは、嘘の自己紹介の練習である</a></li>
+        <li><span>3</span>　<a href="/blog/2026-07-20-tsuzuita-mono/">志望動機は書ける。続いたものは、捏造できない</a></li>
+        <li><span>4</span>　<a href="/blog/2026-07-20-yuzurenai-mono/">譲れないものは、決めるものじゃなくて、見つかるもの</a></li>
+        <li><span>5</span>　<a href="/blog/2026-07-20-naka-wo-miru-kenri/">就職で買っているのは、中を見る権利</a></li>
+      </ol>
+      <p style="margin-top:1.25rem;color:var(--text3);font-size:0.8rem;">それから、決めるしかないものの話。順位と床——記録を眺めても答えが出ないもの。</p>
+      <ol class="talk-list" style="margin:0.75rem 0 0;padding:0;list-style:none;display:grid;gap:0.6rem;">
+        <li><span>6</span>　<a href="/blog/2026-07-20-mittsu-no-ikikata/">三つの生き方は、三つとも正解</a></li>
+        <li><span>7</span>　<a href="/blog/2026-07-20-akirameru-chikara/">諦める力は敗北じゃない。無装備で勝てる、唯一の才能</a></li>
+        <li><span>8</span>　<a href="/blog/2026-07-20-ichiban-to-yuka/">一番を決めないと、席があなたの一番を決める</a></li>
+        <li><span>9</span>　<a href="/blog/2026-07-20-yuiitsu-no-jigoku/">唯一の地獄は、諦めないのに、積まないこと</a></li>
+        <li><span>10</span>　<a href="/blog/2026-07-20-yuka-wa-jitsuzai-suru/">「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない</a></li>
+      </ol>
+    </div>
+    <p style="margin-top:1.5rem;">
+      答えは教えません。この話を物差しに、自分の記録を読む——それだけです。<br>
       日程と場所は、集まってから。興味だけでOK。
     </p>
   </div>
@@ -78,6 +101,9 @@ import hands from '../data/pipes_hands.json';
   }
   /* 送信結果は空のうちはグリッドから外す（空でも gap のぶん下余白が伸びるため） */
   #hand-msg:empty { display: none; }
+  .talk-list span { color: var(--text3); font-family: 'JetBrains Mono', monospace; }
+  .talk-list a { color: var(--text); text-decoration: underline; text-decoration-color: var(--border); text-underline-offset: 4px; }
+  .talk-list a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 </style>
 
 <script>
