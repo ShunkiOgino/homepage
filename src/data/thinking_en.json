@@ -11,6 +11,21 @@
   ],
   "themes": [
     {
+      "title": "Primary source destinations and the structure of platform-driven information control",
+      "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0
+      ],
+      "last": "2026-07-19",
+      "posts": []
+    },
+    {
       "title": "Engineering operationalization of the objective function by eliminating essentialism.",
       "cells": [
         0,
@@ -183,21 +198,6 @@
       "posts": []
     },
     {
-      "title": "Designing AI-based information extraction and disclosure control",
-      "cells": [
-        0,
-        0,
-        0,
-        3,
-        0,
-        5,
-        0,
-        0
-      ],
-      "last": "2026-07-07",
-      "posts": []
-    },
-    {
       "title": "Designed for lightweight local AI.",
       "cells": [
         0,
@@ -236,6 +236,27 @@
           "slug": "2026-07-20-bae1e8",
           "title": "The Strength of Wanting Nothing, and the Salvation of the Next-Best Option",
           "date": "2026-07-20"
+        }
+      ]
+    },
+    {
+      "title": "Script generation and quality assurance flow for character-driven videos",
+      "cells": [
+        0,
+        0,
+        0,
+        0,
+        17,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-05",
+      "posts": [
+        {
+          "slug": "2026-07-22-8b7d0e",
+          "title": "The 'Unnaturalness' of AI Characters Vanishes When Words and Acting are Synchronized",
+          "date": "2026-07-22"
         }
       ]
     },
