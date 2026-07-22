@@ -13,7 +13,6 @@
 import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import hands from '../data/pipes_hands.json';
 
 ---
 
@@ -62,13 +61,6 @@ import hands from '../data/pipes_hands.json';
     </p>
   </div>
 
-  {hands.count > 0 && (
-    <div style="margin-top:2rem;display:flex;align-items:baseline;gap:0.75rem;">
-      <span style="font-family:'JetBrains Mono',monospace;font-size:1.6rem;color:var(--accent);">いま {hands.count}人</span>
-      <span style="font-size:0.75rem;color:var(--text3);">が手を挙げています{hands.as_of ? `（${hands.as_of} 時点）` : ''}</span>
-    </div>
-  )}
-
   <!-- 手挙げフォーム -->
   <form id="hand-form" style="margin-top:2.5rem;background:var(--surface);border:1px solid var(--border);padding:1.5rem;">
     <div style="display:grid;gap:0.75rem;">
@@ -89,7 +81,6 @@ import hands from '../data/pipes_hands.json';
 
   <p style="margin-top:2rem;font-size:0.75rem;color:var(--text3);line-height:1.9;">
     もらうのは呼び名とメールと、書いてくれた一言だけです。この募集の連絡以外に使いません。
-    {hands.count > 0 && 'このページの人数は自動集計で、1日数回更新されます。'}
   </p>
 
 </main>
