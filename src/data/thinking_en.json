@@ -212,6 +212,11 @@
       "last": "2026-07-06",
       "posts": [
         {
+          "slug": "2026-07-24-50-6gb-os",
+          "title": "OS-Level Process Management and Port Monitoring to Reduce Memory Usage from 50.6GB",
+          "date": "2026-07-24"
+        },
+        {
           "slug": "2026-07-15-50-6gb-32-3gb-brew-launchctl-fixability",
           "title": "From 50.6GB to 32.3GB Memory: Bypassing brew's Management Refusal with launchctl to Pursue 'Fixability' in Local AI",
           "date": "2026-07-15"

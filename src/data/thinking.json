@@ -212,6 +212,11 @@
       "last": "2026-07-06",
       "posts": [
         {
+          "slug": "2026-07-24-50-6gb-os",
+          "title": "メモリ使用量を50.6GBから縮小させるOSレベルのプロセス管理とポート監視",
+          "date": "2026-07-24"
+        },
+        {
           "slug": "2026-07-15-50-6gb-32-3gb-brew-launchctl-fixability",
           "title": "メモリ50.6GB→32.3GBへ。brewの管理拒否をlaunchctlで突破し、修正可能性（fixability）を求めてAIをロー",
           "date": "2026-07-15"

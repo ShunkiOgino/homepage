@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-07-23T21:59:05+09:00",
+ "generated_at": "2026-07-24T07:01:45+09:00",
  "today_activity": {
-  "date": "2026-07-23",
+  "date": "2026-07-24",
   "resolution_min": 30,
   "bucket_max": 30,
   "devices": [
@@ -13,6 +13,8 @@
      0,
      0,
      0,
+     1,
+     1,
      0,
      0,
      0,
@@ -34,22 +36,20 @@
      0,
      0,
      0,
-     4,
-     4,
-     0,
-     0,
-     2,
      0,
      0,
      0,
      0,
      0,
-     2,
      0,
      0,
      0,
-     4,
-     4,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 20
+    "active_minutes_total": 2
    },
    {
     "key": "air",
@@ -103,8 +103,8 @@
      0,
      0,
      0,
-     4,
-     10,
+     0,
+     0,
      0,
      0,
      0,
@@ -113,12 +113,12 @@
      0,
      0
     ],
-    "active_minutes_total": 14
+    "active_minutes_total": 0
    }
   ]
  },
  "today_phone_activity": {
-  "date": "2026-07-23",
+  "date": "2026-07-24",
   "kind": "app-open-close",
   "resolution_min": 30,
   "bucket_max": 30,
@@ -136,20 +136,13 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
-   0,
+   8,
    2,
    0,
    0,
    0,
    0,
    0,
-   1,
    0,
    0,
    0,
@@ -158,26 +151,33 @@
    0,
    0,
    0,
-   9,
-   26,
-   4,
-   5,
    0,
-   3,
-   2,
-   3,
-   30,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    0,
    0,
    0,
    0
   ],
-  "active_minutes_total": 85
+  "active_minutes_total": 10
  },
  "today_steps": {
-  "date": "2026-07-23",
-  "steps": 4702,
-  "as_of_min": 1287,
+  "date": "2026-07-24",
+  "steps": 0,
+  "as_of_min": 412,
   "floor": 8000
  },
  "now": {
@@ -185,7 +185,7 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 105
+  "away_minutes": 257
  },
  "health_signal": null
 }
