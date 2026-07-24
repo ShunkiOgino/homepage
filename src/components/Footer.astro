@@ -6,10 +6,13 @@ interface Props { lang?: 'ja' | 'en'; }
 const { lang = 'ja' } = Astro.props;
 const ft = lang === 'en'
   ? { discord: 'Discord — a lab for locally-running AI agents', run: 'This site and its social posts are, for the most part, operated by AI.',
-      gate: 'Contact goes through one door: syuntan5151@gmail.com — DMs and LINE are not inboxes here (nothing picks them up; they get missed).' }
+      gate: 'Contact goes through one door: syuntan5151@gmail.com — DMs and LINE are not inboxes here (nothing picks them up; they get missed).',
+      // 数字ページへの唯一の導線（2026-07-24）。トップには数字を出さない＝見に来た人だけが見る。
+      stats: 'The numbers — how far these posts actually reach', statsHref: '/en/analysis' }
   : { discord: `Discord — ${links.discord.note}`, run: 'このサイトと各SNSでの発信は、基本的にAIが運用しています。',
       // 門宣言・フル版（2026-07-16荻野確定＝6/28「着信は門を1個宣言」の適用。コメント記録の言及は同日夜に荻野判断で削除）
-      gate: '連絡はメール1本にしています：syuntan5151@gmail.com ／ DMやLINEは受信箱として使っていません（自動で拾う仕組みがなく、見落とします）。' };
+      gate: '連絡はメール1本にしています：syuntan5151@gmail.com ／ DMやLINEは受信箱として使っていません（自動で拾う仕組みがなく、見落とします）。',
+      stats: '発信の数字 — どれだけ届いたかの実測値', statsHref: '/analysis' };
 const socials = [
   { name: 'GitHub', href: links.github.url },
   { name: 'Discord', href: links.discord.url },
@@ -65,6 +68,9 @@ const socials = [
     <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.4rem;">
       <a href={links.discord.url} target="_blank" rel="noopener noreferrer" style="font-size:0.7rem;color:var(--text3);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">
         {ft.discord}
+      </a>
+      <a href={ft.statsHref} style="font-size:0.7rem;color:var(--text3);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text3)'">
+        {ft.stats}
       </a>
       <p style="font-size:0.7rem;color:var(--text3);line-height:1.6;">
         {ft.run}

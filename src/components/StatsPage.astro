@@ -1,0 +1,244 @@
+---
+// 発信の数字ページ(/analysis)の実体（JA/EN共通の唯一の正）。src/pages/analysis.astro と en/analysis.astro は置くだけ。
+// パスが /analysis なのは、トップ側（HomePage.astro）の「全部の数字と、分析ノートを見る →」の
+// リンク先が /analysis のため＝同じものに2枚の入口を作らない。
+// データの正 = src/data/broadcast_stats.json（生成器 = agent_system/export_broadcast_stats.py の構造allowlist投影）。
+// ここは「読んで描くだけ」＝数字を足したり言い換えたりしない（解釈は定性レーン＝ブログの仕事）。
+// fail-closed: 節が null のデータは何も描かない（無いものを埋めない＝捏造しない）。
+// 見せ方の線（2026-07-24）: トップページには出さない。7/22に「小さい数字の社会的証明は逆に効く」で
+//   /experiment の手挙げカウンタを撤去した判断を壊さないため、数字は「見に来た人が見る」この1枚に閉じる。
+import stats from '../data/broadcast_stats.json';
+
+interface Props { lang?: 'ja' | 'en'; }
+const { lang = 'ja' } = Astro.props;
+const S = stats as any;
+
+const t = lang === 'en'
+  ? {
+      kicker: 'numbers',
+      h1: 'The numbers',
+      lead: 'How far my posts actually reach. These are raw measurements, published as they are — I do not pick out the good ones.',
+      updated: 'last updated',
+      delta: 'vs 7 days ago',
+      settling: 'settling',
+      settlingNote: (d: number) => `Anything posted less than ${d} days ago is still moving, so it is marked "settling".`,
+      ytDateNote: 'The date is when I started measuring that video, not the exact publish date on YouTube (it can lag by a day).',
+      yt: 'YouTube', ig: 'Instagram', blog: 'Blog', ai: 'Reached through AI',
+      subs: 'subscribers', totalViews: 'total views', videoCount: 'videos published',
+      followers: 'followers', pv7: 'page views (7d)', pv1: 'page views (24h)',
+      aiHits7: 'AI/agent requests (7d)', aiHits1: 'AI/agent requests (24h)', mcp1: 'through the machine-facing endpoint (24h)',
+      refTitle: 'Where visitors came from (last 7 days)',
+      ytTitle: 'Every video', igTitle: 'Every Instagram post',
+      cDate: 'first measured', cPosted: 'posted', cTitle: 'title', cViews: 'views', cLikes: 'likes', cComments: 'comments',
+      cKind: 'type', cReach: 'reach', cSaved: 'saves', cShares: 'shares',
+      empty: 'No data yet.',
+      note: 'What is here: aggregate counts of my own posts, written out automatically every day. What is not here: anything tied to a person — who watched, who commented, what they wrote. Numbers are not re-picked by hand.',
+      refNames: { instagram: 'Instagram', direct: 'direct', search: 'search', self: 'my own pages', other: 'other', youtube: 'YouTube', blog: 'blog' } as Record<string, string>,
+    }
+  : {
+      kicker: '数字',
+      h1: '発信の数字',
+      lead: '自分の発信がどれだけ届いたか、実測値をそのまま置いています。良い数字も悪い数字も、選びません。',
+      updated: '最終更新',
+      delta: '7日前と比べて',
+      settling: '集計中',
+      settlingNote: (d: number) => `公開から${d}日未満はまだ数字が動くので「集計中」と書いています。`,
+      ytDateNote: '日付は、その動画の数字を取り始めた日です（YouTube上の公開日そのものではなく、1日ずれることがあります）。',
+      yt: 'YouTube', ig: 'Instagram', blog: 'ブログ', ai: 'AI経由の到達',
+      subs: '登録者', totalViews: '累計再生', videoCount: '公開本数',
+      followers: 'フォロワー', pv7: '閲覧数（7日）', pv1: '閲覧数（24時間）',
+      aiHits7: 'AI・エージェントからの取得（7日）', aiHits1: 'AI・エージェントからの取得（24時間）', mcp1: '機械向け窓口から（24時間）',
+      refTitle: 'どこから来たか（直近7日）',
+      ytTitle: '動画は全部', igTitle: 'Instagramの投稿は全部',
+      cDate: '計測開始', cPosted: '投稿日', cTitle: 'タイトル', cViews: '再生', cLikes: 'いいね', cComments: 'コメント',
+      cKind: '種別', cReach: '到達', cSaved: '保存', cShares: 'シェア',
+      empty: 'まだデータがありません。',
+      note: '出しているのは、自分の投稿の集計値だけです。毎日自動で書き出していて、手で選び直していません。誰が見たか・誰がコメントしたかといった人に紐づくものは、ここには出しません。',
+      refNames: { instagram: 'Instagram', direct: '直接', search: '検索', self: '自分のページ', other: 'その他', youtube: 'YouTube', blog: 'ブログ' } as Record<string, string>,
+    };
+
+const fmt = (n: any) => (typeof n === 'number' ? n.toLocaleString('en-US') : '—');
+const signed = (n: any) => (typeof n === 'number' ? (n > 0 ? `+${fmt(n)}` : fmt(n)) : '');
+
+const gen: string | null = S.generated_at ? String(S.generated_at) : null;
+const genLabel = gen ? `${gen.slice(0, 10).replace(/-/g, '.')} ${gen.slice(11, 16)}` : null;
+// 投稿日 = 集計日 − 経過日数（ビルド時刻ではなくデータ基準＝ビルドが遅れても日付がずれない）
+const baseDate = gen ? new Date(gen.slice(0, 10) + 'T00:00:00') : null;
+const dateOf = (age: any) => {
+  if (!baseDate || typeof age !== 'number') return '—';
+  const d = new Date(baseDate);
+  d.setDate(d.getDate() - age);
+  return `${String(d.getMonth() + 1).padStart(2, '0')}.${String(d.getDate()).padStart(2, '0')}`;
+};
+
+const settleDays = S.settle_days ?? 7;
+
+// ── 見出しの数字（あるものだけ）──────────────────────────────
+type Tile = { group: string; label: string; value: any; delta?: any };
+const tiles: Tile[] = [];
+const ch = S.youtube?.channel;
+if (ch) {
+  tiles.push({ group: t.yt, label: t.totalViews, value: ch.total_views?.value, delta: ch.total_views?.delta_7d });
+  tiles.push({ group: t.yt, label: t.subs, value: ch.subscribers?.value, delta: ch.subscribers?.delta_7d });
+  tiles.push({ group: t.yt, label: t.videoCount, value: ch.video_count?.value, delta: ch.video_count?.delta_7d });
+}
+if (S.instagram?.followers) {
+  tiles.push({ group: t.ig, label: t.followers, value: S.instagram.followers.value, delta: S.instagram.followers.delta_7d });
+}
+if (S.blog) {
+  tiles.push({ group: t.blog, label: t.pv7, value: S.blog.pv_7d });
+  tiles.push({ group: t.blog, label: t.pv1, value: S.blog.pv_1d });
+}
+if (S.ai_reach) {
+  tiles.push({ group: t.ai, label: t.aiHits7, value: S.ai_reach.hits_7d });
+  // 24時間は「機械向け窓口から」の1枚だけ（hits_1d と mcp_1d は同値になることが多く、並べると重複に見える）
+  tiles.push({ group: t.ai, label: t.mcp1, value: S.ai_reach.mcp_1d });
+}
+
+const refs: [string, number][] = Object.entries(S.referrers?.by_ref_7d ?? {}) as [string, number][];
+refs.sort((a, b) => b[1] - a[1]);
+const refTotal = refs.reduce((s, [, v]) => s + (v || 0), 0);
+
+const videos: any[] = S.youtube?.videos ?? [];
+const posts: any[] = S.instagram?.posts ?? [];
+const hasAny = tiles.length > 0 || videos.length > 0 || posts.length > 0;
+---
+
+<section class="page" style="max-width:860px;margin:0 auto;padding:8rem 2rem 6rem;">
+  <span style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">{t.kicker}</span>
+  <h1 style="font-size:2.2rem;font-weight:600;margin:0.6rem 0 1rem;letter-spacing:-0.01em;">{t.h1}</h1>
+  <p style="font-size:1rem;color:var(--text-prose);line-height:1.9;max-width:640px;">{t.lead}</p>
+
+  {genLabel && (
+    <p style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text3);letter-spacing:0.05em;margin-top:1.2rem;">
+      {t.updated} {genLabel}
+    </p>
+  )}
+
+  {!hasAny && <p style="color:var(--text2);margin-top:3rem;">{t.empty}</p>}
+
+  {tiles.length > 0 && (
+    <div class="tiles" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:1px;background:var(--border);border:1px solid var(--border);margin-top:2.5rem;">
+      {tiles.map((tile) => (
+        <div style="background:var(--surface);padding:1.1rem 1.2rem;">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:0.62rem;color:var(--text3);letter-spacing:0.08em;text-transform:uppercase;">{tile.group}</div>
+          <div style="font-size:1.7rem;font-weight:600;color:var(--text);line-height:1.3;margin-top:0.35rem;font-family:'JetBrains Mono',monospace;">{fmt(tile.value)}</div>
+          <div style="font-size:0.78rem;color:var(--text2);margin-top:0.15rem;">{tile.label}</div>
+          {typeof tile.delta === 'number' && (
+            <div style={`font-family:'JetBrains Mono',monospace;font-size:0.7rem;margin-top:0.5rem;color:${tile.delta > 0 ? 'var(--ok)' : 'var(--text3)'};`}>
+              {signed(tile.delta)} <span style="color:var(--text3);">{t.delta}</span>
+            </div>
+          )}
+        </div>
+      ))}
+    </div>
+  )}
+
+  {refs.length > 0 && (
+    <div style="margin-top:3.5rem;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;margin-bottom:1rem;">{t.refTitle}</div>
+      <div style="display:flex;height:8px;overflow:hidden;background:var(--surface2);border:1px solid var(--border);">
+        {refs.map(([k, v], i) => (
+          <span style={`width:${refTotal ? (v / refTotal) * 100 : 0}%;background:rgba(0,212,255,${Math.max(0.2, 0.85 - i * 0.16)});`}></span>
+        ))}
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:1.2rem;margin-top:0.8rem;">
+        {refs.map(([k, v]) => (
+          <span style="font-size:0.78rem;color:var(--text2);">
+            {t.refNames[k] ?? k}
+            <span style="font-family:'JetBrains Mono',monospace;color:var(--text);margin-left:0.4rem;">{fmt(v)}</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  )}
+
+  {videos.length > 0 && (
+    <div style="margin-top:4rem;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">{t.ytTitle}</div>
+      <p style="font-size:0.78rem;color:var(--text3);margin:0.5rem 0 1rem;">{t.settlingNote(settleDays)}{' '}{t.ytDateNote}</p>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;min-width:520px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="text-align:left;padding:0.5rem 0.6rem 0.5rem 0;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cDate}</th>
+              <th style="text-align:left;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cTitle}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cViews}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cLikes}</th>
+              <th style="text-align:right;padding:0.5rem 0 0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cComments}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {videos.map((v) => (
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.6rem 0.6rem 0.6rem 0;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text2);white-space:nowrap;vertical-align:top;">{dateOf(v.age_days)}</td>
+                <td style="padding:0.6rem;vertical-align:top;">
+                  <a href={`https://www.youtube.com/watch?v=${v.video_id}`} target="_blank" rel="noopener noreferrer" style="color:var(--text);text-decoration:none;line-height:1.5;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text)'">{v.title}</a>
+                  {!v.is_settled && (
+                    <span style="margin-left:0.5rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--warn);border:1px solid var(--warn);padding:0.05rem 0.3rem;white-space:nowrap;">{t.settling}</span>
+                  )}
+                </td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text);vertical-align:top;">{fmt(v.views)}</td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);vertical-align:top;">{fmt(v.likes)}</td>
+                <td style="padding:0.6rem 0 0.6rem 0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);vertical-align:top;">{fmt(v.comments)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  {posts.length > 0 && (
+    <div style="margin-top:4rem;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;margin-bottom:1rem;">{t.igTitle}</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%;border-collapse:collapse;font-size:0.85rem;min-width:520px;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="text-align:left;padding:0.5rem 0.6rem 0.5rem 0;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cPosted}</th>
+              <th style="text-align:left;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cKind}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cReach}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cViews}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cLikes}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cSaved}</th>
+              <th style="text-align:right;padding:0.5rem 0 0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cShares}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {posts.map((p) => (
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.6rem 0.6rem 0.6rem 0;font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:var(--text2);white-space:nowrap;">{dateOf(p.age_days)}</td>
+                <td style="padding:0.6rem;color:var(--text2);font-size:0.78rem;">
+                  {p.media_kind}
+                  {!p.is_settled && (
+                    <span style="margin-left:0.5rem;font-family:'JetBrains Mono',monospace;font-size:0.6rem;color:var(--warn);border:1px solid var(--warn);padding:0.05rem 0.3rem;white-space:nowrap;">{t.settling}</span>
+                  )}
+                </td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text);">{fmt(p.reach)}</td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);">{fmt(p.views)}</td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);">{fmt(p.likes)}</td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);">{fmt(p.saved)}</td>
+                <td style="padding:0.6rem 0 0.6rem 0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);">{fmt(p.shares)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  )}
+
+  <p style="font-size:0.75rem;color:var(--text3);line-height:1.9;margin-top:3.5rem;max-width:640px;border-top:1px solid var(--border);padding-top:1.2rem;">{t.note}</p>
+</section>
+
+<style>
+  @media (max-width: 640px) {
+    section.page {
+      padding-left: 1.25rem !important;
+      padding-right: 1.25rem !important;
+    }
+    .tiles {
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)) !important;
+    }
+  }
+</style>

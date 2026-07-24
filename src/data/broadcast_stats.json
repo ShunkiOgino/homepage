@@ -1,0 +1,794 @@
+{
+ "generated_at": "2026-07-24T03:55:03.123439",
+ "youtube": {
+  "channel": {
+   "subscribers": {
+    "value": 6,
+    "delta_7d": 1,
+    "ratio_7d": 1.2
+   },
+   "total_views": {
+    "value": 16036,
+    "delta_7d": 5784,
+    "ratio_7d": 1.564
+   },
+   "video_count": {
+    "value": 46,
+    "delta_7d": 15,
+    "ratio_7d": 1.484
+   }
+  },
+  "videos": [
+   {
+    "video_id": "thhUeY73WH8",
+    "title": "メモリ50GB超の逼迫を32GBまで削った、ローカルAIのプロセス管理術 #Shorts",
+    "views": 400,
+    "likes": 5,
+    "comments": 0,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "lkNee5vAxSI",
+    "title": "「会社を間違えた」と思っていませんか？ #Shorts",
+    "views": 1,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "79fixkXOE50",
+    "title": "7月22日(水)の観測｜PC 6時間12分・歩数5,324歩 #Shorts",
+    "views": 91,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "OLZzDwlU5fE",
+    "title": "AIで案を50件出しても絶望した話｜処理速度より「意思決定の速度」を上げる設計 #Shorts",
+    "views": 217,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 1,
+    "is_settled": false
+   },
+   {
+    "video_id": "2JTAknsgnR8",
+    "title": "「見る目がなかった」と思っていませんか？ #Shorts",
+    "views": 176,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 1,
+    "is_settled": false
+   },
+   {
+    "video_id": "YaigTPObcvk",
+    "title": "7月21日(火)の観測｜PC 6時間52分・歩数9,624歩 #Shorts",
+    "views": 103,
+    "likes": 1,
+    "comments": 0,
+    "age_days": 1,
+    "is_settled": false
+   },
+   {
+    "video_id": "kS1pnzMhp_E",
+    "title": "AIキャラの「不自然な動き」を消す。言葉と芝居を同期させる制御設計 #Shorts",
+    "views": 1,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 2,
+    "is_settled": false
+   },
+   {
+    "video_id": "aI8K3c9sYGg",
+    "title": "7月20日(月)の観測｜PC 1時間21分・歩数10,280歩 #Shorts",
+    "views": 144,
+    "likes": 1,
+    "comments": 0,
+    "age_days": 2,
+    "is_settled": false
+   },
+   {
+    "video_id": "eFiZXIUrlzY",
+    "title": "証拠スライドの捏造を防ぐ。直接引用と出典スタンプの構造設計 #Shorts",
+    "views": 215,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 3,
+    "is_settled": false
+   },
+   {
+    "video_id": "lqF2RHN5sI8",
+    "title": "7月19日(日)の観測｜PC 3時間53分・歩数1,522歩 #Shorts",
+    "views": 163,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 3,
+    "is_settled": false
+   },
+   {
+    "video_id": "bwuq3yrZ5yk",
+    "title": "7月18日(土)の観測｜PC 3時間46分・歩数9,897歩 #Shorts",
+    "views": 276,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 4,
+    "is_settled": false
+   },
+   {
+    "video_id": "Zk1eBGt0Twc",
+    "title": "カレンダーの予定より「メッセージ履歴」から未来を類推して分かったこと #Shorts",
+    "views": 254,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 5,
+    "is_settled": false
+   },
+   {
+    "video_id": "JgC3ozw3K9U",
+    "title": "「AIが一般論に逃げる」を直す方法。指示を増やすより先に作るべきゲート #Shorts",
+    "views": 286,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 6,
+    "is_settled": false
+   },
+   {
+    "video_id": "vtTult0-xLw",
+    "title": "🟢 7月16日(木)の観測｜PC 6時間16分・歩数11,616歩 #Shorts",
+    "views": 1541,
+    "likes": 4,
+    "comments": 0,
+    "age_days": 6,
+    "is_settled": false
+   },
+   {
+    "video_id": "UhZkngkcdAs",
+    "title": "7月17日(金)の観測｜PC 5時間35分 #Shorts",
+    "views": 1862,
+    "likes": 1,
+    "comments": 0,
+    "age_days": 6,
+    "is_settled": false
+   },
+   {
+    "video_id": "Ttyx-6pwxw8",
+    "title": "「熱は戻らない」を体感する。物理法則の絶望と心地よさをゲームにした作品 #Shorts",
+    "views": 205,
+    "likes": 1,
+    "comments": 0,
+    "age_days": 7,
+    "is_settled": true
+   },
+   {
+    "video_id": "q5GXxyA0ZZY",
+    "title": "7月15日(水)の観測｜PC 3時間31分 #Shorts",
+    "views": 1097,
+    "likes": 2,
+    "comments": 5,
+    "age_days": 7,
+    "is_settled": true
+   },
+   {
+    "video_id": "_3tHShB5-uE",
+    "title": "機密情報を「消す」のではなく「選ぶ」。漏洩リスクを構造で塞ぐ情報の切り分け方 #Shorts",
+    "views": 401,
+    "likes": 2,
+    "comments": 0,
+    "age_days": 8,
+    "is_settled": true
+   },
+   {
+    "video_id": "4GfLX4-2lZM",
+    "title": "7月14日(火)の観測｜PC 6時間32分 #Shorts",
+    "views": 1855,
+    "likes": 7,
+    "comments": 0,
+    "age_days": 8,
+    "is_settled": true
+   },
+   {
+    "video_id": "2jLmk15aFfQ",
+    "title": "「写しは私か」という問いを捨てて、自分を複利で増やす工学的な設計にする #Shorts",
+    "views": 5,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 10,
+    "is_settled": true
+   },
+   {
+    "video_id": "lXLoscYZPes",
+    "title": "AIキャラの「不自然さ」は、声質ではなく思考と動作の同期で消える #Shorts",
+    "views": 315,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 11,
+    "is_settled": true
+   },
+   {
+    "video_id": "iB73myc2qcM",
+    "title": "AIに操作させるならGUIを捨てる。コードで完結させる配信と録画のインフラ設計 #Shorts",
+    "views": 347,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 12,
+    "is_settled": true
+   },
+   {
+    "video_id": "4qukmO38gAw",
+    "title": "日付順の整理を捨てて「意味の繋がり」で思考を編む。コンテンツ複利運用の設計 #Shorts",
+    "views": 410,
+    "likes": 3,
+    "comments": 0,
+    "age_days": 15,
+    "is_settled": true
+   },
+   {
+    "video_id": "OztECiS7BR0",
+    "title": "AI動画生成の「ズレ」を消す。0.45秒の静止に宿る再現性の設計思想 #Shorts",
+    "views": 342,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 16,
+    "is_settled": true
+   },
+   {
+    "video_id": "gIVk4hh36Ro",
+    "title": "AIエージェントの長期記憶にMem0は必要か？注入層の設計で変わる精度",
+    "views": 9,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 17,
+    "is_settled": true
+   },
+   {
+    "video_id": "UBfdfgN0Q94",
+    "title": "「後付けの管理」で情報は枯渇する。入力コストをゼロにする構造設計の話 #Shorts",
+    "views": 522,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 19,
+    "is_settled": true
+   },
+   {
+    "video_id": "lXpUVrHLudQ",
+    "title": "10万GPUを数ヶ月で稼働させる方法｜物理的制約を突破する執行力の正体 #Shorts",
+    "views": 374,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 19,
+    "is_settled": true
+   },
+   {
+    "video_id": "_y0Yh0ExEr4",
+    "title": "AIを軽く回す設計思想：モデルの抱え込みをやめ、応答速度を1秒台にする方法 #Shorts",
+    "views": 171,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 20,
+    "is_settled": true
+   },
+   {
+    "video_id": "nxPzoFh47VU",
+    "title": "AIの人格を「精神」ではなく「データと予算」で管理して一貫性を出す方法 #Shorts",
+    "views": 200,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 22,
+    "is_settled": true
+   },
+   {
+    "video_id": "iqrXvm1_hSw",
+    "title": "温もりか、自由か。熱力学の理屈を「触ってわかる」体験に落とし込む設計思想 #Shorts",
+    "views": 164,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 23,
+    "is_settled": true
+   },
+   {
+    "video_id": "73M2rsIc_o0",
+    "title": "録画ステップを消したら、未完成のまま外に出せるようになった #Shorts",
+    "views": 224,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 24,
+    "is_settled": true
+   },
+   {
+    "video_id": "0dJU8k7UVPg",
+    "title": "物理法則を「触感」に変える。熱と運動の矛盾を乗りこなすゲーム設計の思考法 #Shorts",
+    "views": 370,
+    "likes": 1,
+    "comments": 0,
+    "age_days": 25,
+    "is_settled": true
+   },
+   {
+    "video_id": "d7LDHakYlGI",
+    "title": "AIに「誠実さ」を求めない。構造的な権限遮断で実現する、誠実さに頼らない共生設計 #Shorts",
+    "views": 214,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 26,
+    "is_settled": true
+   },
+   {
+    "video_id": "Ou9eRyJZfmw",
+    "title": "「信じる」を捨てて「構造」で守る。AIと人間が共存するための権限設計論 #Shorts",
+    "views": 230,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 27,
+    "is_settled": true
+   },
+   {
+    "video_id": "lKAnNjUMq90",
+    "title": "漫画のネームを、AIと一緒に組む #Shorts",
+    "views": 256,
+    "likes": 0,
+    "comments": 0,
+    "age_days": 28,
+    "is_settled": true
+   },
+   {
+    "video_id": "PMFen29lsNw",
+    "title": "音声合成の「棒読み」を消すのは声質ではなく、時間軸の不均一な設計にある #Shorts",
+    "views": 626,
+    "likes": 6,
+    "comments": 0,
+    "age_days": 31,
+    "is_settled": true
+   },
+   {
+    "video_id": "UArCW9QTzHs",
+    "title": "「直す人」を卒業した話。AI自動発信を無理なく回すための構造設計と撤回窓の話 #Shorts",
+    "views": 2311,
+    "likes": 6,
+    "comments": 0,
+    "age_days": 35,
+    "is_settled": true
+   }
+  ]
+ },
+ "instagram": {
+  "followers": {
+   "value": 107,
+   "delta_7d": 3,
+   "ratio_7d": 1.029
+  },
+  "posts": [
+   {
+    "media_id": "18118755868862454",
+    "media_kind": "REELS",
+    "views": 167,
+    "reach": 139,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 1,
+    "is_settled": false
+   },
+   {
+    "media_id": "17959593729176757",
+    "media_kind": "REELS",
+    "views": 131,
+    "reach": 119,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 1,
+    "is_settled": false
+   },
+   {
+    "media_id": "17864620818649139",
+    "media_kind": "REELS",
+    "views": 229,
+    "reach": 176,
+    "likes": 3,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 2,
+    "is_settled": false
+   },
+   {
+    "media_id": "18095318303033313",
+    "media_kind": "REELS",
+    "views": 169,
+    "reach": 148,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 2,
+    "is_settled": false
+   },
+   {
+    "media_id": "17993169797816852",
+    "media_kind": "REELS",
+    "views": 154,
+    "reach": 131,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 3,
+    "is_settled": false
+   },
+   {
+    "media_id": "18612954634025003",
+    "media_kind": "REELS",
+    "views": 204,
+    "reach": 159,
+    "likes": 2,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 4,
+    "is_settled": false
+   },
+   {
+    "media_id": "17958372564166882",
+    "media_kind": "REELS",
+    "views": 773,
+    "reach": 625,
+    "likes": 1,
+    "comments": 0,
+    "saved": 1,
+    "shares": 0,
+    "age_days": 5,
+    "is_settled": false
+   },
+   {
+    "media_id": "17923240743162163",
+    "media_kind": "REELS",
+    "views": 1385,
+    "reach": 1180,
+    "likes": 4,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 6,
+    "is_settled": false
+   },
+   {
+    "media_id": "18105189176024830",
+    "media_kind": "REELS",
+    "views": 213,
+    "reach": 162,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 7,
+    "is_settled": true
+   },
+   {
+    "media_id": "18117543250756389",
+    "media_kind": "REELS",
+    "views": 220,
+    "reach": 168,
+    "likes": 3,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 8,
+    "is_settled": true
+   },
+   {
+    "media_id": "18124551685672702",
+    "media_kind": "REELS",
+    "views": 342,
+    "reach": 298,
+    "likes": 0,
+    "comments": 0,
+    "saved": 1,
+    "shares": 0,
+    "age_days": 9,
+    "is_settled": true
+   },
+   {
+    "media_id": "17948493900212909",
+    "media_kind": "REELS",
+    "views": 210,
+    "reach": 167,
+    "likes": 2,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 9,
+    "is_settled": true
+   },
+   {
+    "media_id": "18088143839532210",
+    "media_kind": "REELS",
+    "views": 536,
+    "reach": 422,
+    "likes": 1,
+    "comments": 0,
+    "saved": 1,
+    "shares": 0,
+    "age_days": 10,
+    "is_settled": true
+   },
+   {
+    "media_id": "17877694242506168",
+    "media_kind": "REELS",
+    "views": 255,
+    "reach": 210,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 11,
+    "is_settled": true
+   },
+   {
+    "media_id": "18606022672003713",
+    "media_kind": "REELS",
+    "views": 249,
+    "reach": 204,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 12,
+    "is_settled": true
+   },
+   {
+    "media_id": "18166624375451332",
+    "media_kind": "REELS",
+    "views": 2599,
+    "reach": 2111,
+    "likes": 9,
+    "comments": 0,
+    "saved": 4,
+    "shares": 0,
+    "age_days": 13,
+    "is_settled": true
+   },
+   {
+    "media_id": "18272802145289265",
+    "media_kind": "REELS",
+    "views": 247,
+    "reach": 184,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 14,
+    "is_settled": true
+   },
+   {
+    "media_id": "17881982787460529",
+    "media_kind": "REELS",
+    "views": 219,
+    "reach": 167,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 15,
+    "is_settled": true
+   },
+   {
+    "media_id": "18125997694642220",
+    "media_kind": "REELS",
+    "views": 883,
+    "reach": 738,
+    "likes": 0,
+    "comments": 0,
+    "saved": 1,
+    "shares": 1,
+    "age_days": 16,
+    "is_settled": true
+   },
+   {
+    "media_id": "17896047729355211",
+    "media_kind": "REELS",
+    "views": 212,
+    "reach": 172,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 17,
+    "is_settled": true
+   },
+   {
+    "media_id": "17887165905418457",
+    "media_kind": "REELS",
+    "views": 1412,
+    "reach": 1079,
+    "likes": 3,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 18,
+    "is_settled": true
+   },
+   {
+    "media_id": "18013298024882753",
+    "media_kind": "REELS",
+    "views": 278,
+    "reach": 220,
+    "likes": 0,
+    "comments": 0,
+    "saved": 1,
+    "shares": 0,
+    "age_days": 19,
+    "is_settled": true
+   },
+   {
+    "media_id": "18142219603537046",
+    "media_kind": "REELS",
+    "views": 190,
+    "reach": 145,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 20,
+    "is_settled": true
+   },
+   {
+    "media_id": "18080867096234292",
+    "media_kind": "REELS",
+    "views": 177,
+    "reach": 137,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 20,
+    "is_settled": true
+   },
+   {
+    "media_id": "18224054626320731",
+    "media_kind": "REELS",
+    "views": 188,
+    "reach": 106,
+    "likes": 3,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 21,
+    "is_settled": true
+   },
+   {
+    "media_id": "18103477276934041",
+    "media_kind": "REELS",
+    "views": 95,
+    "reach": 72,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 22,
+    "is_settled": true
+   },
+   {
+    "media_id": "18469764871104357",
+    "media_kind": "REELS",
+    "views": 175,
+    "reach": 141,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 23,
+    "is_settled": true
+   },
+   {
+    "media_id": "18102819655874479",
+    "media_kind": "REELS",
+    "views": 146,
+    "reach": 113,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 24,
+    "is_settled": true
+   },
+   {
+    "media_id": "18135314191572562",
+    "media_kind": "REELS",
+    "views": 237,
+    "reach": 206,
+    "likes": 3,
+    "comments": 0,
+    "saved": 1,
+    "shares": 0,
+    "age_days": 25,
+    "is_settled": true
+   },
+   {
+    "media_id": "17984392341032958",
+    "media_kind": "REELS",
+    "views": 188,
+    "reach": 152,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 26,
+    "is_settled": true
+   },
+   {
+    "media_id": "18422566033178776",
+    "media_kind": "REELS",
+    "views": 259,
+    "reach": 169,
+    "likes": 3,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 27,
+    "is_settled": true
+   },
+   {
+    "media_id": "18100052324272076",
+    "media_kind": "REELS",
+    "views": 119,
+    "reach": 78,
+    "likes": 6,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 29,
+    "is_settled": true
+   },
+   {
+    "media_id": "18097781243466549",
+    "media_kind": "REELS",
+    "views": 180,
+    "reach": 113,
+    "likes": 3,
+    "comments": 0,
+    "saved": 2,
+    "shares": 0,
+    "age_days": 32,
+    "is_settled": true
+   },
+   {
+    "media_id": "18113642026918090",
+    "media_kind": "REELS",
+    "views": 278,
+    "reach": 180,
+    "likes": 3,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 35,
+    "is_settled": true
+   }
+  ]
+ },
+ "blog": {
+  "pv_1d": 2,
+  "pv_7d": 32
+ },
+ "ai_reach": {
+  "hits_1d": 366,
+  "hits_7d": 2441,
+  "mcp_1d": 366
+ },
+ "referrers": {
+  "pv_7d": 32,
+  "by_ref_7d": {
+   "other": 3,
+   "direct": 7,
+   "search": 13,
+   "instagram": 3,
+   "self": 6
+  }
+ },
+ "settle_days": 7
+}

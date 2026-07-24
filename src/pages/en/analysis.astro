@@ -1,0 +1,12 @@
+---
+// The page body lives in components/StatsPage.astro (single source for JA/EN). This file just places it.
+import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import StatsPage from '../../components/StatsPage.astro';
+---
+<Layout lang="en" title="The numbers | Shunki Ogino's AI Lab" description="How far my posts actually reach — YouTube, Instagram, blog and AI-driven traffic, published as raw measurements without picking out the good ones.">
+  <Nav lang="en" maxWidth="860px" />
+  <StatsPage lang="en" />
+  <Footer lang="en" />
+</Layout>

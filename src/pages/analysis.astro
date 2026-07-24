@@ -1,0 +1,12 @@
+---
+// 実体は components/StatsPage.astro（JA/EN共通の唯一の正）。ここは置くだけ。
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import StatsPage from '../components/StatsPage.astro';
+---
+<Layout title="発信の数字 | 荻野舜樹のAI実験室" description="自分の発信がどれだけ届いたかの実測値。YouTube・Instagram・ブログ・AI経由の到達を、良い数字も悪い数字も選ばずそのまま公開しています。">
+  <Nav maxWidth="860px" />
+  <StatsPage lang="ja" />
+  <Footer />
+</Layout>
