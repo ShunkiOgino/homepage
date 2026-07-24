@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-24T11:46:08.326491",
+ "generated_at": "2026-07-24T15:50:03.252778",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -22,7 +22,7 @@
    {
     "video_id": "thhUeY73WH8",
     "title": "メモリ50GB超の逼迫を32GBまで削った、ローカルAIのプロセス管理術 #Shorts",
-    "views": 1156,
+    "views": 1159,
     "likes": 6,
     "comments": 0,
     "avg_view_pct": null,
@@ -61,9 +61,22 @@
    {
     "video_id": "I9ixEzsxsPM",
     "title": "7月23日(木)の観測｜PC 28分・歩数4,702歩 #Shorts",
-    "views": 128,
+    "views": 138,
     "likes": 1,
     "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "n-95iswRTrY",
+    "title": "「やりたいことがわからない」と思っていませんか？ #Shorts",
+    "views": 176,
+    "likes": 0,
+    "comments": 1,
     "avg_view_pct": null,
     "avg_view_sec": null,
     "engaged_views": null,
@@ -90,10 +103,10 @@
     "views": 176,
     "likes": 0,
     "comments": 1,
-    "avg_view_pct": 35.1,
-    "avg_view_sec": 13.0,
-    "engaged_views": 28,
-    "analytics_views": 176,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 1,
     "is_settled": false
    },
@@ -103,10 +116,10 @@
     "views": 103,
     "likes": 1,
     "comments": 0,
-    "avg_view_pct": 10.6,
-    "avg_view_sec": 4.0,
-    "engaged_views": 13,
-    "analytics_views": 101,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 1,
     "is_settled": false
    },
