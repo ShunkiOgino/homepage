@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-24T03:55:03.123439",
+ "generated_at": "2026-07-24T11:46:08.326491",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -13,45 +13,74 @@
     "ratio_7d": 1.564
    },
    "video_count": {
-    "value": 46,
-    "delta_7d": 15,
-    "ratio_7d": 1.484
+    "value": 47,
+    "delta_7d": 16,
+    "ratio_7d": 1.516
    }
   },
   "videos": [
    {
     "video_id": "thhUeY73WH8",
     "title": "メモリ50GB超の逼迫を32GBまで削った、ローカルAIのプロセス管理術 #Shorts",
-    "views": 400,
-    "likes": 5,
+    "views": 1156,
+    "likes": 6,
     "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 0,
     "is_settled": false
    },
    {
     "video_id": "lkNee5vAxSI",
     "title": "「会社を間違えた」と思っていませんか？ #Shorts",
-    "views": 1,
+    "views": 168,
     "likes": 0,
-    "comments": 0,
+    "comments": 1,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 0,
     "is_settled": false
    },
    {
     "video_id": "79fixkXOE50",
     "title": "7月22日(水)の観測｜PC 6時間12分・歩数5,324歩 #Shorts",
-    "views": 91,
+    "views": 83,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "I9ixEzsxsPM",
+    "title": "7月23日(木)の観測｜PC 28分・歩数4,702歩 #Shorts",
+    "views": 128,
+    "likes": 1,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 0,
     "is_settled": false
    },
    {
     "video_id": "OLZzDwlU5fE",
     "title": "AIで案を50件出しても絶望した話｜処理速度より「意思決定の速度」を上げる設計 #Shorts",
-    "views": 217,
+    "views": 216,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 1,
     "is_settled": false
    },
@@ -60,7 +89,11 @@
     "title": "「見る目がなかった」と思っていませんか？ #Shorts",
     "views": 176,
     "likes": 0,
-    "comments": 0,
+    "comments": 1,
+    "avg_view_pct": 35.1,
+    "avg_view_sec": 13.0,
+    "engaged_views": 28,
+    "analytics_views": 176,
     "age_days": 1,
     "is_settled": false
    },
@@ -70,6 +103,10 @@
     "views": 103,
     "likes": 1,
     "comments": 0,
+    "avg_view_pct": 10.6,
+    "avg_view_sec": 4.0,
+    "engaged_views": 13,
+    "analytics_views": 101,
     "age_days": 1,
     "is_settled": false
    },
@@ -79,6 +116,10 @@
     "views": 1,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 2,
     "is_settled": false
    },
@@ -88,6 +129,10 @@
     "views": 144,
     "likes": 1,
     "comments": 0,
+    "avg_view_pct": 24.8,
+    "avg_view_sec": 9.0,
+    "engaged_views": 24,
+    "analytics_views": 144,
     "age_days": 2,
     "is_settled": false
    },
@@ -97,6 +142,10 @@
     "views": 215,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 27.6,
+    "avg_view_sec": 11.0,
+    "engaged_views": 16,
+    "analytics_views": 217,
     "age_days": 3,
     "is_settled": false
    },
@@ -106,6 +155,10 @@
     "views": 163,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 21.2,
+    "avg_view_sec": 9.0,
+    "engaged_views": 14,
+    "analytics_views": 164,
     "age_days": 3,
     "is_settled": false
    },
@@ -115,6 +168,10 @@
     "views": 276,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 38.2,
+    "avg_view_sec": 9.0,
+    "engaged_views": 36,
+    "analytics_views": 276,
     "age_days": 4,
     "is_settled": false
    },
@@ -124,6 +181,10 @@
     "views": 254,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 25.5,
+    "avg_view_sec": 7.0,
+    "engaged_views": 17,
+    "analytics_views": 254,
     "age_days": 5,
     "is_settled": false
    },
@@ -133,6 +194,10 @@
     "views": 286,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 33.0,
+    "avg_view_sec": 12.0,
+    "engaged_views": 23,
+    "analytics_views": 286,
     "age_days": 6,
     "is_settled": false
    },
@@ -142,6 +207,10 @@
     "views": 1541,
     "likes": 4,
     "comments": 0,
+    "avg_view_pct": 39.2,
+    "avg_view_sec": 14.0,
+    "engaged_views": 395,
+    "analytics_views": 1541,
     "age_days": 6,
     "is_settled": false
    },
@@ -151,6 +220,10 @@
     "views": 1862,
     "likes": 1,
     "comments": 0,
+    "avg_view_pct": 49.3,
+    "avg_view_sec": 17.0,
+    "engaged_views": 500,
+    "analytics_views": 1862,
     "age_days": 6,
     "is_settled": false
    },
@@ -160,6 +233,10 @@
     "views": 205,
     "likes": 1,
     "comments": 0,
+    "avg_view_pct": 27.0,
+    "avg_view_sec": 10.0,
+    "engaged_views": 22,
+    "analytics_views": 205,
     "age_days": 7,
     "is_settled": true
    },
@@ -169,6 +246,10 @@
     "views": 1097,
     "likes": 2,
     "comments": 5,
+    "avg_view_pct": 99.0,
+    "avg_view_sec": 34.0,
+    "engaged_views": 204,
+    "analytics_views": 1097,
     "age_days": 7,
     "is_settled": true
    },
@@ -178,6 +259,10 @@
     "views": 401,
     "likes": 2,
     "comments": 0,
+    "avg_view_pct": 27.5,
+    "avg_view_sec": 9.0,
+    "engaged_views": 39,
+    "analytics_views": 401,
     "age_days": 8,
     "is_settled": true
    },
@@ -187,6 +272,10 @@
     "views": 1855,
     "likes": 7,
     "comments": 0,
+    "avg_view_pct": 42.2,
+    "avg_view_sec": 12.0,
+    "engaged_views": 519,
+    "analytics_views": 1855,
     "age_days": 8,
     "is_settled": true
    },
@@ -196,6 +285,10 @@
     "views": 5,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 12.0,
+    "avg_view_sec": 4.0,
+    "engaged_views": 1,
+    "analytics_views": 5,
     "age_days": 10,
     "is_settled": true
    },
@@ -205,6 +298,10 @@
     "views": 315,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 36.2,
+    "avg_view_sec": 14.0,
+    "engaged_views": 22,
+    "analytics_views": 315,
     "age_days": 11,
     "is_settled": true
    },
@@ -214,6 +311,10 @@
     "views": 347,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 34.8,
+    "avg_view_sec": 10.0,
+    "engaged_views": 40,
+    "analytics_views": 347,
     "age_days": 12,
     "is_settled": true
    },
@@ -223,6 +324,10 @@
     "views": 410,
     "likes": 3,
     "comments": 0,
+    "avg_view_pct": 38.0,
+    "avg_view_sec": 12.0,
+    "engaged_views": 45,
+    "analytics_views": 410,
     "age_days": 15,
     "is_settled": true
    },
@@ -232,15 +337,23 @@
     "views": 342,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 33.0,
+    "avg_view_sec": 12.0,
+    "engaged_views": 40,
+    "analytics_views": 342,
     "age_days": 16,
     "is_settled": true
    },
    {
     "video_id": "gIVk4hh36Ro",
     "title": "AIエージェントの長期記憶にMem0は必要か？注入層の設計で変わる精度",
-    "views": 9,
+    "views": 10,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 44.4,
+    "avg_view_sec": 95.0,
+    "engaged_views": 6,
+    "analytics_views": 6,
     "age_days": 17,
     "is_settled": true
    },
@@ -250,6 +363,10 @@
     "views": 522,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 32.4,
+    "avg_view_sec": 10.0,
+    "engaged_views": 67,
+    "analytics_views": 522,
     "age_days": 19,
     "is_settled": true
    },
@@ -259,6 +376,10 @@
     "views": 374,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 33.8,
+    "avg_view_sec": 11.0,
+    "engaged_views": 53,
+    "analytics_views": 374,
     "age_days": 19,
     "is_settled": true
    },
@@ -268,6 +389,10 @@
     "views": 171,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 51.8,
+    "avg_view_sec": 20.0,
+    "engaged_views": 13,
+    "analytics_views": 171,
     "age_days": 20,
     "is_settled": true
    },
@@ -277,6 +402,10 @@
     "views": 200,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 118.4,
+    "avg_view_sec": 48.0,
+    "engaged_views": 22,
+    "analytics_views": 200,
     "age_days": 22,
     "is_settled": true
    },
@@ -286,6 +415,10 @@
     "views": 164,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 58.1,
+    "avg_view_sec": 21.0,
+    "engaged_views": 16,
+    "analytics_views": 164,
     "age_days": 23,
     "is_settled": true
    },
@@ -295,6 +428,10 @@
     "views": 224,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 27.2,
+    "avg_view_sec": 8.0,
+    "engaged_views": 20,
+    "analytics_views": 224,
     "age_days": 24,
     "is_settled": true
    },
@@ -304,6 +441,10 @@
     "views": 370,
     "likes": 1,
     "comments": 0,
+    "avg_view_pct": 41.6,
+    "avg_view_sec": 16.0,
+    "engaged_views": 51,
+    "analytics_views": 370,
     "age_days": 25,
     "is_settled": true
    },
@@ -313,6 +454,10 @@
     "views": 214,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 41.8,
+    "avg_view_sec": 16.0,
+    "engaged_views": 16,
+    "analytics_views": 218,
     "age_days": 26,
     "is_settled": true
    },
@@ -322,6 +467,10 @@
     "views": 230,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 24.1,
+    "avg_view_sec": 9.0,
+    "engaged_views": 28,
+    "analytics_views": 230,
     "age_days": 27,
     "is_settled": true
    },
@@ -331,6 +480,10 @@
     "views": 256,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": 28.1,
+    "avg_view_sec": 9.0,
+    "engaged_views": 25,
+    "analytics_views": 256,
     "age_days": 28,
     "is_settled": true
    },
@@ -340,6 +493,10 @@
     "views": 626,
     "likes": 6,
     "comments": 0,
+    "avg_view_pct": 39.3,
+    "avg_view_sec": 15.0,
+    "engaged_views": 246,
+    "analytics_views": 627,
     "age_days": 31,
     "is_settled": true
    },
@@ -349,6 +506,10 @@
     "views": 2311,
     "likes": 6,
     "comments": 0,
+    "avg_view_pct": 37.4,
+    "avg_view_sec": 14.0,
+    "engaged_views": 503,
+    "analytics_views": 2311,
     "age_days": 35,
     "is_settled": true
    }
@@ -362,10 +523,22 @@
   },
   "posts": [
    {
+    "media_id": "18184491808403233",
+    "media_kind": "REELS",
+    "views": 119,
+    "reach": 106,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
     "media_id": "18118755868862454",
     "media_kind": "REELS",
-    "views": 167,
-    "reach": 139,
+    "views": 179,
+    "reach": 143,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -376,8 +549,8 @@
    {
     "media_id": "17959593729176757",
     "media_kind": "REELS",
-    "views": 131,
-    "reach": 119,
+    "views": 132,
+    "reach": 120,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -388,9 +561,9 @@
    {
     "media_id": "17864620818649139",
     "media_kind": "REELS",
-    "views": 229,
-    "reach": 176,
-    "likes": 3,
+    "views": 235,
+    "reach": 180,
+    "likes": 4,
     "comments": 0,
     "saved": 0,
     "shares": 0,
@@ -413,7 +586,7 @@
     "media_id": "17993169797816852",
     "media_kind": "REELS",
     "views": 154,
-    "reach": 131,
+    "reach": 132,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -532,8 +705,8 @@
    {
     "media_id": "18606022672003713",
     "media_kind": "REELS",
-    "views": 249,
-    "reach": 204,
+    "views": 250,
+    "reach": 205,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -604,8 +777,8 @@
    {
     "media_id": "17887165905418457",
     "media_kind": "REELS",
-    "views": 1412,
-    "reach": 1079,
+    "views": 1413,
+    "reach": 1081,
     "likes": 3,
     "comments": 0,
     "saved": 0,
@@ -772,20 +945,20 @@
   ]
  },
  "blog": {
-  "pv_1d": 2,
-  "pv_7d": 32
+  "pv_1d": 4,
+  "pv_7d": 34
  },
  "ai_reach": {
-  "hits_1d": 366,
-  "hits_7d": 2441,
-  "mcp_1d": 366
+  "hits_1d": 356,
+  "hits_7d": 2418,
+  "mcp_1d": 356
  },
  "referrers": {
-  "pv_7d": 32,
+  "pv_7d": 34,
   "by_ref_7d": {
    "other": 3,
    "direct": 7,
-   "search": 13,
+   "search": 15,
    "instagram": 3,
    "self": 6
   }

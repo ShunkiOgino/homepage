@@ -31,6 +31,8 @@ const t = lang === 'en'
       ytTitle: 'Every video', igTitle: 'Every Instagram post',
       cDate: 'first measured', cPosted: 'posted', cTitle: 'title', cViews: 'views', cLikes: 'likes', cComments: 'comments',
       cKind: 'type', cReach: 'reach', cSaved: 'saves', cShares: 'shares',
+      cViewPct: 'watched', cAvgSec: 'avg. time',
+      watchNote: 'Watched = how far through the video people got on average, as a share of its length. For Shorts this is what decides how widely it gets shown, so it moves before the view count does.',
       empty: 'No data yet.',
       note: 'What is here: aggregate counts of my own posts, written out automatically every day. What is not here: anything tied to a person — who watched, who commented, what they wrote. Numbers are not re-picked by hand.',
       refNames: { instagram: 'Instagram', direct: 'direct', search: 'search', self: 'my own pages', other: 'other', youtube: 'YouTube', blog: 'blog' } as Record<string, string>,
@@ -52,6 +54,8 @@ const t = lang === 'en'
       ytTitle: '動画は全部', igTitle: 'Instagramの投稿は全部',
       cDate: '計測開始', cPosted: '投稿日', cTitle: 'タイトル', cViews: '再生', cLikes: 'いいね', cComments: 'コメント',
       cKind: '種別', cReach: '到達', cSaved: '保存', cShares: 'シェア',
+      cViewPct: '視聴率', cAvgSec: '平均視聴',
+      watchNote: '視聴率＝動画の長さに対して、平均でどこまで見られたか。ショートはこの数字で配信量が決まるため、再生数より先に動きます。',
       empty: 'まだデータがありません。',
       note: '出しているのは、自分の投稿の集計値だけです。毎日自動で書き出していて、手で選び直していません。誰が見たか・誰がコメントしたかといった人に紐づくものは、ここには出しません。',
       refNames: { instagram: 'Instagram', direct: '直接', search: '検索', self: '自分のページ', other: 'その他', youtube: 'YouTube', blog: 'ブログ' } as Record<string, string>,
@@ -59,6 +63,9 @@ const t = lang === 'en'
 
 const fmt = (n: any) => (typeof n === 'number' ? n.toLocaleString('en-US') : '—');
 const signed = (n: any) => (typeof n === 'number' ? (n > 0 ? `+${fmt(n)}` : fmt(n)) : '');
+// 視聴の質（2026-07-24追加）。欠測は 0 でなく '—'＝「0%見られた」という別の事実にしない。
+const pctf = (n: any) => (typeof n === 'number' ? `${n}%` : '—');
+const secf = (n: any) => (typeof n === 'number' ? `${Math.round(n)}${lang === 'en' ? 's' : '秒'}` : '—');
 
 const gen: string | null = S.generated_at ? String(S.generated_at) : null;
 const genLabel = gen ? `${gen.slice(0, 10).replace(/-/g, '.')} ${gen.slice(11, 16)}` : null;
@@ -156,7 +163,7 @@ const hasAny = tiles.length > 0 || videos.length > 0 || posts.length > 0;
   {videos.length > 0 && (
     <div style="margin-top:4rem;">
       <div style="font-family:'JetBrains Mono',monospace;font-size:0.75rem;color:var(--text2);letter-spacing:0.1em;">{t.ytTitle}</div>
-      <p style="font-size:0.78rem;color:var(--text3);margin:0.5rem 0 1rem;">{t.settlingNote(settleDays)}{' '}{t.ytDateNote}</p>
+      <p style="font-size:0.78rem;color:var(--text3);margin:0.5rem 0 1rem;">{t.settlingNote(settleDays)}{' '}{t.ytDateNote}{' '}{t.watchNote}</p>
       <div style="overflow-x:auto;">
         <table style="width:100%;border-collapse:collapse;font-size:0.85rem;min-width:520px;">
           <thead>
@@ -164,6 +171,8 @@ const hasAny = tiles.length > 0 || videos.length > 0 || posts.length > 0;
               <th style="text-align:left;padding:0.5rem 0.6rem 0.5rem 0;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cDate}</th>
               <th style="text-align:left;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cTitle}</th>
               <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cViews}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cViewPct}</th>
+              <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cAvgSec}</th>
               <th style="text-align:right;padding:0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cLikes}</th>
               <th style="text-align:right;padding:0.5rem 0 0.5rem 0.6rem;font-weight:500;color:var(--text3);font-size:0.7rem;letter-spacing:0.06em;">{t.cComments}</th>
             </tr>
@@ -179,6 +188,8 @@ const hasAny = tiles.length > 0 || videos.length > 0 || posts.length > 0;
                   )}
                 </td>
                 <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text);vertical-align:top;">{fmt(v.views)}</td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text);vertical-align:top;">{pctf(v.avg_view_pct)}</td>
+                <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);vertical-align:top;">{secf(v.avg_view_sec)}</td>
                 <td style="padding:0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);vertical-align:top;">{fmt(v.likes)}</td>
                 <td style="padding:0.6rem 0 0.6rem 0.6rem;text-align:right;font-family:'JetBrains Mono',monospace;color:var(--text2);vertical-align:top;">{fmt(v.comments)}</td>
               </tr>
