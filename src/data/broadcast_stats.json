@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-25T03:54:28.154561",
+ "generated_at": "2026-07-25T09:50:00.327356",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -19,6 +19,19 @@
    }
   },
   "videos": [
+   {
+    "video_id": "F8NFMPsgsVI",
+    "title": "7月24日(金)の観測｜PC 6時間39分・歩数8,495歩 #Shorts",
+    "views": 240,
+    "likes": 0,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
    {
     "video_id": "thhUeY73WH8",
     "title": "メモリ50GB超の逼迫を32GBまで削った、ローカルAIのプロセス管理術 #Shorts",
@@ -74,7 +87,7 @@
    {
     "video_id": "n-95iswRTrY",
     "title": "「やりたいことがわからない」と思っていませんか？ #Shorts",
-    "views": 176,
+    "views": 168,
     "likes": 0,
     "comments": 1,
     "avg_view_pct": null,
