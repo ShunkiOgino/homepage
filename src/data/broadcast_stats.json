@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-26T09:50:02.623143",
+ "generated_at": "2026-07-26T15:50:02.620105",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -25,6 +25,19 @@
     "views": 0,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "eNXJOYqev20",
+    "title": "「成長できてない」と焦っていませんか？ #Shorts",
+    "views": 152,
+    "likes": 0,
+    "comments": 1,
     "avg_view_pct": null,
     "avg_view_sec": null,
     "engaged_views": null,
