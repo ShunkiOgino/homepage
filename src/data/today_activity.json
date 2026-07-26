@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-07-26T21:59:06+09:00",
+ "generated_at": "2026-07-27T06:59:49+09:00",
  "today_activity": {
-  "date": "2026-07-26",
+  "date": "2026-07-27",
   "resolution_min": 30,
   "bucket_max": 30,
   "devices": [
@@ -9,7 +9,15 @@
     "key": "pro",
     "label": "Pro",
     "buckets": [
-     6,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      2,
      0,
@@ -33,24 +41,16 @@
      0,
      0,
      0,
-     1,
      0,
      0,
      0,
      0,
      0,
      0,
-     4,
      0,
-     13,
-     6,
-     2,
-     12,
-     18,
-     8,
-     6,
-     3,
-     3,
+     0,
+     0,
+     0,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 84
+    "active_minutes_total": 2
    },
    {
     "key": "air",
@@ -118,7 +118,7 @@
   ]
  },
  "today_phone_activity": {
-  "date": "2026-07-26",
+  "date": "2026-07-27",
   "kind": "app-open-close",
   "resolution_min": 30,
   "bucket_max": 30,
@@ -140,7 +140,6 @@
    0,
    0,
    0,
-   1,
    0,
    0,
    0,
@@ -150,17 +149,18 @@
    0,
    0,
    0,
-   14,
    0,
    0,
    0,
-   11,
-   4,
-   9,
-   10,
-   27,
    0,
-   1,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
    0,
    0,
    0,
@@ -172,20 +172,14 @@
    0,
    0
   ],
-  "active_minutes_total": 77
+  "active_minutes_total": 0
  },
- "today_steps": {
-  "date": "2026-07-26",
-  "steps": 1532,
-  "as_of_min": 1126,
-  "floor": 8000
- },
+ "today_steps": null,
  "now": {
-  "status": "away",
-  "awake": true,
+  "status": "asleep",
+  "awake": false,
   "last_active": "今",
-  "night_owl": false,
-  "away_minutes": 85
+  "night_owl": false
  },
  "health_signal": null
 }
