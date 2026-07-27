@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T03:54:10.761531",
+ "generated_at": "2026-07-27T09:50:00.721962",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -20,6 +20,19 @@
   },
   "videos": [
    {
+    "video_id": "Qqws5B0S_GI",
+    "title": "7月26日(日)の観測｜PC 1時間24分・歩数1,532歩 #Shorts",
+    "views": 397,
+    "likes": 0,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
     "video_id": "e-e_-iyNVSA",
     "title": "7月25日(土)の観測｜PC 59分・歩数4,596歩 #Shorts",
     "views": 0,
@@ -35,7 +48,7 @@
    {
     "video_id": "eNXJOYqev20",
     "title": "「成長できてない」と焦っていませんか？ #Shorts",
-    "views": 154,
+    "views": 146,
     "likes": 0,
     "comments": 1,
     "avg_view_pct": null,
@@ -129,10 +142,10 @@
     "views": 168,
     "likes": 0,
     "comments": 1,
-    "avg_view_pct": 35.2,
-    "avg_view_sec": 13.0,
-    "engaged_views": 24,
-    "analytics_views": 170,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 3,
     "is_settled": false
    },
