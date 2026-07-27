@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-27T09:50:00.721962",
+ "generated_at": "2026-07-27T15:50:00.387856",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -25,6 +25,19 @@
     "views": 397,
     "likes": 0,
     "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "FC5BP3rjgQY",
+    "title": "「何も身についてない」と思っていませんか？ #Shorts",
+    "views": 192,
+    "likes": 1,
+    "comments": 1,
     "avg_view_pct": null,
     "avg_view_sec": null,
     "engaged_views": null,
