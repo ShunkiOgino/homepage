@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-07-31T03:54:08.540017",
+ "generated_at": "2026-07-31T09:50:05.137437",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -20,9 +20,22 @@
   },
   "videos": [
    {
+    "video_id": "h8kAOIFWPXw",
+    "title": "7月30日(木)の観測｜PC 5時間37分・歩数3,263歩 #Shorts",
+    "views": 199,
+    "likes": 0,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
     "video_id": "woROs1G03Is",
     "title": "7月29日(水)の観測｜PC 5時間23分・歩数7,841歩 #Shorts",
-    "views": 333,
+    "views": 332,
     "likes": 1,
     "comments": 0,
     "avg_view_pct": null,
@@ -35,7 +48,7 @@
    {
     "video_id": "zm-HTBXirjo",
     "title": "「動けない自分はダメだ」と思っていませんか？ #Shorts",
-    "views": 156,
+    "views": 152,
     "likes": 0,
     "comments": 1,
     "avg_view_pct": null,
@@ -90,10 +103,10 @@
     "views": 250,
     "likes": 0,
     "comments": 1,
-    "avg_view_pct": 38.9,
-    "avg_view_sec": 14.0,
-    "engaged_views": 31,
-    "analytics_views": 251,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 3,
     "is_settled": false
    },
