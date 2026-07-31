@@ -18,11 +18,41 @@
         0,
         0,
         0,
-        1,
+        2,
         0,
         0
       ],
       "last": "2026-07-19",
+      "posts": []
+    },
+    {
+      "title": "Redefining metrics to align with strategic intent.",
+      "cells": [
+        0,
+        0,
+        4,
+        6,
+        6,
+        1,
+        0,
+        0
+      ],
+      "last": "2026-07-14",
+      "posts": []
+    },
+    {
+      "title": "Maintaining Specificity in AI Generation and Quantitative Analysis of Short-Form Videos",
+      "cells": [
+        0,
+        0,
+        3,
+        3,
+        2,
+        1,
+        0,
+        0
+      ],
+      "last": "2026-07-14",
       "posts": []
     },
     {
@@ -63,18 +93,33 @@
       "posts": []
     },
     {
-      "title": "Redefining metrics to align with strategic intent.",
+      "title": "The tradeoff between platform ID control and agent autonomy",
       "cells": [
         0,
         0,
-        4,
-        6,
-        6,
         0,
+        1,
+        1,
+        1,
         0,
         0
       ],
-      "last": "2026-07-07",
+      "last": "2026-07-14",
+      "posts": []
+    },
+    {
+      "title": "Capital Structure and the Dynamics of Jurisdictional Control",
+      "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0
+      ],
+      "last": "2026-07-14",
       "posts": []
     },
     {
@@ -145,51 +190,6 @@
         1,
         9,
         2,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-07",
-      "posts": []
-    },
-    {
-      "title": "Bug Fixes and Design Improvements Log for AI System Implementation",
-      "cells": [
-        0,
-        0,
-        1,
-        7,
-        3,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-07",
-      "posts": []
-    },
-    {
-      "title": "AI Memory Injection: Improving RAG Accuracy and Operational Optimization",
-      "cells": [
-        0,
-        0,
-        0,
-        8,
-        3,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-07",
-      "posts": []
-    },
-    {
-      "title": "Building an AI-powered insight extraction and automated distribution pipeline",
-      "cells": [
-        0,
-        1,
-        0,
-        5,
-        4,
         0,
         0,
         0
