@@ -3,7 +3,7 @@ title: "From 50.6GB to 32.3GB Memory: Bypassing brew's Management Refusal with l
 date: 2026-07-15
 description: "I reduced memory usage from 50.6GB to 32.3GB by rewriting controls to launchctl and implementing port monitoring after brew refused management. This kind of gritty control is the greatest significance of running AI on your own hardware."
 tags: []
-draft: false
+draft: true
 src_hash: eaed0cbc1565
 ---
 
