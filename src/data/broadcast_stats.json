@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-01T21:50:02.384077",
+ "generated_at": "2026-08-02T03:53:12.412429",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -9,13 +9,13 @@
    },
    "total_views": {
     "value": 20198,
-    "delta_7d": 2695,
-    "ratio_7d": 1.154
+    "delta_7d": 2533,
+    "ratio_7d": 1.143
    },
    "video_count": {
-    "value": 62,
-    "delta_7d": 14,
-    "ratio_7d": 1.292
+    "value": 44,
+    "delta_7d": -6,
+    "ratio_7d": 0.88
    }
   },
   "videos": [
@@ -29,33 +29,33 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 0,
+    "age_days": 1,
     "is_settled": false
    },
    {
     "video_id": "h8kAOIFWPXw",
     "title": "7月30日(木)の観測｜PC 5時間37分・歩数3,263歩 #Shorts",
-    "views": 185,
+    "views": 186,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": null,
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 1,
+    "age_days": 2,
     "is_settled": false
    },
    {
     "video_id": "rwqFaRyzUcA",
     "title": "「辞めたら終わり」と思っていませんか？ #Shorts",
-    "views": 348,
+    "views": 349,
     "likes": 1,
     "comments": 1,
     "avg_view_pct": null,
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 1,
+    "age_days": 2,
     "is_settled": false
    },
    {
@@ -64,11 +64,11 @@
     "views": 332,
     "likes": 1,
     "comments": 0,
-    "avg_view_pct": null,
-    "avg_view_sec": null,
-    "engaged_views": null,
-    "analytics_views": null,
-    "age_days": 2,
+    "avg_view_pct": 44.6,
+    "avg_view_sec": 13.0,
+    "engaged_views": 44,
+    "analytics_views": 333,
+    "age_days": 3,
     "is_settled": false
    },
    {
@@ -77,11 +77,11 @@
     "views": 154,
     "likes": 0,
     "comments": 1,
-    "avg_view_pct": null,
-    "avg_view_sec": null,
-    "engaged_views": null,
-    "analytics_views": null,
-    "age_days": 2,
+    "avg_view_pct": 68.4,
+    "avg_view_sec": 21.0,
+    "engaged_views": 18,
+    "analytics_views": 152,
+    "age_days": 3,
     "is_settled": false
    },
    {
@@ -90,24 +90,24 @@
     "views": 165,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 21.3,
+    "avg_view_pct": 21.0,
     "avg_view_sec": 7.0,
-    "engaged_views": 18,
-    "analytics_views": 163,
-    "age_days": 3,
+    "engaged_views": 19,
+    "analytics_views": 164,
+    "age_days": 4,
     "is_settled": false
    },
    {
     "video_id": "nGdFUaOCcWs",
     "title": "「全部、中途半端」と思っていませんか？ #Shorts",
-    "views": 166,
+    "views": 165,
     "likes": 0,
     "comments": 1,
-    "avg_view_pct": null,
-    "avg_view_sec": null,
-    "engaged_views": null,
-    "analytics_views": null,
-    "age_days": 3,
+    "avg_view_pct": 27.6,
+    "avg_view_sec": 8.0,
+    "engaged_views": 24,
+    "analytics_views": 167,
+    "age_days": 4,
     "is_settled": false
    },
    {
@@ -120,7 +120,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 14,
     "analytics_views": 125,
-    "age_days": 4,
+    "age_days": 5,
     "is_settled": false
    },
    {
@@ -133,7 +133,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 31,
     "analytics_views": 250,
-    "age_days": 4,
+    "age_days": 5,
     "is_settled": false
    },
    {
@@ -146,7 +146,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 84,
     "analytics_views": 379,
-    "age_days": 5,
+    "age_days": 6,
     "is_settled": false
    },
    {
@@ -159,7 +159,7 @@
     "avg_view_sec": 33.0,
     "engaged_views": 22,
     "analytics_views": 200,
-    "age_days": 5,
+    "age_days": 6,
     "is_settled": false
    },
    {
@@ -172,8 +172,8 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 6,
-    "is_settled": false
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "video_id": "eNXJOYqev20",
@@ -185,8 +185,8 @@
     "avg_view_sec": 6.0,
     "engaged_views": 21,
     "analytics_views": 146,
-    "age_days": 6,
-    "is_settled": false
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "video_id": "F8NFMPsgsVI",
@@ -198,7 +198,7 @@
     "avg_view_sec": 30.0,
     "engaged_views": 20,
     "analytics_views": 241,
-    "age_days": 7,
+    "age_days": 8,
     "is_settled": true
    },
    {
@@ -211,19 +211,6 @@
     "avg_view_sec": 7.0,
     "engaged_views": 24,
     "analytics_views": 169,
-    "age_days": 7,
-    "is_settled": true
-   },
-   {
-    "video_id": "thhUeY73WH8",
-    "title": "メモリ50GB超の逼迫を32GBまで削った、ローカルAIのプロセス管理術 #Shorts",
-    "views": 1158,
-    "likes": 6,
-    "comments": 0,
-    "avg_view_pct": 88.9,
-    "avg_view_sec": 27.0,
-    "engaged_views": 304,
-    "analytics_views": 1158,
     "age_days": 8,
     "is_settled": true
    },
@@ -237,7 +224,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 20,
     "analytics_views": 168,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -250,7 +237,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 12,
     "analytics_views": 82,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -263,7 +250,7 @@
     "avg_view_sec": 6.0,
     "engaged_views": 11,
     "analytics_views": 137,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -276,19 +263,6 @@
     "avg_view_sec": 13.0,
     "engaged_views": 24,
     "analytics_views": 168,
-    "age_days": 8,
-    "is_settled": true
-   },
-   {
-    "video_id": "OLZzDwlU5fE",
-    "title": "AIで案を50件出しても絶望した話｜処理速度より「意思決定の速度」を上げる設計 #Shorts",
-    "views": 216,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 171.4,
-    "avg_view_sec": 51.0,
-    "engaged_views": 25,
-    "analytics_views": 216,
     "age_days": 9,
     "is_settled": true
    },
@@ -302,7 +276,7 @@
     "avg_view_sec": 13.0,
     "engaged_views": 28,
     "analytics_views": 176,
-    "age_days": 9,
+    "age_days": 10,
     "is_settled": true
    },
    {
@@ -315,19 +289,6 @@
     "avg_view_sec": 6.0,
     "engaged_views": 14,
     "analytics_views": 102,
-    "age_days": 9,
-    "is_settled": true
-   },
-   {
-    "video_id": "kS1pnzMhp_E",
-    "title": "AIキャラの「不自然な動き」を消す。言葉と芝居を同期させる制御設計 #Shorts",
-    "views": 2,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 50.1,
-    "avg_view_sec": 15.0,
-    "engaged_views": 2,
-    "analytics_views": 2,
     "age_days": 10,
     "is_settled": true
    },
@@ -341,19 +302,6 @@
     "avg_view_sec": 9.0,
     "engaged_views": 25,
     "analytics_views": 145,
-    "age_days": 10,
-    "is_settled": true
-   },
-   {
-    "video_id": "eFiZXIUrlzY",
-    "title": "証拠スライドの捏造を防ぐ。直接引用と出典スタンプの構造設計 #Shorts",
-    "views": 214,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 27.6,
-    "avg_view_sec": 11.0,
-    "engaged_views": 16,
-    "analytics_views": 214,
     "age_days": 11,
     "is_settled": true
    },
@@ -367,7 +315,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 14,
     "analytics_views": 164,
-    "age_days": 11,
+    "age_days": 12,
     "is_settled": true
    },
    {
@@ -380,33 +328,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 37,
     "analytics_views": 280,
-    "age_days": 12,
-    "is_settled": true
-   },
-   {
-    "video_id": "Zk1eBGt0Twc",
-    "title": "カレンダーの予定より「メッセージ履歴」から未来を類推して分かったこと #Shorts",
-    "views": 254,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 25.5,
-    "avg_view_sec": 7.0,
-    "engaged_views": 17,
-    "analytics_views": 254,
     "age_days": 13,
-    "is_settled": true
-   },
-   {
-    "video_id": "JgC3ozw3K9U",
-    "title": "「AIが一般論に逃げる」を直す方法。指示を増やすより先に作るべきゲート #Shorts",
-    "views": 286,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 33.0,
-    "avg_view_sec": 12.0,
-    "engaged_views": 23,
-    "analytics_views": 286,
-    "age_days": 14,
     "is_settled": true
    },
    {
@@ -419,7 +341,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 395,
     "analytics_views": 1541,
-    "age_days": 14,
+    "age_days": 15,
     "is_settled": true
    },
    {
@@ -432,7 +354,7 @@
     "avg_view_sec": 17.0,
     "engaged_views": 500,
     "analytics_views": 1862,
-    "age_days": 14,
+    "age_days": 15,
     "is_settled": true
    },
    {
@@ -445,7 +367,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 22,
     "analytics_views": 205,
-    "age_days": 15,
+    "age_days": 16,
     "is_settled": true
    },
    {
@@ -458,19 +380,6 @@
     "avg_view_sec": 34.0,
     "engaged_views": 204,
     "analytics_views": 1097,
-    "age_days": 15,
-    "is_settled": true
-   },
-   {
-    "video_id": "_3tHShB5-uE",
-    "title": "機密情報を「消す」のではなく「選ぶ」。漏洩リスクを構造で塞ぐ情報の切り分け方 #Shorts",
-    "views": 401,
-    "likes": 2,
-    "comments": 0,
-    "avg_view_pct": 27.5,
-    "avg_view_sec": 9.0,
-    "engaged_views": 39,
-    "analytics_views": 401,
     "age_days": 16,
     "is_settled": true
    },
@@ -484,72 +393,7 @@
     "avg_view_sec": 12.0,
     "engaged_views": 519,
     "analytics_views": 1855,
-    "age_days": 16,
-    "is_settled": true
-   },
-   {
-    "video_id": "2jLmk15aFfQ",
-    "title": "「写しは私か」という問いを捨てて、自分を複利で増やす工学的な設計にする #Shorts",
-    "views": 5,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 12.0,
-    "avg_view_sec": 4.0,
-    "engaged_views": 1,
-    "analytics_views": 5,
-    "age_days": 18,
-    "is_settled": true
-   },
-   {
-    "video_id": "lXLoscYZPes",
-    "title": "AIキャラの「不自然さ」は、声質ではなく思考と動作の同期で消える #Shorts",
-    "views": 315,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 36.2,
-    "avg_view_sec": 14.0,
-    "engaged_views": 22,
-    "analytics_views": 315,
-    "age_days": 19,
-    "is_settled": true
-   },
-   {
-    "video_id": "iB73myc2qcM",
-    "title": "AIに操作させるならGUIを捨てる。コードで完結させる配信と録画のインフラ設計 #Shorts",
-    "views": 347,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 34.8,
-    "avg_view_sec": 10.0,
-    "engaged_views": 40,
-    "analytics_views": 347,
-    "age_days": 20,
-    "is_settled": true
-   },
-   {
-    "video_id": "4qukmO38gAw",
-    "title": "日付順の整理を捨てて「意味の繋がり」で思考を編む。コンテンツ複利運用の設計 #Shorts",
-    "views": 410,
-    "likes": 3,
-    "comments": 0,
-    "avg_view_pct": 38.0,
-    "avg_view_sec": 12.0,
-    "engaged_views": 45,
-    "analytics_views": 410,
-    "age_days": 23,
-    "is_settled": true
-   },
-   {
-    "video_id": "OztECiS7BR0",
-    "title": "AI動画生成の「ズレ」を消す。0.45秒の静止に宿る再現性の設計思想 #Shorts",
-    "views": 342,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 33.0,
-    "avg_view_sec": 12.0,
-    "engaged_views": 40,
-    "analytics_views": 342,
-    "age_days": 24,
+    "age_days": 17,
     "is_settled": true
    },
    {
@@ -562,46 +406,7 @@
     "avg_view_sec": 124.0,
     "engaged_views": 11,
     "analytics_views": 11,
-    "age_days": 25,
-    "is_settled": true
-   },
-   {
-    "video_id": "UBfdfgN0Q94",
-    "title": "「後付けの管理」で情報は枯渇する。入力コストをゼロにする構造設計の話 #Shorts",
-    "views": 522,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 32.4,
-    "avg_view_sec": 10.0,
-    "engaged_views": 67,
-    "analytics_views": 522,
-    "age_days": 27,
-    "is_settled": true
-   },
-   {
-    "video_id": "lXpUVrHLudQ",
-    "title": "10万GPUを数ヶ月で稼働させる方法｜物理的制約を突破する執行力の正体 #Shorts",
-    "views": 374,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 33.8,
-    "avg_view_sec": 11.0,
-    "engaged_views": 53,
-    "analytics_views": 374,
-    "age_days": 27,
-    "is_settled": true
-   },
-   {
-    "video_id": "_y0Yh0ExEr4",
-    "title": "AIを軽く回す設計思想：モデルの抱え込みをやめ、応答速度を1秒台にする方法 #Shorts",
-    "views": 171,
-    "likes": 0,
-    "comments": 0,
-    "avg_view_pct": 51.8,
-    "avg_view_sec": 20.0,
-    "engaged_views": 13,
-    "analytics_views": 171,
-    "age_days": 28,
+    "age_days": 26,
     "is_settled": true
    },
    {
@@ -614,7 +419,7 @@
     "avg_view_sec": 48.0,
     "engaged_views": 22,
     "analytics_views": 200,
-    "age_days": 30,
+    "age_days": 31,
     "is_settled": true
    },
    {
@@ -627,7 +432,7 @@
     "avg_view_sec": 21.0,
     "engaged_views": 16,
     "analytics_views": 164,
-    "age_days": 31,
+    "age_days": 32,
     "is_settled": true
    },
    {
@@ -640,7 +445,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 20,
     "analytics_views": 224,
-    "age_days": 32,
+    "age_days": 33,
     "is_settled": true
    },
    {
@@ -653,7 +458,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 51,
     "analytics_views": 370,
-    "age_days": 33,
+    "age_days": 34,
     "is_settled": true
    },
    {
@@ -666,7 +471,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 16,
     "analytics_views": 218,
-    "age_days": 34,
+    "age_days": 35,
     "is_settled": true
    },
    {
@@ -679,7 +484,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 28,
     "analytics_views": 230,
-    "age_days": 35,
+    "age_days": 36,
     "is_settled": true
    },
    {
@@ -692,7 +497,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 25,
     "analytics_views": 256,
-    "age_days": 36,
+    "age_days": 37,
     "is_settled": true
    },
    {
@@ -705,7 +510,7 @@
     "avg_view_sec": 15.0,
     "engaged_views": 246,
     "analytics_views": 627,
-    "age_days": 39,
+    "age_days": 40,
     "is_settled": true
    },
    {
@@ -718,7 +523,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 503,
     "analytics_views": 2311,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    }
   ]
@@ -731,10 +536,10 @@
   },
   "posts": [
    {
-    "media_id": "17981727339101274",
+    "media_id": "17999498024984993",
     "media_kind": "REELS",
-    "views": 144,
-    "reach": 115,
+    "views": 234,
+    "reach": 205,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -743,27 +548,39 @@
     "is_settled": false
    },
    {
-    "media_id": "18438875308125596",
+    "media_id": "17981727339101274",
     "media_kind": "REELS",
-    "views": 259,
-    "reach": 213,
-    "likes": 0,
-    "comments": 0,
-    "saved": 1,
-    "shares": 0,
-    "age_days": 1,
-    "is_settled": false
-   },
-   {
-    "media_id": "18107085532950927",
-    "media_kind": "REELS",
-    "views": 154,
-    "reach": 122,
+    "views": 150,
+    "reach": 120,
     "likes": 0,
     "comments": 0,
     "saved": 0,
     "shares": 0,
     "age_days": 2,
+    "is_settled": false
+   },
+   {
+    "media_id": "18438875308125596",
+    "media_kind": "REELS",
+    "views": 269,
+    "reach": 222,
+    "likes": 0,
+    "comments": 0,
+    "saved": 1,
+    "shares": 0,
+    "age_days": 2,
+    "is_settled": false
+   },
+   {
+    "media_id": "18107085532950927",
+    "media_kind": "REELS",
+    "views": 155,
+    "reach": 123,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 3,
     "is_settled": false
    },
    {
@@ -775,7 +592,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 2,
+    "age_days": 3,
     "is_settled": false
    },
    {
@@ -787,19 +604,19 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 3,
+    "age_days": 4,
     "is_settled": false
    },
    {
     "media_id": "18072546536386961",
     "media_kind": "REELS",
-    "views": 230,
-    "reach": 198,
+    "views": 233,
+    "reach": 199,
     "likes": 0,
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 3,
+    "age_days": 4,
     "is_settled": false
    },
    {
@@ -811,7 +628,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 4,
+    "age_days": 5,
     "is_settled": false
    },
    {
@@ -823,7 +640,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 4,
+    "age_days": 5,
     "is_settled": false
    },
    {
@@ -835,7 +652,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 5,
+    "age_days": 6,
     "is_settled": false
    },
    {
@@ -847,7 +664,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 5,
+    "age_days": 6,
     "is_settled": false
    },
    {
@@ -859,8 +676,8 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 6,
-    "is_settled": false
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "media_id": "18424445935178400",
@@ -871,8 +688,8 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 6,
-    "is_settled": false
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "media_id": "17985609975011740",
@@ -883,7 +700,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 7,
+    "age_days": 8,
     "is_settled": true
    },
    {
@@ -895,7 +712,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 7,
+    "age_days": 8,
     "is_settled": true
    },
    {
@@ -907,7 +724,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -919,7 +736,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -931,7 +748,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 9,
+    "age_days": 10,
     "is_settled": true
    },
    {
@@ -943,7 +760,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 9,
+    "age_days": 10,
     "is_settled": true
    },
    {
@@ -955,7 +772,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 10,
+    "age_days": 11,
     "is_settled": true
    },
    {
@@ -967,7 +784,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 10,
+    "age_days": 11,
     "is_settled": true
    },
    {
@@ -979,7 +796,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 11,
+    "age_days": 12,
     "is_settled": true
    },
    {
@@ -991,7 +808,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 12,
+    "age_days": 13,
     "is_settled": true
    },
    {
@@ -1003,7 +820,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 13,
+    "age_days": 14,
     "is_settled": true
    },
    {
@@ -1015,7 +832,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 14,
+    "age_days": 15,
     "is_settled": true
    },
    {
@@ -1027,7 +844,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 15,
+    "age_days": 16,
     "is_settled": true
    },
    {
@@ -1039,7 +856,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 16,
+    "age_days": 17,
     "is_settled": true
    },
    {
@@ -1051,7 +868,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 17,
+    "age_days": 18,
     "is_settled": true
    },
    {
@@ -1063,7 +880,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 17,
+    "age_days": 18,
     "is_settled": true
    },
    {
@@ -1075,7 +892,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 18,
+    "age_days": 19,
     "is_settled": true
    },
    {
@@ -1087,7 +904,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 19,
+    "age_days": 20,
     "is_settled": true
    },
    {
@@ -1099,7 +916,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 20,
+    "age_days": 21,
     "is_settled": true
    },
    {
@@ -1111,7 +928,7 @@
     "comments": 0,
     "saved": 4,
     "shares": 0,
-    "age_days": 21,
+    "age_days": 22,
     "is_settled": true
    },
    {
@@ -1123,7 +940,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 22,
+    "age_days": 23,
     "is_settled": true
    },
    {
@@ -1135,7 +952,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 23,
+    "age_days": 24,
     "is_settled": true
    },
    {
@@ -1147,7 +964,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 1,
-    "age_days": 24,
+    "age_days": 25,
     "is_settled": true
    },
    {
@@ -1159,7 +976,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 25,
+    "age_days": 26,
     "is_settled": true
    },
    {
@@ -1171,7 +988,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 26,
+    "age_days": 27,
     "is_settled": true
    },
    {
@@ -1183,7 +1000,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 27,
+    "age_days": 28,
     "is_settled": true
    },
    {
@@ -1195,7 +1012,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 28,
+    "age_days": 29,
     "is_settled": true
    },
    {
@@ -1207,7 +1024,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 28,
+    "age_days": 29,
     "is_settled": true
    },
    {
@@ -1219,7 +1036,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 29,
+    "age_days": 30,
     "is_settled": true
    },
    {
@@ -1231,7 +1048,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 30,
+    "age_days": 31,
     "is_settled": true
    },
    {
@@ -1243,7 +1060,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 31,
+    "age_days": 32,
     "is_settled": true
    },
    {
@@ -1255,7 +1072,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 32,
+    "age_days": 33,
     "is_settled": true
    },
    {
@@ -1267,7 +1084,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 33,
+    "age_days": 34,
     "is_settled": true
    },
    {
@@ -1279,7 +1096,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 34,
+    "age_days": 35,
     "is_settled": true
    },
    {
@@ -1291,7 +1108,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 35,
+    "age_days": 36,
     "is_settled": true
    },
    {
@@ -1303,7 +1120,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 37,
+    "age_days": 38,
     "is_settled": true
    },
    {
@@ -1315,7 +1132,7 @@
     "comments": 0,
     "saved": 2,
     "shares": 0,
-    "age_days": 40,
+    "age_days": 41,
     "is_settled": true
    },
    {
@@ -1327,7 +1144,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    }
   ]
@@ -1338,16 +1155,16 @@
  },
  "ai_reach": {
   "hits_1d": 356,
-  "hits_7d": 2646,
+  "hits_7d": 2612,
   "mcp_1d": 356
  },
  "referrers": {
   "pv_7d": 5,
   "by_ref_7d": {
-   "direct": 2,
-   "instagram": 1,
+   "instagram": 2,
    "other": 1,
-   "search": 1
+   "search": 1,
+   "self": 1
   }
  },
  "settle_days": 7
