@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-02T09:50:00.538765",
+ "generated_at": "2026-08-02T15:50:01.546112",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -13,17 +13,17 @@
     "ratio_7d": 1.143
    },
    "video_count": {
-    "value": 44,
-    "delta_7d": -6,
-    "ratio_7d": 0.88
+    "value": 45,
+    "delta_7d": -5,
+    "ratio_7d": 0.9
    }
   },
   "videos": [
    {
     "video_id": "Parq4glOpYI",
     "title": "8月1日(土)の観測｜PC 7時間16分・歩数4,461歩 #Shorts",
-    "views": 347,
-    "likes": 1,
+    "views": 348,
+    "likes": 2,
     "comments": 0,
     "avg_view_pct": null,
     "avg_view_sec": null,
@@ -63,7 +63,7 @@
     "title": "「辞めたら終わり」と思っていませんか？ #Shorts",
     "views": 349,
     "likes": 1,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": null,
     "avg_view_sec": null,
     "engaged_views": null,
@@ -87,13 +87,13 @@
    {
     "video_id": "zm-HTBXirjo",
     "title": "「動けない自分はダメだ」と思っていませんか？ #Shorts",
-    "views": 154,
+    "views": 152,
     "likes": 0,
-    "comments": 1,
-    "avg_view_pct": null,
-    "avg_view_sec": null,
-    "engaged_views": null,
-    "analytics_views": null,
+    "comments": 0,
+    "avg_view_pct": 68.4,
+    "avg_view_sec": 21.0,
+    "engaged_views": 18,
+    "analytics_views": 154,
     "age_days": 3,
     "is_settled": false
    },
@@ -106,7 +106,7 @@
     "avg_view_pct": 21.0,
     "avg_view_sec": 7.0,
     "engaged_views": 19,
-    "analytics_views": 164,
+    "analytics_views": 165,
     "age_days": 4,
     "is_settled": false
    },
@@ -115,7 +115,7 @@
     "title": "「全部、中途半端」と思っていませんか？ #Shorts",
     "views": 165,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 27.6,
     "avg_view_sec": 8.0,
     "engaged_views": 24,
@@ -141,7 +141,7 @@
     "title": "「もっと稼げば解決する」と思っていませんか？ #Shorts",
     "views": 250,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 38.9,
     "avg_view_sec": 14.0,
     "engaged_views": 31,
@@ -167,7 +167,7 @@
     "title": "「何も身についてない」と思っていませんか？ #Shorts",
     "views": 200,
     "likes": 1,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 99.3,
     "avg_view_sec": 33.0,
     "engaged_views": 22,
@@ -193,7 +193,7 @@
     "title": "「成長できてない」と焦っていませんか？ #Shorts",
     "views": 146,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 18.7,
     "avg_view_sec": 6.0,
     "engaged_views": 21,
@@ -219,7 +219,7 @@
     "title": "「自分が弱いだけ」と思っていませんか？ #Shorts",
     "views": 169,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 17.9,
     "avg_view_sec": 7.0,
     "engaged_views": 24,
@@ -232,7 +232,7 @@
     "title": "「会社を間違えた」と思っていませんか？ #Shorts",
     "views": 168,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 18.0,
     "avg_view_sec": 7.0,
     "engaged_views": 20,
@@ -271,7 +271,7 @@
     "title": "「やりたいことがわからない」と思っていませんか？ #Shorts",
     "views": 168,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 35.2,
     "avg_view_sec": 13.0,
     "engaged_views": 24,
@@ -284,7 +284,7 @@
     "title": "「見る目がなかった」と思っていませんか？ #Shorts",
     "views": 176,
     "likes": 0,
-    "comments": 1,
+    "comments": 0,
     "avg_view_pct": 35.1,
     "avg_view_sec": 13.0,
     "engaged_views": 28,
@@ -327,7 +327,7 @@
     "avg_view_pct": 21.2,
     "avg_view_sec": 9.0,
     "engaged_views": 14,
-    "analytics_views": 164,
+    "analytics_views": 163,
     "age_days": 12,
     "is_settled": true
    },
@@ -388,7 +388,7 @@
     "title": "7月15日(水)の観測｜PC 3時間31分 #Shorts",
     "views": 1097,
     "likes": 2,
-    "comments": 5,
+    "comments": 0,
     "avg_view_pct": 99.0,
     "avg_view_sec": 34.0,
     "engaged_views": 204,
@@ -549,10 +549,22 @@
   },
   "posts": [
    {
+    "media_id": "17987754752846978",
+    "media_kind": "REELS",
+    "views": 143,
+    "reach": 121,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
     "media_id": "17999498024984993",
     "media_kind": "REELS",
-    "views": 234,
-    "reach": 205,
+    "views": 244,
+    "reach": 213,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -563,8 +575,8 @@
    {
     "media_id": "17981727339101274",
     "media_kind": "REELS",
-    "views": 150,
-    "reach": 120,
+    "views": 152,
+    "reach": 121,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -623,8 +635,8 @@
    {
     "media_id": "18072546536386961",
     "media_kind": "REELS",
-    "views": 233,
-    "reach": 199,
+    "views": 234,
+    "reach": 200,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -647,8 +659,8 @@
    {
     "media_id": "17979416916024447",
     "media_kind": "REELS",
-    "views": 192,
-    "reach": 151,
+    "views": 195,
+    "reach": 152,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -707,8 +719,8 @@
    {
     "media_id": "17985609975011740",
     "media_kind": "REELS",
-    "views": 176,
-    "reach": 134,
+    "views": 177,
+    "reach": 135,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -767,8 +779,8 @@
    {
     "media_id": "17959593729176757",
     "media_kind": "REELS",
-    "views": 139,
-    "reach": 124,
+    "views": 142,
+    "reach": 125,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -1163,19 +1175,19 @@
   ]
  },
  "blog": {
-  "pv_1d": 2,
-  "pv_7d": 5
+  "pv_1d": 1,
+  "pv_7d": 6
  },
  "ai_reach": {
   "hits_1d": 356,
-  "hits_7d": 2612,
+  "hits_7d": 2587,
   "mcp_1d": 356
  },
  "referrers": {
-  "pv_7d": 5,
+  "pv_7d": 6,
   "by_ref_7d": {
    "instagram": 2,
-   "other": 1,
+   "other": 2,
    "search": 1,
    "self": 1
   }
