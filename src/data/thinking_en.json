@@ -1,13 +1,13 @@
 {
   "weeks": [
-    "6/8",
     "6/15",
     "6/22",
     "6/29",
     "7/6",
     "7/13",
     "7/20",
-    "7/27"
+    "7/27",
+    "8/3"
   ],
   "themes": [
     {
@@ -17,8 +17,8 @@
         0,
         0,
         0,
-        0,
         2,
+        0,
         0,
         0
       ],
@@ -29,11 +29,11 @@
       "title": "Redefining metrics to align with strategic intent.",
       "cells": [
         0,
-        0,
         4,
         6,
         6,
         1,
+        0,
         0,
         0
       ],
@@ -50,11 +50,11 @@
       "title": "Maintaining Specificity in AI Generation and Quantitative Analysis of Short-Form Videos",
       "cells": [
         0,
-        0,
         3,
         3,
         2,
         1,
+        0,
         0,
         0
       ],
@@ -65,11 +65,11 @@
       "title": "Engineering operationalization of the objective function by eliminating essentialism.",
       "cells": [
         0,
-        0,
         2,
         1,
         1,
         1,
+        0,
         0,
         0
       ],
@@ -88,10 +88,10 @@
       "cells": [
         0,
         0,
-        0,
         2,
         1,
         1,
+        0,
         0,
         0
       ],
@@ -103,15 +103,21 @@
       "cells": [
         0,
         0,
+        1,
+        1,
+        1,
         0,
-        1,
-        1,
-        1,
         0,
         0
       ],
       "last": "2026-07-14",
-      "posts": []
+      "posts": [
+        {
+          "slug": "2026-08-03-a96c9d",
+          "title": "The Trade-off Between ID Control and Agent Autonomy",
+          "date": "2026-08-03"
+        }
+      ]
     },
     {
       "title": "Capital Structure and the Dynamics of Jurisdictional Control",
@@ -120,8 +126,8 @@
         0,
         0,
         0,
-        0,
         1,
+        0,
         0,
         0
       ],
@@ -132,10 +138,10 @@
       "title": "Safe Design and Automation Pipelines for AI Content Delivery",
       "cells": [
         0,
-        0,
         1,
         7,
         6,
+        0,
         0,
         0,
         0
@@ -147,10 +153,10 @@
       "title": "Intuitive experience delivery and optimized implementation costs.",
       "cells": [
         0,
-        0,
         6,
         7,
         1,
+        0,
         0,
         0,
         0
@@ -161,11 +167,11 @@
     {
       "title": "Structural Optimization and Control of AI Content Creation",
       "cells": [
-        0,
         2,
         2,
         8,
         1,
+        0,
         0,
         0,
         0
@@ -176,11 +182,11 @@
     {
       "title": "Structural Challenges and Solutions in AI and System Implementation",
       "cells": [
-        0,
         2,
         3,
         5,
         2,
+        0,
         0,
         0,
         0
@@ -192,10 +198,10 @@
       "title": "Building and improving monitoring to prevent silent failures",
       "cells": [
         0,
-        0,
         1,
         9,
         2,
+        0,
         0,
         0,
         0
@@ -206,11 +212,11 @@
     {
       "title": "Designed for lightweight local AI.",
       "cells": [
-        1,
         2,
         4,
         2,
         6,
+        0,
         0,
         0,
         0
@@ -235,8 +241,8 @@
         0,
         0,
         0,
-        0,
         3,
+        0,
         0,
         0,
         0
@@ -255,8 +261,8 @@
       "cells": [
         0,
         0,
-        0,
         17,
+        0,
         0,
         0,
         0,
@@ -274,10 +280,10 @@
     {
       "title": "Expressiveness Control and Parameter Optimization in TTS",
       "cells": [
-        0,
         1,
         0,
         7,
+        0,
         0,
         0,
         0,
@@ -306,9 +312,9 @@
       "title": "Divergence caused by treating automation as an end in itself and a lack of feedback loops.",
       "cells": [
         0,
-        0,
         4,
         3,
+        0,
         0,
         0,
         0,
@@ -328,8 +334,8 @@
       "cells": [
         0,
         0,
-        0,
         5,
+        0,
         0,
         0,
         0,
@@ -348,9 +354,9 @@
       "title": "Content structuring via non-chronological semantic networks",
       "cells": [
         0,
-        0,
         3,
         1,
+        0,
         0,
         0,
         0,
@@ -370,8 +376,8 @@
       "cells": [
         0,
         0,
-        0,
         4,
+        0,
         0,
         0,
         0,
