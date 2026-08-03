@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-03T03:52:59.864083",
+ "generated_at": "2026-08-03T09:50:00.479911",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -19,6 +19,32 @@
    }
   },
   "videos": [
+   {
+    "video_id": "OWS6pmDYFfw",
+    "title": "Discord botではできない「本人の権限代行」をTelegramで試して分かったこと #Shorts",
+    "views": 294,
+    "likes": 0,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "video_id": "AZa9Z8SnkT8",
+    "title": "8月2日(日)の観測｜PC 1時間53分・歩数1,915歩 #Shorts",
+    "views": 233,
+    "likes": 0,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
    {
     "video_id": "Parq4glOpYI",
     "title": "8月1日(土)の観測｜PC 7時間16分・歩数4,461歩 #Shorts",
@@ -64,10 +90,10 @@
     "views": 350,
     "likes": 1,
     "comments": 0,
-    "avg_view_pct": 47.1,
-    "avg_view_sec": 13.0,
-    "engaged_views": 44,
-    "analytics_views": 348,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
     "age_days": 3,
     "is_settled": false
    },
