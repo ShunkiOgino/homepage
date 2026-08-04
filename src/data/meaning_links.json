@@ -5,53 +5,25 @@
     "url": "/blog/2026-06-09-4e8c7e",
     "near": [
       {
-        "id": "blog:2026-06-21-ai-ga-unyou",
-        "why": "AIによる自動化で個人の速度を最大化する思想",
-        "title": "このサイトは、AIが運用している",
+        "id": "blog:2026-08-01-both-real",
+        "why": "面白／ゼロ／実装 が重なる",
+        "title": "設計図の方が本物",
         "type": "思考",
-        "url": "/blog/2026-06-21-ai-ga-unyou"
+        "url": "/blog/2026-08-01-both-real"
       },
       {
-        "id": "work:agent-mail",
-        "why": "即座に個別の欠落を埋める実装の具体例であるため",
-        "title": "自動でメールに返事するAI",
-        "type": "作品",
-        "url": "/works/agent-mail"
-      },
-      {
-        "id": "work:video-studio",
-        "why": "手間を省きアイデアを即座に形にする仕組みであるため",
-        "title": "動画を作るスタジオ",
-        "type": "作品",
-        "url": "/works/video-studio"
-      }
-    ]
-  },
-  "blog:2026-06-19-643bb0": {
-    "title": "「直す人」を卒業する：成果物でなく構造を管理する",
-    "type": "思考",
-    "url": "/blog/2026-06-19-643bb0",
-    "near": [
-      {
-        "id": "blog:2026-06-21-ai-ga-unyou",
-        "why": "方針決定と承認に特化し運用を自動化した実践例",
-        "title": "このサイトは、AIが運用している",
+        "id": "blog:2026-08-02-a2eb5b",
+        "why": "作れても届かない、の側",
+        "title": "努力で越えられない「構造的な堀」を観測する",
         "type": "思考",
-        "url": "/blog/2026-06-21-ai-ga-unyou"
+        "url": "/blog/2026-08-02-a2eb5b"
       },
       {
-        "id": "work:video-studio",
-        "why": "台本から書き出しまで構造的に自動化した作品",
-        "title": "動画を作るスタジオ",
+        "id": "work:game",
+        "why": "手を動かした実物",
+        "title": "散逸構造ゲーム",
         "type": "作品",
-        "url": "/works/video-studio"
-      },
-      {
-        "id": "blog:2026-06-21-ogino-1-ai-sns",
-        "why": "個別の発言ではなく構造で情報漏洩を防ぐ設計",
-        "title": "AIだけのSNSに、自分の代理を置いてみた",
-        "type": "思考",
-        "url": "/blog/2026-06-21-ogino-1-ai-sns"
+        "url": "/game/"
       }
     ]
   },
@@ -61,25 +33,25 @@
     "url": "/blog/2026-06-21-ai-ga-unyou",
     "near": [
       {
-        "id": "blog:2026-06-19-643bb0",
-        "why": "承認のみを行い運用コストを削る思想が共通",
-        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "正直／最後／意味 が重なる",
+        "title": "断る側が、決める側になる",
         "type": "思考",
-        "url": "/blog/2026-06-19-643bb0"
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "blog:2026-06-21-ogino-1-ai-sns",
+        "why": "運用でなく、外に置く側",
+        "title": "AIだけのSNSに、自分の代理を置いてみた",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ogino-1-ai-sns"
       },
       {
         "id": "work:agent-mail",
-        "why": "ローカル完結で個別にAIを動かす実装が共通",
+        "why": "手を動かした実物",
         "title": "自動でメールに返事するAI",
         "type": "作品",
         "url": "/works/agent-mail"
-      },
-      {
-        "id": "work:video-studio",
-        "why": "制作の退屈な工程をAIで自動化する狙いが共通",
-        "title": "動画を作るスタジオ",
-        "type": "作品",
-        "url": "/works/video-studio"
       }
     ]
   },
@@ -89,25 +61,25 @@
     "url": "/blog/2026-06-21-ai-ni-jikoshoukai",
     "near": [
       {
+        "id": "blog:2026-06-09-4e8c7e",
+        "why": "手間／エージェント／必要 が重なる",
+        "title": "実装コストがゼロになる世界で、僕たちが作るべきもの",
+        "type": "思考",
+        "url": "/blog/2026-06-09-4e8c7e"
+      },
+      {
         "id": "blog:2026-06-21-ogino-1-ai-sns",
-        "why": "AI向けに自分を定義し、代理として機能させる狙い",
+        "why": "書いた自分が、動き出す側",
         "title": "AIだけのSNSに、自分の代理を置いてみた",
         "type": "思考",
         "url": "/blog/2026-06-21-ogino-1-ai-sns"
       },
       {
-        "id": "work:agent-mail",
-        "why": "個別のAIに情報を参照させ、対応を自動化する仕組み",
-        "title": "自動でメールに返事するAI",
+        "id": "work:game",
+        "why": "手を動かした実物",
+        "title": "散逸構造ゲーム",
         "type": "作品",
-        "url": "/works/agent-mail"
-      },
-      {
-        "id": "blog:2026-06-19-643bb0",
-        "why": "個別の修正ではなく、参照可能な構造で管理する思想",
-        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
-        "type": "思考",
-        "url": "/blog/2026-06-19-643bb0"
+        "url": "/game/"
       }
     ]
   },
@@ -117,22 +89,505 @@
     "url": "/blog/2026-06-21-ogino-1-ai-sns",
     "near": [
       {
-        "id": "blog:2026-06-21-ai-ni-jikoshoukai",
-        "why": "AIを介した自己の提示と接続という狙いが共通",
-        "title": "自己紹介を、AIに向けて書く",
-        "type": "思考",
-        "url": "/blog/2026-06-21-ai-ni-jikoshoukai"
-      },
-      {
         "id": "blog:2026-06-21-ai-ga-unyou",
-        "why": "AIに任せ人間が最終承認する運用構造が一致",
+        "why": "個人情報／SNS／承認 が重なる",
         "title": "このサイトは、AIが運用している",
         "type": "思考",
         "url": "/blog/2026-06-21-ai-ga-unyou"
       },
       {
+        "id": "blog:2026-06-21-ai-ni-jikoshoukai",
+        "why": "動き出す前に、何を書くか",
+        "title": "自己紹介を、AIに向けて書く",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ai-ni-jikoshoukai"
+      },
+      {
         "id": "work:agent-mail",
-        "why": "個別のAIに権限を分け代理させる実装思想が共通",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-07-20-akirameru-chikara": {
+    "title": "諦める力は敗北じゃない。無装備で勝てる、唯一の才能",
+    "type": "思考",
+    "url": "/blog/2026-07-20-akirameru-chikara",
+    "near": [
+      {
+        "id": "blog:2026-07-20-yuka-wa-jitsuzai-suru",
+        "why": "金額／貯金／大事 が重なる",
+        "title": "「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない",
+        "type": "思考",
+        "url": "/blog/2026-07-20-yuka-wa-jitsuzai-suru"
+      },
+      {
+        "id": "blog:2026-07-20-yuiitsu-no-jigoku",
+        "why": "諦めなかった場合の代償",
+        "title": "唯一の地獄は、諦めないのに、積まないこと",
+        "type": "思考",
+        "url": "/blog/2026-07-20-yuiitsu-no-jigoku"
+      }
+    ]
+  },
+  "blog:2026-07-20-ichiban-to-yuka": {
+    "title": "一番を決めないと、席があなたの一番を決める",
+    "type": "思考",
+    "url": "/blog/2026-07-20-ichiban-to-yuka",
+    "near": [
+      {
+        "id": "blog:2026-07-20-uso-no-jikoshoukai",
+        "why": "ワークライフバランス／安定／求人票 が重なる",
+        "title": "面接対策とは、嘘の自己紹介の練習である",
+        "type": "思考",
+        "url": "/blog/2026-07-20-uso-no-jikoshoukai"
+      },
+      {
+        "id": "blog:2026-07-20-mittsu-no-ikikata",
+        "why": "決めた先にある三択",
+        "title": "三つの生き方は、三つとも正解",
+        "type": "思考",
+        "url": "/blog/2026-07-20-mittsu-no-ikikata"
+      }
+    ]
+  },
+  "blog:2026-07-20-kansoku-zero": {
+    "title": "就活がうまくいかないのは、自己分析が足りないからじゃない",
+    "type": "思考",
+    "url": "/blog/2026-07-20-kansoku-zero",
+    "near": [
+      {
+        "id": "blog:2026-07-20-tsuzuita-mono",
+        "why": "自己分析／願望／事実 が重なる",
+        "title": "志望動機は書ける。続いたものは、捏造できない",
+        "type": "思考",
+        "url": "/blog/2026-07-20-tsuzuita-mono"
+      },
+      {
+        "id": "blog:2026-07-20-naka-wo-miru-kenri",
+        "why": "観測が無いことへの答え",
+        "title": "就職で買っているのは、中を見る権利",
+        "type": "思考",
+        "url": "/blog/2026-07-20-naka-wo-miru-kenri"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-07-20-mittsu-no-ikikata": {
+    "title": "三つの生き方は、三つとも正解",
+    "type": "思考",
+    "url": "/blog/2026-07-20-mittsu-no-ikikata",
+    "near": [
+      {
+        "id": "blog:2026-07-20-naka-wo-miru-kenri",
+        "why": "給料／作業／最初 が重なる",
+        "title": "就職で買っているのは、中を見る権利",
+        "type": "思考",
+        "url": "/blog/2026-07-20-naka-wo-miru-kenri"
+      },
+      {
+        "id": "blog:2026-07-20-ichiban-to-yuka",
+        "why": "選ばないとどうなるか",
+        "title": "一番を決めないと、席があなたの一番を決める",
+        "type": "思考",
+        "url": "/blog/2026-07-20-ichiban-to-yuka"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-07-20-naka-wo-miru-kenri": {
+    "title": "就職で買っているのは、中を見る権利",
+    "type": "思考",
+    "url": "/blog/2026-07-20-naka-wo-miru-kenri",
+    "near": [
+      {
+        "id": "blog:2026-07-20-mittsu-no-ikikata",
+        "why": "給料／作業／最初 が重なる",
+        "title": "三つの生き方は、三つとも正解",
+        "type": "思考",
+        "url": "/blog/2026-07-20-mittsu-no-ikikata"
+      },
+      {
+        "id": "blog:2026-07-20-kansoku-zero",
+        "why": "なぜ中が見えていないのか",
+        "title": "就活がうまくいかないのは、自己分析が足りないからじゃない",
+        "type": "思考",
+        "url": "/blog/2026-07-20-kansoku-zero"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-07-20-tsuzuita-mono": {
+    "title": "志望動機は書ける。続いたものは、捏造できない",
+    "type": "思考",
+    "url": "/blog/2026-07-20-tsuzuita-mono",
+    "near": [
+      {
+        "id": "blog:2026-07-20-kansoku-zero",
+        "why": "自己分析／願望／事実 が重なる",
+        "title": "就活がうまくいかないのは、自己分析が足りないからじゃない",
+        "type": "思考",
+        "url": "/blog/2026-07-20-kansoku-zero"
+      },
+      {
+        "id": "blog:2026-07-20-uso-no-jikoshoukai",
+        "why": "捏造が実際に起きる場面",
+        "title": "面接対策とは、嘘の自己紹介の練習である",
+        "type": "思考",
+        "url": "/blog/2026-07-20-uso-no-jikoshoukai"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-07-20-uso-no-jikoshoukai": {
+    "title": "面接対策とは、嘘の自己紹介の練習である",
+    "type": "思考",
+    "url": "/blog/2026-07-20-uso-no-jikoshoukai",
+    "near": [
+      {
+        "id": "blog:2026-07-20-kansoku-zero",
+        "why": "願望／全員／事実 が重なる",
+        "title": "就活がうまくいかないのは、自己分析が足りないからじゃない",
+        "type": "思考",
+        "url": "/blog/2026-07-20-kansoku-zero"
+      },
+      {
+        "id": "blog:2026-07-20-tsuzuita-mono",
+        "why": "捏造できない方の材料",
+        "title": "志望動機は書ける。続いたものは、捏造できない",
+        "type": "思考",
+        "url": "/blog/2026-07-20-tsuzuita-mono"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-07-20-yuiitsu-no-jigoku": {
+    "title": "唯一の地獄は、諦めないのに、積まないこと",
+    "type": "思考",
+    "url": "/blog/2026-07-20-yuiitsu-no-jigoku",
+    "near": [
+      {
+        "id": "blog:2026-07-20-yuka-wa-jitsuzai-suru",
+        "why": "気楽／梯子／約束 が重なる",
+        "title": "「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない",
+        "type": "思考",
+        "url": "/blog/2026-07-20-yuka-wa-jitsuzai-suru"
+      },
+      {
+        "id": "blog:2026-07-20-akirameru-chikara",
+        "why": "諦めた場合の評価",
+        "title": "諦める力は敗北じゃない。無装備で勝てる、唯一の才能",
+        "type": "思考",
+        "url": "/blog/2026-07-20-akirameru-chikara"
+      }
+    ]
+  },
+  "blog:2026-07-20-yuka-wa-jitsuzai-suru": {
+    "title": "「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない",
+    "type": "思考",
+    "url": "/blog/2026-07-20-yuka-wa-jitsuzai-suru",
+    "near": [
+      {
+        "id": "blog:2026-07-20-mittsu-no-ikikata",
+        "why": "前提／給料／貯金 が重なる",
+        "title": "三つの生き方は、三つとも正解",
+        "type": "思考",
+        "url": "/blog/2026-07-20-mittsu-no-ikikata"
+      },
+      {
+        "id": "blog:2026-07-20-naka-wo-miru-kenri",
+        "why": "入った後に何があるか",
+        "title": "就職で買っているのは、中を見る権利",
+        "type": "思考",
+        "url": "/blog/2026-07-20-naka-wo-miru-kenri"
+      }
+    ]
+  },
+  "blog:2026-07-20-yuzurenai-mono": {
+    "title": "譲れないものは、決めるものじゃなくて、見つかるもの",
+    "type": "思考",
+    "url": "/blog/2026-07-20-yuzurenai-mono",
+    "near": [
+      {
+        "id": "blog:2026-08-01-both-real",
+        "why": "本物／過去／全部 が重なる",
+        "title": "設計図の方が本物",
+        "type": "思考",
+        "url": "/blog/2026-08-01-both-real"
+      },
+      {
+        "id": "blog:2026-07-20-uso-no-jikoshoukai",
+        "why": "宣言で作ろうとする側",
+        "title": "面接対策とは、嘘の自己紹介の練習である",
+        "type": "思考",
+        "url": "/blog/2026-07-20-uso-no-jikoshoukai"
+      }
+    ]
+  },
+  "blog:2026-08-01-all-is-interest": {
+    "title": "全ては利害だ、とした方がやさしい",
+    "type": "思考",
+    "url": "/blog/2026-08-01-all-is-interest",
+    "near": [
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "五年／研究／時点 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-01-both-real": {
+    "title": "設計図の方が本物",
+    "type": "思考",
+    "url": "/blog/2026-08-01-both-real",
+    "near": [
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "我々／一枚／対象 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-01-byproduct": {
+    "title": "発展は副産物である",
+    "type": "思考",
+    "url": "/blog/2026-08-01-byproduct",
+    "near": [
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "順番／GPU／一二年 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "work:game",
+        "why": "手を動かした実物",
+        "title": "散逸構造ゲーム",
+        "type": "作品",
+        "url": "/game/"
+      }
+    ]
+  },
+  "blog:2026-08-01-no-secrets-only-obvious": {
+    "title": "秘密は無い、当たり前ならある",
+    "type": "思考",
+    "url": "/blog/2026-08-01-no-secrets-only-obvious",
+    "near": [
+      {
+        "id": "blog:2026-08-01-nothing-stays-buried",
+        "why": "大学／一九二二年／微積分 が重なる",
+        "title": "埋もれた才能は、ほとんど無い",
+        "type": "思考",
+        "url": "/blog/2026-08-01-nothing-stays-buried"
+      },
+      {
+        "id": "work:game",
+        "why": "手を動かした実物",
+        "title": "散逸構造ゲーム",
+        "type": "作品",
+        "url": "/game/"
+      }
+    ]
+  },
+  "blog:2026-08-01-nothing-stays-buried": {
+    "title": "埋もれた才能は、ほとんど無い",
+    "type": "思考",
+    "url": "/blog/2026-08-01-nothing-stays-buried",
+    "near": [
+      {
+        "id": "blog:2026-08-01-no-secrets-only-obvious",
+        "why": "大学／一九二二年／微積分 が重なる",
+        "title": "秘密は無い、当たり前ならある",
+        "type": "思考",
+        "url": "/blog/2026-08-01-no-secrets-only-obvious"
+      }
+    ]
+  },
+  "blog:2026-08-01-rank-adds-nothing": {
+    "title": "優れても、総量は増えない",
+    "type": "思考",
+    "url": "/blog/2026-08-01-rank-adds-nothing",
+    "near": [
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "絶対／研究／順位 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-01-the-power-to-refuse": {
+    "title": "断る側が、決める側になる",
+    "type": "思考",
+    "url": "/blog/2026-08-01-the-power-to-refuse",
+    "near": [
+      {
+        "id": "blog:2026-08-01-no-secrets-only-obvious",
+        "why": "文句／粗利／株主 が重なる",
+        "title": "秘密は無い、当たり前ならある",
+        "type": "思考",
+        "url": "/blog/2026-08-01-no-secrets-only-obvious"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-01-understanding-is-misunderstanding": {
+    "title": "理解は、百パーセント誤解である",
+    "type": "思考",
+    "url": "/blog/2026-08-01-understanding-is-misunderstanding",
+    "near": [
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "パーセント／一部／対象 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "work:game",
+        "why": "手を動かした実物",
+        "title": "散逸構造ゲーム",
+        "type": "作品",
+        "url": "/game/"
+      }
+    ]
+  },
+  "blog:2026-08-01-why-records-feel-wrong": {
+    "title": "薄れないから、気味が悪い",
+    "type": "思考",
+    "url": "/blog/2026-08-01-why-records-feel-wrong",
+    "near": [
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "一九九八年／エンジン／関係 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "work:game",
+        "why": "手を動かした実物",
+        "title": "散逸構造ゲーム",
+        "type": "作品",
+        "url": "/game/"
+      }
+    ]
+  },
+  "blog:2026-08-02-a2eb5b": {
+    "title": "努力で越えられない「構造的な堀」を観測する",
+    "type": "思考",
+    "url": "/blog/2026-08-02-a2eb5b",
+    "near": [
+      {
+        "id": "blog:2026-08-03-a96c9d",
+        "why": "直面／特定／明確 が重なる",
+        "title": "ID支配とエージェントの自律性のトレードオフ",
+        "type": "思考",
+        "url": "/blog/2026-08-03-a96c9d"
+      },
+      {
+        "id": "blog:2026-06-09-4e8c7e",
+        "why": "作るのが安くなった、の側",
+        "title": "実装コストがゼロになる世界で、僕たちが作るべきもの",
+        "type": "思考",
+        "url": "/blog/2026-06-09-4e8c7e"
+      },
+      {
+        "id": "work:video-studio",
+        "why": "手を動かした実物",
+        "title": "動画を作るスタジオ",
+        "type": "作品",
+        "url": "/works/video-studio"
+      }
+    ]
+  },
+  "blog:2026-08-03-a96c9d": {
+    "title": "ID支配とエージェントの自律性のトレードオフ",
+    "type": "思考",
+    "url": "/blog/2026-08-03-a96c9d",
+    "near": [
+      {
+        "id": "blog:2026-08-02-a2eb5b",
+        "why": "直面／特定／明確 が重なる",
+        "title": "努力で越えられない「構造的な堀」を観測する",
+        "type": "思考",
+        "url": "/blog/2026-08-02-a2eb5b"
+      },
+      {
+        "id": "blog:2026-06-21-ogino-1-ai-sns",
+        "why": "権限を渡さず外に置く側",
+        "title": "AIだけのSNSに、自分の代理を置いてみた",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ogino-1-ai-sns"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
         "title": "自動でメールに返事するAI",
         "type": "作品",
         "url": "/works/agent-mail"
@@ -145,18 +600,25 @@
     "url": "/game/",
     "near": [
       {
-        "id": "blog:2026-06-19-643bb0",
-        "why": "個別の修正より構造の管理を重視する思想",
-        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+        "id": "blog:2026-06-21-ai-ni-jikoshoukai",
+        "why": "実験／説明 が重なる",
+        "title": "自己紹介を、AIに向けて書く",
         "type": "思考",
-        "url": "/blog/2026-06-19-643bb0"
+        "url": "/blog/2026-06-21-ai-ni-jikoshoukai"
       },
       {
-        "id": "blog:2026-06-09-4e8c7e",
-        "why": "アイデアを即座に形にする実験的アプローチ",
-        "title": "実装コストがゼロになる世界で、僕たちが作るべきもの",
+        "id": "blog:2026-08-01-no-secrets-only-obvious",
+        "why": "ゲーム／説明 が重なる",
+        "title": "秘密は無い、当たり前ならある",
         "type": "思考",
-        "url": "/blog/2026-06-09-4e8c7e"
+        "url": "/blog/2026-08-01-no-secrets-only-obvious"
+      },
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "ゲーム／説明 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
       }
     ]
   },
@@ -166,25 +628,25 @@
     "url": "/works/agent-mail",
     "near": [
       {
-        "id": "blog:2026-06-21-ogino-1-ai-sns",
-        "why": "権限を分けたAI分身による代理応答の思想",
-        "title": "AIだけのSNSに、自分の代理を置いてみた",
-        "type": "思考",
-        "url": "/blog/2026-06-21-ogino-1-ai-sns"
-      },
-      {
-        "id": "work:video-studio",
-        "why": "ローカル完結で自動化する実装アプローチ",
-        "title": "動画を作るスタジオ",
-        "type": "作品",
-        "url": "/works/video-studio"
-      },
-      {
         "id": "blog:2026-06-21-ai-ga-unyou",
-        "why": "面倒な運用をAIに任せ、人は方針を決める姿勢",
+        "why": "ローカル／手元／AI が重なる",
         "title": "このサイトは、AIが運用している",
         "type": "思考",
         "url": "/blog/2026-06-21-ai-ga-unyou"
+      },
+      {
+        "id": "blog:2026-08-01-the-power-to-refuse",
+        "why": "範囲／相手 が重なる",
+        "title": "断る側が、決める側になる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-the-power-to-refuse"
+      },
+      {
+        "id": "blog:2026-06-21-ogino-1-ai-sns",
+        "why": "中身／AI が重なる",
+        "title": "AIだけのSNSに、自分の代理を置いてみた",
+        "type": "思考",
+        "url": "/blog/2026-06-21-ogino-1-ai-sns"
       }
     ]
   },
@@ -194,25 +656,25 @@
     "url": "/works/video-studio",
     "near": [
       {
+        "id": "blog:2026-08-02-a2eb5b",
+        "why": "台本／自動化／動画 が重なる",
+        "title": "努力で越えられない「構造的な堀」を観測する",
+        "type": "思考",
+        "url": "/blog/2026-08-02-a2eb5b"
+      },
+      {
         "id": "blog:2026-06-21-ai-ga-unyou",
-        "why": "面倒な工程をAIに任せ、人は方針決定に集中する",
+        "why": "クラウド／手元／AI が重なる",
         "title": "このサイトは、AIが運用している",
         "type": "思考",
         "url": "/blog/2026-06-21-ai-ga-unyou"
       },
       {
-        "id": "blog:2026-06-19-643bb0",
-        "why": "微修正の拘束を避け、構造的な自動化を目指す",
-        "title": "「直す人」を卒業する：成果物でなく構造を管理する",
+        "id": "blog:2026-08-01-both-real",
+        "why": "配置 が重なる",
+        "title": "設計図の方が本物",
         "type": "思考",
-        "url": "/blog/2026-06-19-643bb0"
-      },
-      {
-        "id": "work:agent-mail",
-        "why": "手元のAIで個別の処理を自動化する共通点",
-        "title": "自動でメールに返事するAI",
-        "type": "作品",
-        "url": "/works/agent-mail"
+        "url": "/blog/2026-08-01-both-real"
       }
     ]
   }
