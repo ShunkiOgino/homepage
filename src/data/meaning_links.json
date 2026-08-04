@@ -6,7 +6,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-both-real",
-        "why": "面白／ゼロ／実装 が重なる",
+        "why": "面白／実装／ゼロ が重なる",
         "title": "設計図の方が本物",
         "type": "思考",
         "url": "/blog/2026-08-01-both-real"
@@ -34,7 +34,7 @@
     "near": [
       {
         "id": "blog:2026-08-02-ai-08-start-a-new-one",
-        "why": "方針／手元／意味 が重なる",
+        "why": "方針／意味／手元 が重なる",
         "title": "続けるより、始め直す",
         "type": "思考",
         "url": "/blog/2026-08-02-ai-08-start-a-new-one"
@@ -61,11 +61,11 @@
     "url": "/blog/2026-06-21-ai-ni-jikoshoukai",
     "near": [
       {
-        "id": "blog:2026-08-01-why-records-feel-wrong",
-        "why": "索引／実験／データ が重なる",
-        "title": "薄れないから、気味が悪い",
+        "id": "blog:2026-08-02-ai-11-retrieval-is-weak",
+        "why": "ページ／索引／実験 が重なる",
+        "title": "賢いモデルにしても、索引は良くならない",
         "type": "思考",
-        "url": "/blog/2026-08-01-why-records-feel-wrong"
+        "url": "/blog/2026-08-02-ai-11-retrieval-is-weak"
       },
       {
         "id": "blog:2026-06-21-ogino-1-ai-sns",
@@ -89,11 +89,11 @@
     "url": "/blog/2026-06-21-ogino-1-ai-sns",
     "near": [
       {
-        "id": "blog:2026-06-21-ai-ga-unyou",
-        "why": "SNS／個人情報／承認 が重なる",
-        "title": "このサイトは、AIが運用している",
+        "id": "blog:2026-08-01-ai-05-harness-not-model",
+        "why": "感覚／一人／会話 が重なる",
+        "title": "記憶はモデルの仕事ではない",
         "type": "思考",
-        "url": "/blog/2026-06-21-ai-ga-unyou"
+        "url": "/blog/2026-08-01-ai-05-harness-not-model"
       },
       {
         "id": "blog:2026-06-21-ai-ni-jikoshoukai",
@@ -139,7 +139,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-uso-no-jikoshoukai",
-        "why": "ワークライフバランス／安定／成長 が重なる",
+        "why": "ワークライフバランス／成長／安定 が重なる",
         "title": "面接対策とは、嘘の自己紹介の練習である",
         "type": "思考",
         "url": "/blog/2026-07-20-uso-no-jikoshoukai"
@@ -187,11 +187,11 @@
     "url": "/blog/2026-07-20-mittsu-no-ikikata",
     "near": [
       {
-        "id": "blog:2026-07-20-naka-wo-miru-kenri",
-        "why": "給料／作業／唯一 が重なる",
-        "title": "就職で買っているのは、中を見る権利",
+        "id": "blog:2026-08-02-ai-11-retrieval-is-weak",
+        "why": "正解／変換／性質 が重なる",
+        "title": "賢いモデルにしても、索引は良くならない",
         "type": "思考",
-        "url": "/blog/2026-07-20-naka-wo-miru-kenri"
+        "url": "/blog/2026-08-02-ai-11-retrieval-is-weak"
       },
       {
         "id": "blog:2026-07-20-ichiban-to-yuka",
@@ -216,7 +216,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-yuka-wa-jitsuzai-suru",
-        "why": "生活／学校／権利 が重なる",
+        "why": "生活／学校／給料 が重なる",
         "title": "「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない",
         "type": "思考",
         "url": "/blog/2026-07-20-yuka-wa-jitsuzai-suru"
@@ -300,7 +300,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-yuka-wa-jitsuzai-suru",
-        "why": "梯子／気楽／約束 が重なる",
+        "why": "梯子／気楽／選択 が重なる",
         "title": "「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない",
         "type": "思考",
         "url": "/blog/2026-07-20-yuka-wa-jitsuzai-suru"
@@ -321,7 +321,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-mittsu-no-ikikata",
-        "why": "前提／貯金／給料 が重なる",
+        "why": "貯金／給料／前提 が重なる",
         "title": "三つの生き方は、三つとも正解",
         "type": "思考",
         "url": "/blog/2026-07-20-mittsu-no-ikikata"
@@ -341,11 +341,11 @@
     "url": "/blog/2026-07-20-yuzurenai-mono",
     "near": [
       {
-        "id": "blog:2026-07-20-ichiban-to-yuka",
-        "why": "宣言／img／pipes が重なる",
-        "title": "一番を決めないと、席があなたの一番を決める",
+        "id": "blog:2026-08-01-ai-05-harness-not-model",
+        "why": "過去／手放／記録 が重なる",
+        "title": "記憶はモデルの仕事ではない",
         "type": "思考",
-        "url": "/blog/2026-07-20-ichiban-to-yuka"
+        "url": "/blog/2026-08-01-ai-05-harness-not-model"
       },
       {
         "id": "blog:2026-07-20-uso-no-jikoshoukai",
@@ -356,17 +356,101 @@
       }
     ]
   },
+  "blog:2026-08-01-ai-01-born-from-translation": {
+    "title": "あれは翻訳機の子孫である",
+    "type": "思考",
+    "url": "/blog/2026-08-01-ai-01-born-from-translation",
+    "near": [
+      {
+        "id": "blog:2026-08-01-ai-04-the-window-is-everything",
+        "why": "注意機構／一七年／機械翻訳 が重なる",
+        "title": "窓の外は、無い",
+        "type": "思考",
+        "url": "/blog/2026-08-01-ai-04-the-window-is-everything"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-01-ai-02-probability-machine": {
+    "title": "所詮は確率生成器である",
+    "type": "思考",
+    "url": "/blog/2026-08-01-ai-02-probability-machine",
+    "near": [
+      {
+        "id": "blog:2026-08-02-ai-11-retrieval-is-weak",
+        "why": "番号／条文／出典 が重なる",
+        "title": "賢いモデルにしても、索引は良くならない",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-11-retrieval-is-weak"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
   "blog:2026-08-01-ai-03-text-in-text-out": {
     "title": "文章を渡すと、文章が出てくる",
     "type": "思考",
     "url": "/blog/2026-08-01-ai-03-text-in-text-out",
     "near": [
       {
-        "id": "blog:2026-08-02-ai-08-start-a-new-one",
-        "why": "料金／毎回／十往復目 が重なる",
-        "title": "続けるより、始め直す",
+        "id": "blog:2026-08-01-ai-05-harness-not-model",
+        "why": "体験／履歴／一覧 が重なる",
+        "title": "記憶はモデルの仕事ではない",
         "type": "思考",
-        "url": "/blog/2026-08-02-ai-08-start-a-new-one"
+        "url": "/blog/2026-08-01-ai-05-harness-not-model"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-01-ai-04-the-window-is-everything": {
+    "title": "窓の外は、無い",
+    "type": "思考",
+    "url": "/blog/2026-08-01-ai-04-the-window-is-everything",
+    "near": [
+      {
+        "id": "blog:2026-08-01-ai-01-born-from-translation",
+        "why": "注意機構／一七年／機械翻訳 が重なる",
+        "title": "あれは翻訳機の子孫である",
+        "type": "思考",
+        "url": "/blog/2026-08-01-ai-01-born-from-translation"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-01-ai-05-harness-not-model": {
+    "title": "記憶はモデルの仕事ではない",
+    "type": "思考",
+    "url": "/blog/2026-08-01-ai-05-harness-not-model",
+    "near": [
+      {
+        "id": "blog:2026-08-02-ai-11-retrieval-is-weak",
+        "why": "ChatGPT／自前／身近 が重なる",
+        "title": "賢いモデルにしても、索引は良くならない",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-11-retrieval-is-weak"
       },
       {
         "id": "work:agent-mail",
@@ -426,7 +510,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "GeForce／一二年／動機 が重なる",
+        "why": "一二年／動機／GeForce が重なる",
         "title": "断る側が、決める側になる",
         "type": "思考",
         "url": "/blog/2026-08-01-the-power-to-refuse"
@@ -447,7 +531,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-nothing-stays-buried",
-        "why": "ドロシー／自然選択／事例 が重なる",
+        "why": "事例／秘密／ドロシー が重なる",
         "title": "埋もれた才能は、ほとんど無い",
         "type": "思考",
         "url": "/blog/2026-08-01-nothing-stays-buried"
@@ -468,7 +552,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-no-secrets-only-obvious",
-        "why": "ドロシー／自然選択／事例 が重なる",
+        "why": "事例／秘密／ドロシー が重なる",
         "title": "秘密は無い、当たり前ならある",
         "type": "思考",
         "url": "/blog/2026-08-01-no-secrets-only-obvious"
@@ -503,7 +587,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-no-secrets-only-obvious",
-        "why": "研究開発費／粗利／文句 が重なる",
+        "why": "株主／三分／粗利 が重なる",
         "title": "秘密は無い、当たり前ならある",
         "type": "思考",
         "url": "/blog/2026-08-01-no-secrets-only-obvious"
@@ -524,17 +608,17 @@
     "near": [
       {
         "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "パーセント／一部／対象 が重なる",
+        "why": "パーセント／対象／一部 が重なる",
         "title": "断る側が、決める側になる",
         "type": "思考",
         "url": "/blog/2026-08-01-the-power-to-refuse"
       },
       {
-        "id": "work:game",
+        "id": "work:agent-mail",
         "why": "手を動かした実物",
-        "title": "散逸構造ゲーム",
+        "title": "自動でメールに返事するAI",
         "type": "作品",
-        "url": "/game/"
+        "url": "/works/agent-mail"
       }
     ]
   },
@@ -544,11 +628,11 @@
     "url": "/blog/2026-08-01-why-records-feel-wrong",
     "near": [
       {
-        "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "一九九八年／エンジン／リンク が重なる",
-        "title": "断る側が、決める側になる",
+        "id": "blog:2026-08-02-ai-11-retrieval-is-weak",
+        "why": "一件／エンジン／索引 が重なる",
+        "title": "賢いモデルにしても、索引は良くならない",
         "type": "思考",
-        "url": "/blog/2026-08-01-the-power-to-refuse"
+        "url": "/blog/2026-08-02-ai-11-retrieval-is-weak"
       },
       {
         "id": "work:game",
@@ -565,11 +649,11 @@
     "url": "/blog/2026-08-02-a2eb5b",
     "near": [
       {
-        "id": "blog:2026-08-03-a96c9d",
-        "why": "直面／明確／構造的 が重なる",
-        "title": "ID支配とエージェントの自律性のトレードオフ",
+        "id": "blog:2026-08-01-ai-05-harness-not-model",
+        "why": "Code／以前／評価 が重なる",
+        "title": "記憶はモデルの仕事ではない",
         "type": "思考",
-        "url": "/blog/2026-08-03-a96c9d"
+        "url": "/blog/2026-08-01-ai-05-harness-not-model"
       },
       {
         "id": "blog:2026-06-09-4e8c7e",
@@ -587,6 +671,27 @@
       }
     ]
   },
+  "blog:2026-08-02-ai-07-cut-to-fit-the-window": {
+    "title": "窓に入る単位に、仕事を切る",
+    "type": "思考",
+    "url": "/blog/2026-08-02-ai-07-cut-to-fit-the-window",
+    "near": [
+      {
+        "id": "blog:2026-08-02-ai-11-retrieval-is-weak",
+        "why": "精度／上限／大量 が重なる",
+        "title": "賢いモデルにしても、索引は良くならない",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-11-retrieval-is-weak"
+      },
+      {
+        "id": "work:video-studio",
+        "why": "手を動かした実物",
+        "title": "動画を作るスタジオ",
+        "type": "作品",
+        "url": "/works/video-studio"
+      }
+    ]
+  },
   "blog:2026-08-02-ai-08-start-a-new-one": {
     "title": "続けるより、始め直す",
     "type": "思考",
@@ -594,7 +699,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-ai-03-text-in-text-out",
-        "why": "料金／毎回／十往復目 が重なる",
+        "why": "十往復目／料金／後半 が重なる",
         "title": "文章を渡すと、文章が出てくる",
         "type": "思考",
         "url": "/blog/2026-08-01-ai-03-text-in-text-out"
@@ -615,10 +720,73 @@
     "near": [
       {
         "id": "blog:2026-08-02-ai-16-reading-and-writing-only",
-        "why": "以上／記法／日本語 が重なる",
+        "why": "プログラミング／記法／記号 が重なる",
         "title": "読み書きしかできない",
         "type": "思考",
         "url": "/blog/2026-08-02-ai-16-reading-and-writing-only"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-02-ai-11-retrieval-is-weak": {
+    "title": "賢いモデルにしても、索引は良くならない",
+    "type": "思考",
+    "url": "/blog/2026-08-02-ai-11-retrieval-is-weak",
+    "near": [
+      {
+        "id": "blog:2026-08-01-ai-05-harness-not-model",
+        "why": "ChatGPT／自前／身近 が重なる",
+        "title": "記憶はモデルの仕事ではない",
+        "type": "思考",
+        "url": "/blog/2026-08-01-ai-05-harness-not-model"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-02-ai-12-thinking-happens-in-the-output": {
+    "title": "考えているのは、出力の中である",
+    "type": "思考",
+    "url": "/blog/2026-08-02-ai-12-thinking-happens-in-the-output",
+    "near": [
+      {
+        "id": "blog:2026-08-01-ai-04-the-window-is-everything",
+        "why": "一語／一行／前提 が重なる",
+        "title": "窓の外は、無い",
+        "type": "思考",
+        "url": "/blog/2026-08-01-ai-04-the-window-is-everything"
+      },
+      {
+        "id": "work:game",
+        "why": "手を動かした実物",
+        "title": "散逸構造ゲーム",
+        "type": "作品",
+        "url": "/game/"
+      }
+    ]
+  },
+  "blog:2026-08-02-ai-13-why-arithmetic-fails": {
+    "title": "計算が苦手なのは、直らない",
+    "type": "思考",
+    "url": "/blog/2026-08-02-ai-13-why-arithmetic-fails",
+    "near": [
+      {
+        "id": "blog:2026-08-02-ai-10-code-is-text",
+        "why": "証拠／記号／得意 が重なる",
+        "title": "コードが書けるのは、コードが文章だからである",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-10-code-is-text"
       },
       {
         "id": "work:agent-mail",
@@ -636,7 +804,7 @@
     "near": [
       {
         "id": "blog:2026-08-02-ai-15-what-can-it-do",
-        "why": "採点／判定／手続 が重なる",
+        "why": "採点／判定／自動 が重なる",
         "title": "どんな仕事を任せられるのか",
         "type": "思考",
         "url": "/blog/2026-08-02-ai-15-what-can-it-do"
@@ -657,7 +825,7 @@
     "near": [
       {
         "id": "blog:2026-08-02-ai-16-reading-and-writing-only",
-        "why": "録音／手続／手順 が重なる",
+        "why": "録音／返事／要約 が重なる",
         "title": "読み書きしかできない",
         "type": "思考",
         "url": "/blog/2026-08-02-ai-16-reading-and-writing-only"
@@ -678,7 +846,7 @@
     "near": [
       {
         "id": "blog:2026-08-02-ai-10-code-is-text",
-        "why": "以上／記法／日本語 が重なる",
+        "why": "プログラミング／記法／記号 が重なる",
         "title": "コードが書けるのは、コードが文章だからである",
         "type": "思考",
         "url": "/blog/2026-08-02-ai-10-code-is-text"
@@ -698,11 +866,11 @@
     "url": "/blog/2026-08-03-a96c9d",
     "near": [
       {
-        "id": "blog:2026-08-02-ai-15-what-can-it-do",
-        "why": "特定／メール／仕様 が重なる",
-        "title": "どんな仕事を任せられるのか",
+        "id": "blog:2026-08-02-a2eb5b",
+        "why": "直面／構造的／明確 が重なる",
+        "title": "努力で越えられない「構造的な堀」を観測する",
         "type": "思考",
-        "url": "/blog/2026-08-02-ai-15-what-can-it-do"
+        "url": "/blog/2026-08-02-a2eb5b"
       },
       {
         "id": "blog:2026-06-21-ogino-1-ai-sns",
@@ -754,6 +922,13 @@
     "url": "/works/agent-mail",
     "near": [
       {
+        "id": "blog:2026-08-02-ai-15-what-can-it-do",
+        "why": "返事／メール／自動 が重なる",
+        "title": "どんな仕事を任せられるのか",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-15-what-can-it-do"
+      },
+      {
         "id": "blog:2026-08-02-ai-16-reading-and-writing-only",
         "why": "整理／返事／処理 が重なる",
         "title": "読み書きしかできない",
@@ -761,18 +936,11 @@
         "url": "/blog/2026-08-02-ai-16-reading-and-writing-only"
       },
       {
-        "id": "blog:2026-08-02-ai-15-what-can-it-do",
-        "why": "自動／返事／処理 が重なる",
-        "title": "どんな仕事を任せられるのか",
+        "id": "blog:2026-08-02-ai-13-why-arithmetic-fails",
+        "why": "自動／処理／範囲 が重なる",
+        "title": "計算が苦手なのは、直らない",
         "type": "思考",
-        "url": "/blog/2026-08-02-ai-15-what-can-it-do"
-      },
-      {
-        "id": "blog:2026-06-21-ai-ga-unyou",
-        "why": "ローカル／手元／AI が重なる",
-        "title": "このサイトは、AIが運用している",
-        "type": "思考",
-        "url": "/blog/2026-06-21-ai-ga-unyou"
+        "url": "/blog/2026-08-02-ai-13-why-arithmetic-fails"
       }
     ]
   },
@@ -783,7 +951,7 @@
     "near": [
       {
         "id": "blog:2026-08-02-a2eb5b",
-        "why": "自動化／動画／台本 が重なる",
+        "why": "自動化／台本／動画 が重なる",
         "title": "努力で越えられない「構造的な堀」を観測する",
         "type": "思考",
         "url": "/blog/2026-08-02-a2eb5b"
