@@ -33,11 +33,11 @@
     "url": "/blog/2026-06-21-ai-ga-unyou",
     "near": [
       {
-        "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "正直／最後／意味 が重なる",
-        "title": "断る側が、決める側になる",
+        "id": "blog:2026-08-02-ai-08-start-a-new-one",
+        "why": "方針／文章／Claude が重なる",
+        "title": "続けるより、始め直す",
         "type": "思考",
-        "url": "/blog/2026-08-01-the-power-to-refuse"
+        "url": "/blog/2026-08-02-ai-08-start-a-new-one"
       },
       {
         "id": "blog:2026-06-21-ogino-1-ai-sns",
@@ -62,7 +62,7 @@
     "near": [
       {
         "id": "blog:2026-06-09-4e8c7e",
-        "why": "手間／エージェント／必要 が重なる",
+        "why": "手間／エージェント／人間 が重なる",
         "title": "実装コストがゼロになる世界で、僕たちが作るべきもの",
         "type": "思考",
         "url": "/blog/2026-06-09-4e8c7e"
@@ -139,7 +139,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-uso-no-jikoshoukai",
-        "why": "ワークライフバランス／安定／求人票 が重なる",
+        "why": "ワークライフバランス／成長／安定 が重なる",
         "title": "面接対策とは、嘘の自己紹介の練習である",
         "type": "思考",
         "url": "/blog/2026-07-20-uso-no-jikoshoukai"
@@ -160,7 +160,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-tsuzuita-mono",
-        "why": "自己分析／願望／事実 が重なる",
+        "why": "自己分析／願望／観測 が重なる",
         "title": "志望動機は書ける。続いたものは、捏造できない",
         "type": "思考",
         "url": "/blog/2026-07-20-tsuzuita-mono"
@@ -188,7 +188,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-naka-wo-miru-kenri",
-        "why": "給料／作業／最初 が重なる",
+        "why": "給料／作業／唯一 が重なる",
         "title": "就職で買っているのは、中を見る権利",
         "type": "思考",
         "url": "/blog/2026-07-20-naka-wo-miru-kenri"
@@ -215,11 +215,11 @@
     "url": "/blog/2026-07-20-naka-wo-miru-kenri",
     "near": [
       {
-        "id": "blog:2026-07-20-mittsu-no-ikikata",
-        "why": "給料／作業／最初 が重なる",
-        "title": "三つの生き方は、三つとも正解",
+        "id": "blog:2026-07-20-yuka-wa-jitsuzai-suru",
+        "why": "生活／学校／権利 が重なる",
+        "title": "「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない",
         "type": "思考",
-        "url": "/blog/2026-07-20-mittsu-no-ikikata"
+        "url": "/blog/2026-07-20-yuka-wa-jitsuzai-suru"
       },
       {
         "id": "blog:2026-07-20-kansoku-zero",
@@ -244,7 +244,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-kansoku-zero",
-        "why": "自己分析／願望／事実 が重なる",
+        "why": "自己分析／願望／観測 が重なる",
         "title": "就活がうまくいかないのは、自己分析が足りないからじゃない",
         "type": "思考",
         "url": "/blog/2026-07-20-kansoku-zero"
@@ -300,7 +300,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-yuka-wa-jitsuzai-suru",
-        "why": "気楽／梯子／約束 が重なる",
+        "why": "梯子／気楽／約束 が重なる",
         "title": "「落ちたら終わり」の終わりは、調べていない人の想像の中にしかない",
         "type": "思考",
         "url": "/blog/2026-07-20-yuka-wa-jitsuzai-suru"
@@ -321,7 +321,7 @@
     "near": [
       {
         "id": "blog:2026-07-20-mittsu-no-ikikata",
-        "why": "前提／給料／貯金 が重なる",
+        "why": "前提／貯金／給料 が重なる",
         "title": "三つの生き方は、三つとも正解",
         "type": "思考",
         "url": "/blog/2026-07-20-mittsu-no-ikikata"
@@ -342,7 +342,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-both-real",
-        "why": "本物／過去／全部 が重なる",
+        "why": "過去／本物／必要 が重なる",
         "title": "設計図の方が本物",
         "type": "思考",
         "url": "/blog/2026-08-01-both-real"
@@ -353,6 +353,27 @@
         "title": "面接対策とは、嘘の自己紹介の練習である",
         "type": "思考",
         "url": "/blog/2026-07-20-uso-no-jikoshoukai"
+      }
+    ]
+  },
+  "blog:2026-08-01-ai-03-text-in-text-out": {
+    "title": "文章を渡すと、文章が出てくる",
+    "type": "思考",
+    "url": "/blog/2026-08-01-ai-03-text-in-text-out",
+    "near": [
+      {
+        "id": "blog:2026-08-02-ai-08-start-a-new-one",
+        "why": "九往復分／毎回／後半 が重なる",
+        "title": "続けるより、始め直す",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-08-start-a-new-one"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
       }
     ]
   },
@@ -384,7 +405,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "我々／一枚／対象 が重なる",
+        "why": "一枚／我々／対象 が重なる",
         "title": "断る側が、決める側になる",
         "type": "思考",
         "url": "/blog/2026-08-01-the-power-to-refuse"
@@ -405,7 +426,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "順番／GPU／一二年 が重なる",
+        "why": "GeForce／動機／性能 が重なる",
         "title": "断る側が、決める側になる",
         "type": "思考",
         "url": "/blog/2026-08-01-the-power-to-refuse"
@@ -426,7 +447,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-nothing-stays-buried",
-        "why": "大学／一九二二年／微積分 が重なる",
+        "why": "秘密／コロンビア／オグバーン が重なる",
         "title": "埋もれた才能は、ほとんど無い",
         "type": "思考",
         "url": "/blog/2026-08-01-nothing-stays-buried"
@@ -447,7 +468,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-no-secrets-only-obvious",
-        "why": "大学／一九二二年／微積分 が重なる",
+        "why": "秘密／コロンビア／オグバーン が重なる",
         "title": "秘密は無い、当たり前ならある",
         "type": "思考",
         "url": "/blog/2026-08-01-no-secrets-only-obvious"
@@ -461,7 +482,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "絶対／研究／順位 が重なる",
+        "why": "絶対／順位／研究 が重なる",
         "title": "断る側が、決める側になる",
         "type": "思考",
         "url": "/blog/2026-08-01-the-power-to-refuse"
@@ -482,7 +503,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-no-secrets-only-obvious",
-        "why": "文句／粗利／株主 が重なる",
+        "why": "三分／粗利／研究開発費 が重なる",
         "title": "秘密は無い、当たり前ならある",
         "type": "思考",
         "url": "/blog/2026-08-01-no-secrets-only-obvious"
@@ -503,7 +524,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "パーセント／一部／対象 が重なる",
+        "why": "一部／パーセント／対象 が重なる",
         "title": "断る側が、決める側になる",
         "type": "思考",
         "url": "/blog/2026-08-01-the-power-to-refuse"
@@ -524,7 +545,7 @@
     "near": [
       {
         "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "一九九八年／エンジン／関係 が重なる",
+        "why": "エンジン／一九九八年／リンク が重なる",
         "title": "断る側が、決める側になる",
         "type": "思考",
         "url": "/blog/2026-08-01-the-power-to-refuse"
@@ -545,7 +566,7 @@
     "near": [
       {
         "id": "blog:2026-08-03-a96c9d",
-        "why": "直面／特定／明確 が重なる",
+        "why": "直面／明確／特定 が重なる",
         "title": "ID支配とエージェントの自律性のトレードオフ",
         "type": "思考",
         "url": "/blog/2026-08-03-a96c9d"
@@ -566,17 +587,80 @@
       }
     ]
   },
+  "blog:2026-08-02-ai-08-start-a-new-one": {
+    "title": "続けるより、始め直す",
+    "type": "思考",
+    "url": "/blog/2026-08-02-ai-08-start-a-new-one",
+    "near": [
+      {
+        "id": "blog:2026-08-01-ai-03-text-in-text-out",
+        "why": "九往復分／毎回／後半 が重なる",
+        "title": "文章を渡すと、文章が出てくる",
+        "type": "思考",
+        "url": "/blog/2026-08-01-ai-03-text-in-text-out"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-02-ai-15-what-can-it-do": {
+    "title": "どんな仕事を任せられるのか",
+    "type": "思考",
+    "url": "/blog/2026-08-02-ai-15-what-can-it-do",
+    "near": [
+      {
+        "id": "blog:2026-08-02-ai-16-reading-and-writing-only",
+        "why": "手続／翻訳／手順 が重なる",
+        "title": "読み書きしかできない",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-16-reading-and-writing-only"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
+  "blog:2026-08-02-ai-16-reading-and-writing-only": {
+    "title": "読み書きしかできない",
+    "type": "思考",
+    "url": "/blog/2026-08-02-ai-16-reading-and-writing-only",
+    "near": [
+      {
+        "id": "blog:2026-08-02-ai-15-what-can-it-do",
+        "why": "手続／翻訳／手順 が重なる",
+        "title": "どんな仕事を任せられるのか",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-15-what-can-it-do"
+      },
+      {
+        "id": "work:agent-mail",
+        "why": "手を動かした実物",
+        "title": "自動でメールに返事するAI",
+        "type": "作品",
+        "url": "/works/agent-mail"
+      }
+    ]
+  },
   "blog:2026-08-03-a96c9d": {
     "title": "ID支配とエージェントの自律性のトレードオフ",
     "type": "思考",
     "url": "/blog/2026-08-03-a96c9d",
     "near": [
       {
-        "id": "blog:2026-08-02-a2eb5b",
-        "why": "直面／特定／明確 が重なる",
-        "title": "努力で越えられない「構造的な堀」を観測する",
+        "id": "blog:2026-08-02-ai-15-what-can-it-do",
+        "why": "特定／メール／存在 が重なる",
+        "title": "どんな仕事を任せられるのか",
         "type": "思考",
-        "url": "/blog/2026-08-02-a2eb5b"
+        "url": "/blog/2026-08-02-ai-15-what-can-it-do"
       },
       {
         "id": "blog:2026-06-21-ogino-1-ai-sns",
@@ -628,25 +712,25 @@
     "url": "/works/agent-mail",
     "near": [
       {
+        "id": "blog:2026-08-02-ai-15-what-can-it-do",
+        "why": "自動／処理／メール が重なる",
+        "title": "どんな仕事を任せられるのか",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-15-what-can-it-do"
+      },
+      {
+        "id": "blog:2026-08-02-ai-16-reading-and-writing-only",
+        "why": "整理／処理／返事 が重なる",
+        "title": "読み書きしかできない",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-16-reading-and-writing-only"
+      },
+      {
         "id": "blog:2026-06-21-ai-ga-unyou",
         "why": "ローカル／手元／AI が重なる",
         "title": "このサイトは、AIが運用している",
         "type": "思考",
         "url": "/blog/2026-06-21-ai-ga-unyou"
-      },
-      {
-        "id": "blog:2026-08-01-the-power-to-refuse",
-        "why": "範囲／相手 が重なる",
-        "title": "断る側が、決める側になる",
-        "type": "思考",
-        "url": "/blog/2026-08-01-the-power-to-refuse"
-      },
-      {
-        "id": "blog:2026-06-21-ogino-1-ai-sns",
-        "why": "中身／AI が重なる",
-        "title": "AIだけのSNSに、自分の代理を置いてみた",
-        "type": "思考",
-        "url": "/blog/2026-06-21-ogino-1-ai-sns"
       }
     ]
   },
@@ -657,10 +741,17 @@
     "near": [
       {
         "id": "blog:2026-08-02-a2eb5b",
-        "why": "台本／自動化／動画 が重なる",
+        "why": "動画／台本／自動化 が重なる",
         "title": "努力で越えられない「構造的な堀」を観測する",
         "type": "思考",
         "url": "/blog/2026-08-02-a2eb5b"
+      },
+      {
+        "id": "blog:2026-08-02-ai-16-reading-and-writing-only",
+        "why": "音声／内容／AI が重なる",
+        "title": "読み書きしかできない",
+        "type": "思考",
+        "url": "/blog/2026-08-02-ai-16-reading-and-writing-only"
       },
       {
         "id": "blog:2026-06-21-ai-ga-unyou",
@@ -668,13 +759,6 @@
         "title": "このサイトは、AIが運用している",
         "type": "思考",
         "url": "/blog/2026-06-21-ai-ga-unyou"
-      },
-      {
-        "id": "blog:2026-08-01-both-real",
-        "why": "配置 が重なる",
-        "title": "設計図の方が本物",
-        "type": "思考",
-        "url": "/blog/2026-08-01-both-real"
       }
     ]
   }
