@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-06T06:59:05+09:00",
+ "generated_at": "2026-08-06T09:59:19+09:00",
  "today_activity": {
   "date": "2026-08-06",
   "resolution_min": 30,
@@ -27,7 +27,7 @@
      0,
      0,
      0,
-     0,
+     2,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 0
+    "active_minutes_total": 2
    },
    {
     "key": "air",
@@ -81,9 +81,9 @@
      0,
      0,
      0,
-     0,
-     0,
-     0,
+     7,
+     10,
+     14,
      0,
      0,
      0,
@@ -113,7 +113,7 @@
      0,
      0
     ],
-    "active_minutes_total": 0
+    "active_minutes_total": 31
    }
   ]
  },
@@ -140,9 +140,9 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
+   4,
+   1,
+   5,
    0,
    0,
    0,
@@ -172,19 +172,20 @@
    0,
    0
   ],
-  "active_minutes_total": 26
+  "active_minutes_total": 36
  },
  "today_steps": {
   "date": "2026-08-06",
   "steps": 0,
-  "as_of_min": 352,
+  "as_of_min": 573,
   "floor": 8000
  },
  "now": {
-  "status": "asleep",
-  "awake": false,
+  "status": "away",
+  "awake": true,
   "last_active": "今",
-  "night_owl": false
+  "night_owl": false,
+  "away_minutes": 30
  },
  "health_signal": {
   "date": "2026-08-06",
