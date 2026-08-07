@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-07T12:59:59+09:00",
+ "generated_at": "2026-08-07T15:59:04+09:00",
  "today_activity": {
   "date": "2026-08-07",
   "resolution_min": 30,
@@ -38,9 +38,9 @@
      0,
      0,
      0,
-     0,
-     0,
-     0,
+     4,
+     2,
+     1,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 58
+    "active_minutes_total": 65
    },
    {
     "key": "air",
@@ -90,12 +90,12 @@
      0,
      6,
      18,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
+     26,
+     30,
+     28,
+     29,
+     30,
+     28,
      0,
      0,
      0,
@@ -113,7 +113,7 @@
      0,
      0
     ],
-    "active_minutes_total": 24
+    "active_minutes_total": 195
    }
   ]
  },
@@ -150,10 +150,10 @@
    10,
    0,
    0,
+   3,
+   6,
    0,
-   0,
-   0,
-   0,
+   2,
    0,
    0,
    0,
@@ -172,12 +172,12 @@
    0,
    0
   ],
-  "active_minutes_total": 91
+  "active_minutes_total": 102
  },
  "today_steps": {
   "date": "2026-08-07",
   "steps": 2876,
-  "as_of_min": 744,
+  "as_of_min": 912,
   "floor": 8000
  },
  "now": {
