@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-15T10:04:40+09:00",
+ "generated_at": "2026-08-15T13:05:16+09:00",
  "today_activity": {
   "date": "2026-08-15",
   "resolution_min": 30,
@@ -33,8 +33,8 @@
      0,
      0,
      0,
-     0,
-     0,
+     9,
+     13,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 1
+    "active_minutes_total": 23
    },
    {
     "key": "air",
@@ -146,9 +146,9 @@
    0,
    0,
    0,
-   0,
-   0,
-   0,
+   6,
+   5,
+   10,
    0,
    0,
    0,
@@ -172,20 +172,24 @@
    0,
    0
   ],
-  "active_minutes_total": 46
+  "active_minutes_total": 67
  },
- "today_steps": null,
+ "today_steps": {
+  "date": "2026-08-15",
+  "steps": 0,
+  "as_of_min": 750,
+  "floor": 8000
+ },
  "now": {
-  "status": "away",
+  "status": "around",
   "awake": true,
   "last_active": "今",
-  "night_owl": false,
-  "away_minutes": 577
+  "night_owl": false
  },
  "health_signal": {
   "date": "2026-08-15",
   "color": "yellow",
-  "verdict": "夜更かし（5:00台まで画面使用）・歩数欠測＝判定不能",
+  "verdict": "夜更かし（5:00台まで画面使用）・歩数未確定（途中集計のみ）＝判定不能",
   "steps": null,
   "floor": 8000
  }
