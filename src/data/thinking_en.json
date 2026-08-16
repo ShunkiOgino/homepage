@@ -1,13 +1,13 @@
 {
   "weeks": [
-    "6/22",
     "6/29",
     "7/6",
     "7/13",
     "7/20",
     "7/27",
     "8/3",
-    "8/10"
+    "8/10",
+    "8/17"
   ],
   "themes": [
     {
@@ -15,8 +15,8 @@
       "cells": [
         0,
         0,
-        0,
         2,
+        0,
         0,
         0,
         0,
@@ -28,10 +28,10 @@
     {
       "title": "Redefining metrics to align with strategic intent.",
       "cells": [
-        4,
         6,
         6,
         1,
+        0,
         0,
         0,
         0,
@@ -50,9 +50,9 @@
       "title": "Maintaining Specificity in AI Generation and Quantitative Analysis of Short-Form Videos",
       "cells": [
         3,
-        3,
         2,
         1,
+        0,
         0,
         0,
         0,
@@ -62,12 +62,48 @@
       "posts": []
     },
     {
-      "title": "Engineering operationalization of the objective function by eliminating essentialism.",
+      "title": "Investing in means of production as a survival strategy",
       "cells": [
         2,
         1,
         1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-14",
+      "posts": []
+    },
+    {
+      "title": "The tradeoff between platform ID control and agent autonomy",
+      "cells": [
         1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-14",
+      "posts": [
+        {
+          "slug": "2026-08-03-a96c9d",
+          "title": "The Trade-off Between ID Control and Agent Autonomy",
+          "date": "2026-08-03"
+        }
+      ]
+    },
+    {
+      "title": "Engineering operationalization of the objective function by eliminating essentialism.",
+      "cells": [
+        1,
+        1,
+        1,
+        0,
         0,
         0,
         0,
@@ -84,48 +120,12 @@
       "lead": "When addressing the questions of personality backup and continuity, I deliberately avoid essentialist arguments to narrow the problem down to engineering operations. By bypassing unresolved core questions—such as the nature of identity or whether a copy is \"me\"—and treating them as solved, the only remaining task is the engineering challenge of designing an objective function. Attempting to grasp \"the self\" as an inherent essence is a category error; clinging to such a notion only creates suffering."
     },
     {
-      "title": "Investing in means of production as a survival strategy",
-      "cells": [
-        0,
-        2,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-14",
-      "posts": []
-    },
-    {
-      "title": "The tradeoff between platform ID control and agent autonomy",
-      "cells": [
-        0,
-        1,
-        1,
-        1,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-14",
-      "posts": [
-        {
-          "slug": "2026-08-03-a96c9d",
-          "title": "The Trade-off Between ID Control and Agent Autonomy",
-          "date": "2026-08-03"
-        }
-      ]
-    },
-    {
       "title": "Capital Structure and the Dynamics of Jurisdictional Control",
       "cells": [
         0,
         0,
-        0,
         1,
+        0,
         0,
         0,
         0,
@@ -137,9 +137,9 @@
     {
       "title": "Safe Design and Automation Pipelines for AI Content Delivery",
       "cells": [
-        1,
         7,
         6,
+        0,
         0,
         0,
         0,
@@ -150,11 +150,11 @@
       "posts": []
     },
     {
-      "title": "Intuitive experience delivery and optimized implementation costs.",
+      "title": "AI Memory Injection: Improving RAG Accuracy and Operational Optimization",
       "cells": [
-        6,
-        7,
-        1,
+        8,
+        3,
+        0,
         0,
         0,
         0,
@@ -167,24 +167,9 @@
     {
       "title": "Building and improving monitoring to prevent silent failures",
       "cells": [
-        1,
         9,
         2,
         0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-07",
-      "posts": []
-    },
-    {
-      "title": "Structural Optimization and Control of AI Content Creation",
-      "cells": [
-        2,
-        8,
-        1,
         0,
         0,
         0,
@@ -197,9 +182,24 @@
     {
       "title": "Bug Fixes and Design Improvements Log for AI System Implementation",
       "cells": [
-        1,
         7,
         3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-07",
+      "posts": []
+    },
+    {
+      "title": "Structural Optimization and Control of AI Content Creation",
+      "cells": [
+        8,
+        1,
+        0,
         0,
         0,
         0,
@@ -212,9 +212,9 @@
     {
       "title": "Designed for lightweight local AI.",
       "cells": [
-        4,
         2,
         6,
+        0,
         0,
         0,
         0,
@@ -239,8 +239,8 @@
       "title": "Strength through non-attachment and salvation through desire.",
       "cells": [
         0,
-        0,
         3,
+        0,
         0,
         0,
         0,
@@ -259,8 +259,8 @@
     {
       "title": "Script generation and quality assurance flow for character-driven videos",
       "cells": [
-        0,
         17,
+        0,
         0,
         0,
         0,
@@ -280,8 +280,8 @@
     {
       "title": "Expressiveness Control and Parameter Optimization in TTS",
       "cells": [
-        0,
         7,
+        0,
         0,
         0,
         0,
@@ -309,31 +309,10 @@
       ]
     },
     {
-      "title": "Divergence caused by treating automation as an end in itself and a lack of feedback loops.",
-      "cells": [
-        4,
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-04",
-      "posts": [
-        {
-          "slug": "2026-07-23-81d653",
-          "title": "Why Increasing Processing Speed Can Actually Slow Down Decision-Making",
-          "date": "2026-07-23"
-        }
-      ]
-    },
-    {
       "title": "Epistemological Limits and the Boundaries of Inference Based on Observational Data",
       "cells": [
-        0,
         5,
+        0,
         0,
         0,
         0,
@@ -351,10 +330,31 @@
       ]
     },
     {
-      "title": "Content structuring via non-chronological semantic networks",
+      "title": "Divergence caused by treating automation as an end in itself and a lack of feedback loops.",
       "cells": [
         3,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-04",
+      "posts": [
+        {
+          "slug": "2026-07-23-81d653",
+          "title": "Why Increasing Processing Speed Can Actually Slow Down Decision-Making",
+          "date": "2026-07-23"
+        }
+      ]
+    },
+    {
+      "title": "Content structuring via non-chronological semantic networks",
+      "cells": [
         1,
+        0,
         0,
         0,
         0,
@@ -374,8 +374,8 @@
     {
       "title": "Equivalence of semantic value and exposure risk in information",
       "cells": [
-        0,
         4,
+        0,
         0,
         0,
         0,
