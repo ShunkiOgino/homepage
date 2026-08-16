@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-16T16:09:22+09:00",
+ "generated_at": "2026-08-16T19:05:42+09:00",
  "today_activity": {
   "date": "2026-08-16",
   "resolution_min": 30,
@@ -41,11 +41,11 @@
      14,
      16,
      18,
-     2,
+     6,
      0,
+     5,
      0,
-     0,
-     0,
+     1,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 130
+    "active_minutes_total": 140
    },
    {
     "key": "air",
@@ -181,10 +181,11 @@
   "floor": 8000
  },
  "now": {
-  "status": "around",
+  "status": "away",
   "awake": true,
   "last_active": "今",
-  "night_owl": false
+  "night_owl": false,
+  "away_minutes": 56
  },
  "health_signal": null
 }
