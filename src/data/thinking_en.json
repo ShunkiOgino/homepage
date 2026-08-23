@@ -1,21 +1,21 @@
 {
   "weeks": [
-    "6/29",
     "7/6",
     "7/13",
     "7/20",
     "7/27",
     "8/3",
     "8/10",
-    "8/17"
+    "8/17",
+    "8/24"
   ],
   "themes": [
     {
       "title": "Primary source destinations and the structure of platform-driven information control",
       "cells": [
         0,
-        0,
         2,
+        0,
         0,
         0,
         0,
@@ -29,8 +29,8 @@
       "title": "Redefining metrics to align with strategic intent.",
       "cells": [
         6,
-        6,
         1,
+        0,
         0,
         0,
         0,
@@ -49,24 +49,9 @@
     {
       "title": "Maintaining Specificity in AI Generation and Quantitative Analysis of Short-Form Videos",
       "cells": [
-        3,
         2,
         1,
         0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-14",
-      "posts": []
-    },
-    {
-      "title": "Investing in means of production as a survival strategy",
-      "cells": [
-        2,
-        1,
-        1,
         0,
         0,
         0,
@@ -81,7 +66,7 @@
       "cells": [
         1,
         1,
-        1,
+        0,
         0,
         0,
         0,
@@ -102,7 +87,7 @@
       "cells": [
         1,
         1,
-        1,
+        0,
         0,
         0,
         0,
@@ -120,11 +105,26 @@
       "lead": "When addressing the questions of personality backup and continuity, I deliberately avoid essentialist arguments to narrow the problem down to engineering operations. By bypassing unresolved core questions—such as the nature of identity or whether a copy is \"me\"—and treating them as solved, the only remaining task is the engineering challenge of designing an objective function. Attempting to grasp \"the self\" as an inherent essence is a category error; clinging to such a notion only creates suffering."
     },
     {
+      "title": "Investing in means of production as a survival strategy",
+      "cells": [
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-14",
+      "posts": []
+    },
+    {
       "title": "Capital Structure and the Dynamics of Jurisdictional Control",
       "cells": [
         0,
-        0,
         1,
+        0,
         0,
         0,
         0,
@@ -137,27 +137,12 @@
     {
       "title": "Safe Design and Automation Pipelines for AI Content Delivery",
       "cells": [
-        7,
         6,
         0,
         0,
         0,
         0,
         0,
-        0
-      ],
-      "last": "2026-07-07",
-      "posts": []
-    },
-    {
-      "title": "AI Memory Injection: Improving RAG Accuracy and Operational Optimization",
-      "cells": [
-        8,
-        3,
-        0,
-        0,
-        0,
-        0,
         0,
         0
       ],
@@ -165,10 +150,25 @@
       "posts": []
     },
     {
-      "title": "Building and improving monitoring to prevent silent failures",
+      "title": "Designing AI-based information extraction and disclosure control",
       "cells": [
-        9,
-        2,
+        5,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-07",
+      "posts": []
+    },
+    {
+      "title": "Building an AI-powered insight extraction and automated distribution pipeline",
+      "cells": [
+        4,
+        0,
         0,
         0,
         0,
@@ -182,8 +182,8 @@
     {
       "title": "Bug Fixes and Design Improvements Log for AI System Implementation",
       "cells": [
-        7,
         3,
+        0,
         0,
         0,
         0,
@@ -195,10 +195,10 @@
       "posts": []
     },
     {
-      "title": "Structural Optimization and Control of AI Content Creation",
+      "title": "AI Memory Injection: Improving RAG Accuracy and Operational Optimization",
       "cells": [
-        8,
-        1,
+        3,
+        0,
         0,
         0,
         0,
@@ -212,8 +212,8 @@
     {
       "title": "Designed for lightweight local AI.",
       "cells": [
-        2,
         6,
+        0,
         0,
         0,
         0,
@@ -238,8 +238,8 @@
     {
       "title": "Strength through non-attachment and salvation through desire.",
       "cells": [
-        0,
         3,
+        0,
         0,
         0,
         0,
@@ -257,30 +257,9 @@
       ]
     },
     {
-      "title": "Script generation and quality assurance flow for character-driven videos",
-      "cells": [
-        17,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-05",
-      "posts": [
-        {
-          "slug": "2026-07-22-8b7d0e",
-          "title": "The 'Unnaturalness' of AI Characters Vanishes When Words and Acting are Synchronized",
-          "date": "2026-07-22"
-        }
-      ]
-    },
-    {
       "title": "Expressiveness Control and Parameter Optimization in TTS",
       "cells": [
-        7,
+        0,
         0,
         0,
         0,
@@ -309,9 +288,9 @@
       ]
     },
     {
-      "title": "Epistemological Limits and the Boundaries of Inference Based on Observational Data",
+      "title": "Script generation and quality assurance flow for character-driven videos",
       "cells": [
-        5,
+        0,
         0,
         0,
         0,
@@ -320,40 +299,19 @@
         0,
         0
       ],
-      "last": "2026-07-04",
+      "last": "2026-07-05",
       "posts": [
         {
-          "slug": "2026-07-19-ff9e9c",
-          "title": "What I Learned by Inferring the Future from \"Message History\" Rather Than Calendar Events",
-          "date": "2026-07-19"
-        }
-      ]
-    },
-    {
-      "title": "Divergence caused by treating automation as an end in itself and a lack of feedback loops.",
-      "cells": [
-        3,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-04",
-      "posts": [
-        {
-          "slug": "2026-07-23-81d653",
-          "title": "Why Increasing Processing Speed Can Actually Slow Down Decision-Making",
-          "date": "2026-07-23"
+          "slug": "2026-07-22-8b7d0e",
+          "title": "The 'Unnaturalness' of AI Characters Vanishes When Words and Acting are Synchronized",
+          "date": "2026-07-22"
         }
       ]
     },
     {
       "title": "Content structuring via non-chronological semantic networks",
       "cells": [
-        1,
+        0,
         0,
         0,
         0,
@@ -372,9 +330,51 @@
       ]
     },
     {
+      "title": "Divergence caused by treating automation as an end in itself and a lack of feedback loops.",
+      "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-04",
+      "posts": [
+        {
+          "slug": "2026-07-23-81d653",
+          "title": "Why Increasing Processing Speed Can Actually Slow Down Decision-Making",
+          "date": "2026-07-23"
+        }
+      ]
+    },
+    {
+      "title": "Epistemological Limits and the Boundaries of Inference Based on Observational Data",
+      "cells": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "last": "2026-07-04",
+      "posts": [
+        {
+          "slug": "2026-07-19-ff9e9c",
+          "title": "What I Learned by Inferring the Future from \"Message History\" Rather Than Calendar Events",
+          "date": "2026-07-19"
+        }
+      ]
+    },
+    {
       "title": "Equivalence of semantic value and exposure risk in information",
       "cells": [
-        4,
+        0,
         0,
         0,
         0,
