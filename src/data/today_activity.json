@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-23T19:04:47+09:00",
+ "generated_at": "2026-08-23T22:04:55+09:00",
  "today_activity": {
   "date": "2026-08-23",
   "resolution_min": 30,
@@ -163,7 +163,7 @@
    0,
    0,
    0,
-   0,
+   17,
    0,
    0,
    0,
@@ -172,12 +172,12 @@
    0,
    0
   ],
-  "active_minutes_total": 7
+  "active_minutes_total": 24
  },
  "today_steps": {
   "date": "2026-08-23",
-  "steps": 856,
-  "as_of_min": 1050,
+  "steps": 1487,
+  "as_of_min": 1204,
   "floor": 8000
  },
  "now": {
@@ -185,7 +185,7 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 82
+  "away_minutes": 263
  },
  "health_signal": null
 }
