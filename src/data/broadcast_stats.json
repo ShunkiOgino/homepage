@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-08-30T03:54:47.489587",
+ "generated_at": "2026-08-30T09:50:05.317860",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -20,9 +20,22 @@
   },
   "videos": [
    {
+    "video_id": "FpM9Er8Y0LQ",
+    "title": "8月29日(土)の観測｜PC 2時間56分・歩数8,788歩 #Shorts",
+    "views": 304,
+    "likes": 0,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
     "video_id": "qAU58-m8mYA",
     "title": "8月28日(金)の観測｜PC 4時間49分・歩数15,699歩 #Shorts",
-    "views": 228,
+    "views": 220,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": null,
