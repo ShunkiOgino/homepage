@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-01T19:05:29+09:00",
+ "generated_at": "2026-09-01T22:08:04+09:00",
  "today_activity": {
   "date": "2026-09-01",
   "resolution_min": 30,
@@ -185,7 +185,7 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 114
+  "away_minutes": 296
  },
  "health_signal": null
 }
