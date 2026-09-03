@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-03T22:05:28+09:00",
+ "generated_at": "2026-09-04T07:06:00+09:00",
  "today_activity": {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "resolution_min": 30,
   "bucket_max": 30,
   "devices": [
@@ -9,6 +9,10 @@
     "key": "pro",
     "label": "Pro",
     "buckets": [
+     18,
+     18,
+     24,
+     15,
      0,
      0,
      0,
@@ -17,8 +21,6 @@
      0,
      0,
      0,
-     7,
-     7,
      0,
      0,
      0,
@@ -27,30 +29,28 @@
      0,
      0,
      0,
-     3,
-     2,
-     0,
-     0,
-     0,
-     1,
-     0,
-     0,
-     5,
      0,
      0,
      0,
      0,
-     1,
-     14,
-     14,
-     14,
-     13,
      0,
      0,
      0,
      0,
-     6,
-     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 90
+    "active_minutes_total": 75
    },
    {
     "key": "air",
@@ -87,8 +87,8 @@
      0,
      0,
      0,
-     1,
-     4,
+     0,
+     0,
      0,
      0,
      0,
@@ -113,12 +113,12 @@
      0,
      0
     ],
-    "active_minutes_total": 5
+    "active_minutes_total": 0
    }
   ]
  },
  "today_phone_activity": {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "kind": "app-open-close",
   "resolution_min": 30,
   "bucket_max": 30,
@@ -175,9 +175,9 @@
   "active_minutes_total": 0
  },
  "today_steps": {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "steps": 0,
-  "as_of_min": 1080,
+  "as_of_min": 123,
   "floor": 8000
  },
  "now": {
@@ -185,7 +185,13 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 91
+  "away_minutes": 321
  },
- "health_signal": null
+ "health_signal": {
+  "date": "2026-09-04",
+  "color": "yellow",
+  "verdict": "夜更かし（1:30台まで画面使用）・歩数未確定（途中集計のみ）＝判定不能",
+  "steps": null,
+  "floor": 8000
+ }
 }
