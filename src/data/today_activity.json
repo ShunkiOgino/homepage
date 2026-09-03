@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T16:05:18+09:00",
+ "generated_at": "2026-09-03T19:05:54+09:00",
  "today_activity": {
   "date": "2026-09-03",
   "resolution_min": 30,
@@ -41,10 +41,10 @@
      0,
      0,
      1,
-     4,
-     0,
-     0,
-     0,
+     14,
+     14,
+     14,
+     13,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 30
+    "active_minutes_total": 81
    },
    {
     "key": "air",
@@ -177,14 +177,15 @@
  "today_steps": {
   "date": "2026-09-03",
   "steps": 0,
-  "as_of_min": 962,
+  "as_of_min": 1080,
   "floor": 8000
  },
  "now": {
-  "status": "active",
+  "status": "away",
   "awake": true,
   "last_active": "今",
-  "night_owl": false
+  "night_owl": false,
+  "away_minutes": 67
  },
  "health_signal": null
 }
