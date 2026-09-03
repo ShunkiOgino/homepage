@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T13:05:20+09:00",
+ "generated_at": "2026-09-03T16:05:18+09:00",
  "today_activity": {
   "date": "2026-09-03",
   "resolution_min": 30,
@@ -40,8 +40,8 @@
      0,
      0,
      0,
-     0,
-     0,
+     1,
+     4,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 25
+    "active_minutes_total": 30
    },
    {
     "key": "air",
@@ -177,7 +177,7 @@
  "today_steps": {
   "date": "2026-09-03",
   "steps": 0,
-  "as_of_min": 785,
+  "as_of_min": 962,
   "floor": 8000
  },
  "now": {
