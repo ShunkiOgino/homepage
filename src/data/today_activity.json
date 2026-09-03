@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-03T07:05:43+09:00",
+ "generated_at": "2026-09-03T10:05:28+09:00",
  "today_activity": {
   "date": "2026-09-03",
   "resolution_min": 30,
@@ -27,8 +27,8 @@
      0,
      0,
      0,
-     0,
-     0,
+     3,
+     2,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 14
+    "active_minutes_total": 19
    },
    {
     "key": "air",
@@ -185,7 +185,7 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 144
+  "away_minutes": 15
  },
  "health_signal": null
 }
