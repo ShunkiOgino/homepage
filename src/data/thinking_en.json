@@ -1,49 +1,19 @@
 {
   "weeks": [
-    "7/13",
     "7/20",
     "7/27",
     "8/3",
     "8/10",
     "8/17",
     "8/24",
-    "8/31"
+    "8/31",
+    "9/7"
   ],
   "themes": [
     {
-      "title": "Primary source destinations and the structure of platform-driven information control",
-      "cells": [
-        2,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-19",
-      "posts": []
-    },
-    {
-      "title": "Maintaining Specificity in AI Generation and Quantitative Analysis of Short-Form Videos",
-      "cells": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-14",
-      "posts": []
-    },
-    {
       "title": "The tradeoff between platform ID control and agent autonomy",
       "cells": [
-        1,
+        0,
         0,
         0,
         0,
@@ -64,7 +34,7 @@
     {
       "title": "Redefining metrics to align with strategic intent.",
       "cells": [
-        1,
+        0,
         0,
         0,
         0,
@@ -85,7 +55,7 @@
     {
       "title": "Engineering operationalization of the objective function by eliminating essentialism.",
       "cells": [
-        1,
+        0,
         0,
         0,
         0,
@@ -103,36 +73,6 @@
         }
       ],
       "lead": "When addressing the questions of personality backup and continuity, I deliberately avoid essentialist arguments to narrow the problem down to engineering operations. By bypassing unresolved core questions—such as the nature of identity or whether a copy is \"me\"—and treating them as solved, the only remaining task is the engineering challenge of designing an objective function. Attempting to grasp \"the self\" as an inherent essence is a category error; clinging to such a notion only creates suffering."
-    },
-    {
-      "title": "Investing in means of production as a survival strategy",
-      "cells": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-14",
-      "posts": []
-    },
-    {
-      "title": "Capital Structure and the Dynamics of Jurisdictional Control",
-      "cells": [
-        1,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
-      "last": "2026-07-14",
-      "posts": []
     },
     {
       "title": "Designed for lightweight local AI.",
