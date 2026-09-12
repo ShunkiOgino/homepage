@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-12T21:50:05.581285",
+ "generated_at": "2026-09-13T03:58:02.394400",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -8,14 +8,14 @@
     "ratio_7d": 1.0
    },
    "total_views": {
-    "value": 24683,
-    "delta_7d": 2230,
-    "ratio_7d": 1.099
+    "value": 24883,
+    "delta_7d": 2430,
+    "ratio_7d": 1.108
    },
    "video_count": {
-    "value": 86,
+    "value": 87,
     "delta_7d": 7,
-    "ratio_7d": 1.089
+    "ratio_7d": 1.087
    }
   },
   "videos": [
@@ -29,7 +29,7 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 0,
+    "age_days": 1,
     "is_settled": false
    },
    {
@@ -42,7 +42,7 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 1,
+    "age_days": 2,
     "is_settled": false
    },
    {
@@ -51,11 +51,11 @@
     "views": 142,
     "likes": 2,
     "comments": 0,
-    "avg_view_pct": null,
-    "avg_view_sec": null,
-    "engaged_views": null,
-    "analytics_views": null,
-    "age_days": 2,
+    "avg_view_pct": 24.8,
+    "avg_view_sec": 7.0,
+    "engaged_views": 19,
+    "analytics_views": 145,
+    "age_days": 3,
     "is_settled": false
    },
    {
@@ -67,359 +67,359 @@
     "avg_view_pct": 40.6,
     "avg_view_sec": 12.0,
     "engaged_views": 27,
-    "analytics_views": 246,
-    "age_days": 3,
+    "analytics_views": 250,
+    "age_days": 4,
     "is_settled": false
    },
    {
     "video_id": "mtWs_MyYFFA",
     "title": "9月7日(月)の観測｜PC 8時間5分・歩数9,620歩 #Shorts",
-    "views": 281,
+    "views": 282,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 45.7,
+    "avg_view_pct": 47.3,
     "avg_view_sec": 12.0,
-    "engaged_views": 36,
-    "analytics_views": 278,
-    "age_days": 4,
+    "engaged_views": 37,
+    "analytics_views": 282,
+    "age_days": 5,
     "is_settled": false
    },
    {
     "video_id": "BKI5Yc3bL4A",
     "title": "9月6日(日)の観測｜PC 1時間53分・歩数18,178歩 #Shorts",
-    "views": 222,
+    "views": 223,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 41.4,
     "avg_view_sec": 12.0,
     "engaged_views": 40,
     "analytics_views": 225,
-    "age_days": 5,
+    "age_days": 6,
     "is_settled": false
    },
    {
     "video_id": "8ixewtHv-es",
     "title": "9月5日(土)の観測｜PC 20分・歩数3,155歩 #Shorts",
-    "views": 163,
+    "views": 164,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 52.7,
     "avg_view_sec": 12.0,
     "engaged_views": 22,
     "analytics_views": 166,
-    "age_days": 6,
-    "is_settled": false
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "video_id": "7Ps1qM5unhc",
     "title": "9月4日(金)の観測｜PC 7時間24分・歩数10,740歩 #Shorts",
-    "views": 323,
+    "views": 324,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 44.0,
     "avg_view_sec": 14.0,
     "engaged_views": 61,
     "analytics_views": 324,
-    "age_days": 7,
+    "age_days": 8,
     "is_settled": true
    },
    {
     "video_id": "YPtk0kHxl2c",
     "title": "9月3日(木)の観測｜PC 1時間52分・歩数0歩 #Shorts",
-    "views": 281,
+    "views": 282,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 49.8,
     "avg_view_sec": 14.0,
     "engaged_views": 37,
     "analytics_views": 283,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
     "video_id": "fH2lU58WAqo",
     "title": "9月2日(水)の観測｜PC 1時間30分・歩数10,382歩 #Shorts",
-    "views": 191,
+    "views": 192,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 43.2,
     "avg_view_sec": 10.0,
     "engaged_views": 18,
     "analytics_views": 199,
-    "age_days": 9,
+    "age_days": 10,
     "is_settled": true
    },
    {
     "video_id": "CKp7z5mnppg",
     "title": "9月1日(火)の観測｜PC 59分・歩数0歩 #Shorts",
-    "views": 132,
+    "views": 133,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 38.8,
     "avg_view_sec": 9.0,
     "engaged_views": 17,
     "analytics_views": 132,
-    "age_days": 10,
+    "age_days": 11,
     "is_settled": true
    },
    {
     "video_id": "GwSVahqa7hw",
     "title": "8月31日(月)の観測｜PC 4時間48分・歩数13,068歩 #Shorts",
-    "views": 181,
+    "views": 182,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 43.2,
     "avg_view_sec": 12.0,
     "engaged_views": 20,
     "analytics_views": 181,
-    "age_days": 11,
+    "age_days": 12,
     "is_settled": true
    },
    {
     "video_id": "pIpDZH_lEMM",
     "title": "8月30日(日)の観測｜PC 3時間53分・歩数9,207歩 #Shorts",
-    "views": 201,
+    "views": 202,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 34.8,
     "avg_view_sec": 12.0,
     "engaged_views": 30,
     "analytics_views": 201,
-    "age_days": 12,
+    "age_days": 13,
     "is_settled": true
    },
    {
     "video_id": "FpM9Er8Y0LQ",
     "title": "8月29日(土)の観測｜PC 2時間56分・歩数8,788歩 #Shorts",
-    "views": 333,
+    "views": 334,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 76.6,
     "avg_view_sec": 24.0,
     "engaged_views": 35,
     "analytics_views": 333,
-    "age_days": 13,
+    "age_days": 14,
     "is_settled": true
    },
    {
     "video_id": "qAU58-m8mYA",
     "title": "8月28日(金)の観測｜PC 4時間49分・歩数15,699歩 #Shorts",
-    "views": 219,
+    "views": 220,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 96.5,
     "avg_view_sec": 25.0,
     "engaged_views": 13,
     "analytics_views": 219,
-    "age_days": 14,
+    "age_days": 15,
     "is_settled": true
    },
    {
     "video_id": "QOTYKFsfWq4",
     "title": "8月27日(木)の観測｜PC 3時間4分・歩数10,756歩 #Shorts",
-    "views": 178,
+    "views": 179,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 27.8,
     "avg_view_sec": 8.0,
     "engaged_views": 32,
     "analytics_views": 178,
-    "age_days": 15,
+    "age_days": 16,
     "is_settled": true
    },
    {
     "video_id": "evuFIAXIeqw",
     "title": "8月26日(水)の観測｜PC 6時間29分・歩数8,358歩 #Shorts",
-    "views": 145,
+    "views": 146,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 39.9,
     "avg_view_sec": 12.0,
     "engaged_views": 15,
     "analytics_views": 145,
-    "age_days": 16,
+    "age_days": 17,
     "is_settled": true
    },
    {
     "video_id": "92QENHO_Ai4",
     "title": "8月25日(火)の観測｜PC 1時間49分・歩数6,679歩 #Shorts",
-    "views": 115,
+    "views": 116,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 46.4,
     "avg_view_sec": 10.0,
     "engaged_views": 14,
     "analytics_views": 115,
-    "age_days": 17,
+    "age_days": 18,
     "is_settled": true
    },
    {
     "video_id": "9tJFT0gLvu8",
     "title": "8月24日(月)の観測｜PC 4時間50分・歩数10歩 #Shorts",
-    "views": 219,
+    "views": 220,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 175.7,
     "avg_view_sec": 57.0,
     "engaged_views": 31,
     "analytics_views": 219,
-    "age_days": 18,
+    "age_days": 19,
     "is_settled": true
    },
    {
     "video_id": "G3Ihs67SvLA",
     "title": "8月23日(日)の観測｜PC 2時間32分・歩数1,487歩 #Shorts",
-    "views": 106,
+    "views": 107,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 32.5,
     "avg_view_sec": 9.0,
     "engaged_views": 17,
     "analytics_views": 106,
-    "age_days": 19,
+    "age_days": 20,
     "is_settled": true
    },
    {
     "video_id": "GwF_S50oiDo",
     "title": "8月22日(土)の観測｜PC 2分 #Shorts",
-    "views": 180,
+    "views": 181,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 93.3,
     "avg_view_sec": 14.0,
     "engaged_views": 15,
     "analytics_views": 180,
-    "age_days": 20,
+    "age_days": 21,
     "is_settled": true
    },
    {
     "video_id": "ALtK8f9j9IE",
     "title": "8月21日(金)の観測｜PC 42分 #Shorts",
-    "views": 122,
+    "views": 123,
     "likes": 2,
     "comments": 0,
     "avg_view_pct": 71.3,
     "avg_view_sec": 12.0,
     "engaged_views": 12,
     "analytics_views": 122,
-    "age_days": 21,
+    "age_days": 22,
     "is_settled": true
    },
    {
     "video_id": "-RWEH6ogwDk",
     "title": "8月20日(木)の観測｜PC 8分・歩数2,221歩 #Shorts",
-    "views": 115,
+    "views": 116,
     "likes": 1,
     "comments": 0,
     "avg_view_pct": 42.7,
     "avg_view_sec": 11.0,
     "engaged_views": 18,
     "analytics_views": 115,
-    "age_days": 22,
+    "age_days": 23,
     "is_settled": true
    },
    {
     "video_id": "bfTfrfPwwCA",
     "title": "8月19日(水)の観測｜PC 40分・歩数13,813歩 #Shorts",
-    "views": 96,
+    "views": 97,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 128.6,
     "avg_view_sec": 34.0,
     "engaged_views": 14,
     "analytics_views": 96,
-    "age_days": 23,
+    "age_days": 24,
     "is_settled": true
    },
    {
     "video_id": "RkYpxPjsu0s",
     "title": "8月18日(火)の観測｜PC 6時間57分・歩数11,845歩 #Shorts",
-    "views": 75,
+    "views": 76,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 37.7,
     "avg_view_sec": 11.0,
     "engaged_views": 9,
     "analytics_views": 75,
-    "age_days": 24,
+    "age_days": 25,
     "is_settled": true
    },
    {
     "video_id": "yTLFq_jDsFo",
     "title": "8月17日(月)の観測｜PC 3時間30分・歩数5,427歩 #Shorts",
-    "views": 205,
+    "views": 206,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 40.4,
     "avg_view_sec": 13.0,
     "engaged_views": 34,
     "analytics_views": 205,
-    "age_days": 25,
+    "age_days": 26,
     "is_settled": true
    },
    {
     "video_id": "vXp1tY848Mk",
     "title": "8月16日(日)の観測｜PC 2時間30分・歩数0歩 #Shorts",
-    "views": 280,
+    "views": 281,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 39.9,
     "avg_view_sec": 11.0,
     "engaged_views": 55,
     "analytics_views": 280,
-    "age_days": 26,
+    "age_days": 27,
     "is_settled": true
    },
    {
     "video_id": "BDgBF64oc_k",
     "title": "8月15日(土)の観測｜PC 48分・歩数0歩 #Shorts",
-    "views": 274,
+    "views": 275,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 64.4,
     "avg_view_sec": 17.0,
     "engaged_views": 36,
     "analytics_views": 274,
-    "age_days": 27,
+    "age_days": 28,
     "is_settled": true
    },
    {
     "video_id": "QqDmPZM8XS4",
     "title": "8月14日(金)の観測｜PC 3時間4分・歩数8歩 #Shorts",
-    "views": 240,
+    "views": 241,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 49.6,
     "avg_view_sec": 15.0,
     "engaged_views": 30,
     "analytics_views": 240,
-    "age_days": 28,
+    "age_days": 29,
     "is_settled": true
    },
    {
     "video_id": "_8KPOvYnYp8",
     "title": "8月13日(木)の観測｜PC 6時間23分・歩数8,964歩 #Shorts",
-    "views": 281,
+    "views": 282,
     "likes": 1,
     "comments": 1,
     "avg_view_pct": 40.8,
     "avg_view_sec": 14.0,
     "engaged_views": 46,
     "analytics_views": 281,
-    "age_days": 29,
+    "age_days": 30,
     "is_settled": true
    },
    {
     "video_id": "BXmv2QdlVP8",
     "title": "8月12日(水)の観測｜PC 4時間20分・歩数9,757歩 #Shorts",
-    "views": 163,
+    "views": 164,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": 31.5,
     "avg_view_sec": 10.0,
     "engaged_views": 23,
     "analytics_views": 163,
-    "age_days": 30,
+    "age_days": 31,
     "is_settled": true
    },
    {
@@ -432,7 +432,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 21,
     "analytics_views": 180,
-    "age_days": 31,
+    "age_days": 32,
     "is_settled": true
    },
    {
@@ -445,7 +445,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 24,
     "analytics_views": 143,
-    "age_days": 32,
+    "age_days": 33,
     "is_settled": true
    },
    {
@@ -458,7 +458,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 66,
     "analytics_views": 329,
-    "age_days": 33,
+    "age_days": 34,
     "is_settled": true
    },
    {
@@ -471,7 +471,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 39,
     "analytics_views": 342,
-    "age_days": 34,
+    "age_days": 35,
     "is_settled": true
    },
    {
@@ -484,7 +484,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 21,
     "analytics_views": 166,
-    "age_days": 35,
+    "age_days": 36,
     "is_settled": true
    },
    {
@@ -497,7 +497,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 45,
     "analytics_views": 299,
-    "age_days": 36,
+    "age_days": 37,
     "is_settled": true
    },
    {
@@ -510,7 +510,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 49,
     "analytics_views": 278,
-    "age_days": 37,
+    "age_days": 38,
     "is_settled": true
    },
    {
@@ -523,7 +523,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 19,
     "analytics_views": 208,
-    "age_days": 38,
+    "age_days": 39,
     "is_settled": true
    },
    {
@@ -536,7 +536,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 19,
     "analytics_views": 151,
-    "age_days": 39,
+    "age_days": 40,
     "is_settled": true
    },
    {
@@ -549,7 +549,7 @@
     "avg_view_sec": 35.0,
     "engaged_views": 51,
     "analytics_views": 346,
-    "age_days": 40,
+    "age_days": 41,
     "is_settled": true
    },
    {
@@ -562,7 +562,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 40,
     "analytics_views": 227,
-    "age_days": 40,
+    "age_days": 41,
     "is_settled": true
    },
    {
@@ -575,7 +575,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 52,
     "analytics_views": 342,
-    "age_days": 41,
+    "age_days": 42,
     "is_settled": true
    },
    {
@@ -588,7 +588,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 55,
     "analytics_views": 342,
-    "age_days": 42,
+    "age_days": 43,
     "is_settled": true
    },
    {
@@ -601,7 +601,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 29,
     "analytics_views": 187,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    },
    {
@@ -614,7 +614,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 46,
     "analytics_views": 349,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    },
    {
@@ -627,7 +627,7 @@
     "avg_view_sec": 13.0,
     "engaged_views": 45,
     "analytics_views": 336,
-    "age_days": 44,
+    "age_days": 45,
     "is_settled": true
    },
    {
@@ -640,7 +640,7 @@
     "avg_view_sec": 21.0,
     "engaged_views": 18,
     "analytics_views": 154,
-    "age_days": 44,
+    "age_days": 45,
     "is_settled": true
    },
    {
@@ -653,7 +653,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 19,
     "analytics_views": 165,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -666,7 +666,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 24,
     "analytics_views": 166,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -679,7 +679,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 14,
     "analytics_views": 125,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -692,7 +692,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 31,
     "analytics_views": 250,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -705,7 +705,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 84,
     "analytics_views": 379,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -718,7 +718,7 @@
     "avg_view_sec": 33.0,
     "engaged_views": 22,
     "analytics_views": 201,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -731,7 +731,7 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -744,7 +744,7 @@
     "avg_view_sec": 6.0,
     "engaged_views": 21,
     "analytics_views": 146,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -757,7 +757,7 @@
     "avg_view_sec": 30.0,
     "engaged_views": 20,
     "analytics_views": 241,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -770,7 +770,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 24,
     "analytics_views": 170,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -783,7 +783,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 20,
     "analytics_views": 168,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -796,7 +796,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 12,
     "analytics_views": 82,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -809,7 +809,7 @@
     "avg_view_sec": 6.0,
     "engaged_views": 11,
     "analytics_views": 138,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -822,7 +822,7 @@
     "avg_view_sec": 13.0,
     "engaged_views": 25,
     "analytics_views": 169,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -835,7 +835,7 @@
     "avg_view_sec": 13.0,
     "engaged_views": 28,
     "analytics_views": 177,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -848,7 +848,7 @@
     "avg_view_sec": 6.0,
     "engaged_views": 14,
     "analytics_views": 102,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -861,7 +861,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 25,
     "analytics_views": 145,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -874,7 +874,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 14,
     "analytics_views": 163,
-    "age_days": 53,
+    "age_days": 54,
     "is_settled": true
    },
    {
@@ -887,7 +887,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 37,
     "analytics_views": 280,
-    "age_days": 54,
+    "age_days": 55,
     "is_settled": true
    },
    {
@@ -900,7 +900,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 395,
     "analytics_views": 1542,
-    "age_days": 56,
+    "age_days": 57,
     "is_settled": true
    },
    {
@@ -913,7 +913,7 @@
     "avg_view_sec": 17.0,
     "engaged_views": 500,
     "analytics_views": 1864,
-    "age_days": 56,
+    "age_days": 57,
     "is_settled": true
    },
    {
@@ -926,7 +926,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 22,
     "analytics_views": 205,
-    "age_days": 57,
+    "age_days": 58,
     "is_settled": true
    },
    {
@@ -939,7 +939,7 @@
     "avg_view_sec": 34.0,
     "engaged_views": 204,
     "analytics_views": 1098,
-    "age_days": 57,
+    "age_days": 58,
     "is_settled": true
    },
    {
@@ -952,7 +952,7 @@
     "avg_view_sec": 12.0,
     "engaged_views": 520,
     "analytics_views": 1856,
-    "age_days": 58,
+    "age_days": 59,
     "is_settled": true
    },
    {
@@ -965,7 +965,7 @@
     "avg_view_sec": 116.0,
     "engaged_views": 13,
     "analytics_views": 13,
-    "age_days": 67,
+    "age_days": 68,
     "is_settled": true
    },
    {
@@ -978,7 +978,7 @@
     "avg_view_sec": 48.0,
     "engaged_views": 22,
     "analytics_views": 200,
-    "age_days": 72,
+    "age_days": 73,
     "is_settled": true
    },
    {
@@ -991,7 +991,7 @@
     "avg_view_sec": 21.0,
     "engaged_views": 16,
     "analytics_views": 164,
-    "age_days": 73,
+    "age_days": 74,
     "is_settled": true
    },
    {
@@ -1004,7 +1004,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 20,
     "analytics_views": 224,
-    "age_days": 74,
+    "age_days": 75,
     "is_settled": true
    },
    {
@@ -1017,7 +1017,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 51,
     "analytics_views": 370,
-    "age_days": 75,
+    "age_days": 76,
     "is_settled": true
    },
    {
@@ -1030,7 +1030,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 16,
     "analytics_views": 218,
-    "age_days": 76,
+    "age_days": 77,
     "is_settled": true
    },
    {
@@ -1043,7 +1043,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 28,
     "analytics_views": 230,
-    "age_days": 77,
+    "age_days": 78,
     "is_settled": true
    },
    {
@@ -1056,7 +1056,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 25,
     "analytics_views": 256,
-    "age_days": 78,
+    "age_days": 79,
     "is_settled": true
    },
    {
@@ -1069,7 +1069,7 @@
     "avg_view_sec": 15.0,
     "engaged_views": 246,
     "analytics_views": 627,
-    "age_days": 81,
+    "age_days": 82,
     "is_settled": true
    },
    {
@@ -1082,7 +1082,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 503,
     "analytics_views": 2311,
-    "age_days": 85,
+    "age_days": 86,
     "is_settled": true
    }
   ]
@@ -1095,10 +1095,10 @@
   },
   "posts": [
    {
-    "media_id": "18087831689230183",
+    "media_id": "18125676326506997",
     "media_kind": "REELS",
-    "views": 139,
-    "reach": 112,
+    "views": 36,
+    "reach": 29,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -1107,15 +1107,27 @@
     "is_settled": false
    },
    {
-    "media_id": "17901433689568619",
+    "media_id": "18087831689230183",
     "media_kind": "REELS",
-    "views": 65,
-    "reach": 51,
+    "views": 145,
+    "reach": 115,
     "likes": 0,
     "comments": 0,
     "saved": 0,
     "shares": 0,
     "age_days": 2,
+    "is_settled": false
+   },
+   {
+    "media_id": "17901433689568619",
+    "media_kind": "REELS",
+    "views": 66,
+    "reach": 52,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 3,
     "is_settled": false
    },
    {
@@ -1127,31 +1139,31 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 3,
+    "age_days": 4,
     "is_settled": false
    },
    {
     "media_id": "18090176369446225",
     "media_kind": "REELS",
-    "views": 33,
-    "reach": 20,
-    "likes": 0,
-    "comments": 0,
-    "saved": 0,
-    "shares": 0,
-    "age_days": 4,
-    "is_settled": false
-   },
-   {
-    "media_id": "18151455436526396",
-    "media_kind": "REELS",
-    "views": 26,
-    "reach": 17,
+    "views": 35,
+    "reach": 21,
     "likes": 0,
     "comments": 0,
     "saved": 0,
     "shares": 0,
     "age_days": 5,
+    "is_settled": false
+   },
+   {
+    "media_id": "18151455436526396",
+    "media_kind": "REELS",
+    "views": 27,
+    "reach": 18,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 6,
     "is_settled": false
    },
    {
@@ -1163,8 +1175,8 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 6,
-    "is_settled": false
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "media_id": "18071068571555870",
@@ -1175,7 +1187,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 7,
+    "age_days": 8,
     "is_settled": true
    },
    {
@@ -1187,7 +1199,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -1199,19 +1211,19 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 9,
+    "age_days": 10,
     "is_settled": true
    },
    {
     "media_id": "18056250152546973",
     "media_kind": "REELS",
-    "views": 127,
-    "reach": 110,
+    "views": 129,
+    "reach": 111,
     "likes": 0,
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 10,
+    "age_days": 11,
     "is_settled": true
    },
    {
@@ -1223,7 +1235,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 11,
+    "age_days": 12,
     "is_settled": true
    },
    {
@@ -1235,7 +1247,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 12,
+    "age_days": 13,
     "is_settled": true
    },
    {
@@ -1247,7 +1259,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 13,
+    "age_days": 14,
     "is_settled": true
    },
    {
@@ -1259,7 +1271,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 14,
+    "age_days": 15,
     "is_settled": true
    },
    {
@@ -1271,7 +1283,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 15,
+    "age_days": 16,
     "is_settled": true
    },
    {
@@ -1283,7 +1295,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 16,
+    "age_days": 17,
     "is_settled": true
    },
    {
@@ -1295,7 +1307,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 17,
+    "age_days": 18,
     "is_settled": true
    },
    {
@@ -1307,7 +1319,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 18,
+    "age_days": 19,
     "is_settled": true
    },
    {
@@ -1319,7 +1331,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 19,
+    "age_days": 20,
     "is_settled": true
    },
    {
@@ -1331,7 +1343,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 20,
+    "age_days": 21,
     "is_settled": true
    },
    {
@@ -1343,7 +1355,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 21,
+    "age_days": 22,
     "is_settled": true
    },
    {
@@ -1355,7 +1367,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 22,
+    "age_days": 23,
     "is_settled": true
    },
    {
@@ -1367,7 +1379,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 23,
+    "age_days": 24,
     "is_settled": true
    },
    {
@@ -1379,7 +1391,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 24,
+    "age_days": 25,
     "is_settled": true
    },
    {
@@ -1391,19 +1403,19 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 25,
+    "age_days": 26,
     "is_settled": true
    },
    {
     "media_id": "18026493707848027",
     "media_kind": "REELS",
-    "views": 1336,
+    "views": 1337,
     "reach": 1085,
     "likes": 1,
     "comments": 0,
     "saved": 2,
     "shares": 0,
-    "age_days": 26,
+    "age_days": 27,
     "is_settled": true
    },
    {
@@ -1415,7 +1427,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 27,
+    "age_days": 28,
     "is_settled": true
    },
    {
@@ -1427,7 +1439,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 28,
+    "age_days": 29,
     "is_settled": true
    },
    {
@@ -1439,7 +1451,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 29,
+    "age_days": 30,
     "is_settled": true
    },
    {
@@ -1451,7 +1463,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 1,
-    "age_days": 30,
+    "age_days": 31,
     "is_settled": true
    },
    {
@@ -1463,7 +1475,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 31,
+    "age_days": 32,
     "is_settled": true
    },
    {
@@ -1475,7 +1487,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 32,
+    "age_days": 33,
     "is_settled": true
    },
    {
@@ -1487,7 +1499,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 33,
+    "age_days": 34,
     "is_settled": true
    },
    {
@@ -1499,7 +1511,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 34,
+    "age_days": 35,
     "is_settled": true
    },
    {
@@ -1511,7 +1523,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 35,
+    "age_days": 36,
     "is_settled": true
    },
    {
@@ -1523,7 +1535,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 36,
+    "age_days": 37,
     "is_settled": true
    },
    {
@@ -1535,7 +1547,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 37,
+    "age_days": 38,
     "is_settled": true
    },
    {
@@ -1547,7 +1559,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 38,
+    "age_days": 39,
     "is_settled": true
    },
    {
@@ -1559,7 +1571,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 39,
+    "age_days": 40,
     "is_settled": true
    },
    {
@@ -1571,7 +1583,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 40,
+    "age_days": 41,
     "is_settled": true
    },
    {
@@ -1583,7 +1595,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 41,
+    "age_days": 42,
     "is_settled": true
    },
    {
@@ -1595,7 +1607,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 42,
+    "age_days": 43,
     "is_settled": true
    },
    {
@@ -1607,7 +1619,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    },
    {
@@ -1619,7 +1631,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    },
    {
@@ -1631,7 +1643,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 44,
+    "age_days": 45,
     "is_settled": true
    },
    {
@@ -1643,7 +1655,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 44,
+    "age_days": 45,
     "is_settled": true
    },
    {
@@ -1655,7 +1667,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -1667,7 +1679,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -1679,7 +1691,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -1691,7 +1703,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -1703,7 +1715,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -1715,7 +1727,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -1727,7 +1739,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -1739,7 +1751,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -1751,7 +1763,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -1763,7 +1775,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -1775,7 +1787,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -1787,7 +1799,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -1799,7 +1811,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -1811,7 +1823,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -1823,7 +1835,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -1835,7 +1847,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -1847,7 +1859,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 53,
+    "age_days": 54,
     "is_settled": true
    },
    {
@@ -1859,7 +1871,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 54,
+    "age_days": 55,
     "is_settled": true
    },
    {
@@ -1871,7 +1883,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 55,
+    "age_days": 56,
     "is_settled": true
    },
    {
@@ -1883,7 +1895,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 56,
+    "age_days": 57,
     "is_settled": true
    },
    {
@@ -1895,7 +1907,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 57,
+    "age_days": 58,
     "is_settled": true
    },
    {
@@ -1907,7 +1919,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 58,
+    "age_days": 59,
     "is_settled": true
    },
    {
@@ -1919,7 +1931,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 59,
+    "age_days": 60,
     "is_settled": true
    },
    {
@@ -1931,7 +1943,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 59,
+    "age_days": 60,
     "is_settled": true
    },
    {
@@ -1943,7 +1955,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 60,
+    "age_days": 61,
     "is_settled": true
    },
    {
@@ -1955,7 +1967,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 61,
+    "age_days": 62,
     "is_settled": true
    },
    {
@@ -1967,7 +1979,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 62,
+    "age_days": 63,
     "is_settled": true
    },
    {
@@ -1979,7 +1991,7 @@
     "comments": 0,
     "saved": 4,
     "shares": 0,
-    "age_days": 63,
+    "age_days": 64,
     "is_settled": true
    },
    {
@@ -1991,7 +2003,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 64,
+    "age_days": 65,
     "is_settled": true
    },
    {
@@ -2003,7 +2015,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 65,
+    "age_days": 66,
     "is_settled": true
    },
    {
@@ -2015,7 +2027,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 1,
-    "age_days": 66,
+    "age_days": 67,
     "is_settled": true
    },
    {
@@ -2027,7 +2039,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 67,
+    "age_days": 68,
     "is_settled": true
    },
    {
@@ -2039,7 +2051,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 68,
+    "age_days": 69,
     "is_settled": true
    },
    {
@@ -2051,7 +2063,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 69,
+    "age_days": 70,
     "is_settled": true
    },
    {
@@ -2063,7 +2075,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 70,
+    "age_days": 71,
     "is_settled": true
    },
    {
@@ -2075,7 +2087,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 70,
+    "age_days": 71,
     "is_settled": true
    },
    {
@@ -2087,7 +2099,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 71,
+    "age_days": 72,
     "is_settled": true
    },
    {
@@ -2099,7 +2111,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 72,
+    "age_days": 73,
     "is_settled": true
    },
    {
@@ -2111,7 +2123,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 73,
+    "age_days": 74,
     "is_settled": true
    },
    {
@@ -2123,7 +2135,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 74,
+    "age_days": 75,
     "is_settled": true
    },
    {
@@ -2135,7 +2147,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 75,
+    "age_days": 76,
     "is_settled": true
    },
    {
@@ -2147,7 +2159,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 76,
+    "age_days": 77,
     "is_settled": true
    },
    {
@@ -2159,7 +2171,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 77,
+    "age_days": 78,
     "is_settled": true
    },
    {
@@ -2171,7 +2183,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 79,
+    "age_days": 80,
     "is_settled": true
    },
    {
@@ -2183,7 +2195,7 @@
     "comments": 0,
     "saved": 2,
     "shares": 0,
-    "age_days": 82,
+    "age_days": 83,
     "is_settled": true
    },
    {
@@ -2195,19 +2207,19 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 85,
+    "age_days": 86,
     "is_settled": true
    }
   ]
  },
  "blog": {
-  "pv_1d": 1,
+  "pv_1d": 0,
   "pv_7d": 5
  },
  "ai_reach": {
-  "hits_1d": 391,
-  "hits_7d": 3126,
-  "mcp_1d": 391
+  "hits_1d": 370,
+  "hits_7d": 3026,
+  "mcp_1d": 370
  },
  "referrers": {
   "pv_7d": 5,
