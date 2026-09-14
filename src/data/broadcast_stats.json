@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-14T21:50:03.234998",
+ "generated_at": "2026-09-15T03:59:05.312844",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -8,14 +8,14 @@
     "ratio_7d": 1.0
    },
    "total_views": {
-    "value": 24884,
-    "delta_7d": 2431,
-    "ratio_7d": 1.108
+    "value": 25206,
+    "delta_7d": 2753,
+    "ratio_7d": 1.123
    },
    "video_count": {
-    "value": 88,
+    "value": 89,
     "delta_7d": 7,
-    "ratio_7d": 1.086
+    "ratio_7d": 1.085
    }
   },
   "videos": [
@@ -29,7 +29,7 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 0,
+    "age_days": 1,
     "is_settled": false
    },
    {
@@ -42,7 +42,7 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 1,
+    "age_days": 2,
     "is_settled": false
    },
    {
@@ -51,24 +51,24 @@
     "views": 158,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": null,
-    "avg_view_sec": null,
-    "engaged_views": null,
-    "analytics_views": null,
-    "age_days": 2,
+    "avg_view_pct": 39.9,
+    "avg_view_sec": 12.0,
+    "engaged_views": 12,
+    "analytics_views": 163,
+    "age_days": 3,
     "is_settled": false
    },
    {
     "video_id": "vggUZe2tedw",
     "title": "9月10日(木)の観測｜PC 3時間20分・歩数1,266歩 #Shorts",
-    "views": 68,
+    "views": 61,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 19.5,
-    "avg_view_sec": 6.0,
-    "engaged_views": 3,
-    "analytics_views": 59,
-    "age_days": 3,
+    "avg_view_pct": 51.6,
+    "avg_view_sec": 17.0,
+    "engaged_views": 5,
+    "analytics_views": 62,
+    "age_days": 4,
     "is_settled": false
    },
    {
@@ -77,11 +77,11 @@
     "views": 142,
     "likes": 2,
     "comments": 0,
-    "avg_view_pct": 25.7,
-    "avg_view_sec": 8.0,
-    "engaged_views": 22,
-    "analytics_views": 150,
-    "age_days": 4,
+    "avg_view_pct": 28.7,
+    "avg_view_sec": 9.0,
+    "engaged_views": 23,
+    "analytics_views": 151,
+    "age_days": 5,
     "is_settled": false
    },
    {
@@ -90,11 +90,11 @@
     "views": 249,
     "likes": 1,
     "comments": 0,
-    "avg_view_pct": 40.6,
+    "avg_view_pct": 42.1,
     "avg_view_sec": 12.0,
-    "engaged_views": 27,
-    "analytics_views": 250,
-    "age_days": 5,
+    "engaged_views": 28,
+    "analytics_views": 251,
+    "age_days": 6,
     "is_settled": false
    },
    {
@@ -103,12 +103,12 @@
     "views": 282,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 47.3,
-    "avg_view_sec": 12.0,
-    "engaged_views": 37,
-    "analytics_views": 282,
-    "age_days": 6,
-    "is_settled": false
+    "avg_view_pct": 48.5,
+    "avg_view_sec": 13.0,
+    "engaged_views": 38,
+    "analytics_views": 283,
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "video_id": "BKI5Yc3bL4A",
@@ -119,8 +119,8 @@
     "avg_view_pct": 41.4,
     "avg_view_sec": 12.0,
     "engaged_views": 40,
-    "analytics_views": 225,
-    "age_days": 7,
+    "analytics_views": 226,
+    "age_days": 8,
     "is_settled": true
    },
    {
@@ -129,11 +129,11 @@
     "views": 164,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 52.7,
-    "avg_view_sec": 12.0,
-    "engaged_views": 22,
-    "analytics_views": 166,
-    "age_days": 8,
+    "avg_view_pct": 54.6,
+    "avg_view_sec": 13.0,
+    "engaged_views": 23,
+    "analytics_views": 164,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -144,9 +144,9 @@
     "comments": 0,
     "avg_view_pct": 44.0,
     "avg_view_sec": 14.0,
-    "engaged_views": 61,
-    "analytics_views": 324,
-    "age_days": 9,
+    "engaged_views": 62,
+    "analytics_views": 325,
+    "age_days": 10,
     "is_settled": true
    },
    {
@@ -155,11 +155,11 @@
     "views": 282,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 49.8,
+    "avg_view_pct": 49.7,
     "avg_view_sec": 14.0,
-    "engaged_views": 37,
-    "analytics_views": 283,
-    "age_days": 10,
+    "engaged_views": 38,
+    "analytics_views": 284,
+    "age_days": 11,
     "is_settled": true
    },
    {
@@ -171,8 +171,8 @@
     "avg_view_pct": 43.2,
     "avg_view_sec": 10.0,
     "engaged_views": 18,
-    "analytics_views": 199,
-    "age_days": 11,
+    "analytics_views": 191,
+    "age_days": 12,
     "is_settled": true
    },
    {
@@ -184,8 +184,8 @@
     "avg_view_pct": 38.8,
     "avg_view_sec": 9.0,
     "engaged_views": 17,
-    "analytics_views": 132,
-    "age_days": 12,
+    "analytics_views": 133,
+    "age_days": 13,
     "is_settled": true
    },
    {
@@ -197,8 +197,8 @@
     "avg_view_pct": 43.2,
     "avg_view_sec": 12.0,
     "engaged_views": 20,
-    "analytics_views": 181,
-    "age_days": 13,
+    "analytics_views": 182,
+    "age_days": 14,
     "is_settled": true
    },
    {
@@ -210,8 +210,8 @@
     "avg_view_pct": 34.8,
     "avg_view_sec": 12.0,
     "engaged_views": 30,
-    "analytics_views": 201,
-    "age_days": 14,
+    "analytics_views": 202,
+    "age_days": 15,
     "is_settled": true
    },
    {
@@ -223,8 +223,8 @@
     "avg_view_pct": 76.6,
     "avg_view_sec": 24.0,
     "engaged_views": 35,
-    "analytics_views": 333,
-    "age_days": 15,
+    "analytics_views": 334,
+    "age_days": 16,
     "is_settled": true
    },
    {
@@ -236,8 +236,8 @@
     "avg_view_pct": 96.5,
     "avg_view_sec": 25.0,
     "engaged_views": 13,
-    "analytics_views": 219,
-    "age_days": 16,
+    "analytics_views": 220,
+    "age_days": 17,
     "is_settled": true
    },
    {
@@ -249,8 +249,8 @@
     "avg_view_pct": 27.8,
     "avg_view_sec": 8.0,
     "engaged_views": 32,
-    "analytics_views": 178,
-    "age_days": 17,
+    "analytics_views": 179,
+    "age_days": 18,
     "is_settled": true
    },
    {
@@ -259,11 +259,11 @@
     "views": 146,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 39.9,
+    "avg_view_pct": 38.9,
     "avg_view_sec": 12.0,
-    "engaged_views": 15,
-    "analytics_views": 145,
-    "age_days": 18,
+    "engaged_views": 16,
+    "analytics_views": 146,
+    "age_days": 19,
     "is_settled": true
    },
    {
@@ -275,8 +275,8 @@
     "avg_view_pct": 46.4,
     "avg_view_sec": 10.0,
     "engaged_views": 14,
-    "analytics_views": 115,
-    "age_days": 19,
+    "analytics_views": 116,
+    "age_days": 20,
     "is_settled": true
    },
    {
@@ -288,8 +288,8 @@
     "avg_view_pct": 175.7,
     "avg_view_sec": 57.0,
     "engaged_views": 31,
-    "analytics_views": 219,
-    "age_days": 20,
+    "analytics_views": 220,
+    "age_days": 21,
     "is_settled": true
    },
    {
@@ -301,8 +301,8 @@
     "avg_view_pct": 32.5,
     "avg_view_sec": 9.0,
     "engaged_views": 17,
-    "analytics_views": 106,
-    "age_days": 21,
+    "analytics_views": 107,
+    "age_days": 22,
     "is_settled": true
    },
    {
@@ -314,8 +314,8 @@
     "avg_view_pct": 93.3,
     "avg_view_sec": 14.0,
     "engaged_views": 15,
-    "analytics_views": 180,
-    "age_days": 22,
+    "analytics_views": 181,
+    "age_days": 23,
     "is_settled": true
    },
    {
@@ -327,8 +327,8 @@
     "avg_view_pct": 71.3,
     "avg_view_sec": 12.0,
     "engaged_views": 12,
-    "analytics_views": 122,
-    "age_days": 23,
+    "analytics_views": 123,
+    "age_days": 24,
     "is_settled": true
    },
    {
@@ -337,11 +337,11 @@
     "views": 116,
     "likes": 1,
     "comments": 0,
-    "avg_view_pct": 42.7,
+    "avg_view_pct": 45.3,
     "avg_view_sec": 11.0,
-    "engaged_views": 18,
-    "analytics_views": 115,
-    "age_days": 24,
+    "engaged_views": 19,
+    "analytics_views": 116,
+    "age_days": 25,
     "is_settled": true
    },
    {
@@ -350,11 +350,11 @@
     "views": 97,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 128.6,
+    "avg_view_pct": 126.0,
     "avg_view_sec": 34.0,
-    "engaged_views": 14,
-    "analytics_views": 96,
-    "age_days": 25,
+    "engaged_views": 15,
+    "analytics_views": 97,
+    "age_days": 26,
     "is_settled": true
    },
    {
@@ -363,11 +363,11 @@
     "views": 76,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": 37.7,
+    "avg_view_pct": 35.6,
     "avg_view_sec": 11.0,
-    "engaged_views": 9,
-    "analytics_views": 75,
-    "age_days": 26,
+    "engaged_views": 10,
+    "analytics_views": 76,
+    "age_days": 27,
     "is_settled": true
    },
    {
@@ -379,8 +379,8 @@
     "avg_view_pct": 40.4,
     "avg_view_sec": 13.0,
     "engaged_views": 34,
-    "analytics_views": 205,
-    "age_days": 27,
+    "analytics_views": 206,
+    "age_days": 28,
     "is_settled": true
    },
    {
@@ -392,8 +392,8 @@
     "avg_view_pct": 39.9,
     "avg_view_sec": 11.0,
     "engaged_views": 55,
-    "analytics_views": 280,
-    "age_days": 28,
+    "analytics_views": 281,
+    "age_days": 29,
     "is_settled": true
    },
    {
@@ -405,8 +405,8 @@
     "avg_view_pct": 64.4,
     "avg_view_sec": 17.0,
     "engaged_views": 36,
-    "analytics_views": 274,
-    "age_days": 29,
+    "analytics_views": 275,
+    "age_days": 30,
     "is_settled": true
    },
    {
@@ -418,8 +418,8 @@
     "avg_view_pct": 49.6,
     "avg_view_sec": 15.0,
     "engaged_views": 30,
-    "analytics_views": 240,
-    "age_days": 30,
+    "analytics_views": 241,
+    "age_days": 31,
     "is_settled": true
    },
    {
@@ -431,8 +431,8 @@
     "avg_view_pct": 40.8,
     "avg_view_sec": 14.0,
     "engaged_views": 46,
-    "analytics_views": 281,
-    "age_days": 31,
+    "analytics_views": 282,
+    "age_days": 32,
     "is_settled": true
    },
    {
@@ -444,8 +444,8 @@
     "avg_view_pct": 31.5,
     "avg_view_sec": 10.0,
     "engaged_views": 23,
-    "analytics_views": 163,
-    "age_days": 32,
+    "analytics_views": 164,
+    "age_days": 33,
     "is_settled": true
    },
    {
@@ -458,7 +458,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 21,
     "analytics_views": 180,
-    "age_days": 33,
+    "age_days": 34,
     "is_settled": true
    },
    {
@@ -471,7 +471,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 24,
     "analytics_views": 143,
-    "age_days": 34,
+    "age_days": 35,
     "is_settled": true
    },
    {
@@ -484,7 +484,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 66,
     "analytics_views": 329,
-    "age_days": 35,
+    "age_days": 36,
     "is_settled": true
    },
    {
@@ -497,7 +497,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 39,
     "analytics_views": 342,
-    "age_days": 36,
+    "age_days": 37,
     "is_settled": true
    },
    {
@@ -510,7 +510,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 21,
     "analytics_views": 166,
-    "age_days": 37,
+    "age_days": 38,
     "is_settled": true
    },
    {
@@ -523,7 +523,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 45,
     "analytics_views": 299,
-    "age_days": 38,
+    "age_days": 39,
     "is_settled": true
    },
    {
@@ -536,7 +536,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 49,
     "analytics_views": 278,
-    "age_days": 39,
+    "age_days": 40,
     "is_settled": true
    },
    {
@@ -549,7 +549,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 19,
     "analytics_views": 208,
-    "age_days": 40,
+    "age_days": 41,
     "is_settled": true
    },
    {
@@ -562,7 +562,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 19,
     "analytics_views": 151,
-    "age_days": 41,
+    "age_days": 42,
     "is_settled": true
    },
    {
@@ -575,7 +575,7 @@
     "avg_view_sec": 35.0,
     "engaged_views": 51,
     "analytics_views": 346,
-    "age_days": 42,
+    "age_days": 43,
     "is_settled": true
    },
    {
@@ -588,7 +588,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 40,
     "analytics_views": 227,
-    "age_days": 42,
+    "age_days": 43,
     "is_settled": true
    },
    {
@@ -601,7 +601,7 @@
     "avg_view_sec": 11.0,
     "engaged_views": 52,
     "analytics_views": 342,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    },
    {
@@ -614,7 +614,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 55,
     "analytics_views": 342,
-    "age_days": 44,
+    "age_days": 45,
     "is_settled": true
    },
    {
@@ -627,7 +627,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 29,
     "analytics_views": 187,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -640,7 +640,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 46,
     "analytics_views": 349,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -653,7 +653,7 @@
     "avg_view_sec": 13.0,
     "engaged_views": 45,
     "analytics_views": 336,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -666,7 +666,7 @@
     "avg_view_sec": 21.0,
     "engaged_views": 18,
     "analytics_views": 154,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -679,7 +679,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 19,
     "analytics_views": 165,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -692,7 +692,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 24,
     "analytics_views": 166,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -705,7 +705,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 14,
     "analytics_views": 125,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -718,7 +718,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 31,
     "analytics_views": 250,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -731,7 +731,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 84,
     "analytics_views": 379,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -744,7 +744,7 @@
     "avg_view_sec": 33.0,
     "engaged_views": 22,
     "analytics_views": 201,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -757,7 +757,7 @@
     "avg_view_sec": null,
     "engaged_views": null,
     "analytics_views": null,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -770,7 +770,7 @@
     "avg_view_sec": 6.0,
     "engaged_views": 21,
     "analytics_views": 146,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -783,7 +783,7 @@
     "avg_view_sec": 30.0,
     "engaged_views": 20,
     "analytics_views": 241,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -796,7 +796,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 24,
     "analytics_views": 170,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -809,7 +809,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 20,
     "analytics_views": 168,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -822,7 +822,7 @@
     "avg_view_sec": 7.0,
     "engaged_views": 12,
     "analytics_views": 82,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -835,7 +835,7 @@
     "avg_view_sec": 6.0,
     "engaged_views": 11,
     "analytics_views": 138,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -848,7 +848,7 @@
     "avg_view_sec": 13.0,
     "engaged_views": 25,
     "analytics_views": 169,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -861,7 +861,7 @@
     "avg_view_sec": 13.0,
     "engaged_views": 28,
     "analytics_views": 177,
-    "age_days": 53,
+    "age_days": 54,
     "is_settled": true
    },
    {
@@ -874,7 +874,7 @@
     "avg_view_sec": 6.0,
     "engaged_views": 14,
     "analytics_views": 102,
-    "age_days": 53,
+    "age_days": 54,
     "is_settled": true
    },
    {
@@ -887,7 +887,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 25,
     "analytics_views": 145,
-    "age_days": 54,
+    "age_days": 55,
     "is_settled": true
    },
    {
@@ -900,7 +900,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 14,
     "analytics_views": 163,
-    "age_days": 55,
+    "age_days": 56,
     "is_settled": true
    },
    {
@@ -913,7 +913,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 37,
     "analytics_views": 280,
-    "age_days": 56,
+    "age_days": 57,
     "is_settled": true
    },
    {
@@ -926,7 +926,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 395,
     "analytics_views": 1542,
-    "age_days": 58,
+    "age_days": 59,
     "is_settled": true
    },
    {
@@ -939,7 +939,7 @@
     "avg_view_sec": 17.0,
     "engaged_views": 500,
     "analytics_views": 1864,
-    "age_days": 58,
+    "age_days": 59,
     "is_settled": true
    },
    {
@@ -952,7 +952,7 @@
     "avg_view_sec": 10.0,
     "engaged_views": 22,
     "analytics_views": 205,
-    "age_days": 59,
+    "age_days": 60,
     "is_settled": true
    },
    {
@@ -965,7 +965,7 @@
     "avg_view_sec": 34.0,
     "engaged_views": 204,
     "analytics_views": 1098,
-    "age_days": 59,
+    "age_days": 60,
     "is_settled": true
    },
    {
@@ -978,7 +978,7 @@
     "avg_view_sec": 12.0,
     "engaged_views": 520,
     "analytics_views": 1856,
-    "age_days": 60,
+    "age_days": 61,
     "is_settled": true
    },
    {
@@ -991,7 +991,7 @@
     "avg_view_sec": 116.0,
     "engaged_views": 13,
     "analytics_views": 13,
-    "age_days": 69,
+    "age_days": 70,
     "is_settled": true
    },
    {
@@ -1004,7 +1004,7 @@
     "avg_view_sec": 48.0,
     "engaged_views": 22,
     "analytics_views": 200,
-    "age_days": 74,
+    "age_days": 75,
     "is_settled": true
    },
    {
@@ -1017,7 +1017,7 @@
     "avg_view_sec": 21.0,
     "engaged_views": 16,
     "analytics_views": 164,
-    "age_days": 75,
+    "age_days": 76,
     "is_settled": true
    },
    {
@@ -1030,7 +1030,7 @@
     "avg_view_sec": 8.0,
     "engaged_views": 20,
     "analytics_views": 224,
-    "age_days": 76,
+    "age_days": 77,
     "is_settled": true
    },
    {
@@ -1043,7 +1043,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 51,
     "analytics_views": 370,
-    "age_days": 77,
+    "age_days": 78,
     "is_settled": true
    },
    {
@@ -1056,7 +1056,7 @@
     "avg_view_sec": 16.0,
     "engaged_views": 16,
     "analytics_views": 218,
-    "age_days": 78,
+    "age_days": 79,
     "is_settled": true
    },
    {
@@ -1069,7 +1069,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 28,
     "analytics_views": 230,
-    "age_days": 79,
+    "age_days": 80,
     "is_settled": true
    },
    {
@@ -1082,7 +1082,7 @@
     "avg_view_sec": 9.0,
     "engaged_views": 25,
     "analytics_views": 256,
-    "age_days": 80,
+    "age_days": 81,
     "is_settled": true
    },
    {
@@ -1095,7 +1095,7 @@
     "avg_view_sec": 15.0,
     "engaged_views": 246,
     "analytics_views": 627,
-    "age_days": 83,
+    "age_days": 84,
     "is_settled": true
    },
    {
@@ -1108,7 +1108,7 @@
     "avg_view_sec": 14.0,
     "engaged_views": 503,
     "analytics_views": 2311,
-    "age_days": 87,
+    "age_days": 88,
     "is_settled": true
    }
   ]
@@ -1121,10 +1121,10 @@
   },
   "posts": [
    {
-    "media_id": "18105561401179179",
+    "media_id": "18107660828607299",
     "media_kind": "REELS",
-    "views": 105,
-    "reach": 90,
+    "views": 21,
+    "reach": 13,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -1133,27 +1133,39 @@
     "is_settled": false
    },
    {
-    "media_id": "18125676326506997",
+    "media_id": "18105561401179179",
     "media_kind": "REELS",
-    "views": 48,
-    "reach": 37,
+    "views": 130,
+    "reach": 109,
     "likes": 0,
     "comments": 0,
-    "saved": 0,
+    "saved": 1,
     "shares": 0,
     "age_days": 2,
     "is_settled": false
    },
    {
-    "media_id": "18087831689230183",
+    "media_id": "18125676326506997",
     "media_kind": "REELS",
-    "views": 145,
-    "reach": 115,
+    "views": 49,
+    "reach": 37,
     "likes": 0,
     "comments": 0,
     "saved": 0,
     "shares": 0,
     "age_days": 3,
+    "is_settled": false
+   },
+   {
+    "media_id": "18087831689230183",
+    "media_kind": "REELS",
+    "views": 146,
+    "reach": 116,
+    "likes": 0,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 4,
     "is_settled": false
    },
    {
@@ -1165,19 +1177,19 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 4,
+    "age_days": 5,
     "is_settled": false
    },
    {
     "media_id": "17907521952521156",
     "media_kind": "REELS",
-    "views": 38,
-    "reach": 31,
+    "views": 40,
+    "reach": 32,
     "likes": 0,
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 5,
+    "age_days": 6,
     "is_settled": false
    },
    {
@@ -1189,8 +1201,8 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 6,
-    "is_settled": false
+    "age_days": 7,
+    "is_settled": true
    },
    {
     "media_id": "18151455436526396",
@@ -1201,7 +1213,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 7,
+    "age_days": 8,
     "is_settled": true
    },
    {
@@ -1213,7 +1225,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 8,
+    "age_days": 9,
     "is_settled": true
    },
    {
@@ -1225,7 +1237,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 9,
+    "age_days": 10,
     "is_settled": true
    },
    {
@@ -1237,7 +1249,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 10,
+    "age_days": 11,
     "is_settled": true
    },
    {
@@ -1249,7 +1261,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 11,
+    "age_days": 12,
     "is_settled": true
    },
    {
@@ -1261,7 +1273,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 12,
+    "age_days": 13,
     "is_settled": true
    },
    {
@@ -1273,7 +1285,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 13,
+    "age_days": 14,
     "is_settled": true
    },
    {
@@ -1285,7 +1297,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 14,
+    "age_days": 15,
     "is_settled": true
    },
    {
@@ -1297,7 +1309,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 15,
+    "age_days": 16,
     "is_settled": true
    },
    {
@@ -1309,7 +1321,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 16,
+    "age_days": 17,
     "is_settled": true
    },
    {
@@ -1321,7 +1333,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 17,
+    "age_days": 18,
     "is_settled": true
    },
    {
@@ -1333,7 +1345,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 18,
+    "age_days": 19,
     "is_settled": true
    },
    {
@@ -1345,7 +1357,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 19,
+    "age_days": 20,
     "is_settled": true
    },
    {
@@ -1357,7 +1369,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 20,
+    "age_days": 21,
     "is_settled": true
    },
    {
@@ -1369,7 +1381,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 21,
+    "age_days": 22,
     "is_settled": true
    },
    {
@@ -1381,7 +1393,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 22,
+    "age_days": 23,
     "is_settled": true
    },
    {
@@ -1393,7 +1405,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 23,
+    "age_days": 24,
     "is_settled": true
    },
    {
@@ -1405,7 +1417,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 24,
+    "age_days": 25,
     "is_settled": true
    },
    {
@@ -1417,7 +1429,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 25,
+    "age_days": 26,
     "is_settled": true
    },
    {
@@ -1429,7 +1441,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 26,
+    "age_days": 27,
     "is_settled": true
    },
    {
@@ -1441,7 +1453,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 27,
+    "age_days": 28,
     "is_settled": true
    },
    {
@@ -1453,7 +1465,7 @@
     "comments": 0,
     "saved": 2,
     "shares": 0,
-    "age_days": 28,
+    "age_days": 29,
     "is_settled": true
    },
    {
@@ -1465,7 +1477,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 29,
+    "age_days": 30,
     "is_settled": true
    },
    {
@@ -1477,7 +1489,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 30,
+    "age_days": 31,
     "is_settled": true
    },
    {
@@ -1489,7 +1501,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 31,
+    "age_days": 32,
     "is_settled": true
    },
    {
@@ -1501,7 +1513,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 1,
-    "age_days": 32,
+    "age_days": 33,
     "is_settled": true
    },
    {
@@ -1513,7 +1525,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 33,
+    "age_days": 34,
     "is_settled": true
    },
    {
@@ -1525,7 +1537,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 34,
+    "age_days": 35,
     "is_settled": true
    },
    {
@@ -1537,7 +1549,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 35,
+    "age_days": 36,
     "is_settled": true
    },
    {
@@ -1549,7 +1561,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 36,
+    "age_days": 37,
     "is_settled": true
    },
    {
@@ -1561,7 +1573,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 37,
+    "age_days": 38,
     "is_settled": true
    },
    {
@@ -1573,7 +1585,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 38,
+    "age_days": 39,
     "is_settled": true
    },
    {
@@ -1585,7 +1597,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 39,
+    "age_days": 40,
     "is_settled": true
    },
    {
@@ -1597,7 +1609,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 40,
+    "age_days": 41,
     "is_settled": true
    },
    {
@@ -1609,7 +1621,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 41,
+    "age_days": 42,
     "is_settled": true
    },
    {
@@ -1621,7 +1633,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 42,
+    "age_days": 43,
     "is_settled": true
    },
    {
@@ -1633,7 +1645,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 43,
+    "age_days": 44,
     "is_settled": true
    },
    {
@@ -1645,7 +1657,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 44,
+    "age_days": 45,
     "is_settled": true
    },
    {
@@ -1657,7 +1669,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -1669,7 +1681,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 45,
+    "age_days": 46,
     "is_settled": true
    },
    {
@@ -1681,7 +1693,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -1693,7 +1705,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 46,
+    "age_days": 47,
     "is_settled": true
    },
    {
@@ -1705,7 +1717,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -1717,7 +1729,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 47,
+    "age_days": 48,
     "is_settled": true
    },
    {
@@ -1729,7 +1741,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -1741,7 +1753,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 48,
+    "age_days": 49,
     "is_settled": true
    },
    {
@@ -1753,7 +1765,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -1765,7 +1777,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 49,
+    "age_days": 50,
     "is_settled": true
    },
    {
@@ -1777,7 +1789,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -1789,7 +1801,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 50,
+    "age_days": 51,
     "is_settled": true
    },
    {
@@ -1801,7 +1813,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -1813,7 +1825,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 51,
+    "age_days": 52,
     "is_settled": true
    },
    {
@@ -1825,7 +1837,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -1837,7 +1849,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 52,
+    "age_days": 53,
     "is_settled": true
    },
    {
@@ -1849,7 +1861,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 53,
+    "age_days": 54,
     "is_settled": true
    },
    {
@@ -1861,7 +1873,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 53,
+    "age_days": 54,
     "is_settled": true
    },
    {
@@ -1873,7 +1885,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 54,
+    "age_days": 55,
     "is_settled": true
    },
    {
@@ -1885,7 +1897,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 54,
+    "age_days": 55,
     "is_settled": true
    },
    {
@@ -1897,7 +1909,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 55,
+    "age_days": 56,
     "is_settled": true
    },
    {
@@ -1909,7 +1921,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 56,
+    "age_days": 57,
     "is_settled": true
    },
    {
@@ -1921,7 +1933,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 57,
+    "age_days": 58,
     "is_settled": true
    },
    {
@@ -1933,7 +1945,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 58,
+    "age_days": 59,
     "is_settled": true
    },
    {
@@ -1945,7 +1957,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 59,
+    "age_days": 60,
     "is_settled": true
    },
    {
@@ -1957,7 +1969,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 60,
+    "age_days": 61,
     "is_settled": true
    },
    {
@@ -1969,7 +1981,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 61,
+    "age_days": 62,
     "is_settled": true
    },
    {
@@ -1981,7 +1993,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 61,
+    "age_days": 62,
     "is_settled": true
    },
    {
@@ -1993,7 +2005,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 62,
+    "age_days": 63,
     "is_settled": true
    },
    {
@@ -2005,7 +2017,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 63,
+    "age_days": 64,
     "is_settled": true
    },
    {
@@ -2017,7 +2029,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 64,
+    "age_days": 65,
     "is_settled": true
    },
    {
@@ -2029,7 +2041,7 @@
     "comments": 0,
     "saved": 4,
     "shares": 0,
-    "age_days": 65,
+    "age_days": 66,
     "is_settled": true
    },
    {
@@ -2041,7 +2053,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 66,
+    "age_days": 67,
     "is_settled": true
    },
    {
@@ -2053,7 +2065,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 67,
+    "age_days": 68,
     "is_settled": true
    },
    {
@@ -2065,7 +2077,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 1,
-    "age_days": 68,
+    "age_days": 69,
     "is_settled": true
    },
    {
@@ -2077,7 +2089,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 69,
+    "age_days": 70,
     "is_settled": true
    },
    {
@@ -2089,7 +2101,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 70,
+    "age_days": 71,
     "is_settled": true
    },
    {
@@ -2101,7 +2113,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 71,
+    "age_days": 72,
     "is_settled": true
    },
    {
@@ -2113,7 +2125,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 72,
+    "age_days": 73,
     "is_settled": true
    },
    {
@@ -2125,7 +2137,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 72,
+    "age_days": 73,
     "is_settled": true
    },
    {
@@ -2137,7 +2149,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 73,
+    "age_days": 74,
     "is_settled": true
    },
    {
@@ -2149,7 +2161,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 74,
+    "age_days": 75,
     "is_settled": true
    },
    {
@@ -2161,7 +2173,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 75,
+    "age_days": 76,
     "is_settled": true
    },
    {
@@ -2173,7 +2185,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 76,
+    "age_days": 77,
     "is_settled": true
    },
    {
@@ -2185,7 +2197,7 @@
     "comments": 0,
     "saved": 1,
     "shares": 0,
-    "age_days": 77,
+    "age_days": 78,
     "is_settled": true
    },
    {
@@ -2197,7 +2209,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 78,
+    "age_days": 79,
     "is_settled": true
    },
    {
@@ -2209,7 +2221,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 79,
+    "age_days": 80,
     "is_settled": true
    },
    {
@@ -2221,7 +2233,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 81,
+    "age_days": 82,
     "is_settled": true
    },
    {
@@ -2233,7 +2245,7 @@
     "comments": 0,
     "saved": 2,
     "shares": 0,
-    "age_days": 84,
+    "age_days": 85,
     "is_settled": true
    },
    {
@@ -2245,7 +2257,7 @@
     "comments": 0,
     "saved": 0,
     "shares": 0,
-    "age_days": 87,
+    "age_days": 88,
     "is_settled": true
    }
   ]
@@ -2255,9 +2267,9 @@
   "pv_7d": 5
  },
  "ai_reach": {
-  "hits_1d": 448,
-  "hits_7d": 2998,
-  "mcp_1d": 448
+  "hits_1d": 412,
+  "hits_7d": 2979,
+  "mcp_1d": 412
  },
  "referrers": {
   "pv_7d": 5,
