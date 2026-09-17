@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-17T22:10:19+09:00",
+ "generated_at": "2026-09-18T07:06:24+09:00",
  "today_activity": {
-  "date": "2026-09-17",
+  "date": "2026-09-18",
   "resolution_min": 30,
   "bucket_max": 30,
   "devices": [
@@ -9,27 +9,16 @@
     "key": "pro",
     "label": "Pro",
     "buckets": [
-     11,
-     8,
      0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     2,
-     0,
-     0,
+     9,
      13,
-     23,
-     28,
-     10,
+     0,
+     11,
+     16,
+     25,
+     27,
+     29,
+     4,
      0,
      0,
      0,
@@ -47,7 +36,18 @@
      0,
      0,
      0,
-     3,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 98
+    "active_minutes_total": 134
    },
    {
     "key": "air",
@@ -82,15 +82,6 @@
      0,
      0,
      0,
-     1,
-     0,
-     0,
-     0,
-     0,
-     14,
-     27,
-     28,
-     6,
      0,
      0,
      0,
@@ -102,23 +93,32 @@
      0,
      0,
      0,
-     1,
      0,
-     7,
-     28,
-     11,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      0,
      0,
      0,
      0
     ],
-    "active_minutes_total": 123
+    "active_minutes_total": 0
    }
   ]
  },
  "today_phone_activity": {
-  "date": "2026-09-17",
+  "date": "2026-09-18",
   "kind": "app-open-close",
   "resolution_min": 30,
   "bucket_max": 30,
@@ -175,9 +175,9 @@
   "active_minutes_total": 0
  },
  "today_steps": {
-  "date": "2026-09-17",
-  "steps": 11447,
-  "as_of_min": 1328,
+  "date": "2026-09-18",
+  "steps": 0,
+  "as_of_min": 289,
   "floor": 8000
  },
  "now": {
@@ -185,13 +185,13 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 187
+  "away_minutes": 151
  },
  "health_signal": {
-  "date": "2026-09-17",
-  "color": "green",
-  "verdict": "問題は見当たりません",
-  "steps": 11447,
+  "date": "2026-09-18",
+  "color": "yellow",
+  "verdict": "夜更かし（4:00台まで画面使用）・歩数未確定（途中集計のみ）＝判定不能",
+  "steps": null,
   "floor": 8000
  }
 }
