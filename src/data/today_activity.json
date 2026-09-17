@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-09-17T19:05:43+09:00",
+ "generated_at": "2026-09-17T22:10:19+09:00",
  "today_activity": {
   "date": "2026-09-17",
   "resolution_min": 30,
@@ -104,16 +104,16 @@
      0,
      1,
      0,
-     0,
-     0,
-     0,
+     7,
+     28,
+     11,
      0,
      0,
      0,
      0,
      0
     ],
-    "active_minutes_total": 77
+    "active_minutes_total": 123
    }
   ]
  },
@@ -176,21 +176,22 @@
  },
  "today_steps": {
   "date": "2026-09-17",
-  "steps": 10348,
-  "as_of_min": 1113,
+  "steps": 11447,
+  "as_of_min": 1328,
   "floor": 8000
  },
  "now": {
-  "status": "active",
+  "status": "away",
   "awake": true,
   "last_active": "今",
-  "night_owl": false
+  "night_owl": false,
+  "away_minutes": 187
  },
  "health_signal": {
   "date": "2026-09-17",
   "color": "green",
   "verdict": "問題は見当たりません",
-  "steps": 10348,
+  "steps": 11447,
   "floor": 8000
  }
 }
