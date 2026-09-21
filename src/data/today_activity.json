@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-09-21T22:06:42+09:00",
+ "generated_at": "2026-09-22T07:06:25+09:00",
  "today_activity": {
-  "date": "2026-09-21",
+  "date": "2026-09-22",
   "resolution_min": 30,
   "bucket_max": 30,
   "devices": [
@@ -9,36 +9,8 @@
     "key": "pro",
     "label": "Pro",
     "buckets": [
+     2,
      0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     0,
-     9,
-     9,
-     8,
-     7,
-     11,
-     7,
-     0,
-     0,
-     0,
-     7,
      5,
      0,
      0,
@@ -52,13 +24,41 @@
      0,
      0,
      0,
-     4,
-     2,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      0,
      0
     ],
-    "active_minutes_total": 69
+    "active_minutes_total": 7
    },
    {
     "key": "air",
@@ -118,7 +118,7 @@
   ]
  },
  "today_phone_activity": {
-  "date": "2026-09-21",
+  "date": "2026-09-22",
   "kind": "app-open-close",
   "resolution_min": 30,
   "bucket_max": 30,
@@ -175,22 +175,17 @@
   "active_minutes_total": 0
  },
  "today_steps": {
-  "date": "2026-09-21",
-  "steps": 8099,
-  "as_of_min": 1301,
+  "date": "2026-09-22",
+  "steps": 0,
+  "as_of_min": 59,
   "floor": 8000
  },
  "now": {
-  "status": "around",
+  "status": "away",
   "awake": true,
   "last_active": "今",
-  "night_owl": false
+  "night_owl": false,
+  "away_minutes": 348
  },
- "health_signal": {
-  "date": "2026-09-21",
-  "color": "green",
-  "verdict": "問題は見当たりません",
-  "steps": 8099,
-  "floor": 8000
- }
+ "health_signal": null
 }
