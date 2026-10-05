@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-05T03:59:15.736719",
+ "generated_at": "2026-10-05T09:50:02.065116",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -20,9 +20,22 @@
   },
   "videos": [
    {
+    "video_id": "AFhR9dEFaXs",
+    "title": "10月4日(日)の観測｜PC 2時間58分 #Shorts",
+    "views": 215,
+    "likes": 0,
+    "comments": 0,
+    "avg_view_pct": null,
+    "avg_view_sec": null,
+    "engaged_views": null,
+    "analytics_views": null,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
     "video_id": "TNFZ9vsgOKs",
     "title": "10月3日(土)の観測｜PC 5時間19分 #Shorts",
-    "views": 93,
+    "views": 87,
     "likes": 0,
     "comments": 0,
     "avg_view_pct": null,
