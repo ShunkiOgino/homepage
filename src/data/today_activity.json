@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-09T07:07:07+09:00",
+ "generated_at": "2026-10-09T10:09:41+09:00",
  "today_activity": {
   "date": "2026-10-09",
   "resolution_min": 30,
@@ -24,8 +24,8 @@
      0,
      3,
      3,
-     0,
-     0,
+     26,
+     13,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 6
+    "active_minutes_total": 45
    },
    {
     "key": "air",
@@ -84,7 +84,7 @@
      0,
      0,
      0,
-     0,
+     7,
      0,
      0,
      0,
@@ -113,7 +113,7 @@
      0,
      0
     ],
-    "active_minutes_total": 0
+    "active_minutes_total": 7
    }
   ]
  },
