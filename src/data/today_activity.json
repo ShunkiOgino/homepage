@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-18T22:04:38+09:00",
+ "generated_at": "2026-10-19T07:04:31+09:00",
  "today_activity": {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "resolution_min": 30,
   "bucket_max": 30,
   "devices": [
@@ -11,6 +11,7 @@
     "buckets": [
      0,
      0,
+     4,
      0,
      0,
      0,
@@ -28,11 +29,10 @@
      0,
      0,
      0,
-     5,
      0,
-     8,
-     1,
-     2,
+     0,
+     0,
+     0,
      0,
      0,
      0,
@@ -58,15 +58,15 @@
      0,
      0
     ],
-    "active_minutes_total": 16
+    "active_minutes_total": 4
    },
    {
     "key": "air",
     "label": "Air",
     "buckets": [
-     0,
-     0,
-     0,
+     1,
+     4,
+     25,
      0,
      0,
      0,
@@ -113,12 +113,12 @@
      0,
      0
     ],
-    "active_minutes_total": 0
+    "active_minutes_total": 30
    }
   ]
  },
  "today_phone_activity": {
-  "date": "2026-10-18",
+  "date": "2026-10-19",
   "kind": "app-open-close",
   "resolution_min": 30,
   "bucket_max": 30,
@@ -180,7 +180,13 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 622
+  "away_minutes": 335
  },
- "health_signal": null
+ "health_signal": {
+  "date": "2026-10-19",
+  "color": "yellow",
+  "verdict": "夜更かし（1:00台まで画面使用）・歩数欠測＝判定不能",
+  "steps": null,
+  "floor": 8000
+ }
 }
