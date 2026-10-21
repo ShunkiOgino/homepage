@@ -1,7 +1,7 @@
 {
- "generated_at": "2026-10-21T22:04:51+09:00",
+ "generated_at": "2026-10-22T07:05:18+09:00",
  "today_activity": {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "resolution_min": 30,
   "bucket_max": 30,
   "devices": [
@@ -11,8 +11,6 @@
     "buckets": [
      0,
      0,
-     2,
-     2,
      0,
      0,
      0,
@@ -27,11 +25,6 @@
      0,
      0,
      0,
-     1,
-     0,
-     0,
-     1,
-     2,
      0,
      0,
      0,
@@ -41,12 +34,19 @@
      0,
      0,
      0,
-     1,
-     14,
-     14,
-     9,
      0,
-     1,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
      0,
      0,
      0,
@@ -58,7 +58,7 @@
      0,
      0
     ],
-    "active_minutes_total": 47
+    "active_minutes_total": 0
    },
    {
     "key": "air",
@@ -118,7 +118,7 @@
   ]
  },
  "today_phone_activity": {
-  "date": "2026-10-21",
+  "date": "2026-10-22",
   "kind": "app-open-close",
   "resolution_min": 30,
   "bucket_max": 30,
@@ -180,7 +180,7 @@
   "awake": true,
   "last_active": "今",
   "night_owl": false,
-  "away_minutes": 198
+  "away_minutes": 739
  },
  "health_signal": null
 }
