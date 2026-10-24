@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-10-24T03:59:35.975060",
+ "generated_at": "2026-10-24T17:40:32.887755",
  "youtube": {
   "channel": {
    "subscribers": {
@@ -197,7 +197,7 @@
     "avg_view_pct": 40.2,
     "avg_view_sec": 14.0,
     "engaged_views": 259,
-    "analytics_views": 1013,
+    "analytics_views": 1014,
     "age_days": 24,
     "is_settled": true
    },
@@ -223,7 +223,7 @@
     "avg_view_pct": 48.6,
     "avg_view_sec": 14.0,
     "engaged_views": 26,
-    "analytics_views": 173,
+    "analytics_views": 174,
     "age_days": 26,
     "is_settled": true
    },
@@ -259,10 +259,10 @@
     "views": 1,
     "likes": 0,
     "comments": 0,
-    "avg_view_pct": null,
-    "avg_view_sec": null,
-    "engaged_views": null,
-    "analytics_views": null,
+    "avg_view_pct": 0.0,
+    "avg_view_sec": 0.0,
+    "engaged_views": 0,
+    "analytics_views": 1,
     "age_days": 29,
     "is_settled": true
    },
@@ -327,7 +327,7 @@
     "avg_view_pct": 36.6,
     "avg_view_sec": 9.0,
     "engaged_views": 28,
-    "analytics_views": 157,
+    "analytics_views": 158,
     "age_days": 34,
     "is_settled": true
    },
@@ -340,7 +340,7 @@
     "avg_view_pct": 57.2,
     "avg_view_sec": 18.0,
     "engaged_views": 63,
-    "analytics_views": 354,
+    "analytics_views": 355,
     "age_days": 35,
     "is_settled": true
    },
@@ -467,10 +467,10 @@
     "views": 249,
     "likes": 1,
     "comments": 0,
-    "avg_view_pct": 42.1,
-    "avg_view_sec": 12.0,
-    "engaged_views": 28,
-    "analytics_views": 247,
+    "avg_view_pct": 44.1,
+    "avg_view_sec": 13.0,
+    "engaged_views": 29,
+    "analytics_views": 249,
     "age_days": 45,
     "is_settled": true
    },
@@ -1498,6 +1498,30 @@
   },
   "posts": [
    {
+    "media_id": "18118918213981184",
+    "media_kind": "FEED",
+    "views": 45,
+    "reach": 14,
+    "likes": 1,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
+    "media_id": "18127303168808361",
+    "media_kind": "FEED",
+    "views": 59,
+    "reach": 20,
+    "likes": 3,
+    "comments": 0,
+    "saved": 0,
+    "shares": 0,
+    "age_days": 0,
+    "is_settled": false
+   },
+   {
     "media_id": "18156785299518750",
     "media_kind": "REELS",
     "views": 175,
@@ -2184,7 +2208,7 @@
    {
     "media_id": "18026493707848027",
     "media_kind": "REELS",
-    "views": 1337,
+    "views": 1339,
     "reach": 1085,
     "likes": 1,
     "comments": 0,
@@ -2496,8 +2520,8 @@
    {
     "media_id": "17968208696939956",
     "media_kind": "REELS",
-    "views": 317,
-    "reach": 267,
+    "views": 318,
+    "reach": 268,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -2509,7 +2533,7 @@
     "media_id": "18090911564101070",
     "media_kind": "REELS",
     "views": 189,
-    "reach": 144,
+    "reach": 145,
     "likes": 1,
     "comments": 0,
     "saved": 1,
@@ -2532,8 +2556,8 @@
    {
     "media_id": "17985609975011740",
     "media_kind": "REELS",
-    "views": 183,
-    "reach": 138,
+    "views": 184,
+    "reach": 139,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -2544,8 +2568,8 @@
    {
     "media_id": "18040620560801365",
     "media_kind": "REELS",
-    "views": 156,
-    "reach": 143,
+    "views": 157,
+    "reach": 144,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -2593,7 +2617,7 @@
     "media_id": "17959593729176757",
     "media_kind": "REELS",
     "views": 146,
-    "reach": 127,
+    "reach": 128,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -2664,8 +2688,8 @@
    {
     "media_id": "17923240743162163",
     "media_kind": "REELS",
-    "views": 1388,
-    "reach": 1184,
+    "views": 1389,
+    "reach": 1185,
     "likes": 4,
     "comments": 0,
     "saved": 0,
@@ -2700,7 +2724,7 @@
    {
     "media_id": "18124551685672702",
     "media_kind": "REELS",
-    "views": 342,
+    "views": 343,
     "reach": 298,
     "likes": 0,
     "comments": 0,
@@ -2712,7 +2736,7 @@
    {
     "media_id": "17948493900212909",
     "media_kind": "REELS",
-    "views": 219,
+    "views": 220,
     "reach": 169,
     "likes": 3,
     "comments": 0,
@@ -2724,7 +2748,7 @@
    {
     "media_id": "18088143839532210",
     "media_kind": "REELS",
-    "views": 542,
+    "views": 543,
     "reach": 423,
     "likes": 0,
     "comments": 0,
@@ -2736,7 +2760,7 @@
    {
     "media_id": "17877694242506168",
     "media_kind": "REELS",
-    "views": 257,
+    "views": 258,
     "reach": 211,
     "likes": 0,
     "comments": 0,
@@ -2748,7 +2772,7 @@
    {
     "media_id": "18606022672003713",
     "media_kind": "REELS",
-    "views": 255,
+    "views": 256,
     "reach": 206,
     "likes": 1,
     "comments": 0,
@@ -2760,8 +2784,8 @@
    {
     "media_id": "18166624375451332",
     "media_kind": "REELS",
-    "views": 2600,
-    "reach": 2112,
+    "views": 2602,
+    "reach": 2113,
     "likes": 9,
     "comments": 0,
     "saved": 4,
@@ -2772,7 +2796,7 @@
    {
     "media_id": "18272802145289265",
     "media_kind": "REELS",
-    "views": 247,
+    "views": 249,
     "reach": 184,
     "likes": 0,
     "comments": 0,
@@ -2784,7 +2808,7 @@
    {
     "media_id": "17881982787460529",
     "media_kind": "REELS",
-    "views": 219,
+    "views": 220,
     "reach": 167,
     "likes": 0,
     "comments": 0,
@@ -2796,7 +2820,7 @@
    {
     "media_id": "18125997694642220",
     "media_kind": "REELS",
-    "views": 883,
+    "views": 884,
     "reach": 738,
     "likes": 0,
     "comments": 0,
@@ -2808,7 +2832,7 @@
    {
     "media_id": "17896047729355211",
     "media_kind": "REELS",
-    "views": 212,
+    "views": 213,
     "reach": 172,
     "likes": 1,
     "comments": 0,
@@ -2820,7 +2844,7 @@
    {
     "media_id": "17887165905418457",
     "media_kind": "REELS",
-    "views": 1413,
+    "views": 1414,
     "reach": 1081,
     "likes": 3,
     "comments": 0,
@@ -2832,8 +2856,8 @@
    {
     "media_id": "18013298024882753",
     "media_kind": "REELS",
-    "views": 279,
-    "reach": 221,
+    "views": 283,
+    "reach": 222,
     "likes": 0,
     "comments": 0,
     "saved": 1,
@@ -2844,8 +2868,8 @@
    {
     "media_id": "18142219603537046",
     "media_kind": "REELS",
-    "views": 190,
-    "reach": 145,
+    "views": 195,
+    "reach": 148,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -2856,8 +2880,8 @@
    {
     "media_id": "18080867096234292",
     "media_kind": "REELS",
-    "views": 177,
-    "reach": 137,
+    "views": 182,
+    "reach": 139,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -2868,8 +2892,8 @@
    {
     "media_id": "18224054626320731",
     "media_kind": "REELS",
-    "views": 188,
-    "reach": 106,
+    "views": 195,
+    "reach": 109,
     "likes": 3,
     "comments": 0,
     "saved": 0,
@@ -2880,8 +2904,8 @@
    {
     "media_id": "18103477276934041",
     "media_kind": "REELS",
-    "views": 95,
-    "reach": 72,
+    "views": 101,
+    "reach": 75,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -2892,8 +2916,8 @@
    {
     "media_id": "18469764871104357",
     "media_kind": "REELS",
-    "views": 175,
-    "reach": 141,
+    "views": 179,
+    "reach": 142,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -2904,8 +2928,8 @@
    {
     "media_id": "18102819655874479",
     "media_kind": "REELS",
-    "views": 146,
-    "reach": 113,
+    "views": 150,
+    "reach": 114,
     "likes": 0,
     "comments": 0,
     "saved": 0,
@@ -2916,8 +2940,8 @@
    {
     "media_id": "18135314191572562",
     "media_kind": "REELS",
-    "views": 237,
-    "reach": 206,
+    "views": 240,
+    "reach": 207,
     "likes": 3,
     "comments": 0,
     "saved": 1,
@@ -2928,8 +2952,8 @@
    {
     "media_id": "17984392341032958",
     "media_kind": "REELS",
-    "views": 188,
-    "reach": 152,
+    "views": 191,
+    "reach": 153,
     "likes": 1,
     "comments": 0,
     "saved": 0,
@@ -2940,8 +2964,8 @@
    {
     "media_id": "18422566033178776",
     "media_kind": "REELS",
-    "views": 259,
-    "reach": 169,
+    "views": 261,
+    "reach": 170,
     "likes": 3,
     "comments": 0,
     "saved": 0,
@@ -2952,8 +2976,8 @@
    {
     "media_id": "18100052324272076",
     "media_kind": "REELS",
-    "views": 119,
-    "reach": 78,
+    "views": 121,
+    "reach": 79,
     "likes": 6,
     "comments": 0,
     "saved": 0,
@@ -2964,8 +2988,8 @@
    {
     "media_id": "18097781243466549",
     "media_kind": "REELS",
-    "views": 180,
-    "reach": 113,
+    "views": 183,
+    "reach": 115,
     "likes": 3,
     "comments": 0,
     "saved": 2,
@@ -2976,8 +3000,8 @@
    {
     "media_id": "18113642026918090",
     "media_kind": "REELS",
-    "views": 278,
-    "reach": 180,
+    "views": 282,
+    "reach": 182,
     "likes": 3,
     "comments": 0,
     "saved": 0,
@@ -2988,13 +3012,13 @@
   ]
  },
  "blog": {
-  "pv_1d": 2,
+  "pv_1d": 1,
   "pv_7d": 9
  },
  "ai_reach": {
-  "hits_1d": 601,
-  "hits_7d": 4126,
-  "mcp_1d": 601
+  "hits_1d": 599,
+  "hits_7d": 4234,
+  "mcp_1d": 599
  },
  "referrers": {
   "pv_7d": 9,
